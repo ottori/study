@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title> New Document </title>
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+	<meta name="Generator" content="EditPlus">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+
+<script language="javascript" type="text/javascript">
+<!--
+take = new Date()
+
+document.write(take.getYear() + "년")
+document.write(take.getMonth()+1+ "월")
+document.write(take.getDate()+ "일")
+document.write(take.getHours()+ "시")
+document.write(take.getMinutes()+ "분")
+document.write(take.getSeconds()+ "초"+"<br><br><br>")
+
+to_day = new Date()
+meet_day = new Date(2013,12,18,0,0,0)
+take1 = meet_day.getTime()
+take2 = to_day.getTime()
+how_day = Math.ceil((take2-take1)/24/60/60/1000)
+document.write("내가 자바스크립트를 시작한 날은 약"+how_day+"일 전쯤..." + "<br><br>")
+
+//-->
+</script>
+<script language="javascript" type="text/javascript">
+<!--
+fake = new Array(5)
+fake[0] = 10
+fake[1] = 20
+fake[2] = 30
+fake[3] = "nice to meet you"
+fake[4] = "web publisher"
+document.write(fake[1]- fake[2] +"<br>")
+document.write(Math.max(fake[1],fake[2])+"<br>")
+document.write(fake[1], fake[2] + "<br>")
+document.write(fake[3] + " " +  fake[4])
+//-->
+</script>
+</head>
+
+<body>
+ 
+</body>
+</html>

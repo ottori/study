@@ -1,0 +1,77 @@
+<!doctype html public "-//w3c//dtd html 4.01 transitional//en" "http://www.w3.org/tr/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title></title>
+	<meta http-equiv="imagetoolbar" content="no" />
+	<meta name="robots" content="all" />
+	<meta name="description" content="" />
+	<meta name="keyword" content="" />
+	<meta name="author" content="" />
+	<meta name="copyright" content="" />
+	<meta name="reply-to" content="" />
+	<meta name="date" content="" />
+	<script type="text/javascript">
+		<!--
+			var a = 1;
+			console.log(a);
+
+			function test(){//함수는 호이스팅이 일어난다. 함수 정의 이전에도 호출을 할 수 있음.
+				alert(1111);
+			}
+
+
+			function tabmenu(me,str,num,max){//함수명 옆의 괄호에 매개변수는 html에서 호출한 순서대로 값을 받는다.
+				var ul = me.parentNode.parentNode;
+				var li = ul.getElementsByTagName("li");
+				for(var i = 1; i <= max; i++){
+					li[i - 1].className = "";
+					document.getElementById(str + i).style.display = "none";
+				}
+				me.parentNode.className = "on";
+				document.getElementById(str + num).style.display = "block";
+			}
+
+			//아이디선택
+			//document.getElementById("아이디")
+			//변수명.getElementById("아이디")
+			//태그선택
+			//document.getElementsByTagName("태그이름");
+			//변수명.getElementsByTagName("태그이름");
+
+
+
+		-->
+	</script>
+	<style type="text/css">
+		.tab_cont	{border:1px solid red;}
+		ul li.on	{background:#fcc;}
+	</style>
+</head>
+
+<body>
+<script>
+</script>
+	<ul id="tabmenu">
+		<li><a href="#" onclick="tabmenu(this,'tabcont_',1,3); return false;">탭1</a></li>
+		<li><a href="#" onclick="tabmenu(this,'tabcont_',2,3); return false;">탭2</a></li>
+		<li><a href="#" onclick="tabmenu(this,'tabcont_',3,3); return false;">탭3</a></li>
+	</ul>
+
+	<div class="tab_cont" id="tabcont_1">탭컨텐츠1</div>
+	<div class="tab_cont" id="tabcont_2">탭컨텐츠2</div>
+	<div class="tab_cont" id="tabcont_3">탭컨텐츠3</div>
+	
+	<ul id="tabmenu2">
+		<li><a href="#" onclick="tabmenu(this,'tabcont2_',1,4); return false;">탭1</a></li>
+		<li><a href="#" onclick="tabmenu(this,'tabcont2_',2,4); return false;">탭2</a></li>
+		<li><a href="#" onclick="tabmenu(this,'tabcont2_',3,4); return false;">탭3</a></li>
+		<li><a href="#" onclick="tabmenu(this,'tabcont2_',4,4); return false;">탭4</a></li>
+	</ul>
+
+	<div class="tab_cont" id="tabcont2_1">탭컨텐츠1</div>
+	<div class="tab_cont" id="tabcont2_2">탭컨텐츠2</div>
+	<div class="tab_cont" id="tabcont2_3">탭컨텐츠3</div>
+	<div class="tab_cont" id="tabcont2_4">탭컨텐츠4</div>
+</body>
+</html>

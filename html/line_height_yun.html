@@ -1,0 +1,141 @@
+<!DOCTYPE>
+<html lang="ko">
+<head>
+	<title>브라우저별 line-height</title>
+	<meta charset="euc-kr" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="author" content="오은선" />
+	<meta name="description" content="브라우저별 line-height 크로스 브라우징" />
+	<link rel="stylesheet" href="http://ellyess.cafe24.com/kra/css/yun.css" />
+	<style type="text/css">
+/* table */
+.bid_table {overflow:hidden; width:100%; margin-top:7px; border-top:2px solid #ea7579}
+.bid_table table tr th, .bid_table table tr td {border-left:1px solid #ccc; border-bottom:1px solid #ccc; text-align:center}
+.bid_table table tr th:first-child, .bid_table table tr td:first-child {border-left:0}
+.bid_table table tr th {color:#222; font-weight:bold; background:#fbeae6}
+.bid_table table tr th, 
+.bid_table table tr td {line-height:16px; }
+.bid_table .breakoff {overflow:hidden; padding-left:10px; text-overflow:ellipsis;white-space:nowrap;word-wrap:normal; text-align:left}
+</style>
+</head>
+<body style="padding:0 20px 200px 20px">
+<strong style="display:block; padding:20px">* 윤희정씨가 보내준 common.css 로 구성한 테이블 ( html 문서와 css 인코딩 : euc-kr ) </strong>
+<ul style="border:1px solid #ccc; margin:0 20px 20px; padding:10px; line-height:20px">
+	<li>@charset "euc-kr";</li>
+	<li>* {padding:0; margin:0; font-size:12px; line-height:16px; font-family: dotum, "돋움",  sans-serif; color:#444;}</li>
+	<li>html{overflow-y:scroll;}</li>
+	<li>img {vertical-align:top; border:none;}</li>
+	<li>fieldset {border:none;}</li>
+	<li>input {vertical-align:top; background:none;}</li>
+	<li>table {width:100%; border-collapse:collapse;table-layout:fixed;}</li>
+	<li>ul, li {list-style:none;}</li>
+	<li>a {color:#888; text-decoration:none; }</li>
+	<li>address {font-style:normal;}
+	<li>em {font-style:normal;}</li>
+	<li>button {cursor:pointer; border:none; background:none;}</li>
+	<li>.haze, caption {width:0; height:0; font-size:0; visibility: hidden; overflow:hidden; line-height:0;}</li>
+</ul>
+<div class="bid_table">
+	<table>
+		<caption>입찰공고 목록</caption>
+		<colgroup>
+			<col style="width:38px">
+			<col style="width:14%">
+			<col style="width:7%">
+			<col style="width:*">
+			<col style="width:10%">
+			<col style="width:11%">
+			<col style="width:11%">
+			<col style="width:9%">
+			<col style="width:8%">
+		</colgroup>
+		<thead>
+			<tr>
+				<th scope="col">No</th>
+				<th scope="col">공고번호</th>
+				<th scope="col">사업장</th>
+				<th scope="col">공고건명</th>
+				<th scope="col">계약방법</th>
+				<th scope="col">등록마감</th>
+				<th scope="col">입찰마감</th>
+				<th scope="col">입찰방식</th>
+				<th scope="col">상태</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>ABCDEDFWDFasdfa</td>
+				<td>서울</td>
+				<td class="breakoff">경마산업의 경제적 효과 추정을 위한 비전자입찰</td>
+				<td>제한경쟁</td>
+				<td>2014-10-26</td>
+				<td>2014-10-26</td>
+				<td>전자</td>
+				<td>정정공고</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td><span>ABCDEDFWDFasdfa</span></td>
+				<td><span>서울</span></td>
+				<td class="breakoff"><span>경마산업의 경제적 효과 추정을 위한 비전자입찰</span></td>
+				<td>제한경쟁</td>
+				<td><span>2014-10-26</span></td>
+				<td>2014-10-26</td>
+				<td>전자</td>
+				<td>정정공고</td>
+			</tr>
+			<tr class="e_gray">
+				<td>1</td>
+				<td>KRA201410025</td>
+				<td>서울</td>
+				<td class="breakoff"><a href="#">경마산업의 경제적 효과 추정을 위한 비전자입찰</a></td>
+				<td>제한경쟁</td>
+				<td>2014-10-26</td>
+				<td>2014-10-26</td>
+				<td>전자</td>
+				<td>정정공고</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>KRA201410025</td>
+				<td>서울</td>
+				<td class="breakoff"><a href="#">경마산업의 경제적 효과 추정을 위한 비전자입찰</a></td>
+				<td>제한경쟁</td>
+				<td>2014-10-26</td>
+				<td>2014-10-26</td>
+				<td>전자</td>
+				<td>정정공고</td>
+			</tr>
+			<tr class="e_gray">
+				<td>1</td>
+				<td>KRA201410025</td>
+				<td>서울</td>
+				<td class="breakoff"><a href="#">경마산업의 경제적 효과 추정을 위한 비전자입찰</a></td>
+				<td>제한경쟁</td>
+				<td>2014-10-26</td>
+				<td>2014-10-26</td>
+				<td>전자</td>
+				<td>정정공고</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>KRA201410025</td>
+				<td>서울</td>
+				<td class="breakoff"><a href="#">경마산업의 경제적 효과 추정을 위한 비전자입찰</a></td>
+				<td>제한경쟁</td>
+				<td>2014-10-26</td>
+				<td>2014-10-26</td>
+				<td>전자</td>
+				<td>정정공고</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div style="width:100%; background:#eee">
+	<div style="width:200px; height:100px; background:skyblue; margin:0 auto"></div>
+</div>
+
+</body>
+</html>

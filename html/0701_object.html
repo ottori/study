@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8"/>
+	<title>Controls to Err</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+	<meta name="author" content="O eunsun" />
+	<meta name="keywords" content="mario game" />
+	<meta name="description" content="Let's Mario Game!!!" />
+	<link rel="stylesheet" href="../css/common.css" />
+	<style type="text/css"> p {padding:10px; font-size:14px; font-weight:bold}
+		.box {position:absolute; left:150px; top:50px; right:0}
+		.err {position:absolute; right:10px; top:50px; width:100px; height:100px}
+		button {width:30px; height:30px; font-size:14px; line-height:30px; background:#eee}
+		#jumpT {position:absolute; left:34px; top:-34px}
+		#jumpB {position:absolute; left:34px; bottom:36px}
+		#mario {position:absolute; left:0; bottom:0; width:20px; height:20px; border-radius:50%; background:gray}
+		#GNB {position:absolute; left:30px; top:150px}
+		#GNB ul li {margin:5px 0}
+		#GNB ul li a {display:inline-block; height:20px; line-height:20px; padding:0 20px; background:gray; color:#fff; font-weight:bold}
+		#GNB > ul > li > a {width:300px; background:#eee; color:#4b4b4b; border:2px solid #4b4b4b} #GNB > ul > li > a:hover {background:#4b4b4b; color:#fff}
+		#GNB ul li ul {display:none}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div id="mario" style="left:0; bottom:0"><span></span></div>
+	</div>
+	<div class="err">
+		<button id="leftB">◀</button>
+		<button id="stop">■</button>
+		<button id="rightB">▶</button>
+		<button id="jumpT">▲</button>
+		<button id="jumpB">▼</button>
+	</div>
+	<p class="exp">LG CNS in Script</p>
+	<div id="GNB">
+		<ul>
+			<li><a href="#" >First Depth</a>
+				<ul>
+					<li><a href="#">Association</a></li>
+					<li><a href="#">Association A</a></li>
+					<li><a href="#">Association A B</a></li>
+					<li><a href="#">Association A B C</a></li>
+				</ul>
+			</li>
+			<li><a href="#" >Second Depth</a>
+				<ul>
+					<li><a href="#">Association</a></li>
+					<li><a href="#">Association A</a></li>
+					<li><a href="#">Association A B</a></li>
+					<li><a href="#">Association A B C</a></li>
+					<li><a href="#">Association A B C D</a></li>
+					<li><a href="#">Association A B C D E</a></li>
+				</ul>
+			</li>
+			<li><a href="#" >Third Depth</a>
+				<ul>
+					<li><a href="#">Association</a></li>
+					<li><a href="#">Association A</a></li>
+					<li><a href="#">Association A B</a></li>
+					<li><a href="#">Association A B C</a></li>
+					<li><a href="#">Association A B C D</a></li>
+					<li><a href="#">Association A B C D E</a></li>
+					<li><a href="#">Association A B C D E F</a></li>
+					<li><a href="#">Association A B C E D F G</a></li>
+					<li><a href="#">Association A B C E D F G H</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+
+	<script type="text/javascript">
+		function id(v){return document.getElementById(v)}
+		//GNB
+		var gnb = id("GNB");
+		
+		var nav = {
+			gnb : id("GNB"),
+			a : 1,
+			link : gnb.getElementsByTagName("a"), // gnb 변수 설정을 nav 안에서 하면 nav.link를 콘솔에 찍었을때  에러납니다... ㅜㅜ
+			funk : function(){
+				var that = this;
+				for( var i=0; i < that.link.length; i++ ){
+					that.link[i].onclick = function(){
+						console.log(this.parentNode.nodeName.toLowerCase() === "li")
+						if( this.parentNode.nodeName == "li"){ // "클릭한 a 태그의 부모가 li 요소이면" 이라고 쓰고 싶습니다.
+							alert("true!!!")
+						}
+					}
+				}
+			}
+		}
+		nav.funk();
+		//GNB END
+
+
+
+
+		//마리오 액션
+		var mario = id("mario"); var leftB = id("leftB"); var rightB = id("rightB"); var jumpB = id("jumpB"); var jumpT = id("jumpT"); var stop = id("stop");
+		var OES = {
+			dir : "",
+			cnt : 0,
+			cnt_y : 0,
+			con : function(){
+				console.log(this);
+			},
+			Action : function(){
+				var that = this;
+				var action = setInterval(function(){
+					if ( that.dir == "ltr" ){
+						that.cnt++;
+					}else if( that.dir == "rtl" ){
+						that.cnt--;
+					}
+					if(  that.dir == "btt" ){
+						that.cnt_y++;
+					}else if( that.dir == "ttb" ){
+						that.cnt_y--;
+					}
+					if( that.dir == "stop" ){
+						that.cnt = that.cnt;
+					}
+					mario.style.left = that.cnt + "px";
+					mario.style.bottom = that.cnt_y + "px";
+				},10);
+				leftB.onclick = function(){that.dir = "rtl"}
+				rightB.onclick = function(){that.dir = "ltr"}
+				jumpT.onclick = function(){that.dir = "btt"}
+				jumpB.onclick = function(){that.dir = "ttb"}
+				stop.onclick = function(){that.dir = "stop"}
+			}
+		}	
+		OES.Action();
+		//마리오 액션 END
+	</script>
+</body>
+</html>

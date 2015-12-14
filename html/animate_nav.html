@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<title>NAV</title>
+	<meta name="description" content="순서대로 자리를 잡아가는 NAV" />
+	<link rel="stylesheet" href="http://check86.cafe24.com/study/css/common.css" />
+	<style type="text/css">
+		header {position:relative; margin-top:30px; overflow:hidden}
+		header:first-child {margin:0}
+		header button {position:absolute; right:20px; top:40px; padding:5px 30px;  background:#4b4b4b; color:#fff; border-radius:4px; }
+		.nav {padding:40px; background:#eee}
+		.nav ul {display:-webkit-box}
+		.nav ul li {position:relative; min-width:90px; margin:0 30px;  background:#eee}
+		.nav ul li a {position:absolute; /* 포지션 asbolute 를 주는 것만으로도 box 모델의 형태를 취한다. 안줘도 되지만 더 완벽한 렌더링을 시킬 수 있음.. float로 마찬가지임. */left:0; top:-70px; padding:5px 30px; background:#4b4b4b; color:#fff; border-radius:4px}
+		footer {position:fixed; left:0; bottom:0; width:100%; min-height:50px; background:#eee}
+		footer p {padding:30px 0; text-align:center}
+		.after {display:block; background:red}
+		.after::after  {display:block; content:url("http://check86.cafe24.com/study/images/am1.jpg")}
+		.after2 {display:block; width:100px; height:100px; background:red}
+		.after2::after {display:block; content:attr(class); width:200px; height:500px; color:#fff; text-align:center; background:url("http://check86.cafe24.com/study/images/winimg1.jpg") no-repeat}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<header>
+			<div id="nav" class="nav">
+				<ul>
+					<li><a href="#">Profile</a></li>
+					<li><a href="#">Docs</a></li>
+					<li><a href="#">Guides</a></li>
+					<li><a href="#">Helps</a></li>
+				</ul>
+			</div>
+			<button class="down">Download</button>
+		</header>
+		<header>
+			<div id="nav2" class="nav">
+				<ul>
+					<li><a href="#">Demos</a></li>
+					<li><a href="#">Docs</a></li>
+					<li><a href="#">Guides</a></li>
+					<li><a href="#">Helps</a></li>
+				</ul>
+			</div>
+			<button class="down">Download</button>
+		</header>
+		<section>
+			<article class="">
+				<h1>BUILD A Plan!!!!</h1>
+				<p>Famo is a free, open source Javascript framework that helps you create smooth, complex UIs for any screen</p>
+				<button>Strat learning</button>
+			</article>
+			<article>
+			</article>
+		</section>
+		<footer><p>This is the Animate !!!</p></footer>
+		<script type="text/javascript">
+			function id(b){ return document.getElementById(b)}
+			var nav =  id("nav");
+			var index = 0;
+			var cnt = -70;
+			flow();
+
+			function flow(){
+				var child = nav.getElementsByTagName("li")[index].getElementsByTagName("a")[0];
+				var actions = setInterval(function(){
+					cnt++;
+					child.style.top = cnt +"px";
+					if( cnt >= 0 ){
+						clearInterval(actions);
+						cnt = -70;
+						if( index < 3 ){
+							index++;
+							flow();
+						}
+					}
+				},1)
+			}
+		</script>
+	</div>
+	<div>
+	<span class="after"></span>
+	<a href="http://www.google.com" class="after2"></a>
+	</div>
+</body>
+</html>

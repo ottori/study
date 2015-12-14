@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+/* RESET CORE : HTML5 & XHTML */
+html,body{height:100%;-webkit-text-size-adjust:none}
+body{direction:ltr;font-size:75%;line-height:1.5em}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,fieldset,p,input,button{margin:0;padding:0;font-family:'맑은 고딕',dotum,Helvetica,sans-serif;color:#666}
+article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary{display:block}
+hr{display:none}
+h1,h2,h3,h4,h5,h6{font-weight:normal; font-size:100%}
+ul, li{list-style-type:none}
+button{border:0;background:transparent;cursor:pointer}
+i,em,address,optgroup{font-style:normal;font-weight:normal}
+img,input,select,textarea,fieldset,iframe{border:0 none;vertical-align:middle}
+a{color:#666; text-decoration:none;-webkit-tap-highlight-color:transparent}
+
+/* RESET CORE : HTML5 */
+input,button,select,textarea{resize:none;font-size:91.7%} /* fontSize: 11px */
+
+/* RESET CORE : XHTML */
+table{border-collapse:collapse;border-spacing:0}
+table,th,td{border:0}
+caption,legend{visibility:hidden;overflow:hidden;width:0;height:0;font-size:0;line-height:0}
+
+/* IMPORT : BASIC */
+input.basic{height:17px;line-height:17px;padding:0 5px;border:1px solid #333;*margin-top:-1px; _margin-top:-2px}
+textarea.basic{border:1px solid #cacaca;padding:5px;overflow:scroll;overflow-x:hidden;*margin-top:-1px;_margin-top:-2px}
+select.basic{height:19px;border:1px solid #333;vertical-align:top}
+
+/* self style */
+body {padding:30px 0 0 30px}
+input {padding:2px 3px; height:20px; line-height:20px; font-size:13px; border:1px solid #f1f1f1; border-radius:3px; background:#f1f1f1}
+input:active,
+input:focus {background:pink}
+.mauto {margin:0 auto}
+.btns {display:inline-block; .display:inline; .zoom:1; height:28px; line-height:25px; text-align:center; font-size:13px; font-family:Malgun Gothic, "맑은 고딕"; margin:0 auto; padding:2px 15px; background:#f1f1f1; border:0; border-radius:3px; box-shadow:2px 2px 2px rgba(0,0,0,0.3)}
+.btns:active {background:pink}
+.wrap {padding:20px}
+

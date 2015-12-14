@@ -1,0 +1,1261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"xml:lang="ko"lang="ko">
+<head>
+<meta http-equiv="content-type"content="text/html; charset=UTF-8"/>
+<title>오은선 javascript list</title>
+<link rel="stylesheet"href="http://code.jquery.com/jquery-latest.js"/>
+<style type="text/css">
+	html, body,h1,h2,h3 {margin:0; padding:0;}
+	body, td {font:12px "맑은 고딕",dotum, "돋움", Sans-Serif; color:#6b6b6b;}
+	table {border-collapse: collapse; border-spacing: 0;}
+	h3 {padding:20px 0 10px;font-size:18px;text-align:right}
+	#g_header h1 {height:45px; line-height:40px; padding-left:28px; margin-top:0; color:#fff; font-weight:normal;background:#488fc3;}
+	#g_body {padding:50px 30px 50px}
+	.guide_table {width:100%;}
+	.guide_table thead th {background:#f1f1f1; padding:3px; border:solid 1px #dadada;}
+	.guide_table tbody td {padding:3px; border:solid 1px #dadada;}
+	.guide_table tbody td.filelink a {display:block; width:100%; height:100%; text-decoration:none; color:#0177bd;}
+	.guide_table tbody td.filelink a:active {background:rgba(0,0,0,0.5); color:#fff}
+	.guide_table tr.dep01 td {border-top:solid 2px #dadada;}
+	.guide_table td.filelink a {}
+	#g_footer {padding:30px; text-align:right;}
+	.ok {font-weight:bold; color:#ff0000}
+	.complete {display:block; color:#006699}
+	.design {display:block; font-weight:bold; color:#006699}
+	.script {display:block; color:#000}
+</style>
+<script type="text/javascript">
+	<!--
+		function init_proc()
+		{
+			var ch;
+			var total = 0;
+			var finish = 0;
+			var per = 0;
+
+			for (ch = 0;ch < document.work.finish.length;ch++)
+			{
+				total++;
+				if (document.work.finish[ch].checked == true)
+				{
+					finish++;
+				}
+			}
+
+			per = finish*100/total;
+			document.work.disPer.value=new String(finish) + "/ "+ new String(total) + "  : "+ new String(per.toFixed(2)) + "%";
+
+			makeSeq(); //시퀀스 생성
+
+		}
+
+		function makeSeq(){
+			var obj = document.getElementById("guide_table");
+			var tbody = obj.getElementsByTagName("tbody")[0];
+			var tr 	= tbody.getElementsByTagName("tr");
+
+			for(var i=0; i< tr.length; i++){
+				tr[i].getElementsByTagName("td")[0].innerHTML = i+1;
+		}
+
+	}
+	//-->
+
+	function popup(url,wName,w,h){
+		window.open(url,wName,'width='+w+',height='+h+',resizable=0,scrollbars=0');
+	}
+	function popupscroll(url,wName,w,h){
+		window.open(url,wName,'width='+w+',height='+h+',resizable=1,scrollbars=1');
+	}
+	</script>
+	 <script type="text/javascript"src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+	 <script type="text/javascript">
+	 $(document).ready(function() {
+		$('a').attr({'target': '_blank'});
+		$('tr').mouseover(function() {
+			$(this).css('backgroundColor','#f5f5f5');
+		});
+		$('tr').mouseout(function() {
+			$(this).css('backgroundColor','#fff');
+		});
+		var $tabletrno = $('table.guide_table tbody tr:not(.rdln)');
+		var $tabletdno = $tabletrno.each(function(i) {
+			$(this).children('td.no').text(i+1);
+		});
+		$('table.guide_table tr').each(function() {
+			var $ichecked = $(this).children('td').children('input:checkbox').attr('checked');
+			if ($ichecked)	{
+				$(this).children('td.filelink').children().css('color', '#900');
+			}
+		});
+	 });
+
+	 $(function(){
+		var $end = $("#end"),
+			$total = $("#total"),
+			$show1 = $("#show1"),
+			$show2 = $("#show2"),
+			$show3 = $("#show3"),
+			$show4 = $("#show4"),
+			$show5 = $("#show5"),
+			$show6 = $("#show6"),
+			complteLen = 0,
+			idx1 = 0,
+			idx2 = 0,
+			idx3 = 0,
+			idx4 = 0,
+			idx5 = 0,
+			idx6 = 0,
+			idx7 = 0,
+			designLen = $("td.design").size(),
+			totalLen = 0;
+
+		$("td.ok").each(function(){
+			totalLen++;
+			if ( $(this).text() == '완료'){
+				complteLen++;
+			}
+			$end.text(complteLen);
+			$total.text(totalLen + designLen);
+		});
+
+		$show3.text(designLen);
+		$show5.text(idx5+idx6);
+		$show6.text(idx7);
+
+		$("#show0501").text(idx5);
+		$("#show0502").text(idx6);
+		$("tr:nth-child(even) td").css("background-color","#eee");
+	 });
+</script>
+</head>
+<body onload="">
+<div id="g_header" style="position:fixed;left:0;right:0;top:0;">
+	<h1>Sunny's JavaScript List</h1>
+</div>
+<div id="g_body">
+	<div class="contents">
+		<h3>Page List [<span id="end"></span>/<span id="total"></span>]</h3>
+		<form name="work"action="">
+			<table class="guide_table" summary="" id="guide_table">
+			<thead>
+			<tr>
+				<th scope="col">NO</th>
+				<th scope="col">1depth</th>
+				<th scope="col">2depth</th>
+				<th scope="col">3depth</th>
+				<th scope="col">팝업</th>
+				<th scope="col">PAGE 보기</th>
+				<th scope="col">상태</th>
+				<th scope="col">수정작업 및 비고</th>
+			</tr>
+			</thead>
+			<tbody>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>그래프</td>
+					<td>그래프 돌아감</td>
+					<td>파고다원 반응형 프로젝트</td>
+					<td></td>
+					<td class="filelink"><a href="html/gragh.html" target="_blank">gragh.html</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete">2015-03-30</span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>리사이징 체크</td>
+					<td>사용자가 리사이징 멈췄을때 체크하는 기능</td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/resizing_check.html" target="_blank">resizing_check.html</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete">2015-03-30</span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>뱅글뱅글 로딩이미지</td>
+					<td>삼각함수로 구현</td>
+					<td>파고다원 반응형 프로젝트</td>
+					<td></td>
+					<td class="filelink"><a href="html/orientation2.html" target="_blank">orientation2.html</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete">2015-04-19</span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>디자인 radio js 포함</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/radio.html" target="_blank">radio.html</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete">2015-02_25</span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>2015~2017년 학사 캘린더</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/calender.html" target="_blank">calender.html</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete">2015-02_02</span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>Prototype 활용하여 탭 짜기</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/prototype_tab.html" target="_blank">prototype_tab.html</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete">2015-02_01</span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>Prototype 예제 - 스승님</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/prototype_ex.html" target="_blank">prototype_ex.html</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete">2015-02_01</span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>html + 뿌려진 inline style 까지 통째로 복사하여 텍스트로 문서에 뿌리기</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/cloneBox.html" target="_blank">cloneBox.html</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete">2015-01-27</span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>공지사항 현재 paging 체크 기능</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/paging.html" target="_blank">paging.html</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete">2015-01-22</span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>한개의 함수로 여러개의 슬라이드 돌리기</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/function.html" target="_blank">function.html</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete">2015-01-15</span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>id, css 반환 fure js 사용시 </td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/return_css.html" target="_blank">return_css.html</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>tr 에 td 뿌리기</td>
+					<td></td>
+					<td>한국마사회 경마정보 사이트 메인 script 작업</td>
+					<td></td>
+					<td class="filelink"><a href="html/add_tr.html" target="_blank">add_tr.html</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete">2015-01-13</span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>$.Ajax()</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/ajax1.html" target="_blank">ajax1.html</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>별점 평가하기 스크립트</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/star_test.html" target="_blank">star_test.html</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>오늘 하루 이창을 열지 않기</td>
+					<td>kra기업정보 사이트 메인 script 작업</td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/no_open.html" target="_blank">no_open.html</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>table 추가/삭제 버튼 클릭시 input이 포함된 tr 추가/삭제 기능</td>
+					<td>label for, id값도 함께 루프 돌림</td>
+					<td>kra 기업정보-온라인금리제안 script 작업</td>
+					<td></td>
+					<td class="filelink"><a href="html/tr_input_add_or_del.html" target="_blank">tr_input_add_or_del.html</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete">추가/삭제 버튼 클릭시 tr 추가/삭제 기능</span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>좌우 버튼, 중앙 확대 이미지 갤러리 슬라이드1</td>
+					<td></td>
+					<td>LG SmartWorld For Watch 메인을 위한 샘플 스크립트</td>
+					<td></td>
+					<td class="filelink"><a href="html/watch4.html" target="_blank">watch4.html</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete">중앙 링크영역 클릭시 해당 링크로 이동하며 좌우버튼으로 제어</span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>좌우 버튼, 중앙 확대 이미지 갤러리 슬라이드2</td>
+					<td></td>
+					<td>LG SmartWorld For Watch 메인</td>
+					<td></td>
+					<td class="filelink"><a href="html/watch_collection.html" target="_blank">watch_collection.html</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete">중앙 링크영역 클릭시 해당 링크로 이동하며 좌우버튼으로 제어</span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>LG SmartWorld For Watch 메인 watch 콜렉션 script</td>
+					<td>작성 : 본인</td>
+					<td>LG SmartWorld For Watch 프로젝트</td>
+					<td></td>
+					<td class="filelink"><a href="html/watch2.html" target="_blank">watch2.html</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete">마크업 absolute 구조 포커스 이동은 100% 순차적인 구성</span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>LG SmartWorld For Watch 메인 watch 콜렉션 script</td>
+					<td>작성 : 본인</td>
+					<td>LG SmartWorld For Watch 프로젝트</td>
+					<td></td>
+					<td class="filelink"><a href="html/watch3.html" target="_blank">watch3.html</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete">포커스만 중앙으로 이동</span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>미로</td>
+					<td>작성 : 림림림</td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/wall.html" target="_blank">wall.html</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>가상선택자 화살표 링크 구현</td>
+					<td>작성 : 하코사 빼로 </td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/step.html" target="_blank">step.html</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>javascript Navi</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/javascript_nav.html" target="_blank">javascript_nav.html</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete">순수 javascript navigation</span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>Ajax</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/ajax.html" target="_blank">ajax.html</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete">fure js 로 Ajax 하자</span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>jquery Ajax 메소드 load</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/jqueryAjax.html" target="_blank">jqueryAjax.html</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete">jquery ajax 메소드</span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>return function</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/return.html" target="_blank">return.html</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete">return 에 대하여...</span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>openWindow</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/openWindow.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>sin , cos</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/rotate.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete">사분면</span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>나비 회전</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/fly.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>반응형 animate1</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/resize_yj.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>반응형 animate2</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/resize_animate.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>SCRIPT</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/dragandrop_yj.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>끌어다놓기</td>
+					<td>drop / drag </td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/dropdown.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>삼각함수 공돌리기</td>
+					<td>Math 사용</td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/math.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>SCRIPT</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/mario.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>SCRIPT</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/mario_object.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>SCRIPT</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/contentWindow.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>퍼펙트 네비!!</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/perfectNavi.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>퓨어 js textNode 걸러내기</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/isindex.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>window popup</td>
+					<td>popup window</td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/popup_window.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>터치이벤트</td>
+					<td>touchstart / touchend</td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/touchevent.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>ontouchevent</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/ontouchevent.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>키값 알아내기</td>
+					<td>onkeyup / onkeydown</td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/onkeyup.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>mario_mobile</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/mario_mobile.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>unbind</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/unbind.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>vertical_slide</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/vertical_slide.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>submit</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/submit.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>가다서다 제어하기</td>
+					<td>jQuery stop()</td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/stop.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>인풋 플레이스홀더</td>
+					<td>스크립트로 만든 플레이스 홀더</td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/attr2.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>배경 롤링</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/body_bg_rolling.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>ios_layout</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/ios_layout.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>animate_nav</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/animate_nav.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>close_layer</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/close_layer.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>eye_korea_study</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/eye_korea_study.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>CSS3 삼각형 만들기</td>
+					<td>css3_triangle</td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/css3_triangle.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>내용에 따른 스크롤 레이아웃1</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/scroll2.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>내용에 따른 스크롤 레이아웃2</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/scroll.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>CSS3</td>
+					<td>transform 변형, 뒤집기</td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/total_menu.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>rand 함수</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/rand.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>random 함수</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/random.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>html5_test</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/html5_test.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>orientation</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/orientation.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>css3_animations</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/css3_animations.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>settimeout</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/settimeout.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>객체리터럴 기초</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/base.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>slide_banner</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/slide_banner.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>eazing</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/eazing.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>슬라이드 set</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/slideSET.html" target="_blank">새창열기</a></td>
+					<td class="">미완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>자동롤링 배너 </td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/tarot.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>rolling_banner</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/rolling_banner.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>study</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/study.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>image change</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/image_change.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>float</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/float.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>cloneNode</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/cloneNode.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>0216_slide</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/0216_slide.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>append2</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/append2.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>animate2</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/animate2.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>object</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/0216_object.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>study2</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/study2.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>study3</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/study3.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>study1</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/study1.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>homework</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/homework.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>innerHTML</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/innerHTML.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>innerHTML2</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/innerHTML2.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>3float_height</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/3float_height.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>0201_functions</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/0201_functions.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>append3</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/append3.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>slideSwiper</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/slideSwiper.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>ee_date</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/ee_date.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>0126_review</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/0126_review.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>0123_replaceChild</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/0123_replaceChild.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>0121_self</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/0121_self.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>script 표준 검사</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/script_validation.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>str_write2</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/str_write2.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>str_write_flash</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/str_write_flash.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>append</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/append.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>append3</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/append3.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>gallery</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/gallery.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>set_time_out</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/set_time_out.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>media_type_info</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/media_type_info.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>styling_radio</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/styling_radio.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>styling_radio_codepen</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/styling_radio_codepen.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>gnb</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/gnb.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>counter</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/counter.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>page_link</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/page_link.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>SCRIjbmansPT</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/jbmans.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>attribute</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/attribute.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>tab_script</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/tab_script.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>study1208</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/study1208.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+				<tr class="dep01">
+					<td class="no"></td>
+					<td>colorplus</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink"><a href="html/colorplus.html" target="_blank">새창열기</a></td>
+					<td class="ok">완료</td>
+					<td><span class="complete"></span></td>
+				</tr>
+			</tbody>
+			</table>
+		</form>
+	</div>
+</div>
+<div id="mask"></div>
+</body>
+</html>

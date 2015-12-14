@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8"/>
+	<title>Popup Window</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+	<meta name="author" content="O eunsun" />
+	<link rel="stylesheet" href="http://check86.cafe24.com/study/css/common.css" />
+	<style type="text/css">
+		a {display:block; height:30px; line-height:30px; background:#4b4b4b; color:#fff; font-weight:bold}
+	</style>
+	<script type="text/javascript">
+	window.onload = function(){
+		var pop = document.getElementById("pop");
+		pop.onclick = function(){
+			popWindow();
+		}
+		function popWindow(){
+			window.open("","pop","width=500, height=500");
+		}
+	}
+	</script>
+</head>
+<body>
+	<a href="#" id="pop">Click PopUp Window</a></body>
+</html>

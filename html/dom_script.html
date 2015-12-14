@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<title>DOM SCRIPT</title>
+	<meta name="오은선" content="" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<link rel="stylesheet" href="http://check86.cafe24.com/study/css/common.css" />
+	<style type="text/css" media="all">
+		body {padding:30px; }
+		h1, p {padding-bottom:2px; border-bottom:1px solid #6b6b6b}
+		p {margin:10px 0 30px}
+		.list {padding:30px 0; }
+		.list:after {content:""; clear:both; display:block}
+		.list li {float:left; margin-right:10px; padding:7px; }
+		.list li:hover {background:#eee}
+		.list li span {display:block; width:100%; padding:5px 0; text-align:center}
+		.list img {width:50px; }
+		.viewer {border:3px solid gray; padding:20px; background:#eee; text-align:center}
+	</style>
+</head>
+<body>
+	<h1>우리 가족을 소개합니다.</h1>
+	<ul class="list">
+		<li><a href="../images/am1.jpg" title="photo1"><img src="../images/am1.jpg" alt="" /></a><span>나</span></li>
+		<li><a href="../images/am2.jpg" title="photo2"><img src="../images/am2.jpg" alt="" /></a><span>동생</span></li>
+		<li><a href="../images/am3.jpg" title="photo3"><img src="../images/am3.jpg" alt="" /></a><span>엄마</span></li>
+		<li><a href="../images/am4.jpg" title="photo4"><img src="../images/am4.jpg" alt="" /></a><span>아빠??</span></li>
+	</ul>
+	<!-- <img src="" alt="photo view" class="viewer"/> -->
+	<p>그림을 선택하세요!!</p>
+	<script type="text/javascript">
+		document.getElementsByTagName("ul")[0].getElementsByTagName("li")[0].getElementsByTagName("a")[0].setAttribute("title","이리오시오");
+		var placeholder = document.createElement("img");
+		placeholder.setAttribute("id","placeholder");
+		placeholder.setAttribute("src","../images/am1.jpg");
+		placeholder.setAttribute("alt","view Picture");
+		var description = document.createElement("p");
+		description.setAttribute("id","description");
+		var desctext = document.createTextNode("그림을 클릭 하세요~~!!!");
+
+		description.appendChild(desctext);
+//		document.getElementsByTagName("body")[0].appendChild(placeholder);
+		document.body.appendChild(placeholder);
+//		document.getElementsByTagName("body")[0].appendChild(description);
+		document.body.appendChild(description)
+	</script>
+</body>
+</html>

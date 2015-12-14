@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<title>watch Collection</title>
+	<meta charset="utf-8"/>
+	<meta name="author" content="" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href="../css/common.css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.js"></script>
+	<style type="text/css">
+		strong {display:block; font-size:13px; font-weight:bold; line-height:30px; text-indent:10px}
+		.watch {overflow:hidden; width:650px; padding:20px 50px; background:#eee}
+		.watch ul {position:relative; margin:0 auto}
+		.watch ul:after {content:""; clear:both; display:block}
+		.watch ul li {float:left; margin:0 15px; }
+		.watch ul li a {display:block; position:relative; padding:3px; width:80px; height:187px;  border:1px solid #4b4b4b}
+		.watch ul li a em {position:absolute; font-size:30px; font-weight:bold; left:20px; top:10px; color:#000}
+		.watch ul li a img {width:100%; height:187px}
+		.watch ul div {display:none;position:absolute; left:261px; top:0}
+		.watch ul div.hiTop {display:block; z-index:100}
+		.watchtabs {margin-top:-10px; border:10px solid #4b4b4b}
+	</style>
+</head>
+<body>
+	<strong>[ LG SmartWorld For WAtch ] Main page Watch Collection Motion</strong>
+	<div class="watch">
+		<ul>
+			<li><a href="http://www.google.com" title="이벤트1"><img src="../images/am1.jpg" alt="" /></a></li>
+			<li><a href="http://stackoverflow.com/" title="이벤트2"><img src="../images/am2.jpg" alt="" /></a></li>
+			<li class="watchtabs"><a href="http://stackoverflow.com/" title="이벤트3" target="_blank" id="focused0"><img src="../images/am3.jpg" alt="" /></a></li>
+			<li><a href="http://stackoverflow.com/" title="이벤트4"><img src="../images/am4.jpg" alt="" /></a></li>
+			<li><a href="http://osaraitne.blogspot.kr/" title="이벤트5"><img src="../images/am6.jpg" alt="" /></a></li>
+		</ul>
+	</div>
+	<div class="watch">
+		<ul>
+			<li><a href="http://www.google.com" title="이벤트1"><img src="../images/am1.jpg" alt="" /></a></li>
+			<li><a href="http://stackoverflow.com/" title="이벤트2"><img src="../images/am2.jpg" alt="" /></a></li>
+			<li class="watchtabs"><a href="http://stackoverflow.com/" title="이벤트3" target="_blank" id="focused1"><img src="../images/am3.jpg" alt="" /></a></li>
+			<li><a href="http://stackoverflow.com/" title="이벤트4"><img src="../images/am4.jpg" alt="" /></a></li>
+			<li><a href="http://osaraitne.blogspot.kr/" title="이벤트5"><img src="../images/am6.jpg" alt="" /></a></li>
+		</ul>
+	</div>
+	<br />
+	<div class="watch">
+		<ul>
+			<li><a href="http://www.google.com" title="이벤트1"><img src="../images/am1.jpg" alt="" /></a></li>
+			<li><a href="http://stackoverflow.com/" title="이벤트2"><img src="../images/am2.jpg" alt="" /></a></li>
+			<li class="watchtabs"><a href="http://stackoverflow.com/" title="이벤트3" target="_blank" id="focused2"><img src="../images/am3.jpg" alt="" /></a></li>
+			<li><a href="http://stackoverflow.com/" title="이벤트4"><img src="../images/am4.jpg" alt="" /></a></li>
+			<li><a href="http://osaraitne.blogspot.kr/" title="이벤트5"><img src="../images/am6.jpg" alt="" /></a></li>
+		</ul>
+	</div>
+	<div style="padding:30px 10px">
+		<strong style="font-weight:bold">설명</strong>
+		<p>선택한 링크의 href, img src, title 값을 중앙으로 넘기며 원래 중앙에 있던 값들은 선택한 링크의 자리로 넘김</p>
+		<p>중앙 링크 클릭시에만 해당 페이지로 이동.</p>
+		<p>마크업 구조는 ul > li*5 > a > img </p>
+		<p>기획 - 각 링크 선택시 중앙으로 포커스 강제 이동시키는 액션 요청</p>
+		<p>첫번째 또는 두번째 링크선택시 포커스가 세번째 영역으로 강제이동하므로 탭이동은 100%순차적이지는 않으나 모든 링크영역에 탭접근이 가능하므로 접근성에 위배되는 것은 아님</p>
+		<p>접근성 마크 획득 프로젝트에서는 포커스 강제이동 script는 지양하도록 한다. </p>
+		<p>링크 이동의 권리는 기획,디자이너,개발자가 아닌 사용자에게 있으므로 포커스 강제로 이동시키는 것은 어떤 의미에서는 사용자 권리 침해에 해당</p>
+	</div>
+	<script type="text/javascript">
+		var obj = {
+			ready : function(tag){
+				var ul = $("ul", tag)
+					, li = $("li", ul)
+					, link = $("a", li)
+					, img = $("img", li)
+					, arr = []
+					, idx = 0
+					, before = null;
+
+				for(var i = 0; i < li.size(); i++){
+					arr[i] = [];
+					arr[i][0] = link.eq(i).attr("href");
+					arr[i][1] = img.eq(i).attr("src");
+					arr[i][2] = link.eq(i).attr("title");
+				}
+				li.not(".watchtabs").find("a").bind("click", function(){
+					idx = $(this).parent().index();
+					//click시 리셋
+					for(var i = 0; i < arr.length; i++){
+						link.eq(i).attr("href", arr[i][0]);
+						img.eq(i).attr("src", arr[i][1]);
+						link.eq(i).attr("title",arr[i][2]);
+					}
+					if(this == before){
+						before = null;
+					}else{
+						li.eq(2).find("a").attr("href", arr[idx][0]);
+						li.eq(2).find("img").attr("src", arr[idx][1]);
+						li.eq(2).find("a").attr("title", arr[idx][2]);
+
+						$(this).attr("href", arr[2][0]);
+						$(this).find("img").attr("src", arr[2][1]);
+						$(this).attr("title", arr[2][2]);
+						before = this;
+					}
+					$("#focused" + tag.attr("index")).focus();
+					console.log("#focused" + tag.attr("index"))
+					return false;
+				});
+			}
+		};
+		$(".watch").eq(0).attr("index",0);
+		$(".watch").eq(1).attr("index",1);
+		$(".watch").eq(2).attr("index",2);
+		obj.ready($(".watch").eq(0));
+		obj.ready($(".watch").eq(1));
+		obj.ready($(".watch").eq(2));
+	</script>
+</body>
+</html>

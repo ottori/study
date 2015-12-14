@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title>Append</title>
+  <meta charset="utf-8" />
+  <meta name="description" content="append에 관하여...2014-01-18" />
+ <style type="text/css">
+	*{margin:0; padding:0}
+	button {width:50px; margin-bottom:10px; text-align:center}
+	input {width:10%; height:100%; vertical-align:middle}
+	label {display:inline-block; width:90%}
+	ul {padding:10px}
+	ul li {list-style:none; height:22px; line-height:22px;  margin-bottom:10px; font-size:12px; font-weight:bold; border:1px solid #dbdbdb; background:#f1f1f1; cursor:pointer}
+	ul li.on {color:#FA196F	; border:1px solid #FDA0C5; background:#FDA5C7}
+	.buttonBox {float:left; width:60px; height:30px; margin-top:150px}
+	.wrap {padding:50px; .zoom:1}
+	.wrap:after {content:""; clear:both; display:block}
+	.leftBox {float:left; width:300px; margin-right:10px; height:400px; border:1px solid #e8e8e8; background:pink}
+	.leftBox li {list-style:none; width:100%; text-indent:0; }
+	.rightBox {float:left; width:300px; height:400px; border:1px solid #e8e8e8; background:#91E0FD}
+	.rightBox li.on {border:1px solid #0F90FA; color:#054FFA; background:#289FFB}
+ </style>
+ <script type="text/javascript">
+window.onload = function(){
+	function id(b){ return document.getElementById(b);};
+
+	var wrap = id("wrap");
+	var leftMenu = id("leftMenu");
+	var selected = id("selected");
+	var wrapChild = wrap.getElementsByTagName("li");
+	var leftMenuChild = leftMenu.getElementsByTagName("li");
+	var checkOn = leftMenu.getElementsByTagName("input");
+	var button = id("button");
+	var button2 = id("button2");
+	var button3 = id("button3");
+	/*
+	for( i=0; i < leftMenuChild.length; i++ ){
+		var before = null;
+		leftMenuChild[i].onclick = function(){
+			if( before != null){
+				before.className = "";
+			}
+			this.className = "on";
+			before = this;
+		};
+	}*/
+
+	for( i=0; i < checkOn.length; i++ ){
+		checkOn[i].onclick = function(){
+			if( this.parentNode.className == "on" ){
+				this.parentNode.className = "";
+			}else{
+				this.parentNode.className = "on";
+			}
+		};
+	};
+	for( i=0; i < leftMenuChild.length; i++ ){
+		leftMenuChild[i].onclick = function(event){
+			var e = event || window.event;
+			if(e.stopPropagation){
+				e.stopPropagation();
+			}else{
+				e.cancelBubble = true;
+			}
+		}
+	};
+	wrap.onclick = function(){
+		if( this.nodeName != "li" ){
+			for( i=0; i < wrapChild.length; i++ ){
+				wrapChild[i].className = "";
+				wrapChild[i].getElementsByTagName("input")[0].checked = false; 
+			};
+		}
+	};
+
+	button.onclick = function(){
+		var totalChecked = leftMenu.getElementsByClassName("on");
+		for( i=0; i < totalChecked.length; i=i){
+			selected.appendChild(totalChecked[i]);
+		}
+	};
+	button3.onclick = function(){
+		var selectedChild = selected.getElementsByClassName("on");
+		for( i=0; i < selectedChild.length; i=i ){
+			selected.removeChild(selectedChild[i]);
+		};
+	};
+
+};
+ </script>
+ </head>
+ <body>
+<div id="wrap" class="wrap">
+	<div class="leftBox">
+		<ul id="leftMenu">
+			<li><input type="checkbox" id="ch1" /><label for="ch1">Happy Bubble</label></li>
+			<li><input type="checkbox" id="ch2" /><label for="ch2">Time For Love</label></li>
+			<li><input type="checkbox" id="ch3" /><label for="ch3">All Myself To You</label></li>
+			<li><input type="checkbox" id="ch4" /><label for="ch4">Do You</label></li>
+			<li><input type="checkbox" id="ch5" /><label for="ch5">It's Your Day</label></li>
+			<li><input type="checkbox" id="ch6" /><label for="ch6">When The love falls</label></li>
+			<li><input type="checkbox" id="ch7" /><label for="ch7">River Flows in you</label></li>
+			<li><input type="checkbox" id="ch8" /><label for="ch8">Happy Bubble</label></li>
+			<li><input type="checkbox" id="ch9" /><label for="ch9">Time For love</label></li>
+			<li><input type="checkbox" id="ch10" /><label for="ch10">All Myself to you</label></li>
+		</ul>
+	</div>
+	<div class="buttonBox">
+		<button id="button">추가</button>
+		<button id="button2">제거</button>
+		<button id="button3">삭제</button>
+	</div>
+	<div class="rightBox">
+		<ul id="selected">
+		</ul>
+	</div>
+</div>
+</html>

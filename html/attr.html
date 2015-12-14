@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Title</title>
+	<meta name="generator" content="editplus" />
+	<meta name="author" content="" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href="../css/common.css" type="text/css" />
+	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+	<style type="text/css">
+		p {margin:20px 0 0}
+		b {color:blue}
+		.target {width:200px; height:200px; background:#eee} .nav li {margin:5px} .nav img {width:20px}
+	</style>
+</head>
+<body>
+	<input type="checkbox" name="" id="check1" checked="checked"/>
+	<label for="check1">Check Me!</label>
+	<p></p>
+	<input style="border:2px solid #eee"/>
+	<select name="" id="" class="target"></select>
+	<ul id="nav" class="nav">
+		<li><a href="#"><img src="../images/am1.jpg" alt="" title="이미지" /></a></li>
+		<li><a href="#"><img src="../images/am2.jpg" alt="" /></a></li>
+		<li><a href="#"><img src="../images/am3.jpg" alt="" /></a></li>
+		<li><a href="#"><img src="../images/am4.jpg" alt="" /></a></li>
+		<li><a href="#"><img src="../images/am5.jpg" alt="" /></a></li>
+	</ul>
+	<script type="text/javascript">
+		var nav = document.getElementById("nav");
+		var child = nav.getElementsByTagName("li");
+
+		
+		function idx(a){
+			var me = a;
+			var that = me.parentNode;
+			var tagName = that.getElementsByTagName(me.nodeName);
+			for(var i = 0; i < tagName.length; i++){
+				if(me == tagName[i]){
+					return i;
+					break;
+				}else{
+					continue;
+				}
+			}
+		}
+		for( var i = 0; i < child.length; i++){
+			child[i].onclick = function(){
+				var isIndex = idx(this);
+				child[isIndex].style.border = "1px solid red";
+			}
+		}
+
+
+		
+		/*$("input").click(function(){
+			var $input = $(this);
+			$( "p" ).html( ".attr( 'checked' ): <b>" + $input.attr( "checked" ) + "</b><br>" + ".prop( 'checked' ): <b>" + $input.prop( "checked" ) + "</b><br>" + ".is( ':checked' ): <b>" + $input.is( ":checked" ) + "</b>" );
+		});*/
+		$(".target").click(function(){
+			$(this).change();
+		});
+		$(".target").change(function(){
+			alert("Handler for Me");
+		});
+	</script>
+</body>
+</html>

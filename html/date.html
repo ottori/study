@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<title>My Date</title>
+	<meta charset="utf-8" />
+	<meta name="description" content="" />
+	<link type="text/css" rel="stylesheet" href="" />
+	<script type="text/javascript">
+	window.onload = function(){
+
+		var button =  document.getElementById("button");
+		var sentence =  document.getElementsByTagName("p")[0];
+		var newsTime = new Date();
+		var getTimes = newsTime.getHours();
+
+		button.onclick = function(){
+			sentence.innerHTML = "지금 시각은" + getTimes + "서울시" + "여러분" +  "몹시 재미있는 시간" + "입니다";
+		}
+	}
+	</script>
+</head>
+ <body>
+	<p>Hellow~ Good Morning!!!</p>
+	<button id="button">BUTTONS</button>
+ </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="ko"  lang="ko">
+<head>
+	<title>prototype tab</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="../css/common.css" />
+	<script type="text/javascript" src="../js/jquery_1.8.3.min.js"></script>
+	<style type="text/css">
+		.wrap {width:200px; margin:30px auto 30px 30px; border:2px solid #444}
+		ul li a {display:block; height:30px; line-height:30px; padding-left:20px; font-weight:bold}
+		ul li a:hover {background:#444; color:#fff}
+		ul li.on a, ul li.on a:hover {background:#006699; color:#fff}
+	</style>
+</head>
+<tbody>
+	<div id="wrap1" class="wrap">
+		<ul>
+			<li><a href="#">ProtoType</a></li>
+			<li><a href="#">Javascipt</a></li>
+			<li><a href="#">Jason</a></li>
+			<li><a href="#">Class</a></li>
+			<li><a href="#">ID</a></li>
+		</ul>
+	</div>
+	<div id="wrap2" class="wrap">
+		<ul>
+			<li><a href="#">ProtoType</a></li>
+			<li><a href="#">Javascipt</a></li>
+			<li><a href="#">Jason</a></li>
+			<li><a href="#">Class</a></li>
+			<li><a href="#">ID</a></li>
+		</ul>
+	</div>
+	<div id="wrap3" class="wrap">
+		<ul>
+			<li><a href="#">ProtoType</a></li>
+			<li><a href="#">Javascipt</a></li>
+			<li><a href="#">Jason</a></li>
+			<li><a href="#">Class</a></li>
+			<li><a href="#">ID</a></li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		function Tabs(){
+		}
+		Tabs.prototype.click = function(id){
+			var id = $(id)
+			, li = $("li", id)
+			, a = $("a", li)
+			a.click(function(){
+				var thisParents = $(this).parents("li")
+					li.removeClass("on")
+					$(this).parents("li").addClass("on")
+			});
+		}
+		$(function(){
+			var my = new Tabs();
+			my.click(".wrap");
+		});
+	</script>
+</tbody>
+</html>

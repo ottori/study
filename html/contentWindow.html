@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<title>contentWindow</title>
+	<meta charset="utf-8" />
+	<script type="text/javascript">
+	window.onload=function(){
+		var iframe = document.getElementById("iframe");
+	//	iframe.contentWindow.document.body.innerHTML += "동일 도메인 내 위치한 아이프레임 내의 Object 수정가능 - contentWindow 메소드! 5개 브라우저 모두 지원 가능";
+		var create = iframe.contentWindow.document.createElement("button");
+		var txt = iframe.contentWindow.document.createTextNode("Click ME!!");
+		create.appendChild(txt);
+		iframe.contentWindow.document.body.appendChild(create);
+
+		var windowWidth = document.getElementById("iframe").contentWindow.document.body.clientWidth;
+		console.log(windowWidth)
+	}
+	</script>
+</head>
+<body>
+	<div>
+		<iframe src="http://check86.cafe24.com/study/html/perfectNavi.html" frameborder="0" id="iframe" style="width:1000px; height:500px; background:#eee"></iframe>
+	</div>
+	<button></button>
+</body>
+</html>

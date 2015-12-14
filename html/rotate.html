@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<title>sin cos</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script type="text/javascript">
+		window.onload = function(){
+			var cnt = -90, x, y, range = 200;
+			var auto = setInterval(function(){
+				if(cnt < 270){
+					cnt++;
+				}else{
+					cnt = -90;
+				}
+				//원의 둘레 = 지름 * 3.14 = 지름 * Math.PI
+				//사인 = 1 ~ -1 까지 소수점
+				x = Math.cos(Math.PI / 180 * cnt) * range;//사인(각도) * 거리
+				x = Math.round(x);
+				y = Math.sin(Math.PI / 180 * cnt) * range;
+				y = Math.round(y);
+				console.log(y)
+				box.style.top = y + "px";
+				box.style.left = x + "px";
+			},10);
+		}
+
+	</script>
+	<style type="text/css">
+		body	{font-family:dotum; font-size:12px; font-weight:bold;}
+		.x	{position:absolute; border-bottom:1px solid red; width:410px; left:0; top:200px;}
+		.y	{position:absolute; border-right:1px solid red; height:410px; top:0; left:200px;}
+		.zero	{position:absolute; top:210px; left:210px;}
+		.x_plus	{position:absolute; top:210px; left:410px;}
+		.x_minus	{position:absolute; top:210px; left:0;}
+		.y_plus	{position:absolute; top:0; left:210px;}
+		.y_minus	{position:absolute; top:410px; left:210px;}
+	</style>
+</head>
+<body>
+	<div id="box" style="position:absolute; top:0; left:0; width:10px; height:10px; background:red; font:0; margin:200px 0 0 200px;"></div>
+	<div class="x"></div>
+	<div class="y"></div>
+	<div class="zero">0</div>
+	<div class="x_plus">1</div>
+	<div class="x_minus">-1</div>
+	<div class="y_plus">1</div>
+	<div class="y_minus">-1</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<title>slide</title>
+	<meta name="author" content="" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href="../css/common.css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.2.1.min.js"></script>
+	<style type="text/css">
+		.watch {overflow:hidden; width:600px; padding:30px 50px; background:#eee}
+		.watch ul {margin:0 auto}
+		.watch ul:after {content:""; clear:both; display:block}
+		.watch ul li {float:left; margin:0 15px}
+		.watch ul li a {display:block; position:relative; overflow:hidden; width:80px; height:80px; border-radius:50%; background:#4b4b4b; border:1px solid #4b4b4b}
+		.watch ul li a em {position:absolute; font-size:30px; font-weight:bold; left:20px; top:10px; color:#000}
+		.watch ul li a img {width:100%}
+		#mains {position:relative; left:0; top:-8px; border:10px solid #4b4b4b; border-radius:50%}
+	</style>
+</head>
+<body>
+	<div class="watch">
+		<ul>
+			<li><a href="#mains"><img src="../images/am1.jpg" alt="" /></a></li>
+			<li><a href="#"><img src="../images/am2.jpg" alt="" /></a></li>
+			<li id="mains"><a href="#"><img src="../images/am3.jpg" alt="" /></a></li>
+			<li><a href="#"><img src="../images/am4.jpg" alt="" /></a></li>
+			<li><a href="#"><img src="../images/am5.jpg" alt="" /></a></li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		watch = {
+			mains : $("#mains"),
+			link : $(".watch a"),
+			watchAction : function(){
+				watch.link.click(function(){
+					var prev_href = $("#mains").attr("href");
+					var prev_src = $("#mains").find("img").attr("src");
+					
+					href = $(this).attr("href");
+					src = $(this).find("img").attr("src");
+
+					watch.mains.find("a").attr("href",href);
+					watch.mains.find("img").attr("src",src);
+
+					$(this).find("a").attr("href",prev_href);
+					$(this).find("img").attr("src",prev_src);
+				});
+			}
+		}
+		watch.watchAction();
+
+	</script>
+</body>
+</html>

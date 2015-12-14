@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>9 x 9</title>
+    <meta charset="utf-8"/>
+    <style type="text/css">*{margin:0;padding:0}ul,li {list-style:none}a{display:inline-block;padding:0 20px;height:30px;line-height:30px;text-decoration:none}.box{width:100px;height:100px;background:#eee}.on .second_depth {display:block}.second_depth {display:none}</style>
+</head>
+<body>
+    <!-- javascript tab 기능을 프로토 타입으로 만들었습니다. : 탭으로 쓸 ul 또는 nav 태그에 id+숫자를 순차적으로 써주세요 -->
+    <ul class="tab" id="nav1">
+        <li data-type="tab">
+            <a href="">mobile-app-base</a>
+            <ul class="second_depth">
+                <li><a href="">하나</a></li>
+                <li><a href="">두울</a></li>
+                <li><a href="">세엣</a></li>
+            </ul>
+        </li>
+        <li data-type="tab">
+            <a href="">mobile-app-county</a>
+            <ul class="second_depth">
+                <li><a href="">네엣</a></li>
+                <li><a href="">다섯</a></li>
+                <li><a href="">여섯</a></li>
+            </ul>
+        </li>
+        <li data-type="tab" name="abc">
+            <a href="">mobile-app-GLM</a>
+            <ul class="second_depth">
+                <li><a href="">일곱</a></li>
+                <li><a href="">여덟</a></li>
+                <li><a href="">아홉</a></li>
+            </ul>
+        </li>
+        <li data-type="tab">
+            <a href="">mobile-app-battlezon</a>
+            <ul class="second_depth">
+                <li><a href="">네엣</a></li>
+                <li><a href="">다섯</a></li>
+                <li><a href="">여섯</a></li>
+            </ul>
+        </li>
+        <li data-type="tab">
+            <a href="">mobile-app-globalGS</a>
+            <ul class="second_depth">
+                <li><a href="">네엣</a></li>
+                <li><a href="">다섯</a></li>
+                <li><a href="">여섯</a></li>
+            </ul>
+        </li>
+        <li data-type="tab">
+            <a href="">mobile-app-tournament</a>
+            <ul class="second_depth">
+                <li><a href="">네엣</a></li>
+                <li><a href="">다섯</a></li>
+                <li><a href="">여섯</a></li>
+            </ul>
+        </li>
+        <li data-type="tab">
+            <a href="">mobile-app-screen</a>
+            <ul class="second_depth">
+                <li><a href="">네엣</a></li>
+                <li><a href="">다섯</a></li>
+                <li><a href="">여섯</a></li>
+            </ul>
+        </li>
+        <li data-type="tab">
+            <a href="">mobile-app-nasmo</a>
+            <ul class="second_depth">
+                <li><a href="">네엣</a></li>
+                <li><a href="">다섯</a></li>
+                <li><a href="">여섯</a></li>
+            </ul>
+        </li>
+        <li data-type="tab">
+            <a href="">mobile-app-academy</a>
+            <ul class="second_depth">
+                <li><a href="">네엣</a></li>
+                <li><a href="">다섯</a></li>
+                <li><a href="">여섯</a></li>
+            </ul>
+        </li>
+        <li data-type="tab">
+            <a href="">mobile-app-sitefinder</a>
+            <ul class="second_depth">
+                <li><a href="">네엣</a></li>
+                <li><a href="">다섯</a></li>
+                <li><a href="">여섯</a></li>
+            </ul>
+        </li>
+        <li data-type="tab">
+            <a href="">mobile-app-module</a>
+            <ul class="second_depth">
+                <li><a href="">네엣</a></li>
+                <li><a href="">다섯</a></li>
+                <li><a href="">여섯</a></li>
+            </ul>
+        </li>
+        <li data-type="tab">
+            <a href="">mobile-app-membership</a>
+            <ul class="second_depth">
+                <li><a href="">네엣</a></li>
+                <li><a href="">다섯</a></li>
+                <li><a href="">여섯</a></li>
+            </ul>
+        </li>
+    </ul>
+    <script type="text/javascript">
+        var divs = document.createElement("div");
+        var ul = document.createElement("ul");
+        var li = document.createElement("li");
+        var li_length = 3;//추가하고 싶은 li의 갯수
+
+        document.body.appendChild(ul);
+
+        ul.setAttribute("class","box");
+        for(var i=0;i<li_length;i++){
+            li = document.createElement("li");
+
+            ul.appendChild(li);
+        }
+
+        var box = document.getElementsByClassName("box");
+        //box[0].appendChild(li);
+        var ul_query = document.querySelector(".box");
+
+        var qr = document.querySelectorAll("[data-type='tab']");
+
+        /* 여기서부터 프로토 타입 탭 기능 id 작성 규칙 = id1, id2, id3 ...  */
+
+        var tab = new Object;
+        tab.link = document.getElementsByName("abc");
+
+        var tabs = function(id){
+
+        };
+        var nav1 = id("nav1");
+
+        //id 반환 함수
+        function id(id){return document.getElementById(id)};
+
+        var txt = {};
+
+        txt.removetxt = function(){return "A"};
+        txt.removetxt.prototype = function(){return "B"};
+
+        //tab 하위엘리먼트 text node 제거 함수
+        function removeText(el){
+            if( el.childNodes){
+                var child = el.childNodes;
+                for(var i=0;i<child.length;i++) {
+                    if (child[i].nodeType == 1) {
+                        return;
+                    } else {
+                        child[i].remove();
+                    };
+                };
+            };
+        };
+        removeText(nav1);
+
+        var B = new txt.removetxt;
+        var C = B.prototype;
+
+        function A(){};
+        var A = new A();
+        console.log(A)
+
+        function AA(){}
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,143 @@
+@charset "utf-8";
+
+html {}
+header {position:fixed; z-index:9000; left:0; top:0; right:0; background:rgba(0,0,0,0.6)}
+body.on header {position:fixed; left:0; top:0; width:100%}
+body.on {padding-top:76px}
+.body {opacity:0}
+
+/* header */
+header:after {content:""; clear:both; display:block}
+header > div {position:relative; width:1200px; min-height:40px; margin:0 auto; padding:20px 0 0}
+header h2 {float:right; padding-top:11px}
+header h1 {position:absolute; left:0; bottom:10px; padding:10px 0; font-size:24px; color:#fff; font-family:'Noto Sans', sans-serif}
+header h1 a {font-size:24px; color:#fff; font-family:'Noto Sans', sans-serif}
+header dl {padding:30px 0 0}
+header dt {padding:10px 0; font-weight:600; font-size:20px}
+header dd p {font-size:14px}
+header .gnb {text-align:right}
+header .gnb li {display:inline-block; margin-right:20px}
+header .gnb li a {font-size:15px; text-transform:uppercase; color:#fff; font-family:'Noto Sans', sans-serif}
+header .gnb li a:hover {color:#b1b1b1}
+header .gnb li:after {content:""; clear:both; display:block}
+
+/* contents */
+section > article {position:relative; width:100%; box-shadow:4px 4px 4px #c6c5c5}
+article h3 {padding:60px 0 40px; line-height:22px; font-size:20px; font-weight:600; font-family:'Noto Sans', sans-serif}
+section > article > div {width:1200px; min-width:1000px; margin:0 auto; padding:120px 10px 220px}
+
+.van1 {position:fixed; left:0; top:0; right:0; bottom:0; background:url("../images/23.jpg") no-repeat 50% -100px; text-align:center}
+.van1 > div {display:inline-block; padding:0; vertical-align:middle}
+.van1 p {line-height:1.5em; text-align:center; color:#fff; text-shadow:1px 1px 1px #000; font-size:45px; font-family:Malgun Gothic; letter-spacing:-3px}
+.van1 h3 + p {padding:30% 0 0}
+
+.van2 {z-index:60; box-shadow:0 2px 2px #4b4b4b; margin-top:1000px; box-shadow:none; background:url("../images/hexellence.png")}
+.van2 dl dt,
+.van2 dl dd {display:inline-block; line-height:25px; font-family:"Nanum Gothic", sans-serif}
+.van2 div {vertical-align:middle}
+.van2 .clear {border:1px solid #868485; border-radius:17px; padding:20px}
+.van2 .left {display:inline-block; height:100%; margin: 0 30px}
+.van2 .left img {width:120px; box-shadow:2px 2px 1px #888}
+.van2 .right {display:inline-block}
+
+.van3 {z-index:50; min-height:600px; background:url("../images/full2.jpg") no-repeat 50% 50%}
+.van3 h3 {color:#dbdbdb}
+.van3 div div {padding:80px 0}
+.van3 strong {display:block; font-size:15px; color:#6f6f6f}
+.van3 .motto {line-height:1.5em; font-size:45px; font-family:Myriad pro}
+.van3 .mottoExp p {color:#8b8b8b}
+
+.van4 {z-index:40; background:url("../images/brickwall.png")}
+.van5 {z-index:30; background:url("../images/shattered.png")}
+.van5 .skill {margin-bottom:30px; padding:20px 20px 30px; line-height:25px; border-radius:17px; background:#fff}
+.van5 .skill .motto {font-size:17px; font-weight:600}
+.van5 .commt {padding:15px}
+.van5 .commt li {font-weight:bold; font-size:14px; color:#999}
+
+.van6 {z-index:20; background:url("../images/swirl.png")}
+.introduce:after {content:""; clear:both; display:block}
+.introduce li {float:left; width:20%; height:200px}
+.introduce li a {display:block; margin:5px; height:100%; line-height:200px; border-radius:3px; text-align:center; color:#fff; font-family:"맑은 고딕", serif; font-weight:600; font-size:30px}
+.introduce li a:hover {box-shadow:4px 4px 2px #9a9a9a}
+.introduce li.int1 a {background:#ff486e}
+.introduce li.int2 a {background:#7fc242}
+.introduce li.int3 a {background:#42bdc2}
+.introduce li.int4 a {background:#f672d8}
+.introduce li.int5 a {background:#ce9fff}
+.introContents div {min-height:200px; margin-top:60px; padding:30px 40px 40px; border-radius:20px; background:#f1f1f1}
+.introContents span {display:block; text-align:center; font-size:30px; font-weight:600; color:#d1d1d1; padding-top:85px}
+.introContents p {display:inline-block; line-height:24px; vertical-align:middle}
+.introContents .empty {display:inline-block}
+
+.van7 {box-shadow:none; z-index:10; min-height:600px; background:url("../images/scribble_light.png")}
+.van7 p {color:#747474}
+.van7 h3 {padding-bottom:20px}
+.van7 h4 {font-weight:600}
+.van7 .likes > div {padding-top:30px}
+.van7 .likes article {margin-bottom:20px}
+.van7 .likes ul:after {content:""; clear:both; display:block}
+.van7 .likes li {float:left; width:120px; margin:0 10px 10px 0}
+.van7 .likes li div a {cursor:pointer}
+.van7 .likes li div:first-child {overflow:hidden; position:relative; margin:0 auto; height:120px; text-align:center; border-radius:15px; background:#dadada}
+.van7 .likes li:hover .illi {box-shadow:2px 2px 2px #6b6b6b}
+.van7 .likes li img {width:100%}
+.van7 .likes li .exp {padding-top:10px; text-align:center}
+.van7 .likes li .exp p:first-child {font-weight:600; color:#555; font-size:12px}
+.van7 .likes li.piano img {height:100%}
+
+.firstIntro p {padding:20px 0; font-size:18px; font-weight:600}
+.projectBox {padding-bottom:100px}
+.projectTitle {display:block; font-weight:400}
+.projectList td:last-child {text-align:left; padding:0 5px 0 10px}
+.intro {padding-bottom:100px}
+.intro p {font-size:13px; line-height:20px}
+.intro dt strong, .intro dt em {font-size:15px; font-weight:600}
+.intro dt, .intro h3 {padding:10px 0 20px; font-weight:600; font-size:16px}
+.intro h3 {padding:30px 0 10px}
+.intro li {line-height:22px; font-size:14px}
+.intro li strong {color:#ee1520}
+.mind dt {font-size:14px; padding-bottom:6px}
+.expintro {font-size:14px}
+.ellips {overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+
+/* 테이블 */
+.tableStyle1 {font-size:14px}
+.tableStyle1 th {height:44px; line-height:44px; color:#868485; font-weight:600; border-bottom:1px solid #868485}
+.tableStyle1 td {padding:10px 0 9px; height:20px; line-height:20px; text-align:center; color:#868485}
+.tableStyle1 td:first-child {padding-left:10px; text-align:left}
+
+/* 그래프 */
+.gragh {margin:0 auto; padding:10px 0; text-align:center}
+.gragh:after {content:""; clear:both; display:block}
+.gragh dl {margin:0 auto; text-align:center}
+.gragh dt {padding-bottom:7px; color:#999; font-weight:600}
+.donut {width:64px; height:64px; margin:0 auto; position:relative; background:url("../images/bg_gragh.png") no-repeat 0 0; background-size:100% auto}
+.donut .mask_r	{width:32px; height:64px; overflow:hidden; position:absolute; top:0; right:0}
+.donut .mask_r > span	{display:block; width:64px; margin-left:-32px}
+.donut .mask_r span span	{display:block; width:64px; height:64px; background:url("../images/wing_right.png") no-repeat 100% 0; background-size:32px 64px}
+.donut .mask_l	{width:32px; height:64px; overflow:hidden; position:absolute; top:0; left:0}
+.donut .mask_l > span	{display:block; width:64px}
+.donut .mask_l span span	{display:block; width:64px; height:64px; background:url("../images/wing_left.png") no-repeat 0 0; background-size:32px 64px}
+.donut .value	{display:block; position:absolute; z-index:100; left:5px; top:16px; width:54px; height:30px; line-height:30px; color:#515151; text-align:center; border-radius:50%}
+.structitle {margin-bottom:17px}
+.structitle h4, .viewBox2 .structitle em , .viewBox2 .structitle span {display:inline-block; vertical-align:middle}
+.structitle h4 {font-size:16px; font-weight:600; color:#515151; margin-right:25px}
+.structitle em {color:#ee1520; font-size:13px}
+.structitle span {font-size:13px; color:#999}
+
+/* footer */
+footer {position:relative; background:url("../images/pattern3.jpg") no-repeat 50% 0; text-align:center}
+footer > div {position:relative; width:1000px; margin:0 auto; padding:30px 0 50px}
+footer .fcontents {display:inline-block; vertical-align:middle; margin-left:20px}
+footer .oes_footer {display:inline-block; width:80px; height:80px; border-radius:50% /*position:absolute; left:30px; top:25px; */}
+footer strong, footer p, footer span {color:#878787; font-size:12px}
+footer .top {display:block; width:30px; height:30px; line-height:26px; margin:10px auto 0; border-radius:50%; background:#808080}
+footer .top span {color:#000}
+
+/* loading */
+.loadingBox {position:fixed; z-index:9999; left:0; top:0; right:0; bottom:0; background:#fff; text-align:center}
+#holder {overflow:hidden; position:absolute; left:50%; top:50%; width:300px; height:300px; margin:-150px auto 0 -150px}
+
+@media all and (max-width:1200px){
+section > article > div {width:auto}
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<title>slide2</title>
+	<meta charset="utf-8"/>
+	<meta name="author" content="" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href="../css/common.css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.js"></script>
+	<style type="text/css">
+		.watch {overflow:hidden; width:650px; padding:30px 50px; background:#eee}
+		.watch ul {position:relative; margin:0 auto}
+		.watch ul:after {content:""; clear:both; display:block}
+		.watch ul li {float:left; margin:0 15px; }
+		.watch ul li a {display:block; position:relative; padding:3px; width:80px; height:187px;  border:1px solid #4b4b4b}
+		.watch ul li a em {position:absolute; font-size:30px; font-weight:bold; left:20px; top:10px; color:#000}
+		.watch ul li a img {width:100%; height:187px}
+		.watch ul div {display:none;position:absolute; left:261px; top:0}
+		.watch ul div.hiTop {display:block; z-index:100}
+		#watchtabs {margin-top:-10px; border:10px solid #4b4b4b}
+	</style>
+</head>
+<body>
+	<div style="padding:10px 10px 10px 30px">정렬 됨</div>
+	<div class="watch">
+		<ul>
+			<li>
+				<a href="#n1" title="이벤트1"><img src="../images/am1.jpg" alt="" /></a>
+				<div><a href="http://www.google.com" title="구글 새창열림" id="n1"><img src="../images/am1.jpg" alt="" /></a></div>
+			</li>
+			<li>
+				<a href="#n2" title="이벤트2"><img src="../images/am2.jpg" alt="" /></a>
+				<div><a href="http://stackoverflow.com/" title="stacOverflow 새창열림" id="n2"><img src="../images/am2.jpg" alt="" /></a></div>
+			</li>
+			<li id="watchtabs">
+				<a href="#n3" title="이벤트3" target="_blank"><img src="../images/am3.jpg" alt="" /></a>
+				<div><a href="http://codepen.io/" title="코드펜 새창열림" id="n3" target="_blank"><img src="../images/am3.jpg" alt="" /></a></div>
+			</li>
+			<li>
+				<a href="#n4" title="이벤트4"><img src="../images/am4.jpg" alt="" /></a>
+				<div><a href="http://www.w3schools.com/" title="w3 스쿨 새창열림" id="n4"><img src="../images/am4.jpg" alt="" /></a></div>
+			</li>
+			<li>
+				<a href="#n5" title="이벤트5"><img src="../images/am6.jpg" alt="" /></a>
+				<div><a href="http://osaraitne.blogspot.kr/" title="사라있네 블로그 새창열림" id="n5"><img src="../images/am6.jpg" alt="" /></a></div>
+			</li>
+		</ul>
+	</div>
+	<div style="padding:30px 10px">
+		<strong style="font-weight:bold">설명</strong><p>마크업 구조를 a - div, a- div, a- div 로 작성함.</p>
+		<p>100% 메뉴 - 내용 으로 구성하여 탭이동이 100% 순차적임</p>
+		<p>세번째 링크메뉴는 중앙 비쥬얼(내용이 뿌려지는 영역)에 가려서 보이지 않는다.(일반 사용자 접근 - 인식의 불명확성이 문제가 될 수 있으며 마우스사용자의 접근성 떨어짐)</p>
+	</div>
+	<script type="text/javascript">
+		var objes = {
+			es : function(){
+				var uls = $(".watch ul")
+				, lis = $("li", uls)
+				, div = $("div", lis)
+				, linkss = $(" > a", lis)
+				, imgs = $("img", lis)
+				, arrs = [];
+
+				for( var i = 0; i<lis.size(); i++ ){
+					arrs[i] = lis.eq(i)
+				}
+
+				linkss.bind("click focus", function(){
+					uls.find("div").removeClass("hiTop");
+					$(this).next("div").addClass("hiTop");
+					
+				});
+			}
+		}
+		objes.es();
+	</script>
+</body>
+</html>

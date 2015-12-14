@@ -1,0 +1,211 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+<title>스탭구현</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width"/>
+<style type="text/css">
+/* 기본설정 */
+.wizard-steps {
+	margin:0 0 20px;
+	padding:0px;
+
+}
+.wizard-steps>li {
+	overflow:hidden;	
+	display:table-cell;
+	position:relative;
+	box-sizing:border-box;
+	margin:0px;
+	padding:0px;
+	width:1%;
+	height:66px;
+	line-height:66px;
+}
+.wizard-steps>li:before {
+	content:"";
+	position:absolute;
+	top:-10px;
+	left:0px;
+	z-index:2;
+}
+.wizard-steps>li:first-child:before {
+	content:none;
+}
+.wizard-steps>li>a {
+	display:block;
+	position:relative;
+	font-family:"나눔바른고딕", "맑은 고딕", 돋움;
+	font-size:18px;
+	text-align:center;
+	text-decoration:none;
+}
+.wizard-steps>li>a>span.step {
+	font-size:22px;
+	font-family:helvetica;
+	vertical-align:bottom;	
+}
+.wizard-steps>li>a>span.title {
+	vertical-align:bottom;
+}
+.wizard-steps>li>a:before {
+	content:"";
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:2;
+}
+.wizard-steps>li:nth-child(1) a:before {content:none;}
+.wizard-steps>li>a:after {
+	content:"";
+	position:absolute;
+	top:0px;
+	right:0px;
+}
+.wizard-steps>li.active>a:after {
+	top:-11px;
+	left:1px;
+	right:auto;
+	z-index:1;	
+}
+.wizard-steps>li.active:first-child>a:after {
+	content:none;
+}
+.wizard-steps>li.active+li>a:before {
+	top:-11px;
+	left:-5px;
+	z-index:4
+}
+.wizard-steps>li.active+li:after {
+	content:"";
+	position:absolute;
+	top:-10px;
+	left:-4px;
+	z-index:3;
+}
+
+/* 색상지정 */
+.wizard-steps>li {border-bottom:1px solid #066895;}
+.wizard-steps>li:before {
+	border-left:20px solid #fff;
+	border-top:44px solid transparent;
+	border-bottom:44px solid transparent;
+}
+.wizard-steps>li:nth-child(1) {background:#92d0dd;}
+.wizard-steps>li:nth-child(2) {background:#51c2d9;}
+.wizard-steps>li:nth-child(3) {background:#3fa7cc;}
+.wizard-steps>li:nth-child(4) {background:#037da5;}
+.wizard-steps>li:nth-child(5) {background:#066895;}
+
+.wizard-steps>li>a {color:#fff;}
+.wizard-steps>li>a:before {
+	border-top:33px solid transparent;
+	border-bottom:33px solid transparent;	
+}
+.wizard-steps>li:nth-child(2) a:before {border-left:15px solid #79c1d5;}
+.wizard-steps>li:nth-child(3) a:before {border-left:15px solid #44b5d2;}
+.wizard-steps>li:nth-child(4) a:before {border-left:15px solid #3497c0;}
+.wizard-steps>li:nth-child(5) a:before {border-left:15px solid #03719b;}
+
+.wizard-steps>li>a:after {border-left:15px solid transparent;}
+.wizard-steps>li:nth-child(1) a:after {
+	border-right:15px solid #79c1d5;
+	border-top:33px solid #85c8d9;
+	border-bottom:33px solid #85c8d9;
+}
+.wizard-steps>li:nth-child(2) a:after {
+	border-right:15px solid #44b5d2;
+	border-top:33px solid #4abbd5;
+	border-bottom:33px solid #4abbd5;
+}
+.wizard-steps>li:nth-child(3) a:after {
+	border-right:15px solid #3497c0;
+	border-top:33px solid #399fc6;
+	border-bottom:33px solid #399fc6;
+}
+.wizard-steps>li:nth-child(4) a:after {
+	border-right:15px solid #03719b;
+	border-top:33px solid #0377a0;
+	border-bottom:33px solid #0377a0;
+}
+.wizard-steps>li:nth-child(5) a:after {
+	border-right:15px solid #045e8d;
+	border-top:33px solid #056391;
+	border-bottom:33px solid #056391;
+}
+.wizard-steps>li.active>a {
+	border-top:1px solid #066895;
+	color:#154259;
+	background:#fff;
+}
+.wizard-steps>li.active:first-child>a {border-left:1px solid #066895;}
+.wizard-steps>li.active:last-child>a {border-right:1px solid #066895;}
+.wizard-steps>li.active>a:after {
+	border-left:20px solid #066895;	
+	border-right:20px solid transparent;
+	border-top:44px solid transparent;
+	border-bottom:44px solid transparent;	
+}
+.wizard-steps>li.active+li>a:before {
+	border-left:20px solid #fff;
+	border-top:44px solid transparent;
+	border-bottom:44px solid transparent;		
+}
+.wizard-steps>li.active+li:after {
+	border-left:20px solid #066895;
+	border-top:44px solid transparent;
+	border-bottom:44px solid transparent;	
+}
+</style>
+</head>
+<body>
+<ul class="wizard-steps">
+	<li><a href="#">기본설정</a></li>
+	<li><a href="#">상세설정</a></li>
+	<li><a href="#">부가설정</a></li>
+	<li><a href="#">추가설정</a></li>
+	<li><a href="#">완료</a></li>
+</ul>
+
+<ul class="wizard-steps">
+	<li class="active"><a href="#">기본설정</a></li>
+	<li><a href="#">상세설정</a></li>
+	<li><a href="#">부가설정</a></li>
+	<li><a href="#">추가설정</a></li>
+	<li><a href="#">완료</a></li>
+</ul>
+
+<ul class="wizard-steps">
+	<li><a href="#">기본설정</a></li>
+	<li class="active"><a href="#">상세설정</a></li>
+	<li><a href="#">부가설정</a></li>
+	<li><a href="#">추가설정</a></li>
+	<li><a href="#">완료</a></li>
+</ul>
+
+<ul class="wizard-steps">
+	<li><a href="#">기본설정</a></li>
+	<li><a href="#">상세설정</a></li>
+	<li class="active"><a href="#">부가설정</a></li>
+	<li><a href="#">추가설정</a></li>
+	<li><a href="#">완료</a></li>
+</ul>
+
+<ul class="wizard-steps">
+	<li><a href="#">기본설정</a></li>
+	<li><a href="#">상세설정</a></li>
+	<li><a href="#">부가설정</a></li>
+	<li class="active"><a href="#">추가설정</a></li>
+	<li><a href="#">완료</a></li>
+</ul>
+
+<ul class="wizard-steps">
+	<li><a href="#">기본설정</a></li>
+	<li><a href="#">상세설정</a></li>
+	<li><a href="#">부가설정</a></li>
+	<li><a href="#">추가설정</a></li>
+	<li class="active"><a href="#">완료</a></li>
+</ul>
+</body>
+</html>

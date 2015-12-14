@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8"/>
+	<title>Let's Play Mario Game!!</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+	<meta name="author" content="오은선" />
+	<meta name="keywords" content="html5,css3,javacript,jquery" />
+	<link rel="stylesheet" href="../css/common.css" />
+	<link rel="stylesheet" href="../css/estyle.css" />
+	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+<div class="es-wrap">
+	<span id="esicon" class="esicon" style="left:30px; bottom:90px"><img src="../images/mario.PNG" alt="자, 달려봅시다!" /></span>
+</div>
+<div id="wrap">
+	<section>
+		<div class="block block1">
+			<span class="on">
+				<a href="#">?</a>
+				<div class="article">
+					<h2>기본사항</h2>
+					<article>
+						<dl>
+							<dt>이름 : </dt><dd>오은선</dd>
+						<dl>
+						</dl>
+							<dt>생년월일 : </dt><dd>1986.10.25</dd>
+						<dl>
+						</dl>
+							<dt>취미 : </dt><dd>javascript study</dd>
+						<dl>
+						</dl>
+							<dt>특기 : </dt><dd>drawing</dd>
+						</dl>
+					</article>
+				</div>
+			</span>
+			<span>
+				<a href="#">?</a>
+				<div class="article">
+					<h2>기본사항</h2>
+					<article>
+						<dl>
+							<dt>이름 : </dt><dd>오은선</dd>
+						<dl>
+						</dl>
+							<dt>생년월일 : </dt><dd>1986.10.25</dd>
+						<dl>
+						</dl>
+							<dt>취미 : </dt><dd>javascript study</dd>
+						<dl>
+						</dl>
+							<dt>특기 : </dt><dd>drawing</dd>
+						</dl>
+					</article>
+				</div>
+			</span>
+			<span><a href="#">?</a></span>
+			<span><a href="#">?</a></span>
+		</div>
+		<div class="block block2">
+			<span><a href="#">?</a></span>
+			<span><a href="#">?</a></span>
+			<span><a href="#">?</a></span>
+			<span><a href="#">?</a></span>
+			<span><a href="#">?</a></span>
+		</div>
+		
+	</section>
+	
+	<!-- 대지 -->
+	<div class="green"></div>
+	<!-- //대지 -->
+</div>
+<!-- //wrap end -->
+<script type="text/javascript">
+	var id = function(v){return document.getElementById(v)};
+	var ico = id("esicon");
+	var cnt = 30;
+	var jnt = 90;
+	var last = document.body.offsetWidth;
+
+
+	var action = {
+		right : function(){
+			var go = setInterval(function(  ){
+				if( cnt < last - 50  ){
+					cnt +=5;
+				}else{
+					clearInterval(go)
+				}
+				ico.style.left = cnt + "px";
+			},10);
+		},
+		actions : function(){
+			document.body.onkeyup= function(event){
+				console.log(111)
+				this.e = event || window.event;
+				if( this.e.keyCode == 39 ){//우측 전진
+					console.log(this)
+
+					action.right();
+
+
+				}else if( this.e.keyCode == 38 ){//점프
+					clearInterval(go)
+					go = setInterval(function(){
+						if( jnt < 256  ){
+							jnt += 2;
+							jnt = jnt * 1.1
+						}else if(jnt <= 256){
+							jnt -= 2;
+							jnt = jnt *  0.9
+						}else if( jnt >= 90 ){
+							jnt = 90
+							clearInterval(go)
+						}
+						ico.style.bottom = jnt + "px";
+					},10);
+				}
+			}
+		}
+	}
+	action.actions();
+
+
+	
+
+</script>
+</body>
+</html>

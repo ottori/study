@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<title></title>
+	<meta charset="utf-8" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link type="text/css" rel="stylesheet" href="" />
+	<style type="text/css">
+	dt {height:150px; line-height:150px; background:#000; color:#fff}
+	</style>
+	<script type="text/javascript">
+		function myFunction(){
+			var itm = document.getElementById("myList2").lastChild;
+			var cln = itm.cloneNode(true);
+			document.getElementById("myList1").appendChild(cln);
+		}
+			//window.onload  functon 작성 후 body 내의 button 을 누르면 해당 함수를 찾을 수 없다고 에러 뜸.................. why???
+	</script>
+</head>
+<body>
+
+<ul id="myList1"><li>Coffee</li><li>Tea</li></ul>
+<ul id="myList2"><li>Water</li><li>Milk</li></ul>
+
+<p id="demo">Click the button to copy an item from one list to another</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p>Try changing the <em>deep</em> parameter to false, and only an empty LI element will be cloned.</p>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml="lang" lang="ko">
+<head>
+	<title>Slide set</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="../css/tarot.css" />
+	<script type="text/javascript">
+		window.onload = function(){
+			totalActions();
+		}
+		function totalActions(){
+			function id(b){ return document.getElementById(b);}
+			var arrowTab = id("arrowTab");
+			var tabChild = arrowTab.getElementsByTagName("li");
+			var cnt = 0;
+			var cns = 0;
+			SET();
+
+			function SET(){
+				var set = setTimeout(function(){
+					cns++;
+					actions();
+					clearTimeout(set);
+				},1000);
+			}
+			function actions(){
+				var sliding = setInterval(function(){
+					cnt++;
+					if( cnt >= cns * 220){
+						cnt = cns * 220;
+						clearInterval(sliding);
+						SET();
+					}
+					arrowTab.style.marginLeft = - cnt + "px";
+				},10);
+				arrowTab.appendChild(tabChild[1]);
+			}
+		}
+	</script>
+</head>
+<body>
+<div class="wwrap">
+	<div class="wrap">
+		<ul id="arrowTab" style="margin-left:0">
+			<li><a href="#"><img src="../images/list1.jpg" alt="" /></a></li>
+			<li><a href="#"><img src="../images/list2.jpg" alt="" /></a></li>
+			<li><a href="#"><img src="../images/list3.jpg" alt="" /></a></li>
+			<li><a href="#"><img src="../images/list4.jpg" alt="" /></a></li>
+		</ul>
+	</div>
+	<div id="btnList">
+		<ul>
+			<li><a href="#"> < </a></li>
+			<li><a href="#"> > </a></li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

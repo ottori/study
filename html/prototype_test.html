@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+    <meta charset="UTF-8">
+    <title>prototype 테스트</title>
+    <link rel="stylesheet" href="../css/common.css" />
+    <style type="text/css">
+        div {padding:100px}
+        h1 {margin-bottom:50px}
+        #ball {display:inline-block;width:30px;height:30px;line-height:30px;background:#f5004d;border-radius:50%;color:#fff;text-align:center}
+    </style>
+</head>
+<body>
+    <div>
+        <h1>prototype 테스트</h1>
+        <a href="#" id="ball">'o'</a>
+    </div>
+    <script type="text/javascript">
+        var ball = document.getElementById("ball");
+        var cnt = 1
+
+        function go(){
+            if( cnt < 500) {
+                var section = setInterval(function() {
+                    cnt = cnt + 3
+                    if (cnt >= 100) {
+                        console.log('최상위 최상위')
+                        clearInterval(section)
+                        go();
+                    }
+                    console.log(cnt)
+                    ball.style.transform = 'translateY(' + cnt + 'px' + ') translateX(0)';
+                },50);
+            }else{
+                var section = setInterval(function() {
+                    cnt = cnt + 3;
+                    if( cnt <= 0){
+                        cnt = 0;
+                        console.log('맨 밑자리')
+                        clearInterval(section)
+                        go();
+                    }
+                    console.log(cnt)
+                    ball.style.transform = 'translateY(' + cnt + 'px' + ') translateX(0)';
+                }, 50);
+            }
+        };
+
+        function style(){
+            ball.style.transitionProperty = 'transform';
+            ball.style.transitionTimingFunction = 'transform';
+        };
+
+        ball.onclick = function(){
+            ball.style.transitionDuration ='300ms';
+            go();
+        };
+/*
+        function Person(name){
+            this.name = name;
+        }
+        Person.prototype.name = null;
+        Person.prototype.intro  = function(){
+            console.log("console.log");
+        }
+
+        function Programmer(name){
+            this.name = name;
+        }
+        Programmer.prototype = new Person();
+
+        var aa = new Programmer("sunny");
+*/
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,68 @@
+@charset 'utf-8';
+
+/* RESET CORE : HTML5 & XHTML */
+html,body{-webkit-text-size-adjust:none}
+body{font-size:14px;line-height:1.5em}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,fieldset,p,input,button{margin:0;padding:0;font-family:Dotum,"돋움",Helvetica,sans-serif;color:#666}
+article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary{display:block}
+hr{display:none}
+h1,h2,h3,h4,h5,h6 {line-height:1.2em}
+ul, li{list-style-type:none}
+button{border:0;background:transparent;cursor:pointer}
+i,em,address,optgroup{font-style:normal;font-weight:normal}
+img,input,select,textarea,fieldset,iframe{border:0 none;vertical-align:middle}
+a{color:#666; text-decoration:none;}
+
+/* RESET CORE : HTML5 */
+input,button,select,textarea{resize:none}
+
+/* RESET CORE : XHTML */
+table{width: 100%; border-collapse:collapse;border-spacing:0}
+table,th,td{border:0}
+caption,legend{visibility:hidden;overflow:hidden;width:0;height:0;font-size:0;line-height:0}
+
+/* IMPORT : BASIC */
+input.basic{height:17px;line-height:17px;padding:0 5px;border:1px solid #333;*margin-top:-1px; _margin-top:-2px}
+textarea.basic{border:1px solid #cacaca;padding:5px;overflow:scroll;overflow-x:hidden;*margin-top:-1px;_margin-top:-2px}
+select.basic{height:19px;border:1px solid #333;vertical-align:top}
+
+/* IMPORT : UTIL - HIDE & IR */
+.blind {display:none}
+.hide{display:block;position:absolute;top:-9999px;left:-9999px;visibility:hidden;width:1px;height:1px;font-size:0;line-height:0;text-indent:-9999px;overflow:hidden}
+.ir{display:block;line-height:0;text-indent:-9999px;overflow:hidden}
+.hidden {overflow:hidden; width: 0; height: 0; font-size:0; line-height:0; display:block; position:absolute; left:-1000px; top:-1000px}
+
+p {margin: 20px 0}
+tr:nth-of-type(odd) {background: #eee}
+th {background: #333; color: white; font-weight: bold; }
+td, th { padding: 6px; border: 1px solid #ccc; text-align: left; }
+#page-wrap {margin:5px}
+
+@media all and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px){
+table, thead, tbody, th, td, tr {display: block}
+tr {border:2px solid #2e2e2e; margin-bottom:10px}
+thead tr {position: absolute; top: -9999px; left: -9999px}
+td {position:relative; border: none; border-bottom: 1px solid #345502; padding-left: 50%}
+td:last-child {border-bottom:0}
+
+td:before {position:absolute; top:0; left:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; width: 45%; height:100%; line-height:32px; padding:0 2.5%; white-space: nowrap; color:#fff; background:#9BAF04; font-weight:bold}
+td:nth-of-type(1):before { content: "First Name  Dream Vacation City First Name  Dream Vacation City"}
+td:nth-of-type(2):before { content: "Last Name"; }
+td:nth-of-type(3):before { content: "Job Title"; }
+td:nth-of-type(4):before { content: "Favorite Color"; }
+td:nth-of-type(5):before { content: "Wars of Trek?"; }
+td:nth-of-type(6):before { content: "Porn Name"; }
+td:nth-of-type(7):before { content: "Date of Birth"; }
+td:nth-of-type(8):before { content: "Dream Vacation CityDream Vacation City" }
+td:nth-of-type(9):before { content: "GPA"; }
+td:nth-of-type(10):before { content: "Arbitrary Data"; }}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media all and (min-device-width : 320px) and (max-device-width : 480px){
+
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media all and (min-device-width: 768px) and (max-device-width: 1024px) {
+
+}

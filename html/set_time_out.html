@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+ <head>
+  <title>setTimeout</title>
+  <meta  charset="euc-kr" />
+  <meta name="description" content="" />
+  <link type="text/css" rel="stylesheet" href="" />
+  <script type="text/javascript">
+	window.onload = function(){
+		document.write( " <input type='text' id='tel'> ");
+		times();
+		function times(){
+			
+			now = new Date();
+			str = now.getHours() + "시";
+			str+=now.getMinutes() + "분";
+			str+=now.getSeconds() + "초0";
+			var tel = document.getElementById("tel");
+			tel.value = str;
+			
+			console.log(1);
+			setTimeout("times()",1000);
+		}
+	}
+  </script>
+ </head>
+ <body>
+
+ </body>
+</html>

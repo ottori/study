@@ -1,0 +1,38 @@
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+/* reset */
+html{direction:ltr}
+html,body{height:100%; -webkit-text-size-adjust:none}
+body{font-size:13px; line-height:22px; font-family: "Nanum Gothic", sans-serif;}
+body.dimm {overflow-y:hidden; height:100%; position:fixed; left:0; top:0; right:0; bottom:0;}
+body,div,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,fieldset,p,input,button,select,img,a,dl,dt,dd{margin:0;padding:0; color:#4b4b4b}
+article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary{display:block}
+hr{display:none}
+h1,h2,h3,h4,h5,h6{font-size:13px; font-weight:normal; letter-spacing:-1px}
+ul, li{list-style-type:none}
+i,em,address,optgroup,cite,code,dfn,em,var {font-style:normal;font-weight:normal}
+img,input,select,textarea,fieldset,iframe{border:0 none;vertical-align:middle}
+input,button,select,textarea{resize:none; border-radius:0; border:0}
+em,strong,span,th,td{vertical-align:middle}
+table{width:100%;border-collapse:collapse;border-spacing:0;table-layout:fixed;word-break:break-all}
+table,th,td{margin:0;padding:0;border:0;font-weight:normal}
+caption,legend{overflow:hidden;width:0;height:0;font-size:0;line-height:0}
+a{color:#4b4b4b; border:0;text-decoration:none; /*-webkit-tap-highlight-color:transparent*/}
+div:active, div:hover {-webkit-tap-highlight-color:transparent}
+a:hover{text-decoration:none; -ms-background-color:transparent}
+table a {color:#ff6388}
+table a:hover {text-decoration:underline}
+table .jsSelect a {color:#4b4b4b}
+table .jsSelect a:hover {text-decoration:none}
+input[type=checkbox] {width:13px; height:13px; border:1px solid #c1c1c1}
+input[type=text],input[type=password], textarea{-webkit-appearance:none}
+input[type=radio] {border-radius:50%; border:1px solid #c1c1c1}
+select {-webkit-appearance:none; background:#fff url("../images/common/r_err.gif") 100% 50% no-repeat}
+
+/* basic */
+input.basic{height:17px;line-height:17px;padding:0 5px;border:1px solid #333;*margin-top:-1px; _margin-top:-2px}
+textarea.basic{border:1px solid #cacaca;padding:5px;overflow:scroll;overflow-x:hidden;*margin-top:-1px;_margin-top:-2px}
+select.basic{height:19px;border:1px solid #333;vertical-align:top}
+.hide {display:block; width:0; height:0; line-height:0; font-size:0; position:absolute; left:-5000px; top:0}
+.empty {display:inline-block; width:0; height:100%; vertical-align:middle}

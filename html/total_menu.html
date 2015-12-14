@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title>Total Menu - Mobile</title>
+  <meta name="Author" content="">
+  <link rel="stylesheet" href="../css/common.css" />
+  <style type="text/css">
+	body {height:100%; padding:30px; background:#eee}
+	.box {width:100px; height:100px; line-height:100px; text-align:center; background-color:skyblue; border:1px solid blue; transition:width 2s, height 2s; -webkit-transition:width 1s, height 1s, line-height 1s, -webkit-transform 0.5s, font-size 1s, font-weight 1s}
+	.box:hover {width:200px; height:200px; line-height:200px; font-size:30px; font-weight:bold; border-weight:2px; background-color:yellow; border-color:green; transform:rotate(180deg); -webkit-transform:rotate(180deg)}
+	.ham {position:fixed; left:20px; bottom:100px}
+	.ham a {display:block; width:56px; height:56px; color:transparent; background-image:url("http://static.naver.net/www/m/2013/sprh_v17.png"); background-position:-190px -150px}
+	.aside {position:absolute; left:0; top:0; width:200px; height:100%; background:#fff; -webkit-transform:translateX(-300px) translateY(0px); box-shadow:3px 0 8px rgba(0,0,0,0.5)}
+  </style>
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+ </head>
+ <body>
+  <div class="box">
+	오은선♥
+  </div>
+  <div class="ham">
+	<a href="#" id="ham" >확장영역 열기</a>
+  </div>
+  <div id="aside" class="aside">
+	<div class="head" style="position:relative; height:30px; line-height:30px; padding-left:15px; color:#fff; background:#4b4b4b">
+		Sunny <a href="#"style="position:absolute; right:10px; top:0; width:25px; height:100%; line-height:30px; text-align:center; color:#fff">X</a>
+	</div>
+  </div>
+  <script type="text/javascript">
+	$(function(){
+		var change = "translateX(0) translateY(0px)"
+		$("#ham").click(function(){
+			console.log(11)
+			$("#aside").css("-webkit-transform",change);
+		})
+	});
+  </script>
+ </body>
+</html>

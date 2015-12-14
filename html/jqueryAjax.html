@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>제이쿼리 Ajax 메소드</title>
+  <link rel="stylesheet" href="../css/common.css" />
+	<style type="text/css">body {padding:30px}
+	#new_projects {min-height:100px; margin-bottom:10px; border:2px solid #ccc; padding:5px; border-radius:5px; background:#f1f1f1}
+	.fure-box {min-height:550px; border:1px solid #ccc; border-radius:5px; padding:20px}
+	.fure-box p {padding:5px 0; margin-bottom:20px; border-bottom:2px solid #4b4b4b; font-weight:bold}
+	#btn {border:2px solid #ccc; padding:5px; border-radius:5px}
+	#btn:hover {color:#fff; background:#444}
+	li em {color:blue}
+	</style>
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+	<h1><strong>1. jQuery 를 이용하여 Ajax </strong></h1>
+	<strong>※ 학습제목 : Ajax로 다른 페이지의 전체가 아닌 일부를 호출하기</strong><br/><br/>
+	<ol id="new_projects"></ol>
+	<button id="btn">AJAX로 다른 페이지의 일부를 가져오려면 여기를 클릭하세요!!</button>
+	<script>
+		$("button").click(function(){
+			$( "#new_projects" ).load( "projects.html #projects li" );
+		});
+	</script>
+		<br/ ><br/ ><br/ >
+
+
+	<h1><strong>2. 순수 Javascript를 이용하여 Ajax</strong> </h1>
+	<div class="fure-box">
+		<p>※ 아래는 fure js / Ajax 로 불러오는 xml.xml 문서</p>
+		<ul>
+			<li><a href="#">★★★★★★★★★★★★★★★★★</a></li>
+			<li><a href="#">☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆</a></li>
+			<li><a href="#">★★★★★★★★★★★★★★★★★</a></li>
+			<li><a href="#">☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆</a></li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		var XML = {
+			oesAjax : function(){
+				var httpRequest;
+				if (window.XMLHttpRequest) { // 모질라, 사파리등 그외 브라우저, ...
+					httpRequest = new XMLHttpRequest();
+				} else if (window.ActiveXObject) { // IE 8 이상
+					httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+			}
+		}
+	</script>
+
+</body>
+</html>

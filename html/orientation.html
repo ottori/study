@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Page Title</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.js"></script>
+       
+       <script>
+        $(function()
+        {
+            var nCount=0;
+           
+            /////////////////////
+            $("[data-role=page]").bind('orientationchange',function(event)
+            {
+                nCount++;
+                $("#info1").text("orientation"+nCount+", "+window.orientation);
+            });
+           
+       
+        });
+       
+       
+    </script>
+</head>
+<body>
+ 
+</head>
+ 
+<body>
+    <div data-role="page" id="foo">
+              <div data-role="header">
+                     <h1 id="hm">Foo</h1>
+              </div><!-- /header -->
+       
+              <div data-role="content">
+                     <p>orientationchange event test</p>   
+                     <p id="info1"></p>
+       
+              </div><!-- /content -->
+       
+              <div data-role="footer">
+                     <h4>Page Footer</h4>
+              </div><!-- /header -->
+       </div><!-- /page -->
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>레이어 드래그,드롭 </title>
+	<meta http-equiv="Content-Type" content="application/html+xml; charset=utf-8" />
+	<style type="text/css">
+		html,body	{width:100%; height:100%; margin:0; font-family:"맑은 고딕"}
+		a {text-decoration:none; display:block; padding:2px; line-height:24px; background:#4b4b4b; color:#fff; font-size:12px;} 
+		#box	{position:relative; padding:5px; background:#eee; width:300px; height:300px; display:none; font-size:12px}
+		#box a {position:absolute; right:5px; top:5px; display:inline-block; background:#blue; color:#fff}
+		#box:active {background:pink}
+		#gogo {background:#dff; width:300px; height:300px; display:none}
+		.fox {position:absolute; left:100px; top:200px; width:100px; height:100px; background:red; cursor:move}
+	</style>
+	<script type="text/javascript">
+		//<![CDATA[
+		window.onload=function(){
+			CRfunction()
+			function CRfunction(){
+				var fox = document.getElementById("fox");
+				var foxStyle = fox.currentStyle.left
+				console.log(foxStyle)
+			}
+			d = document;
+			function dragLayer(id,Xpos,Ypos){
+				layer = d.getElementById(id);
+				layer.style.display = "block";
+				layer.style.position = "absolute";
+				layer.style.left = Xpos + "px";
+				layer.style.top = Ypos + "px";
+				layer.onmousedown = function(event){
+					msdown(event);
+				}
+			}
+
+			msdown = function(e){
+				layer.style.cursor = "move";
+				if(layer.currentStyle){
+					var Lpos = parseInt(layer.currentStyle.left);
+					var Tpos = parseInt(layer.currentStyle.top);
+				}else{
+					var Lpos = parseInt(d.defaultView.getComputedStyle(layer,null).left);
+					var Tpos = parseInt(d.defaultView.getComputedStyle(layer,null).top);
+				}
+				if(window.event){
+					startX = event.x;
+					startY = event.y;
+					mousePointerX = Lpos - event.x;
+					mousePointerY = Tpos - event.y;
+				}else{
+					startX = e.clientX;
+					startY = e.clientY;
+					mousePointerX = Lpos - e.clientX ;
+					mousePointerY = Tpos - e.clientY;
+				}
+				goMove(e);
+			}
+
+			goMove = function(e){
+				layer.onmousemove = function(e){
+					if(window.event){
+						layer.style.left = mousePointerX + event.x + "px";
+						layer.style.top = mousePointerY + event.y + "px";
+					}else{
+						layer.style.left = mousePointerX + e.clientX + "px" ;
+						layer.style.top = mousePointerY + e.clientY + "px";
+					}
+					
+					layer.onmouseup = function(){
+						var lastX = layer.style.left;
+						var lastY = layer.style.top;
+						finish(lastX,lastY);
+					}
+				}
+			}
+
+			function finish(x,y){
+				layer.style.cursor = "auto";
+				layer.onmousemove = function(){
+					layer.style.left = x;
+					layer.style.top = y;
+				}
+			}
+			function thisClose(id){
+				document.getElementById(id).style.display = "none";
+			}
+			document.getElementById("links").onclick=function(){
+				dragLayer("box","300","100")
+			}
+			document.getElementById("close").onclick=function(){
+				thisClose("box")
+			}
+		}
+		//]]>
+	</script>
+</head>
+<body>
+	<a href="#" id="links" title="Drag And Drop!!">레이어 띄우기</a>
+	<div id="box">내용이 들어갑니다
+		<p><a href="#" id="close">CLOSE</a></p>
+	</div>
+	<div class="fox" id="fox"style="left:200px"></div>
+</body>
+</html>

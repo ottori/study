@@ -1,0 +1,1684 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<title>홈테마 | LG SmartWorld</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<link rel="shortcut icon" href="http://kr.lgworld.com/images/common/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="http://kr.lgworld.com/common/css/default.css" />
+	<link rel="stylesheet" type="text/css" href="http://kr.lgworld.com/common/css/style.css" />	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script type="text/javascript">
+	window.onload = function(){
+		function id(v){return document.getElementById(v)}//Id 반환
+		var _css = function(element,prop){var el,read_css;el = element;if( !document.defaultView ){read_css = el.currentStyle[prop];}else{read_css = document.defaultView.getComputedStyle(el,null).getPropertyValue(prop);}return read_css}//css 반환
+		
+		var side = id("side");
+ 
+		var lgworld = {
+			toggle : function(){
+				this.dd = side.getElementsByTagName("dd");
+				this.a = side.getElementsByTagName("a");
+				var cmd, before;
+ 
+				for( var i = 0 ; i<this.a.length; i++ ){
+					var a = this.a[i];
+					a.onclick=function(){
+						var aCurrent = this.getElementsByTagName("img");
+						var ul = this.parentNode.getElementsByTagName("ul")[0];
+						aCurrent[0].className = "hidden";
+						aCurrent[1].className = ""
+						this.parentNode.className = "on"
+						
+						if( ul ){
+							cmd = true;
+							ul.className = "";
+							if(before != null){
+								before.parentNode.getElementsByTagName("ul")[0].className = "hidden";
+							}
+							before = this;
+						}else{
+							cmd = false;
+						}
+						returnCmd(this,cmd,ul)
+						return false;
+					}
+				}
+ 
+				function returnCmd(a,b,c,d){
+					console.log()
+					if(b==true){
+						a.parentNode.getElementsByTagName("ul")[0].className = "";
+					}
+				}
+ 
+			}
+		}
+		lgworld.toggle();
+ 
+	}
+	</script>
+</head>
+<body>
+<div id="wrap" style="padding-left:30px">
+	<div id="container">
+		<!-- side -->
+		<div id="side">
+			<h1><a href="http://kr.lgworld.com/web.main.dev"><img src="http://kr.lgworld.com/images/common/logo_smart.gif" alt="" /></a></h1>
+			<dl>
+				<dt id="BASIC_MENU_101">추천 카테고리</dt>
+					<dd id="BASIC_MENU_102">
+						<a href="#" class="side_link">
+							<img src="http://kr.lgworld.com/images/menu/side_icon01.gif" alt="" />
+							<img src="http://kr.lgworld.com/images/menu/side_icon01_on.gif" alt="" />LG 스페셜
+						</a>
+						<ul class="hidden">
+							<li>
+								<a href="#">퀵서클 Apps</a>
+							</li>
+							<li>
+								<a href="#">LG Apps</a>
+							</li>
+							<li id="lf_1">
+								<a href="#">전자사전</a>
+							</li>
+							<li>
+								<a href="#">3D Zone</a>
+							</li>
+						</ul>
+					</dd>
+					<dd id="BASIC_MENU_103" on>
+						<a href="#" class="side_link">
+							<img src="http://kr.lgworld.com/images/menu/side_icon02.gif" alt=""class="hidden" />
+							<img src="http://kr.lgworld.com/images/menu/side_icon02_on.gif" alt=""  />LG 폰꾸미기
+						</a>
+						<ul class="hidden">
+							<li id="lf_116">
+								<a href="#">홈테마</a>
+							</li>
+							<li id="lf_117">
+								<a href="#">키보드테마</a>
+							</li>
+							<li id="lf_118">
+								<a href="#">폰트</a>
+							</li>
+							<li id="lf_111">
+								<a href="#">벨소리</a>
+							</li>
+							<li id="lf_121">
+								<a href="#">Q보이스 테마</a>
+							</li>
+						</ul>
+					</dd>
+					<dd id="BASIC_MENU_104">
+						<a href="#" class="side_link">
+							<img src="http://kr.lgworld.com/images/menu/side_icon03.gif" alt="" />
+							<img src="http://kr.lgworld.com/images/menu/side_icon03_on.gif" class="hidden" alt="" />운영자 
+						</a>
+						<ul class="hidden">
+							<li id="lf_T02">
+								<a href="#">프리미엄 추천</a>
+							</li>
+							<li id="lf_T03">
+								<a href="#">테마 추천</a>
+							</li>
+						</ul>
+					</dd>
+					<dd id="lf_BASIC_MENU_105">
+						<a href="#" class="side_link">
+							<img src="http://kr.lgworld.com/images/menu/side_icon04.gif" alt="" />
+							<img src="http://kr.lgworld.com/images/menu/side_icon04_on.gif" class="hidden" alt="" />이벤트
+						</a>
+					</dd>
+				<dt id="BASIC_MENU_106">일반 카테고리</dt>
+					<dd id="lf_105">
+						<a href="" class="side_link">
+							<img src="http://kr.lgworld.com/images/menu/side_icon05.gif" alt="" />
+							<img src="http://kr.lgworld.com/images/menu/side_icon05_on.gif" class="hidden" alt="" />엔터테인먼트
+						</a>
+					</dd>
+					<dd id="lf_122">
+						<a href="" class="side_link">
+							<img src="http://kr.lgworld.com/images/menu/side_icon20.gif" alt="" />
+							<img src="http://kr.lgworld.com/images/menu/side_icon20_on.gif" class="hidden" alt="" />Hi-Fi음원(MQS)
+						</a>
+					</dd>
+					<dd id="lf_101">
+						<a href="" class="side_link">
+							<img src="http://kr.lgworld.com/images/menu/side_icon06.gif" alt="" />
+							<img src="http://kr.lgworld.com/images/menu/side_icon06_on.gif" class="hidden" alt="" />게임
+						</a>
+					</dd>
+					<dd id="lf_110">
+						<a href="" class="side_link">
+							<img src="http://kr.lgworld.com/images/menu/side_icon07.gif" alt="" />
+							<img src="http://kr.lgworld.com/images/menu/side_icon07_on.gif" class="hidden" alt="" />유틸리티
+						</a>
+					</dd>
+					<dd id="lf_102">
+						<a href="" class="side_link">
+							<img src="http://kr.lgworld.com/images/menu/side_icon08.gif" alt="" />
+							<img src="http://kr.lgworld.com/images/menu/side_icon08_on.gif" class="hidden" alt="" />교육
+						</a>
+					</dd>
+					<dd id="lf_108">
+						<a href="" class="side_link">
+							<img src="http://kr.lgworld.com/images/menu/side_icon09.gif" alt="" />
+							<img src="http://kr.lgworld.com/images/menu/side_icon09_on.gif" class="hidden" alt="" />라이프스타일
+						</a>
+					</dd>
+ 
+				<dt id="BASIC_MENU_113">고객센터</dt>
+					<dd id="lf_BASIC_MENU_114">
+						<a href="" class="side_link">
+							<img src="http://kr.lgworld.com/images/menu/side_icon11.gif" alt="" />
+							<img src="http://kr.lgworld.com/images/menu/side_icon11_on.gif" class="hidden" alt="" />공지사항
+						</a>
+					</dd>
+					<dd id="lf_BASIC_MENU_115">
+						<a href="" class="side_link">
+							<img src="http://kr.lgworld.com/images/menu/side_icon12.gif" alt="" />
+							<img src="http://kr.lgworld.com/images/menu/side_icon12_on.gif" class="hidden" alt="" />자주 묻는 질문
+						</a>
+					</dd>
+					<dd id="lf_BASIC_MENU_116">
+						<a href="" class="side_link">
+							<img src="http://kr.lgworld.com/images/menu/side_icon13.gif" alt="" />
+							<img src="http://kr.lgworld.com/images/menu/side_icon13_on.gif" class="hidden" alt="" />1:1 문의
+						</a>
+					</dd>
+					<dd id="lf_BASIC_MENU_117">
+						<a href="" class="side_link">
+							<img src="http://kr.lgworld.com/images/menu/side_icon14.gif" alt="" />
+							<img src="http://kr.lgworld.com/images/menu/side_icon14_on.gif" class="hidden" alt="" />가이드
+						</a>
+					</dd>
+			</dl>
+            <p class="side_banner"><img src="http://kr.lgworld.com/images/common/banner_qr.gif" alt="모바일 앱 다운로드를 위한 큐알 코드 이미지 입니다" /></p>
+			<ul class="side_banner">
+                <li><a href="javascript:fnc_menuView('web.lgsw.sideBanner.RetrieveLgThemeParkInfo.dev','');"><img src="http://kr.lgworld.com/images/common/kr_ko/banner02.gif" alt="엘지테마파크다운로드 페이지로 이동" /></a></li>
+                <li><a href="http://www.lgmobile.co.kr/" target="_blank" title="LG Mobile 홈페이지 새창"><img src="http://kr.lgworld.com/images/common/banner03.gif" alt="엘지모바일 사이트로 새창 이동" /></a></li>
+            </ul>
+            <ul class="side_banner2">
+            	<li><a href="http://www.lgworld.com/cms/" title="CMS 홈페이지 새창" target="_blank"><img src="http://kr.lgworld.com/images/common/banner04.gif" alt="어플리케이션 개발 협력사를 위한 페이지로 새창 이동" /></a></li>
+                <li><a href="https://www.facebook.com/kr.lgsmartworld" title="LG SmartWorld 페이스북 새창" target="_blank"><img src="http://kr.lgworld.com/images/common/banner05.gif" alt="엘지스마트월드 페이스북으로 새창 이동" /></a></li>
+                <!-- <li><a href="http://developer.lge.com/" title="LG Developer" target="_blank"><img src="http://kr.lgworld.com/images/common/banner06_r.gif" alt="LG Developer" /></a></li>
+                <li><a href="http://developer.lge.com/" title="LG Developer" target="_blank"><img src="http://kr.lgworld.com/images/common/banner06.gif" alt="LG Developer" /></a></li> -->
+            </ul>
+        </div>
+        <!-- // side -->
+        
+        <!-- content -->
+        <div id="content">
+        	<!-- search area -->
+            <div id="search_wrap">
+        		
+ 
+ 
+ 
+ 
+	            	<div id="search" style="position:relative;">
+						<form name="searchform" id="AKCFrm" method="post" action="web.Search.dev" onsubmit="return seachKwd(this);">           
+	                	<div id="search_select">
+	                    	<a href="#" id="choiceCombosrchcode" title="통합검색" class="combo_open" onclick="showComboList('comboListsrchcode')"><span>전체</span><input type="hidden" name="srchcode" value="01" /></a>
+	                        <ul id="comboListsrchcode" class="combo_list" title="통합검색" style="display: none;">
+				                <li onclick="onChangeNomal(this,'choiceCombosrchcode', 'comboListsrchcode');" class='on' ><a href="#" title="전체">전체</a><input type="hidden" value="01" /></li>
+				                <li onclick="onChangeNomal(this,'choiceCombosrchcode', 'comboListsrchcode');"  ><a href="#" title="어플리케이션">어플리케이션</a><input type="hidden" value="02" /></li>
+				                <li onclick="onChangeNomal(this,'choiceCombosrchcode', 'comboListsrchcode');"  ><a href="#" title="리뷰">리뷰</a><input type="hidden" value="04" /></li>
+				                <li onclick="onChangeNomal(this,'choiceCombosrchcode', 'comboListsrchcode');"  ><a href="#" title="고객센터">고객센터</a><input type="hidden" value="05" /></li>
+	                        </ul>
+	                    </div>
+	                    
+	                    <div id="auto_search">
+	                    	<input type="text" id="m_search" class="total_search" title="검색어" name="kwd" value="" autocomplete="off" onkeydown="searchKeyUp();" />
+  	                    	<a href="#" id="btnAutoarea" class="btn_search2" >
+								<img id="AKCArrow" src="http://kr.lgworld.com/images/common/btn_search_on.png" class="png24" alt="Search" style="display: none;" />
+							</a> 
+							<div id="AKCDiv" style="DISPLAY:block;Z-INDEX:300;POSITION:absolute;top:34px;left:0;width:233px;">
+								<iframe id="AKCIfrm" style="WIDTH: 100%; HEIGHT:0 " name="AKCIfrm" title="자동완성리스트" marginwidth="0" marginheight="0" src="" frameborder="0" scrolling="no">
+								</iframe>
+							</div>
+	                    </div>
+	                    
+	                    <input type="submit" class="btn_search" value="검색" />	                    
+                		</form>	                    
+	                </div>
+                <div id="popular">
+					<span class="hidden">검색랭킹순위</span>
+                    <ul id="rolling">
+								<li><span class="no">1</span> <a href="javascript:goppkKwd('smart world');">smart world</a> <img src="http://kr.lgworld.com/images/common/ic_rank_down.gif" alt="순위하락" /></li>
+ 
+								<li><span class="no">2</span> <a href="javascript:goppkKwd('G3');">G3</a> <img src="http://kr.lgworld.com/images/common/ic_rank_down.gif" alt="순위하락" /></li>
+								<li><span class="no">3</span> <a href="javascript:goppkKwd('g3');">g3</a> <img src="http://kr.lgworld.com/images/common/ic_rank_down.gif" alt="순위하락" /></li>
+								<li><span class="no">4</span> <a href="javascript:goppkKwd('퀵서클');">퀵서클</a> <img src="http://kr.lgworld.com/images/common/ic_rank_down.gif" alt="순위하락" /></li>
+								<li><span class="no">5</span> <a href="javascript:goppkKwd('G2');">G2</a> <img src="http://kr.lgworld.com/images/common/ic_rank_down.gif" alt="순위하락" /></li>
+								<li><span class="no">6</span> <a href="javascript:goppkKwd('폰트');">폰트</a> <img src="http://kr.lgworld.com/images/common/ic_rank_down.gif" alt="순위하락" /></li>
+								<li><span class="no">7</span> <a href="javascript:goppkKwd('smartworld');">smartworld</a> <img src="http://kr.lgworld.com/images/common/ic_rank_down.gif" alt="순위하락" /></li>
+								<li><span class="no">8</span> <a href="javascript:goppkKwd('simple 홈');">simple 홈</a> <img src="http://kr.lgworld.com/images/common/ic_new.gif" alt="신규진입" /></li>
+								<li><span class="no">9</span> <a href="javascript:goppkKwd('사막고래');">사막고래</a> <img src="http://kr.lgworld.com/images/common/ic_rank_rising.gif" alt="순위대폭상승" /></li>
+								<li><span class="no">10</span> <a href="javascript:goppkKwd('aa');">aa</a> <img src="http://kr.lgworld.com/images/common/ic_new.gif" alt="신규진입" /></li>
+                    </ul>
+                </div>
+				<!-- // ì ¸ê¸°ê²€ìƒ‰ì–´ -->
+            </div>
+            <!-- search area -->
+	        <form method="post" name="frmCatAppList" id="frmCatAppList" action="">
+	        <input type="hidden" id="foldingFlag" name="foldingFlag" value=""/>        
+            <div id="cont_in">
+				<!-- home theme -->
+				<div class="tit_area">
+					<span class="breadcrumb"><a href="web.main.dev">홈</a> &gt; 운영자 추천 > 프리미엄 추천</span>
+					<h2 class="tit_hometheme">홈테마</h2>
+				</div>
+ 
+				<form name="form" method="post" action="">
+				<input type="hidden" id="applId" name="applId" value="000001176323068" />				
+				<input type="hidden" id="companyCode" name="companyCode" value="CPKR001311" />				
+				
+				<!-- best box -->
+				<div class="best_box">
+					<div class="best_detail ty2">
+						<p class="best_img">
+							
+								<!-- span class="tag"><img src="http://kr.lgworld.com/images/common/tag_best.png" alt="베스트" /></span-->
+							
+							<img src="http://kr.lgworld.com/images/adm/application/IMAGES/CPKR001311/PID14072441521/thumbnail_BuhaBeari_512_0_PC301.png" onerror="javascript:this.src='/images/common/no_img172.gif'" alt="부하곰 [LG 홈테마]" />
+							<span class="flag">
+ 
+							</span>
+						</p>
+						<div class="app_exp">
+							<strong>부하곰 [LG 홈테마]</strong>
+							<span class="star"><span class="star_num" style="width:100%;">별점 5개중 5개</span></span>
+							<div class="info2">
+								<span>등급 : ALL</span>
+								<span>업데이트일 : 2014. 07. 28</span>
+								<span>용량 : 7.7 MB</span>
+								<span>버전 : 2.0.22071416</span>
+								<span>지원OS : ANDROID 4.0/4.1/4.2/4.4</span>
+								<div class="seller">판매자 : NEOCYON, INC.<br />
+									<a href="#" class="btn_dim link">
+									[판매자정보]</a>
+									<!-- 판매자정보 layer -->
+									<div class="dim_layer">
+										<div class="seller_layer">
+											<p class="layer_tit">판매자정보</p>
+											<table class="data_tbl" summary="판매자, 대표자, 사업자등록번호, 전화번호, 이메일, 주소의 정보를 나타내는 표입니다.">
+												<caption>판매자정보</caption>
+												<colgroup>
+													<col width="35%" />
+													<col width="65%" />
+												</colgroup>
+										
+											
+											
+												<tr>
+													<th scope="row">판매자</th>
+													<td class="al">NEOCYON, INC.</td>
+												</tr>
+											
+											
+												<tr>
+													<th scope="row">대표자</th>
+													<td class="al">Kitamura Toshinori</td>
+												</tr>
+											
+											
+												<tr>
+													<th scope="row">사업자등록번호</th>
+													<td class="al">211-86-66362</td>
+												</tr>
+											
+											
+												<tr>
+													<th scope="row">전화번호</th>
+													<td class="al">02-2132-7933</td>
+												</tr>
+											
+											
+												<tr>
+													<th scope="row">이메일</th>
+													<td class="al">nohyun@neocyon.com</td>
+												</tr>
+											
+											
+												<tr>
+													<th scope="row">주소</th>
+													<td class="al">14F, Nuritkum Squre R&D Tower, 1605 Sangsam-dong, Mapo-gu, Seoul, Korea</td>
+												</tr>
+											
+											
+										
+											</table>
+											<!-- <p class="mt10">* 판매자 정보는 판매자가 직접 등록한 정보로서 판매자의 목적 및 업데이트 여부에 따라 변경될 수 있습니다.</p> -->
+										</div>
+										<span class="close"><a href="#"><img src="http://kr.lgworld.com/images/common/btn_dim_close.gif" alt="구매방법 레이어 닫기" /></a></span>
+									</div>
+									<!-- // 판매자정보 layer -->
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="best_btn">
+						<span class="price">무료</span>
+						<span class="button pink"><a href="#how" class="btn_dim" title="구매방법">구매방법</a></span>
+					</div>
+				</div>
+				<!-- 2013-10-28 구매안내 레이어 팝업 내용 추가 -->
+				<div id="how" class="dim_layer">
+					<div class="howto">
+						<p class="layer_tit">구매방법</p>
+						<p class="how_txt01">본 컨텐츠를 이용하시기 위해서는 <br />LG SmartWorld 애플리케이션이 설치되어 있어야 합니다.</p>
+						<ul class="howto_step">
+							<li><strong class="c_pink">방법1. QR코드 스캔하여 설치하기</strong>
+								<p class="howto_qr">
+									<img src="http://kr.lgworld.com/images/common/img_howto_qr.gif" alt="QR Code" />
+									<span>QR코드를 스캔하여 LG SmartWorld Application을 설치해주세요.</span>
+								</p>
+							</li>
+							<li><strong class="c_pink">방법2. 모바일웹에서 주소창 입력하여 설치하기 </strong>
+								<ol>
+									<li>Step1. 모바일웹 주소창에 ‘www.lgworld.com’ 주소 입력</li>
+									<li>Step2. 권역 및 국가 선택</li>
+									<li>Step3. LG SmartWorld app Download 버튼 선택 </li>
+									<li>Step4. Install 버튼 선택</li>
+									<li>Step5. 설치완료 후 LG SmartWorld App 실행</li>
+								</ol>
+							</li>
+						</ul>
+						<p class="btn">
+							<span class="button pink"><a href="javascript:fnc_downLoad();">다운로드 방법 자세히 보기</a></span>
+						</p>
+						<p>3G/LTE 상태에서 다운로드를 받을 경우 데이터 통화료가 부과될 수 있습니다.</p>
+					</div>
+					<span class="close"><a href="#"><img src="http://kr.lgworld.com/images/common/btn_dim_close.gif" alt="구매방법 레이어 닫기" /></a></span>
+				</div>
+ 
+				<!-- 첫번째 UI -->
+				<div class="description" id="DS">
+					<div class="description_mask">
+						<ul class="img_list">
+							<li><img src="http://kr.lgworld.com/images/adm/application/IMAGES/CPKR001311/PID14072441521/H_kr01.png" alt="폰꾸미기 홈테마1" /></li>
+							<li><img src="http://kr.lgworld.com/images/adm/application/IMAGES/CPKR021619/PID131202291997/thumbnail_SnowChristmas_512_PC301.png" alt="폰꾸미기 홈테마2" /></li>
+							<li><img src="http://kr.lgworld.com/images/adm/application/IMAGES/CPKR021617/PID13111927020/1324552024310_3.jpg" alt="폰꾸미기 홈테마3" /></li>
+							<li><img src="http://kr.lgworld.com/images/adm/application/IMAGES/CPKR001311/PID14072441563/thumbnail_DayandDay_512_PC301.png" alt="폰꾸미기 홈테마4" />
+							</li>
+							<li><img src="http://kr.lgworld.com/images/adm/application/IMAGES/CPKR021617/PID13111926997/1324558772545_3.jpg" alt="폰꾸미기 홈테마5" /></li>
+						</ul>
+					</div>
+					<!-- spot 네비게이션 -->
+					<ul class="DSbtns nav_btn">
+						<li><a href="#">폰꾸미기 홈테마1</a></li>
+						<li><a href="#">폰꾸미기 홈테마2</a></li>
+						<li><a href="#">폰꾸미기 홈테마3</a></li>
+						<li><a href="#">폰꾸미기 홈테마4</a></li>
+						<li><a href="#">폰꾸미기 홈테마5</a></li>
+					</ul>
+					<!-- //spot 네비게이션 -->
+					<div class="DSview menu_spot">
+						<a href="#" id="focused">
+							<img src="http://kr.lgworld.com/images/adm/application/IMAGES/CPKR001311/PID14072441521/H_kr01.png" alt="폰꾸미기 홈테마2" />
+						</a>
+						<strong>[상품 제목]</strong>
+						<span>별점 평점</span>
+					</div>
+				</div>
+				<!-- //첫번째 UI -->
+				<script type="text/javascript">
+				$(function(){
+					for(var i = 0; ){
+						$("#DS .DSbtns li").eq(i).click(function(){
+							 $("#DS .img_list li").eq(i),csss(*)dfasdfasd
+						})
+					}
+
+
+					$("#DS .DSbtns li").bind("click focus", function(){
+						var inx = $("#DS .DSbtns li").index(this);
+						var src = $("#DS .img_list li").eq(inx).find("img").attr("src")
+						$("#DS .DSview a img").attr("src",src)
+						$("#focused").focus();
+					})
+				})
+				</script>
+				<br /><br />
+				<!-- 2번째 UI -->
+				<div class="description" id="DS2">
+					<div class="box">
+						<div class="description_mask">
+							<ul class="img_list">
+								<li>
+									<a href="#">
+										<img src="http://kr.lgworld.com/images/adm/application/IMAGES/CPKR021619/PID131202291997/thumbnail_SnowChristmas_512_PC301.png" alt="폰꾸미기 홈테마1" />
+									</a>
+								</li>
+								<li><a href="#"><img src="http://kr.lgworld.com/images/adm/application/IMAGES/CPKR021617/PID13111927020/1324552024310_3.jpg" alt="폰꾸미기 홈테마2" /></a></li>
+								<li><a href="#"><img src="http://kr.lgworld.com/images/adm/application/IMAGES/CPKR021617/PID13111926997/1324558772545_3.jpg" alt="폰꾸미기 홈테마3" /></a></li>
+							</ul>
+						</div>
+						<div class="DSview menu_spot">
+							<a href="#">
+								<img src="http://kr.lgworld.com/images/adm/application/IMAGES/CPKR001311/PID14072441521/H_kr01.png" alt="폰꾸미기 홈테마2" />
+							</a>
+							<strong>[상품 제목]</strong>
+							<span>별점 평점</span>
+						</div>
+					</div>
+				</div>
+				<!-- //2번째 UI -->
+				<div id="description1">
+					<div class="tit_area2 sm">
+						<h3 class="tit_hometheme01">상품설명</h3>
+					</div>
+					<div class="description_txt">
+						<p>[작가 소개]<br/>작가 마네는 캐릭터 회사 포니브라운을 운영하고 있으며, 포니브라운에서 캐릭터 개발, 상품 디자인, 제작 참여하고 있습니다.</p>
+					</div>
+				</div>
+				<div class="rating">
+					<div class="rating_tit">
+						<h3 class="tit_hometheme02">평점</h3>
+						<span class="star"><span class="star_num" style="width:100%;">별점 5개중 5개</span></span>
+						<a href="#" class="btn_review open">리뷰보기</a>
+					</div>
+					<div id="review">
+						<p class="rating_txt">평점/댓글은 다운로드 회원의 상품에 대한 평가입니다.</p>
+						<ul class="review_list">
+							<li class="g_bg">
+								<span class="star"><span class="star_num" style="width:100%;">별점 5개중 5개</span></span>
+								<span class="writer">pe****ㅣ 2014. 07. 29</span>
+								<span class="cont">완전조아요</span>
+							</li>
+							<li >
+								<span class="star"><span class="star_num" style="width:100%;">별점 5개중 5개</span></span>
+								<span class="writer">story****ㅣ 2014. 07. 28</span>
+								<span class="cont">귀염터짐요♥</span>
+							</li>
+							<li class="g_bg">
+								<span class="star"><span class="star_num" style="width:100%;">별점 5개중 5개</span></span>
+								<span class="writer">mingj****ㅣ 2014. 07. 28</span>
+								<span class="cont">저 완전 부하곰 팬이에요... 다이어리부터 스티커까지 ㅠㅠㅠ 으앙 너무 좋아서 날아갈것 같아요</span>
+							</li>
+							<li >
+								<span class="star"><span class="star_num" style="width:100%;">별점 5개중 5개</span></span>
+								<span class="writer">papepopo****ㅣ 2014. 07. 28</span>
+								<span class="cont">너무 귀여워요ㅠㅜ</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- Apps from this seller -->
+				<div class="line_box sm">
+					<h4 class="tit_hometheme04">판매자의 다른 상품 추천 (17)</h4>
+					<div class="list_carousel scrolling_holder scroll_thumb">
+						<a href="#" id="prev_rolling3" class="scroll_ctrl prev">이전목록 보기</a>
+						<ul id="rolling3" class="thumb_list">
+							
+							<li>
+								<span class="thumb">
+									<a href="javascript:fnc_applDetailInfo('116','000001176317488');">
+										<img src="http://kr.lgworld.com/images/adm/application/IMAGES/CPKR001311/PID14070232863/thumbnail_CynicalRabbit_512_PC301.png" onerror="javascript:this.src='/images/common/no_img70.gif'"  alt="시니컬 토끼 [LG 홈테마]" />
+									</a>
+									<span class="flag">
+ 
+									</span>
+								</span>
+								<span class="tit"><a href="javascript:fnc_applDetailInfo('116','000001176317488');">시니컬 토끼 [LG 홈테마]</a></span>
+								<span class="star"><span class="star_num" style="width:80%;">별점 5개중 4개</span></span>
+																
+								<span class="price">무료</span>
+								
+							</li>
+							
+							<li>
+								<span class="thumb">
+									<a href="javascript:fnc_applDetailInfo('116','000001176317157');">
+										<img src="http://kr.lgworld.com/images/adm/application/IMAGES/CPKR001311/PID14070232903/thumbnail_BeckyandBrown_512_PC301.png" onerror="javascript:this.src='/images/common/no_img70.gif'"  alt="베키와 브라운 [LG 홈테마]" />
+									</a>
+									<span class="flag">
+ 
+									</span>
+								</span>
+								<span class="tit"><a href="javascript:fnc_applDetailInfo('116','000001176317157');">베키와 브라운 [LG 홈테마]</a></span>
+								<span class="star"><span class="star_num" style="width:90%;">별점 5개중 4.5개</span></span>
+																
+								<span class="price">무료</span>
+								
+							</li>
+							
+							<li>
+								<span class="thumb">
+									<a href="javascript:fnc_applDetailInfo('116','000001176319669');">
+										<img src="http://kr.lgworld.com/images/adm/application/IMAGES/CPKR001311/PID14071036882/thumbnail_Koguma_512_PC301.png" onerror="javascript:this.src='/images/common/no_img70.gif'"  alt="빨간곰 고구마 [LG 홈테마]" />
+									</a>
+									<span class="flag">
+ 
+									</span>
+								</span>
+								<span class="tit"><a href="javascript:fnc_applDetailInfo('116','000001176319669');">빨간곰 고구마 [LG 홈테마]</a></span>
+								<span class="star"><span class="star_num" style="width:100%;">별점 5개중 5개</span></span>
+																
+								<span class="price">무료</span>
+								
+							</li>
+							
+							<li>
+								<span class="thumb">
+									<a href="javascript:fnc_applDetailInfo('116','000001176320210');">
+										<img src="http://kr.lgworld.com/images/adm/application/IMAGES/CPKR001311/PID14071538361/thumbnail_paradise_512_PC301.png" onerror="javascript:this.src='/images/common/no_img70.gif'"  alt="Paradise [LG 홈테마]" />
+									</a>
+									<span class="flag">
+ 
+									</span>
+								</span>
+								<span class="tit"><a href="javascript:fnc_applDetailInfo('116','000001176320210');">Paradise [LG 홈테마]</a></span>
+								<span class="star"><span class="star_num" style="width:70%;">별점 5개중 3.5개</span></span>
+																
+								<span class="price">무료</span>
+								
+							</li>
+							
+							<li>
+								<span class="thumb">
+									<a href="javascript:fnc_applDetailInfo('116','000001176307230');">
+										<img src="http://kr.lgworld.com/images/adm/application/IMAGES/CPKR001311/PID14051319746/thumbnail_coffeebreak_512_PC301.png" onerror="javascript:this.src='/images/common/no_img70.gif'"  alt="휴식 시간 [LG 홈테마]" />
+									</a>
+									<span class="flag">
+ 
+									</span>
+								</span>
+								<span class="tit"><a href="javascript:fnc_applDetailInfo('116','000001176307230');">휴식 시간 [LG 홈테마]</a></span>
+								<span class="star"><span class="star_num" style="width:80%;">별점 5개중 4개</span></span>
+																
+								<span class="price">무료</span>
+								
+							</li>
+							
+							<li>
+								<span class="thumb">
+									<a href="javascript:fnc_applDetailInfo('116','000001176319756');">
+										<img src="http://kr.lgworld.com/images/adm/application/IMAGES/CPKR001311/PID14071036841/thumbnail_DaisyandPobi_512_PC301.png" onerror="javascript:this.src='/images/common/no_img70.gif'"  alt="데이지와 포비 [LG 홈테마]" />
+									</a>
+									<span class="flag">
+ 
+									</span>
+								</span>
+								<span class="tit"><a href="javascript:fnc_applDetailInfo('116','000001176319756');">데이지와 포비 [LG 홈테마]</a></span>
+								<span class="star"><span class="star_num" style="width:80%;">별점 5개중 4개</span></span>
+																
+								<span class="price">무료</span>
+								
+							</li>
+							
+							<li>
+								<span class="thumb">
+									<a href="javascript:fnc_applDetailInfo('116','000001176311140');">
+										<img src="http://kr.lgworld.com/images/adm/application/IMAGES/CPKR001311/PID14052823101/thumbnail_fly_512_PC301.png" onerror="javascript:this.src='/images/common/no_img70.gif'"  alt="Fly [LG 홈테마]" />
+									</a>
+									<span class="flag">
+ 
+									</span>
+								</span>
+								<span class="tit"><a href="javascript:fnc_applDetailInfo('116','000001176311140');">Fly [LG 홈테마]</a></span>
+								<span class="star"><span class="star_num" style="width:60%;">별점 5개중 3개</span></span>
+																
+								<span class="price">무료</span>
+								
+							</li>
+							
+							<li>
+								<span class="thumb">
+									<a href="javascript:fnc_applDetailInfo('116','000001176314670');">
+										<img src="http://kr.lgworld.com/images/adm/application/IMAGES/CPKR001311/PID14061326481/thumbnail_Yoha_512_PC301.png" onerror="javascript:this.src='/images/common/no_img70.gif'"  alt="바가지머리 요하 [LG 홈테마]" />
+									</a>
+									<span class="flag">
+ 
+									</span>
+								</span>
+								<span class="tit"><a href="javascript:fnc_applDetailInfo('116','000001176314670');">바가지머리 요하 [LG 홈테마]</a></span>
+								<span class="star"><span class="star_num" style="width:80%;">별점 5개중 4개</span></span>
+																
+								<span class="price">무료</span>
+								
+							</li>
+							
+							<li>
+								<span class="thumb">
+									<a href="javascript:fnc_applDetailInfo('116','000001176315077');">
+										<img src="http://kr.lgworld.com/images/adm/application/IMAGES/CPKR001311/PID14061827941/thumbnail_stripemetal_512_PC301.png" onerror="javascript:this.src='/images/common/no_img70.gif'"  alt="Stripe Metal [LG 홈테마]" />
+									</a>
+									<span class="flag">
+ 
+									</span>
+								</span>
+								<span class="tit"><a href="javascript:fnc_applDetailInfo('116','000001176315077');">Stripe Metal [LG 홈테마]</a></span>
+								<span class="star"><span class="star_num" style="width:90%;">별점 5개중 4.5개</span></span>
+																
+								<span class="price">무료</span>
+								
+							</li>
+							
+							<li>
+								<span class="thumb">
+									<a href="javascript:fnc_applDetailInfo('116','000001176320255');">
+										<img src="http://kr.lgworld.com/images/adm/application/IMAGES/CPKR001311/PID14071538381/thumbnail_512_PC301.png" onerror="javascript:this.src='/images/common/no_img70.gif'"  alt="BlueAde [LG 홈테마]" />
+									</a>
+									<span class="flag">
+ 
+									</span>
+								</span>
+								<span class="tit"><a href="javascript:fnc_applDetailInfo('116','000001176320255');">BlueAde [LG 홈테마]</a></span>
+								<span class="star"><span class="star_num" style="width:80%;">별점 5개중 4개</span></span>
+																
+								<span class="price">무료</span>
+								
+							</li>
+							
+							<li>
+								<span class="thumb">
+									<a href="javascript:fnc_applDetailInfo('116','000001176314626');">
+										<img src="http://kr.lgworld.com/images/adm/application/IMAGES/CPKR001311/PID14061326441/thumbnail_muff_512_PC301.png" onerror="javascript:this.src='/images/common/no_img70.gif'"  alt="멉스라이프 [LG 홈테마]" />
+									</a>
+									<span class="flag">
+ 
+									</span>
+								</span>
+								<span class="tit"><a href="javascript:fnc_applDetailInfo('116','000001176314626');">멉스라이프 [LG 홈테마]</a></span>
+								<span class="star"><span class="star_num" style="width:90%;">별점 5개중 4.5개</span></span>
+																
+								<span class="price">무료</span>
+								
+							</li>
+							
+							<li>
+								<span class="thumb">
+									<a href="javascript:fnc_applDetailInfo('116','000001176311138');">
+										<img src="http://kr.lgworld.com/images/adm/application/IMAGES/CPKR001311/PID14052823121/thumbnail_metalbody_512_PC301.png" onerror="javascript:this.src='/images/common/no_img70.gif'"  alt="Metal body [LG 홈테마]" />
+									</a>
+									<span class="flag">
+ 
+									</span>
+								</span>
+								<span class="tit"><a href="javascript:fnc_applDetailInfo('116','000001176311138');">Metal body [LG 홈테마]</a></span>
+								<span class="star"><span class="star_num" style="width:90%;">별점 5개중 4.5개</span></span>
+																
+								<span class="price">무료</span>
+								
+							</li>
+							
+							<li>
+								<span class="thumb">
+									<a href="javascript:fnc_applDetailInfo('116','000001176314715');">
+										<img src="http://kr.lgworld.com/images/adm/application/IMAGES/CPKR001311/PID14061326461/thumbnail_Dururu_512_re_PC301.png" onerror="javascript:this.src='/images/common/no_img70.gif'"  alt="Dururu  [LG 홈테마]" />
+									</a>
+									<span class="flag">
+ 
+									</span>
+								</span>
+								<span class="tit"><a href="javascript:fnc_applDetailInfo('116','000001176314715');">Dururu  [LG 홈테마]</a></span>
+								<span class="star"><span class="star_num" style="width:70%;">별점 5개중 3.5개</span></span>
+																
+								<span class="price">무료</span>
+								
+							</li>
+							
+							<li>
+								<span class="thumb">
+									<a href="javascript:fnc_applDetailInfo('116','000001176307260');">
+										<img src="http://kr.lgworld.com/images/adm/application/IMAGES/CPKR001311/PID14051319748/thumbnail_TheLittleMermaid_512_PC301.png" onerror="javascript:this.src='/images/common/no_img70.gif'"  alt="인어공주 [LG 홈테마]" />
+									</a>
+									<span class="flag">
+ 
+									</span>
+								</span>
+								<span class="tit"><a href="javascript:fnc_applDetailInfo('116','000001176307260');">인어공주 [LG 홈테마]</a></span>
+								<span class="star"><span class="star_num" style="width:80%;">별점 5개중 4개</span></span>
+																
+								<span class="price">￦2,000</span>
+								
+							</li>
+							
+							<li>
+								<span class="thumb">
+									<a href="javascript:fnc_applDetailInfo('116','000001176323023');">
+										<img src="http://kr.lgworld.com/images/adm/application/IMAGES/CPKR001311/PID14072441621/thumbnail_QukiandGilbert_512_PC301.png" onerror="javascript:this.src='/images/common/no_img70.gif'"  alt="쿠키앤길버트 [LG 홈테마]" />
+									</a>
+									<span class="flag">
+ 
+									</span>
+								</span>
+								<span class="tit"><a href="javascript:fnc_applDetailInfo('116','000001176323023');">쿠키앤길버트 [LG 홈테마]</a></span>
+								<span class="star"><span class="star_num" style="width:100%;">별점 5개중 5개</span></span>
+																
+								<span class="price">무료</span>
+								
+							</li>
+							
+							<li>
+								<span class="thumb">
+									<a href="javascript:fnc_applDetailInfo('116','000001176322936');">
+										<img src="http://kr.lgworld.com/images/adm/application/IMAGES/CPKR001311/PID14072441563/thumbnail_DayandDay_512_PC301.png" onerror="javascript:this.src='/images/common/no_img70.gif'"  alt="데이앤데이 [LG 홈테마]" />
+									</a>
+									<span class="flag">
+ 
+									</span>
+								</span>
+								<span class="tit"><a href="javascript:fnc_applDetailInfo('116','000001176322936');">데이앤데이 [LG 홈테마]</a></span>
+								<span class="star"><span class="star_num" style="width:100%;">별점 5개중 5개</span></span>
+																
+								<span class="price">무료</span>
+								
+							</li>
+							
+							<li>
+								<span class="thumb">
+									<a href="javascript:fnc_applDetailInfo('116','000001176322891');">
+										<img src="http://kr.lgworld.com/images/adm/application/IMAGES/CPKR001311/PID14072441601/thumbnail_MyLittleFriend_512_PC301.png" onerror="javascript:this.src='/images/common/no_img70.gif'"  alt="마리프 [LG 홈테마]" />
+									</a>
+									<span class="flag">
+ 
+									</span>
+								</span>
+								<span class="tit"><a href="javascript:fnc_applDetailInfo('116','000001176322891');">마리프 [LG 홈테마]</a></span>
+								<span class="star"><span class="star_num" style="width:100%;">별점 5개중 5개</span></span>
+																
+								<span class="price">무료</span>
+								
+							</li>
+								
+ 
+						</ul>
+						<a href="#" id="next_rolling3" class="scroll_ctrl next">다음목록 보기</a>
+					</div>
+				</div>
+				
+				<!-- // Apps from this seller -->
+				
+				
+				<!-- Supported Phone Models -->
+				
+				<div class="line_box2 support_phone sm">
+					<div class="tit_area">
+						<h4 class="tit_hometheme05">지원단말 (60)</h4>
+						<span class="button white2"><a href="#all" class="btn_dim" title="지원단말기 전체보기">전체보기</a></span>
+						<!-- layer -->
+						<div id="all" class="dim_layer support_phone_layer">
+							<h4>지원단말 (60)</h4>
+							<div class="support_phone_scroll">
+								
+								<ul class="support_phone_list">
+									
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/F460[20140717161708050].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F460S/G3 Cat.6" /></span>
+										<span class="sort1">F460S</span>
+ 										<span class="sort2">G3 Cat.6</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/F460[20140717161750184].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F460K/G3 Cat.6" /></span>
+										<span class="sort1">F460K</span>
+ 										<span class="sort2">G3 Cat.6</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/F460[20140717161608906].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F460L/G3 Cat.6" /></span>
+										<span class="sort1">F460L</span>
+ 										<span class="sort2">G3 Cat.6</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/g-pad-101[20140624171436378].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="V700N/G Pad 10.1" /></span>
+										<span class="sort1">V700N</span>
+ 										<span class="sort2">G Pad 10.1</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/D320[20140425112014720].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="D329/L70" /></span>
+										<span class="sort1">D329</span>
+ 										<span class="sort2">L70</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/help_GxR_85_169[20140428091554441].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F310LR/Gx" /></span>
+										<span class="sort1">F310LR</span>
+ 										<span class="sort2">Gx</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/g-pad-101.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="V700/G Pad 10.1" /></span>
+										<span class="sort1">V700</span>
+ 										<span class="sort2">G Pad 10.1</span> 
+									</li>
+									
+								</ul>
+							
+								<ul class="support_phone_list">
+									
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/g-pad-7.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="V400/G Pad 7.0" /></span>
+										<span class="sort1">V400</span>
+ 										<span class="sort2">G Pad 7.0</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/G3_58x100[20140529104327981].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F400S/G3" /></span>
+										<span class="sort1">F400S</span>
+ 										<span class="sort2">G3</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/G3_58x100[20140529104215253].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F400K/G3" /></span>
+										<span class="sort1">F400K</span>
+ 										<span class="sort2">G3</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/G3_58x100[20140529104253722].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F400L/G3" /></span>
+										<span class="sort1">F400L</span>
+ 										<span class="sort2">G3</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/F370_B_58_100[20140521172916391].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F370L/F70" /></span>
+										<span class="sort1">F370L</span>
+ 										<span class="sort2">F70</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/F370_B_58_100[20140521172807608].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F370K/F70" /></span>
+										<span class="sort1">F370K</span>
+ 										<span class="sort2">F70</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/F370_B_58_100[20140521172852844].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F370S/F70" /></span>
+										<span class="sort1">F370S</span>
+ 										<span class="sort2">F70</span> 
+									</li>
+									
+								</ul>
+							
+								<ul class="support_phone_list">
+									
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/d700.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="D700/옵티머스 L9" /></span>
+										<span class="sort1">D700</span>
+ 										<span class="sort2">옵티머스 L9</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/F350[20140220153926079].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F350L/G Pro2" /></span>
+										<span class="sort1">F350L</span>
+ 										<span class="sort2">G Pro2</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/F350[20140220153730376].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F350K/G Pro2" /></span>
+										<span class="sort1">F350K</span>
+ 										<span class="sort2">G Pro2</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/F350[20140220153858012].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F350S/G Pro2" /></span>
+										<span class="sort1">F350S</span>
+ 										<span class="sort2">G Pro2</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/V507L.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="V507L/G Pad 8.3 " /></span>
+										<span class="sort1">V507L</span>
+ 										<span class="sort2">G Pad 8.3 </span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/small_F310L[20131217133122530].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F310L/Gx" /></span>
+										<span class="sort1">F310L</span>
+ 										<span class="sort2">Gx</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/58x100[20140107123340435].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F340S/G Flex" /></span>
+										<span class="sort1">F340S</span>
+ 										<span class="sort2">G Flex</span> 
+									</li>
+									
+								</ul>
+							
+								<ul class="support_phone_list">
+									
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/58x100[20140107123440721].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F340K/G Flex" /></span>
+										<span class="sort1">F340K</span>
+ 										<span class="sort2">G Flex</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/58x100[20140107123410785].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F340L/G Flex" /></span>
+										<span class="sort1">F340L</span>
+ 										<span class="sort2">G Flex</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/V500.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="V500/G Pad 8.3" /></span>
+										<span class="sort1">V500</span>
+ 										<span class="sort2">G Pad 8.3</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f300.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F300L/LG Vu3" /></span>
+										<span class="sort1">F300L</span>
+ 										<span class="sort2">LG Vu3</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f300.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F300S/LG Vu3" /></span>
+										<span class="sort1">F300S</span>
+ 										<span class="sort2">LG Vu3</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f300.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F300K/LG Vu3" /></span>
+										<span class="sort1">F300K</span>
+ 										<span class="sort2">LG Vu3</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f320l.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F320S/LG G2" /></span>
+										<span class="sort1">F320S</span>
+ 										<span class="sort2">LG G2</span> 
+									</li>
+									
+								</ul>
+							
+								<ul class="support_phone_list">
+									
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f320l.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F320L/LG G2" /></span>
+										<span class="sort1">F320L</span>
+ 										<span class="sort2">LG G2</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f320l.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F320K/LG G2" /></span>
+										<span class="sort1">F320K</span>
+ 										<span class="sort2">LG G2</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f220.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F220K/옵티머스 GK" /></span>
+										<span class="sort1">F220K</span>
+ 										<span class="sort2">옵티머스 GK</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f260.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F260S/옵티머스 LTE3" /></span>
+										<span class="sort1">F260S</span>
+ 										<span class="sort2">옵티머스 LTE3</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f240.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F240K/옵티머스 G Pro" /></span>
+										<span class="sort1">F240K</span>
+ 										<span class="sort2">옵티머스 G Pro</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f240.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F240L/옵티머스 G Pro" /></span>
+										<span class="sort1">F240L</span>
+ 										<span class="sort2">옵티머스 G Pro</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f240.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F240S/옵티머스 G Pro" /></span>
+										<span class="sort1">F240S</span>
+ 										<span class="sort2">옵티머스 G Pro</span> 
+									</li>
+									
+								</ul>
+							
+								<ul class="support_phone_list">
+									
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f160.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F160LV/옵티머스 LTE2" /></span>
+										<span class="sort1">F160LV</span>
+ 										<span class="sort2">옵티머스 LTE2</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/F200L.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F200L/옵티머스 Vu2" /></span>
+										<span class="sort1">F200L</span>
+ 										<span class="sort2">옵티머스 Vu2</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/F200SK.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F200K/옵티머스 Vu2" /></span>
+										<span class="sort1">F200K</span>
+ 										<span class="sort2">옵티머스 Vu2</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/F200SK.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F200S/옵티머스 Vu2" /></span>
+										<span class="sort1">F200S</span>
+ 										<span class="sort2">옵티머스 Vu2</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f180.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F180K/옵티머스 G" /></span>
+										<span class="sort1">F180K</span>
+ 										<span class="sort2">옵티머스 G</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f180.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F180S/옵티머스 G" /></span>
+										<span class="sort1">F180S</span>
+ 										<span class="sort2">옵티머스 G</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f180.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F180L/옵티머스 G" /></span>
+										<span class="sort1">F180L</span>
+ 										<span class="sort2">옵티머스 G</span> 
+									</li>
+									
+								</ul>
+							
+								<ul class="support_phone_list">
+									
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/ku8800.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="KU8800/옵티머스 EX" /></span>
+										<span class="sort1">KU8800</span>
+ 										<span class="sort2">옵티머스 EX</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f160.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F160L/옵티머스 LTE2" /></span>
+										<span class="sort1">F160L</span>
+ 										<span class="sort2">옵티머스 LTE2</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f160.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F160K/옵티머스 LTE2" /></span>
+										<span class="sort1">F160K</span>
+ 										<span class="sort2">옵티머스 LTE2</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f160.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F160S/옵티머스 LTE2" /></span>
+										<span class="sort1">F160S</span>
+ 										<span class="sort2">옵티머스 LTE2</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f100.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F100L/옵티머스 Vu" /></span>
+										<span class="sort1">F100L</span>
+ 										<span class="sort2">옵티머스 Vu</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f120.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F120L/옵티머스 LTE Tag" /></span>
+										<span class="sort1">F120L</span>
+ 										<span class="sort2">옵티머스 LTE Tag</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f120.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F120K/옵티머스 LTE Tag" /></span>
+										<span class="sort1">F120K</span>
+ 										<span class="sort2">옵티머스 LTE Tag</span> 
+									</li>
+									
+								</ul>
+							
+								<ul class="support_phone_list">
+									
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f120.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F120S/옵티머스 LTE Tag" /></span>
+										<span class="sort1">F120S</span>
+ 										<span class="sort2">옵티머스 LTE Tag</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/small_SU870[20131218143223942].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="SU870/옵티머스 3D Cube" /></span>
+										<span class="sort1">SU870</span>
+ 										<span class="sort2">옵티머스 3D Cube</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f100.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="F100S/옵티머스 VU" /></span>
+										<span class="sort1">F100S</span>
+ 										<span class="sort2">옵티머스 VU</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/SU640.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="SU640/옵티머스 LTE" /></span>
+										<span class="sort1">SU640</span>
+ 										<span class="sort2">옵티머스 LTE</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/small_SU880[20131218142942180].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="SU880/옵티머스 EX" /></span>
+										<span class="sort1">SU880</span>
+ 										<span class="sort2">옵티머스 EX</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/LU6200.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="LU6200/옵티머스 LTE " /></span>
+										<span class="sort1">LU6200</span>
+ 										<span class="sort2">옵티머스 LTE </span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/small_LU6500[20131218143131133].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="LU6500/옵티머스 Q2" /></span>
+										<span class="sort1">LU6500</span>
+ 										<span class="sort2">옵티머스 Q2</span> 
+									</li>
+									
+								</ul>
+							
+								<ul class="support_phone_list">
+									
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/SU760.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="SU760/옵티머스 3D" /></span>
+										<span class="sort1">SU760</span>
+ 										<span class="sort2">옵티머스 3D</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/LU6800.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="LU6800/옵티머스 BIG" /></span>
+										<span class="sort1">LU6800</span>
+ 										<span class="sort2">옵티머스 BIG</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KU5900.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="KU5900/옵티머스 Black" /></span>
+										<span class="sort1">KU5900</span>
+ 										<span class="sort2">옵티머스 Black</span> 
+									</li>
+								
+									<li>
+										<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/SU660.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24"  alt="SU660/옵티머스 2X" /></span>
+										<span class="sort1">SU660</span>
+ 										<span class="sort2">옵티머스 2X</span> 
+									</li>
+ 
+								</ul>
+	
+							</div>
+							<span class="close"><a href="#"><img src="http://kr.lgworld.com/images/common/btn_dim_close.gif" alt="지원단말기 전체보기 레이어 닫기" /></a></span>
+						</div>
+						<!-- // layer -->
+					</div>
+					<div class="list_carousel scrolling_holder scroll_thumb">
+						<a href="#" id="prev_rolling4" class="scroll_ctrl prev">이전목록 보기</a>
+						<ul id="rolling4" class="support_phone_list">
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/F460[20140717161708050].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F460S/G3 Cat.6" /></span>
+								<span class="sort1">F460S</span>
+                                <span class="sort2">G3 Cat.6</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/F460[20140717161750184].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F460K/G3 Cat.6" /></span>
+								<span class="sort1">F460K</span>
+                                <span class="sort2">G3 Cat.6</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/F460[20140717161608906].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F460L/G3 Cat.6" /></span>
+								<span class="sort1">F460L</span>
+                                <span class="sort2">G3 Cat.6</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/g-pad-101[20140624171436378].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="V700N/G Pad 10.1" /></span>
+								<span class="sort1">V700N</span>
+                                <span class="sort2">G Pad 10.1</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/D320[20140425112014720].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="D329/L70" /></span>
+								<span class="sort1">D329</span>
+                                <span class="sort2">L70</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/help_GxR_85_169[20140428091554441].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F310LR/Gx" /></span>
+								<span class="sort1">F310LR</span>
+                                <span class="sort2">Gx</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/g-pad-101.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="V700/G Pad 10.1" /></span>
+								<span class="sort1">V700</span>
+                                <span class="sort2">G Pad 10.1</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/g-pad-7.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="V400/G Pad 7.0" /></span>
+								<span class="sort1">V400</span>
+                                <span class="sort2">G Pad 7.0</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/G3_58x100[20140529104327981].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F400S/G3" /></span>
+								<span class="sort1">F400S</span>
+                                <span class="sort2">G3</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/G3_58x100[20140529104215253].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F400K/G3" /></span>
+								<span class="sort1">F400K</span>
+                                <span class="sort2">G3</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/G3_58x100[20140529104253722].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F400L/G3" /></span>
+								<span class="sort1">F400L</span>
+                                <span class="sort2">G3</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/F370_B_58_100[20140521172916391].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F370L/F70" /></span>
+								<span class="sort1">F370L</span>
+                                <span class="sort2">F70</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/F370_B_58_100[20140521172807608].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F370K/F70" /></span>
+								<span class="sort1">F370K</span>
+                                <span class="sort2">F70</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/F370_B_58_100[20140521172852844].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F370S/F70" /></span>
+								<span class="sort1">F370S</span>
+                                <span class="sort2">F70</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/d700.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="D700/옵티머스 L9" /></span>
+								<span class="sort1">D700</span>
+                                <span class="sort2">옵티머스 L9</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/F350[20140220153926079].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F350L/G Pro2" /></span>
+								<span class="sort1">F350L</span>
+                                <span class="sort2">G Pro2</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/F350[20140220153730376].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F350K/G Pro2" /></span>
+								<span class="sort1">F350K</span>
+                                <span class="sort2">G Pro2</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/F350[20140220153858012].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F350S/G Pro2" /></span>
+								<span class="sort1">F350S</span>
+                                <span class="sort2">G Pro2</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/V507L.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="V507L/G Pad 8.3 " /></span>
+								<span class="sort1">V507L</span>
+                                <span class="sort2">G Pad 8.3 </span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/small_F310L[20131217133122530].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F310L/Gx" /></span>
+								<span class="sort1">F310L</span>
+                                <span class="sort2">Gx</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/58x100[20140107123340435].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F340S/G Flex" /></span>
+								<span class="sort1">F340S</span>
+                                <span class="sort2">G Flex</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/58x100[20140107123440721].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F340K/G Flex" /></span>
+								<span class="sort1">F340K</span>
+                                <span class="sort2">G Flex</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/58x100[20140107123410785].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F340L/G Flex" /></span>
+								<span class="sort1">F340L</span>
+                                <span class="sort2">G Flex</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/V500.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="V500/G Pad 8.3" /></span>
+								<span class="sort1">V500</span>
+                                <span class="sort2">G Pad 8.3</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f300.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F300L/LG Vu3" /></span>
+								<span class="sort1">F300L</span>
+                                <span class="sort2">LG Vu3</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f300.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F300S/LG Vu3" /></span>
+								<span class="sort1">F300S</span>
+                                <span class="sort2">LG Vu3</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f300.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F300K/LG Vu3" /></span>
+								<span class="sort1">F300K</span>
+                                <span class="sort2">LG Vu3</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f320l.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F320S/LG G2" /></span>
+								<span class="sort1">F320S</span>
+                                <span class="sort2">LG G2</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f320l.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F320L/LG G2" /></span>
+								<span class="sort1">F320L</span>
+                                <span class="sort2">LG G2</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f320l.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F320K/LG G2" /></span>
+								<span class="sort1">F320K</span>
+                                <span class="sort2">LG G2</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f220.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F220K/옵티머스 GK" /></span>
+								<span class="sort1">F220K</span>
+                                <span class="sort2">옵티머스 GK</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f260.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F260S/옵티머스 LTE3" /></span>
+								<span class="sort1">F260S</span>
+                                <span class="sort2">옵티머스 LTE3</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f240.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F240K/옵티머스 G Pro" /></span>
+								<span class="sort1">F240K</span>
+                                <span class="sort2">옵티머스 G Pro</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f240.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F240L/옵티머스 G Pro" /></span>
+								<span class="sort1">F240L</span>
+                                <span class="sort2">옵티머스 G Pro</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f240.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F240S/옵티머스 G Pro" /></span>
+								<span class="sort1">F240S</span>
+                                <span class="sort2">옵티머스 G Pro</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f160.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F160LV/옵티머스 LTE2" /></span>
+								<span class="sort1">F160LV</span>
+                                <span class="sort2">옵티머스 LTE2</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/F200L.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F200L/옵티머스 Vu2" /></span>
+								<span class="sort1">F200L</span>
+                                <span class="sort2">옵티머스 Vu2</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/F200SK.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F200K/옵티머스 Vu2" /></span>
+								<span class="sort1">F200K</span>
+                                <span class="sort2">옵티머스 Vu2</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/F200SK.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F200S/옵티머스 Vu2" /></span>
+								<span class="sort1">F200S</span>
+                                <span class="sort2">옵티머스 Vu2</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f180.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F180K/옵티머스 G" /></span>
+								<span class="sort1">F180K</span>
+                                <span class="sort2">옵티머스 G</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f180.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F180S/옵티머스 G" /></span>
+								<span class="sort1">F180S</span>
+                                <span class="sort2">옵티머스 G</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f180.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F180L/옵티머스 G" /></span>
+								<span class="sort1">F180L</span>
+                                <span class="sort2">옵티머스 G</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/ku8800.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="KU8800/옵티머스 EX" /></span>
+								<span class="sort1">KU8800</span>
+                                <span class="sort2">옵티머스 EX</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f160.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F160L/옵티머스 LTE2" /></span>
+								<span class="sort1">F160L</span>
+                                <span class="sort2">옵티머스 LTE2</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f160.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F160K/옵티머스 LTE2" /></span>
+								<span class="sort1">F160K</span>
+                                <span class="sort2">옵티머스 LTE2</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f160.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F160S/옵티머스 LTE2" /></span>
+								<span class="sort1">F160S</span>
+                                <span class="sort2">옵티머스 LTE2</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f100.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F100L/옵티머스 Vu" /></span>
+								<span class="sort1">F100L</span>
+                                <span class="sort2">옵티머스 Vu</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f120.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F120L/옵티머스 LTE Tag" /></span>
+								<span class="sort1">F120L</span>
+                                <span class="sort2">옵티머스 LTE Tag</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f120.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F120K/옵티머스 LTE Tag" /></span>
+								<span class="sort1">F120K</span>
+                                <span class="sort2">옵티머스 LTE Tag</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f120.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F120S/옵티머스 LTE Tag" /></span>
+								<span class="sort1">F120S</span>
+                                <span class="sort2">옵티머스 LTE Tag</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/small_SU870[20131218143223942].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="SU870/옵티머스 3D Cube" /></span>
+								<span class="sort1">SU870</span>
+                                <span class="sort2">옵티머스 3D Cube</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/f100.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="F100S/옵티머스 VU" /></span>
+								<span class="sort1">F100S</span>
+                                <span class="sort2">옵티머스 VU</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/SU640.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="SU640/옵티머스 LTE" /></span>
+								<span class="sort1">SU640</span>
+                                <span class="sort2">옵티머스 LTE</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/small_SU880[20131218142942180].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="SU880/옵티머스 EX" /></span>
+								<span class="sort1">SU880</span>
+                                <span class="sort2">옵티머스 EX</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/LU6200.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="LU6200/옵티머스 LTE " /></span>
+								<span class="sort1">LU6200</span>
+                                <span class="sort2">옵티머스 LTE </span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KR/small_LU6500[20131218143131133].jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="LU6500/옵티머스 Q2" /></span>
+								<span class="sort1">LU6500</span>
+                                <span class="sort2">옵티머스 Q2</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/SU760.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="SU760/옵티머스 3D" /></span>
+								<span class="sort1">SU760</span>
+                                <span class="sort2">옵티머스 3D</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/LU6800.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="LU6800/옵티머스 BIG" /></span>
+								<span class="sort1">LU6800</span>
+                                <span class="sort2">옵티머스 BIG</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/KU5900.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="KU5900/옵티머스 Black" /></span>
+								<span class="sort1">KU5900</span>
+                                <span class="sort2">옵티머스 Black</span> 
+							</li>
+							
+							<li>
+								<span class="img"><img src="http://kr.lgworld.com/images/adm/common/phone_image/SU660.jpg" onerror="javascript:this.src='/images/main/defalut_ph.gif'" class="png24" alt="SU660/옵티머스 2X" /></span>
+								<span class="sort1">SU660</span>
+                                <span class="sort2">옵티머스 2X</span> 
+							</li>
+								
+						</ul>
+						<a href="#" id="next_rolling4" class="scroll_ctrl next">다음목록 보기</a>
+					</div>
+				</div>	
+							
+ 
+				</form>        
+			</div>
+			</form>           	
+        </div>
+        <!-- // content -->
+    
+        
+        
+ 
+<!-- 로그인 전 -->        
+        
+        <!-- quick -->
+       
+        <div id="quick">
+         <!-- 
+            <div id="login">
+            	<fieldset>
+                <legend>로그인</legend>
+                	<span class="form_inp"><label for="login_id">id</label><input type="text" id="login_id" class="inp" /></span>
+                	<span class="form_inp"><label for="login_pw">password</label><input type="password" id="login_pw" class="inp" /></span>
+                </fieldset>
+                <p class="remember"><input type="checkbox" id="id_remember" class="chk" /><label for="id_remember">remember account</label></p>
+                <p class="btn_login"><a href="#">Sign in</a></p>
+                <ul class="login_util">
+                	<li><a href="#">Register</a></li>
+                    <li><a href="#">Forget Account / Password</a></li>
+                </ul>
+            </div>
+             -->
+            <!-- // login -->
+            
+            <!-- phone -->
+            <div id="my_phone">
+            	<p><img src="http://kr.lgworld.com/images/common/img_phone.jpg" alt="설정된 휴대폰이 없습니다" /></p>
+                <p class="btn_select"><a href="javascript:f_c_RingWingLink('web.lgsw.member.RetrievePhoneModelList.dev');">휴대폰 설정</a></p>
+            <!-- // phone -->
+            </div>
+  
+ 
+			<div id="recently">
+			</div>
+        </div>
+        <!-- // quick -->
+    </div>
+</div>
+ 
+<!-- footer -->
+<div id="footer_wrap">
+    <div id="footer" class="kr_footer">
+        <div id="footer_util">
+    		<p class="logo"><img src="http://kr.lgworld.com/images/common/footer_logo.gif" alt="LG" /></p>
+            <ul class="util_list">
+                <li class="first"><a href="javascript:f_goTems('T');">이용약관</a></li>
+                <li><a href="http://kr.lgworld.com/web.lgsw.support.RetrievePrivacy.dev"><font color='#ec2b7c'>개인정보취급방침</font></a></li>
+                <li><a href="javascript:f_goTems('P');">개인정보취급위탁안내</a></li>
+                <li>
+					<a href="#" class="btn_dim">이메일무단수집거부</a>
+					<!-- dim layer -->
+					<div class="dim_layer">
+						<dl class="email_refuse">
+							<dt>이메일무단수집거부</dt><dd>본 사이트에 게시된 이메일 주소가 전자우편 수집 프로그램이나 <br />그 밖의 기술적 장치를 이용하여 무단 수집되는 것을 거부합니다.</dd><dd>이를 위반 시 [정보통신망 이용촉진 및 정보보호 등에 관한 법률]등에<br />의해 처벌 받을 수 있습니다.</dd>
+						</dl>
+						<span class="close"><a href="#"><img src="http://kr.lgworld.com/images/common/btn_dim_close.gif" alt="이메일무단수집거부 레이어 닫기" /></a></span>
+					</div>
+					<!-- // dim layer -->
+				</li>
+                <li><a href="http://kr.lgworld.com/web.support.RetrieveSitemap.dev" >사이트맵</a></li>
+            </ul>
+            <div class="footer_link">
+				<span class="global">
+					<a href="http://kr.lgworld.com/web.RetrieveGateway.dev" title="국가 및 언어 선택 페이지 이동" >
+						<img src="http://kr.lgworld.com/images/common/footer_flag/footerflag_kr.gif" alt="" />대한민국
+					</a>
+				</span>
+				
+                <!-- <span class="rss"><a href="javascript:f_goGuidePage('rss');">RSS</a></span>-->
+                <div class="family">
+                	<a href="javascript:footerSelFam(this);" class="family_open">패밀리사이트</a>
+                	<ul style="display:none;" id="selFam">
+					                
+						<li><a href="http://www.lge.co.kr" target="_blank" title="새창">LG.com</a></li>
+					                
+						<li><a href="http://developer.lge.com" target="_blank" title="새창">LG Mobile developer</a></li>
+					                
+						<li><a href="http://www.lgworld.com/cms/" target="_blank" title="새창">Business Proposals</a></li>
+					                
+						<li><a href="http://www.lgecloud.com" target="_blank" title="새창">LG Cloud</a></li>
+													
+                    </ul>                    
+                </div>
+            </div>
+        </div>
+        <p class="txt">LG전자㈜가 운영하는 LG SmartWorld에 등록된  판매상품과 상품의 내용은 판매자가 등록한 것으로, <br />LG전자㈜는 중계시스템만 제공하며 그 등록 내용에 대한 모든 책임을 지지 않습니다.</p>
+        <p class="txt">LG전자㈜ 사업자등록번호 : 107-86-14075 통신판매업 신고번호:제1997-002084호<br />
+        	주소 : 서울시 영등포구 여의도동 20 트윈타워 / 개인정보 관리책임자 : LG전자㈜ MC정보보안팀 윤여창 팀장 / 대표이사 : 구본준<br />
+            다운로드 관련문의 : 080-852-5550 / 휴대폰관련문의(LG전자) : 1588-7777 / Email문의 : <a href="mailto:kr.lgworld@lge.com">kr.lgworld@lge.com</a>
+        </p>
+        <p class="txt">COPYRIGHT 2014 © LG ELECTRONICS. ALL RIGHTS RESERVED.</p>
+        <!-- 2013.12.17 WA add -->
+		<div class="mark_img"><a href="http://www.kwacc.or.kr/Estimation/UWA" target="_blank"><img src="http://kr.lgworld.com/images/common/img_wa.png" alt="WA마크 인증" /></a></div>
+		<!--// 2013.12.17 WA add -->
+    </div>
+</div>
+<!-- // footer -->
+ 
+</body>
+</html>

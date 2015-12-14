@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8"/>
+    <title>파크골프 샘플</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <link rel="stylesheet" href="http://m.spazon.com/styles/common-1.1.0.0.css?2015041400" type="text/css">
+    <link rel="stylesheet" href="parkgolf/css/style.css" type="text/css">
+    <script type="text/javascript" src="js/jquery_1.8.3.min.js"></script>
+</head>
+<body>
+    <a href="#section" class="skip">본문 바로가기</a>
+    <div class="wrap">
+        <div class="header" id="header">
+            <div class="inner">header 영역</div>
+        </div>
+        <div class="quick" id="quick">
+            <a href="">1</a>
+            <a href="">2</a>
+            <a href="">3</a>
+            <a href="">4</a>
+            <a href="">5</a>
+            <a href="">6</a>
+        </div>
+        <div class="section1 sect" id="section">
+            <div class="inner"><img src="" alt=""/></div>
+            <div class="event">도심 공원에서 즐기는 골프. 골프존 파크골프</div>
+        </div>
+        <div class="section2 sect">
+            <div class="inner">
+                <p class="intro1">파크골프란?</p>
+                <p class="intro2">PARK GOLF PARKGOLF</p>
+                <p class="intro3">공원+골프=Park Golf</p>
+            </div>
+        </div>
+        <div class="section3 sect">
+            <div class="inner">
+                <p class="intro1"></p>
+                <p class="intro2"></p>
+                <p class="intro3"></p>
+                <p class="intro4"></p>
+            </div>
+        </div>
+        <div class="section4 sect">
+            <div class="inner">
+                <p class="intro1"></p>
+                <p class="intro2"></p>
+                <p class="intro3"></p>
+            </div>
+        </div>
+        <div class="section5 sect">
+            <div class="inner">
+                <p class="intro1"></p>
+                <p class="intro2"></p>
+                <p class="intro3"></p>
+            </div>
+        </div>
+        <div class="section6 sect">
+            <div class="inner">
+                <p class="intro1"></p>
+                <p class="intro2"></p>
+                <p class="intro3"></p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        //브라우저 상하 강제 리사이징시 fixed 영역처리 요청사항 적용
+        resize();
+        $(window).resize(function(){ resize(); });
+        function resize(){
+            if($(window).height() > 1063){
+                $(".event").css("position","absolute")
+            }else{
+               $(".event").css("position","fixed")
+            }
+        };
+        var oes = {
+            floating: function () {
+                var floating = $("#quick")
+                    , link = $("a", floating)
+                    , idx = 0, uio = 0 , speed = 0, pos = [0]
+                    , state = true
+                    , color
+                    , firstColor = $(".header").css("background-color")
+
+                //각 섹션별 scrolling 값 세팅
+                var hh = $(".section" + idx).height()
+                for(var i=1; i < link.length +1;i++){
+                    uio += $(".section" + i).height()
+                    pos.push(uio)
+                };
+
+                //스크롤 동작
+                function move() {
+                    $("html, body").animate({
+                        "scrollTop": pos[idx] + "px"
+                    }, {
+                        duration: 500,
+                        complete: function () {
+                            state = true;
+                            $("#header").css({
+                                "background-color" : color
+                            });
+                        }
+                    });
+                };
+
+                //클릭시 각 섹션별 스크롤동작 호출 + 헤더영역 색상 체인지
+                link.click(function(){
+                    state = false;
+                    idx = $(this).index();
+                    //섹션 color값과 같은 값을 변수에 담음
+                    if(idx != 0){
+                        color = $(".section" + (idx +1)).css("background-color");
+                    }else{
+                        color = firstColor;
+                    }
+                    link.removeClass("on");
+                    $(this).addClass("on");
+                    move();
+                    return false;
+                });
+
+                //텍스트 모션
+                $(".sect p").each(function(){
+                    var defaults = $(this).css("top");
+                    $(this).animate({
+                        "top" : defaults + "px"
+                    },500);
+                });
+            }
+        };
+        oes.floating();
+    </script>
+
+</body>
+</html>

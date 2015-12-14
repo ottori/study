@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8"/>
+	<title>Let's Play Mario Game!!</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+	<meta name="author" content="O eunsun" />
+	<meta name="keywords" content="mario game" />
+	<meta name="description" content="Let's Mario Game!!!" />
+	<link rel="stylesheet" href="../css/common.css" />
+	<link rel="stylesheet" href="../css/mario.css" />
+	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+	<div class="mario_wrap">
+		<span id="mario" class="mario" style="left:30px; bottom:64px"><img src="../images/mario.PNG" alt="mario" /></span>
+	</div><!-- //mario_wrap end -->
+	<div id="wrap">
+		<span class="cloud cloud1"></span>
+		<span class="cloud cloud2"></span>
+		<span class="cloud cloud3"></span>
+		<span class="cloud cloud4"></span>
+		<div class="block block1"><em></em><em></em><em></em></div>
+		<div class="block block2"><em></em><em></em><em></em><em></em><em></em></div>
+		<div class="block block3"><em></em><em></em><em></em><em></em></div>
+		<div class="green">
+			<span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+		</div>
+	</div><!-- //wrap end -->
+	<div class="button">
+		<button class="btn left"> ◀ </button>
+		<button class="btn right"> ▶ </button>
+		<button class="btn jump"> JUMP </button>
+	</div><!-- //button end -->
+	<div id="test" style="border:2px solid blue; width:30px; height:30px; position:absolute; left:0; top:0;color:blue; font-weight:bold"></div>
+	<script type="text/javascript">
+		function id(v){return document.getElementById(v)}
+			var mario =  id("mario");
+			var cnt = 0;
+			//버튼
+			var button = document.getElementsByTagName("button");
+			var leftB = document.getElementsByTagName("button")[0];
+			var rightB = document.getElementsByTagName("button")[1];
+			var jumpB = document.getElementsByTagName("button")[2];
+
+			var speed=100, thisX = parseInt(mario.style.left), jumpTop = parseInt(mario.style.bottom);
+
+			var dir = "rtl";
+			var pushState = "off";
+			//tween();
+
+			function tween(){
+				var auto = null;
+				leftB.onclick = function(){
+					if(dir == "rtl") return false;
+					dir = "rtl";
+					clearInterval(auto);
+					start();
+				}
+				rightB.onclick = function(){
+					if(dir == "ltr") return false;
+					dir = "ltr";
+					if(auto != null){
+						clearInterval(auto);
+					}
+					start();
+				}
+
+				function start(){
+					auto = setInterval(function(){
+						if(dir == "ltr"){
+							thisX+= speed;
+							mario.style.left = thisX + "px";
+						}else{
+							if(  thisX >= 100 ){
+								thisX -= speed;
+								mario.style.left = thisX + "px";
+							}
+						}
+					},10);
+				}
+			}
+				var supermario = {
+					cnt : 30,
+					dir : "",
+					y : null,//jump or stop
+					y_cnt : 64,
+					myJesture : "",
+					touchState : true,
+					interval : 0,
+					ing : null,
+					Go : function(){
+						var that = this;
+						var auto = setInterval(function(){
+							if( that.dir == "" ) return false;
+							if( that.dir == "ltr" ){ 
+								that.cnt++;
+							 }else{
+								 if( that.cnt > 30 ){
+									that.cnt--;
+								 }
+							 }
+							 if( that.y == "jump" ){
+								if( that.y_cnt < 300 ){
+									that.y_cnt++;
+								}else{
+									that.y = "stop";
+								}
+							 }else{
+								 if( that.y_cnt > 64){
+									that.y_cnt--;
+								 }else{
+									 that.y = null;
+								 }
+							 }
+							mario.style.bottom = that.y_cnt + "px";
+							mario.style.left = that.cnt + "px";
+						},10);
+
+							leftB.onmousedown = function(){
+								if( that.myJesture == "phone" ) return false;
+								that.dir = "rtl"
+							}
+							rightB.onmousedown = function(){
+								if( that.myJesture == "phone" ) return false;
+								that.dir = "ltr";
+							}
+							jumpB.onmousedown = function(){
+								if( that.myJesture == "phone" ) return false;
+								that.y = "jump";
+							}
+							leftB.addEventListener("touchstart",touchStartLeft,false);
+							rightB.addEventListener("touchstart",touchStartRight,false);
+
+							leftB.addEventListener("touchend",touchEnd,false);
+							rightB.addEventListener("touchend",touchEnd,false);
+
+							jumpB.addEventListener("touchstart",touchJump,false)
+							jumpB.addEventListener("touchend",touchEnd,false)
+
+							function touchEnd(e){
+								clearInterval(that.ing);
+								that.myJesture = "phone";
+								that.dir = "";
+								that.y = "";
+							}
+							function touchJump(e){
+								that.ing = setInterval(function(){
+									that.interval++
+									document.getElementById("test").innerHTML = that.cnt + "," + that.y_cnt
+								},10)
+								that.myJesture = "phone";
+								that.y = "jump";
+							}
+							function touchStartLeft(e){
+								document.getElementById("test").innerHTML = that.cnt
+								that.myJesture = "phone";
+								that.dir = "rtl";
+							}
+							function touchStartRight(e){
+								document.getElementById("test").innerHTML = that.cnt;
+								that.myJesture = "phone";
+								that.dir = "ltr";
+							}
+					}
+				}
+				supermario.Go();
+	</script>
+</body>
+</html>
+

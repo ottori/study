@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<title>window resize!!</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script type="text/javascript">
+		/*
+		var fps = function(a,b){//frame per second
+			return 1000 * b / a;
+		}
+
+		window.onload = function(){
+			var frame = 30;
+			var seconds = 1;
+			var sec = fps(frame,seconds);
+			var finalX = 250;
+			var cnt = 0;
+			var auto = setInterval(function(){
+				if(cnt > finalX){
+					cnt = 0;
+					console.log("1초");
+					//clearInterval(auto);
+				}else{
+					cnt += finalX / frame;
+				}
+				box.style.left = cnt + "px";
+			},sec);
+		}
+		*/
+
+		$(document).ready(function(){
+			responsive.init();
+		});
+		$(window).resize(function(){
+			responsive.init();
+		});
+
+		var responsive = {
+			oldsize : 0,
+			newsize : 0,
+			init : function(){
+				var resolution = "", w = document.body.clientWidth;
+				if(w > 1024){
+					resolution = "w1280";
+				}else if(w <= 1024 && w > 768){
+					resolution = "w1024";
+				}else if(w <= 768 && w > 480){
+					resolution = "tablet";
+				}else{
+					resolution = "mobile";
+				}
+				this.newsize = resolution;
+				if(this.oldsizeChk === undefined){
+					this.oldsize = resolution;
+					this.oldsizeChk = "complete";
+				}
+				if(this.oldsize != this.newsize){
+					console.log(resolution);
+					this.play(this);
+					this.oldsize = resolution;
+				}
+			},
+			play : function(param){
+				if(this.oldsize == "tablet" && this.newsize == "w1024"){
+					$("#box").stop().animate({"top" : 200 + "px", "left" : 300 + "px"},600);
+					$("#box1").stop().animate({"top" : 100 + "px", "left" : 200 + "px"},600);
+					$("#box2").stop().animate({"top" : 500 + "px", "left" : 300 + "px"},600);
+					$("#box3").stop().animate({"top" : 0 + "px", "left" : 100 + "px"},600);
+				}else if(this.oldsize == "w1024" && this.newsize == "tablet"){
+					$("#box").stop().animate({"top" : 0 + "px", "left" : 0 + "px"},600);
+					$("#box1").stop().animate({"top" : 400 + "px", "left" : 100 + "px"},600);
+					$("#box2").stop().animate({"top" : 250 + "px", "left" : 450 + "px"},600);
+					$("#box3").stop().animate({"top" : 100 + "px", "left" : 200 + "px"},600);
+				}else{
+					return false;
+				}
+			}
+		}
+
+	</script>
+	<style type="text/css">
+	</style>
+</head>
+<body>
+	<div id="box" style="position:absolute; left:0; border:1px solid red; width:100px; height:100px; background:blue"></div>
+	<div id="box1" style="position:absolute; top:400px; left:100px; border:1px solid red; width:100px; height:100px; background:orange"></div>
+	<div id="box2" style="position:absolute; top:250px; left:450px; border:1px solid red; width:100px; height:100px; background:skyblue"></div>
+	<div id="box3" style="position:absolute; top:100px; left:200px; border:1px solid red; width:100px; height:100px; background:yellow"></div>
+</body>
+</html>

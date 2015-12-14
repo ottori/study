@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<title>replaceChild 메소드</title>
+	<meta charset="utf-8" />
+	<meta name="keywords" content="0123_replaceChild 메소드에 대하여.." />
+	<meta name="description" content="" />
+	<link type="text/css" rel="stylesheet" href="" />
+	<script type="text/javascript">
+	window.onload   = function(){
+		function myFunction(){
+			var textnode = document.createTextNode("Water");
+			var item = document.getElementById("myList").childNodes[1];
+			item.replaceChild( textnode,item.childNodes[0] );
+		}
+		var button = document.getElementById("button");
+
+		button.onclick = function(){
+			myFunction();
+		};
+	}
+	</script>	
+</head>
+<body>
+
+<ul id="myList">
+	<li>Coffee</li>
+	<li>Tea</li>	
+	<li>Milk</li>
+</ul>
+
+<p id="demo">Click the button to replace the first item in the the list</p>
+
+<button id="button">Try it</button>
+
+<p>First create a new Text node.<br>Then replace the first child node of the first list item.</p>
+<p><strong>Note:</strong> This example replaces only the Text node "Coffee" with a Text node "Water", not the entire LI element, which would also be an alternative when replacing nodes.</p>
+
+
+</body>
+</html>

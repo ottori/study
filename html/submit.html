@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<title>SUBMIT</title>
+	<meta name="author" content="" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href="../css/common.css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.js"></script>
+	<style type="text/css">
+		.header {background:skyblue; padding:30px}
+		.header strong {font-weight:bold; font-size:16px; color:#fff; font-family:"맑은 고딕"}
+		.wrap {padding:20px}
+		table {width:100%; border-collapse:separate; border-spacing:2px} table tr {padding-bottom:5px}
+		table tr th {width:150px; background:#2b2b2b; padding:7px 5px; color:#fff}
+		table tr th > em {color:red; font-weight:bold}
+		table tr td {background:#eee; padding:7px 20px}
+		input, .input {margin:0 5px; padding:5px; width:150px; height:15px; background:#fff; border:1px solid #dadada; vertical-align:middle}
+		.submit {background:#eee; height:30px; line-height:30px; margin:0 2px; padding:0 20px}
+		.phone input, .phone select {display:inline-block; width:60px; height:30px; padding:0 5px}
+		.btns {text-align:center} .btns a {display:inline-block; height:30px; line-height:30px}
+		.radio {width:15px; margin:0}
+		.addr1 {display:block; width:300px; margin-bottom:5px} .addr2 {width:500px}
+		.exp {padding:5px 0 0; font-size:11px}
+	</style>
+	<script type="text/javascript">
+	$(function(){
+		var inpt = $("input");
+		var form = document.getElementById("form");
+		var inpttext = document.getElementById("name");
+		var wm = document.getElementById("wm");
+		$(".submit").click(function(){
+			if( $("input:radio[name='sex']:checked") != true){
+				console.log( 11 )
+			}else{ console.log(12)}
+
+			if( $("#ids").val().length <= 0 ){
+				alert("아이디를 입력하세요");
+				$("#ids").focus();
+			}else if( inpttext.value.length <= 0 ){
+				alert("이름을 입력하세요");
+				$("#name").focus();
+			}else if( $("#pass").val().length <= 0   ){
+				alert("패스워드를 입력하세요");
+				$("#pass").focus();
+			}/*else if( wm.checked == false && m.checked == false){ //fure js
+				alert("성별을 체크 하세요");
+			}*/
+			
+			/*else if( $("#wm").attr("checked") != "checked" && $("#m").attr("checked") != "checked" ){
+				alert("성별을 선택하세요!!");
+				$("#wm").focus();
+			}*/else if( $(".phone select").val().length <= 0 ){
+				alert("핸드폰 국번을 선택하세요");
+				$(".phone select").focus();
+			}else if( $(".sec_num").val().length <= 0 ){
+				alert("핸드폰 중간자리를 입력하세요");
+				$(".sec_num").focus();
+			}else if( $(".thr_num").val().length <= 0 ){
+				alert("핸드폰 뒷자리를 입력하세요");
+				$(".thr_num").focus();
+			}else if( $("#addr1").val().length <= 0 ){
+				alert("주소를 입력하세요");
+				$("#addr1").focus();
+			}else if( $("#addr2").val().length <= 0 ){
+				alert("상세주소를 입력하세요");
+				$("#addr2").focus();
+			}
+		})
+	})
+	</script>
+</head>
+<body>
+<div class="header">
+	<strong>입력 폼 스크립트</strong>
+</div>
+<div class="wrap">
+	<form  id="form">
+	<table>
+		<tbody>
+			<tr>
+				<th><em>*</em> 아이디</th>
+				<td><input type="text" class="inpt" id="ids" /></td>
+			</tr>
+			<tr>
+				<th><em>*</em> 이름</th>
+				<td><input type="text" class="inpt" id="name" /></td>
+			</tr>
+			<tr>
+				<th><em>*</em> 비밀번호</th>
+				<td><input type="password"  class="inpt" id="pass" maxlength="10" /> <span class="exp">* 영문 소문자, 대문자, 숫자, 특수기호 포함하여 10자리 </span></td>
+			</tr>
+			<tr>
+				<th><em>*</em> 비밀번호 확인</th>
+				<td><input type="password"  class="inpt" id="pass" maxlength="10" /> <span class="exp">* 패스워드 확인 </span></td>
+			</tr>
+			<tr>
+				<th><em>*</em> 성별</th>
+				<td>
+					<input type="radio" name="sex" id="wm" class="radio"/>
+					<label for="wm">여자</label>
+					<input type="radio" name="sex" id="m" class="radio" />
+					<label for="m">남자</label>
+				</td>
+			</tr>
+			<tr>
+				<th>생년월일</th>
+				<td>
+					<input type="text" class="inpt" id="birth" />
+					<input type="radio" name="birth" id="bir" class="radio" />
+					<label for="birth1">양력</label>
+					<input type="radio" name="birth" id="bir" class="radio" />
+					<label for="birth2">음력</label>
+				</td>
+			</tr>
+			<tr>
+				<th>연락처</th>
+				<td>
+					<div class="phone">
+						<select name="" id="" title="연락처 국번선택" class="input">
+							<option value="">선택</option>
+							<option value="">02</option>
+							<option value="">053</option>
+							<option value="">054</option>
+							<option value="">063</option>
+						</select> - 
+						<input type="text" name="" id="" title="연락처 중간자리" class="sec_num" /> - 
+						<input type="text" name="" id="" title="연락처 뒷자리" class="thr_num" / >
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th><em>*</em> 핸드폰</th>
+				<td>
+					<div class="phone">
+						<select name="" id="" title="핸드폰 국번선택" class="input">
+							<option value="">선택</option>
+							<option value="">010</option>
+							<option value="">011</option>
+							<option value="">016</option>
+						</select> - 
+						<input type="text" name="" id="" title="핸드폰 중간자리" class="sec_num" /> - 
+						<input type="text" name="" id="" title="핸드폰 뒷자리" class="thr_num" / >
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th>E - mail</th>
+				<td><input type="text" class="inpt" id="mails" /><p class="exp">* 이메일 미입력시 패스워드를 찾을 수 없습니다.</p></td>
+			</tr>
+			<tr>
+				<th>우편번호</th>
+				<td>
+					<div class="phone">
+						<input type="text" class="inpt addr1" id="addr3" title="우편번호 앞자리 입력" /> -
+						<input type="text" class="inpt addr2" id="addr4" title="우편번호 뒷자리 입력" />
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th><em>*</em> 주소</th>
+				<td>
+					<input type="text" class="inpt addr1" id="addr1" title="주소 입력" />
+					<input type="text" class="inpt addr2" id="addr2" title="상세주소 입력" />
+				</td>
+			</tr>
+			<tr>
+				<th><em>*</em> SMS 수신여부 선택</th>
+				<td>
+					<input type="radio" name="sms" id="sms_y" class="radio"/>
+					<label for="sms_y">수신</label>
+					<input type="radio" name="sms" id="sms_n" class="radio" />
+					<label for="sms_n">미수신</label>
+				</td>
+			</tr>
+			<tr>
+				<th>우편 수신여부 선택</th>
+				<td>
+					<input type="radio" name="post" id="post_y" class="radio"/>
+					<label for="post_y">수신</label>
+					<input type="radio" name="post" id="post_n" class="radio" />
+					<label for="post_n">미수신</label>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="btns"><a href="#" class="submit">SUBMIT</a><a href="#" class="submit" onclick="return false">CANCEL</a></div>
+	</form>
+</div>
+</body>
+</html>

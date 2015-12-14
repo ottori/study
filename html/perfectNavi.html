@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<title>견고한 네비스크립트</title>
+	<meta name="author" content="" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href="../css/common.css" />
+	<script type="text/javascript" src="../js/jquery_1.8.3.min.js"></script>
+	<style type="text/css">
+		body {padding:30px}
+		#gnb {overflow:hidden; width:250px;}
+		#gnb > ul > li {margin-top:10px;}
+		#gnb > ul > li > ul {display:none}
+		ul li {padding-left:20px; background:#eee}
+		ul li ul li {margin:3px 0; background:#2e2e2e}
+		ul li ul li ul li {margin:5px 0; background:skyblue}
+		ul li a {display:block; padding:5px; width:200px}
+	</style>
+</head>
+<body>
+	<div id="gnb">
+		<ul>
+			<li><a href="#">1. 메뉴 스크립트</a>
+				<ul>
+					<li>
+						<a href="#">2. 완벽한 메뉴 스크립트</a>
+						<ul>
+							<li>
+								<a href="#">3. 완벽스크립트</a>
+								<ul>
+									<li><a href="#">4. 스쿠립투</a></li>
+									<li><a href="#">4. 스쿠립투</a></li>
+								</ul>
+							</li>
+							<li><a href="#">3. 완벽스크립트</a></li>
+							<li><a href="#">3. 완벽스크립트</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">2. 완벽한 메뉴 스크립트</a>
+						<ul>
+							<li>
+								<a href="#">3. 완벽스크립트</a>
+								<ul>
+									<li><a href="#">4. 스쿠립투</a></li>
+									<li><a href="#">4. 스쿠립투</a></li>
+								</ul>
+							</li>
+							<li><a href="#">3. 완벽스크립트</a></li>
+							<li>
+								<a href="#">3. 완벽스크립트</a>
+								<ul>
+									<li><a href="#">4. 스쿠립투</a></li>
+									<li><a href="#">4. 스쿠립투</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li><a href="#">1. 메뉴 스크립트</a>
+				<ul>
+					<li>
+						<a href="#">2. 완벽한 메뉴 스크립트</a>
+						<ul>
+							<li>
+								<a href="#">3. 완벽스크립트</a>
+								<ul>
+									<li><a href="#">4. 스쿠립투</a></li>
+									<li><a href="#">4. 스쿠립투</a></li>
+								</ul>
+							</li>
+							<li><a href="#">3. 완벽스크립트</a></li>
+							<li><a href="#">3. 완벽스크립트</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">2. 완벽한 메뉴 스크립트</a>
+						<ul>
+							<li>
+								<a href="#">3. 완벽스크립트</a>
+								<ul>
+									<li><a href="#">4. 스쿠립투</a></li>
+									<li><a href="#">4. 스쿠립투</a></li>
+								</ul>
+							</li>
+							<li><a href="#">3. 완벽스크립트</a></li>
+							<li>
+								<a href="#">3. 완벽스크립트</a>
+								<ul>
+									<li><a href="#">4. 스쿠립투</a></li>
+									<li><a href="#">4. 스쿠립투</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li><a href="#">1. 메뉴 스크립트</a>
+				<ul>
+					<li>
+						<a href="#">2. 완벽한 메뉴 스크립트</a>
+						<ul>
+							<li>
+								<a href="#">3. 완벽스크립트</a>
+								<ul>
+									<li><a href="#">4. 스쿠립투</a></li>
+									<li><a href="#">4. 스쿠립투</a></li>
+								</ul>
+							</li>
+							<li><a href="#">3. 완벽스크립트</a></li>
+							<li><a href="#">3. 완벽스크립트</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">2. 완벽한 메뉴 스크립트</a>
+						<ul>
+							<li>
+								<a href="#">3. 완벽스크립트</a>
+								<ul>
+									<li><a href="#">4. 스쿠립투</a></li>
+									<li><a href="#">4. 스쿠립투</a></li>
+								</ul>
+							</li>
+							<li><a href="#">3. 완벽스크립트</a></li>
+							<li>
+								<a href="#">3. 완벽스크립트</a>
+								<ul>
+									<li><a href="#">4. 스쿠립투</a></li>
+									<li><a href="#">4. 스쿠립투</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+			WOONGJIN = {
+			gnb : function(){
+			  var gnb = $("#gnb")
+			  , ul = $("> ul", gnb)
+			  , li = $("li", ul)
+			  , a = $("a", ul)
+			  , depth1 = $("> li", ul)
+			  , depth2 = $("> ul > li", depth1)
+			  , depth3 = $("> ul > li", depth2)
+			  , before = null;
+
+			  depth1.attr("stack","dep1");//뎁스별로 스택명을 생성
+			  depth2.attr("stack","dep2");
+			  depth3.attr("stack","dep3");
+
+			  var stack = {};//현재 포커싱 된 li를 뎁스별로 동적 프로퍼티를 생성하여 꽂아넣는다.
+
+			  a.focus(function(){//A태그에 포커스가 들어올때마다 같은레벨의 li 클래스를 제거하고, 자신을 overwrite 한다.
+				 if(stack[$(this).parent().attr("stack")] != undefined){
+					stack[$(this).parent().attr("stack")].removeClass("on");
+				 }
+				 $(this).parent().addClass("on");
+				 stack[$(this).parent().attr("stack")] = $(this).parent();
+			  });
+
+			  li.mouseenter(function(){//마우스 오버시 포커스와 같은 역할을 하도록 한다.
+				 $(this).find("a").eq(0).focus();
+			  });
+		   }
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<title>가다서다 가다서다</title>
+	<meta name="author" content="" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href="../css/common.css" />
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<style type="text/css">
+		.buttonBox {width:1000px; padding:10px; text-align:center}
+		button {display:inline-block; margin-left:10px;  margin:0 10px; padding:5px 10px; font-weight:bold; background:#eee; border:1px solid #2b2b2b}
+		.wrap {width:1000px; height:100px; margin:30px 0 0 30px; padding:10px; border:2px solid #2b2b2b; overflow:hidden; text-align:right; background:#eee}
+		.box {display:inline-block; position:relative; width:20px; height:20px; margin:30px; background:#2b2b2b}
+	</style>
+</head>
+<body>
+	<div class="wrap"><div class="box"></div></div>
+	<div class="buttonBox">
+		<button class="go">◀</button>
+		<button class="stop">■</button>
+		<button class="back">▶</button>
+	</div>
+	
+	<script type="text/javascript">
+		var box = $(".box")
+		$("button").click(function(){
+			if( $(this).hasClass("go") == true){
+				box.stop().animate({left:"-800px"},2000);
+			}else if( $(this).hasClass("stop") == true ){
+				box.stop();
+			}else if( $(this).hasClass("back") == true ){
+				box.stop().animate({left:"0"},1000);
+			}
+		});
+	</script>
+</body>
+</html>

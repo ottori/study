@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<title>body scroll</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<style type="text/css">
+		html	{width:100%;}
+		body	 {background:url("../images/main_bg.gif") 0 0; margin:0; width:100%;}
+
+		.body_wrap	{position:absolute; width:100%; overflow:hidden;}
+		.body_wrap .body_wrap_newBackground1	{position:absolute; width:100%; left:0;}
+		.body_wrap .body_wrap_newBackground2	{position:absolute; width:100%; left:100%; background-position:-551px 0 !important;}
+
+		#wrapper	{position:relative; z-index:1;}
+		#wrapper .header	{border:1px solid #4b4b4b; width:1000px; height:100px; margin:0 auto 10px;}
+		#wrapper .body	{border:1px solid #4b4b4b; width:1000px; height:500px; margin:0 auto 10px;}
+		#wrapper .footer	{border:1px solid #4b4b4b; width:1000px; height:100px; margin:0 auto 10px;}
+	</style>
+	<script type="text/javascript">
+		//<![CDATA[
+			var _css = function(element,prop){var el,read_css;el = element;if(!document.defaultView){read_css = el.currentStyle[prop];}else{read_css = document.defaultView.getComputedStyle(el,null).getPropertyValue(prop);}return read_css;}
+			var RollingObject = {
+				load : function(){
+					var str = arguments[0], obj;
+					if(str.indexOf(".") < 0 && str.indexOf("#") < 0){
+						obj = document.getElementsByTagName(str)[0];
+					}
+					RollingObject.move(obj);
+				},
+				move : function(z){
+					var speed = 3;//속도 조절(높을수록 빠름)
+					var imgUrl = _css(z,"backgroundImage") ? _css(z,"backgroundImage") : _css(z,"background-image") ? _css(z,"background-image") : _css(z,"background");
+					imgUrl = imgUrl.split("(")[1].split(")")[0];
+					var newbody = document.createElement("div");
+					newbody.className = "body_wrap";
+					newbody.style.height = document.documentElement.scrollHeight + "px";
+					document.body.insertBefore(newbody,document.body.firstChild);
+					document.body.style.background = "none";
+					var newBackground = document.createElement("div");
+					newBackground.className = "body_wrap_newBackground1";
+					newBackground.style.background = "url(" + imgUrl + ") 0 0";
+					newBackground.style.width = document.body.clientWidth + "px";
+					newBackground.style.height = document.documentElement.scrollHeight + "px";
+					newbody.appendChild(newBackground);
+					var newBackgroundCopy = newBackground.cloneNode(true);
+					newBackgroundCopy.className = "body_wrap_newBackground2";
+					newbody.appendChild(newBackgroundCopy);
+					var final_x = parseInt(document.body.clientWidth);
+					setInterval(function(){
+						newBackground.style.left = parseInt(_css(newBackground,"left")) - speed + "px";
+						newBackgroundCopy.style.left = parseInt(_css(newBackgroundCopy,"left")) - speed + "px";
+						if(parseInt(_css(newBackground,"left")) < -final_x){
+							newBackground.style.left = final_x - speed + "px";
+							newbody.appendChild(newBackground);
+						}
+						if(parseInt(_css(newBackgroundCopy,"left")) < -final_x){
+							newBackgroundCopy.style.left = final_x - speed + "px";
+							newbody.appendChild(newBackgroundCopy);
+						}
+					},10);
+				}
+			}
+		//]]>
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+		<div class="header">
+			헤더
+		</div>
+		<div class="body">
+			바디
+		</div>
+		<div class="footer">
+			푸터
+		</div>
+	</div>
+	<script type="text/javascript">
+		var body_bg_rolling = new RollingObject.load("body");
+	</script>
+</body>
+</html>

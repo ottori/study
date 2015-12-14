@@ -1,0 +1,43 @@
+<!doctype html>
+<head>
+	<meta charset="utf-8" />
+	<title>javascript Ajax</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js	"></script>
+	<style type="text/css">#ajax1 {width:500px; padding:10px 20px 20px; background:skyblue; border:3px solid #4b4b4b}
+	#layerWrap {width:500px; height:300px; margin-top:30px; background:#f1f1f1}
+	.blank	{position:absolute; top:-100px; width:0; height:0; overflow:hidden;}
+	</style>
+	<script type="text/javascript">
+		$(function(){
+			var blank = document.createElement("div");
+			blank.className = "blank";
+			var div = $("<div id='layerWrap'></div>");
+			$("body").append( div )
+			document.body.appendChild(blank);
+			
+			$("#button").click(function(){
+				$.ajax({
+					method : "get",
+					url : "ajax2.html",
+					success : function(data){
+						//div.html(data);
+						$(blank).html(data);
+						div.html($(".blank").find("button"));
+						$(blank).remove();
+						$(".display").show(); // ajax로 두번째 문서가 불러와진 이후 두번째 문서 내 display none 상태인 아이를 block으로 바꿔줌. (success 처리)
+					}
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="ajax1">
+		<h1>자바스크립트 Ajax 테스트</h1>
+		<p>아래 버튼을 누르면 그 아래에 이 HTML문서와 동일한 경로의 ajax2.html 문서를 불러옵니다.</p>
+		<button id="button">Ajax2.html 불러오기</button>
+	</div>
+
+</body>
+</html>

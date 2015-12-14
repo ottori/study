@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>load demo</title>
+  <style>
+  body {font-size: 12px;font-family:Arial}
+  #projects li em {color:red}
+  </style>
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+이 html문서는 타 html문서에 호출되어지는 html 문서.
+ 
+ <ol id="projects">
+	<li><strong>※ 호출되는 영역</strong></li>
+ 	<li>Ajax 의 <em>load()</em> 함수를 이용하여</li>
+ 	<li>다른 문서 내에 있는</li>
+ 	<li>일부 요소 또는 전체요소를</li>
+ 	<li>이와 같이 가져올 수 있다!!!</li>
+ </ol>
+ <script type="text/javascript">
+	 function actions(){
+		alert("이것은 호출되는 html 내에 있는 스크립트 경고창!!");
+	}
+	actions()
+ </script>
+</body>
+</html>

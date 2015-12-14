@@ -1,0 +1,664 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="ko"  lang="ko">
+<head>
+	<title>정해진 높이값 안에 빈 tr 추가</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="../css/common.css" />
+	<script type="text/javascript" src="../js/jquery_1.8.3.min.js"></script>
+	<style type="text/css">
+		.wrap {width:1000px; margin:30px auto; border:2px solid #444}
+		.tab_wrap {position:relative; height:50px; border-bottom:2px solid #444}
+		.tab {position:absolute; left:250px; top:20px}
+		.tab ul {zoom:1}
+		.tab ul:after {content:""; clear:both; display:block}
+		.tab ul li {float:left; }
+		.tab ul li a {display:block; width:100px; height:30px; line-height:30px; color:#444; border:1px solid #444; background:#eee; font-weight:bold; border-top-left-radius:5px; border-top-right-radius:5px; text-align:center; }
+		.tab ul li.on a {background:#d70404; color:#fff}
+		#Box {zoom:1; }
+		#Box > div:after {content:""; clear:both; display:block}
+		#Box > div {display:none}
+		.Box1 {float:left; width:50%}
+		.Box2 {float:left; width:50%}
+		.Box2 table {border-left:5px solid #ccc; border-right:0}
+			table {width:100%; background:#fff; border-right:1px solid #ccc}
+			table th {background:#444}
+			table a {display:block; font-weight:bold}
+			table th a {display:block; color:#fff}
+			table th {line-height:29px; height:29px; text-align:center}
+			table td {line-height:29px; height:29px; text-align:center; border:1px solid #ccc}
+			table .odd td {background:#f7f7f7}
+		.BoxTab3 table .odd td {background:skyblue}
+		.BoxTab4 table .odd td {background:pink}
+		.BoxTab5 table .odd td {background:#e1e1e1}
+	</style>
+</head>
+<tbody>
+	<div class="wrap">
+		<div class="tab_wrap">
+			<div class="tab">
+				<ul>
+					<li class="on"><a href="#">TAB 1</a></li>
+					<li><a href="#">TAB 2</a></li>
+					<li><a href="#">TAB 3</a></li>
+					<li><a href="#">TAB 4</a></li>
+					<li><a href="#">TAB 5</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="Box">
+			<div class="BoxTab1 today_box" style="display:block">
+				<div class="Box1">
+					<table>
+						<thead>
+							<tr>
+								<th><a href="#">1</a></th>
+								<th><a href="#">2</a></th>
+								<th><a href="#">3</a></th>
+								<th><a href="#">4</a></th>
+								<th><a href="#">5</a></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr class="odd">
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr>
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr class="odd">
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr>
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr class="odd">
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr>
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr class="odd">
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr>
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr class="odd">
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr>
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr class="odd">
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="Box2">
+					<table>
+						<thead>
+							<tr>
+								<th><a href="#">1</a></th>
+								<th><a href="#">2</a></th>
+								<th><a href="#">3</a></th>
+								<th><a href="#">4</a></th>
+								<th><a href="#">5</a></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr class="odd">
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr>
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr class="odd">
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="BoxTab2 today_box">
+				<div class="Box1">
+					<table>
+						<thead>
+							<tr>
+								<th><a href="#">title</a></th>
+								<th><a href="#">2</a></th>
+								<th><a href="#">3</a></th>
+								<th><a href="#">4</a></th>
+								<th><a href="#">5</a></th>
+								<th><a href="#">6</a></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><a href="#">title</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+								<td><a href="#">6</a></td>
+							</tr>
+							<tr class="odd">
+								<td><a href="#">title</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+								<td><a href="#">6</a></td>
+							</tr>
+							<tr>
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">title</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+								<td><a href="#">6</a></td>
+							</tr>
+							<tr class="odd">
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">title</a></td>
+								<td><a href="#">5</a></td>
+								<td><a href="#">6</a></td>
+							</tr>
+							<tr>
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+								<td><a href="#">6</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="Box2">
+					<table>
+						<thead>
+							<tr>
+								<th><a href="#">1</a></th>
+								<th><a href="#">2</a></th>
+								<th><a href="#">3</a></th>
+								<th><a href="#">3</a></th>
+								<th><a href="#">3</a></th>
+								<th><a href="#">3</a></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">3</a></td>
+							</tr>
+							<tr class="odd">
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">3</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="BoxTab3 today_box">
+				<div class="Box1">
+					<table>
+						<thead>
+							<tr>
+								<th><a href="#">1</a></th>
+								<th><a href="#">2</a></th>
+								<th><a href="#">3</a></th>
+								<th><a href="#">4</a></th>
+								<th><a href="#">5</a></th>
+								<th><a href="#">3</a></th>
+								<th><a href="#">4</a></th>
+								<th><a href="#">5</a></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr class="odd">
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr>
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr class="odd">
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr>
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr class="odd">
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="Box2">
+					<table>
+						<thead>
+							<tr>
+								<th><a href="#">1</a></th>
+								<th><a href="#">2</a></th>
+								<th><a href="#">3</a></th>
+								<th><a href="#">4</a></th>
+								<th><a href="#">5</a></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr class="odd">
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr>
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="BoxTab4 today_box">
+				<div class="Box1">
+					<table>
+						<thead>
+							<tr>
+								<th><a href="#">1</a></th>
+								<th><a href="#">2</a></th>
+								<th><a href="#">3</a></th>
+								<th><a href="#">4</a></th>
+								<th><a href="#">5</a></th>
+								<th><a href="#">5</a></th>
+								<th><a href="#">5</a></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+								<td><a href="#">5</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr class="odd">
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+								<td><a href="#">5</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr>
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+								<td><a href="#">5</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr class="odd">
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+								<td><a href="#">5</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr>
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+								<td><a href="#">5</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr class="odd">
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+								<td><a href="#">5</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="Box2">
+					<table>
+						<thead>
+							<tr>
+								<th><a href="#">1</a></th>
+								<th><a href="#">2</a></th>
+								<th><a href="#">3</a></th>
+								<th><a href="#">4</a></th>
+								<th><a href="#">5</a></th>
+								<th><a href="#">5</a></th>
+								<th><a href="#">5</a></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+								<td><a href="#">5</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr class="odd">
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+								<td><a href="#">5</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="BoxTab5 today_box">
+				<div class="Box1">
+					<table>
+						<thead>
+							<tr>
+								<th><a href="#">1</a></th>
+								<th><a href="#">2</a></th>
+								<th><a href="#">3</a></th>
+								<th><a href="#">4</a></th>
+								<th><a href="#">5</a></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr class="odd">
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr>
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr class="odd">
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr>
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="Box2">
+					<table>
+						<thead>
+							<tr>
+								<th><a href="#">1</a></th>
+								<th><a href="#">2</a></th>
+								<th><a href="#">3</a></th>
+								<th><a href="#">4</a></th>
+								<th><a href="#">5</a></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr class="odd">
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+							<tr>
+								<td><a href="#">1</a></td>
+								<td><a href="#">2</a></td>
+								<td><a href="#">3</a></td>
+								<td><a href="#">4</a></td>
+								<td><a href="#">5</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var ACT = {
+			func : function(){
+				var tab = $(".tab li"),
+					 tablink = $("a", tab),
+					 Box = $("#Box > div")
+
+				tablink.click(function(){
+					li_idx = $(this).parents("li").index();
+					tab.removeClass("on");
+					$(this).parents("li").addClass("on");
+					Box.hide(); Box.eq(li_idx).show();
+				});
+
+				function ADD( tbox, eqidx ){
+					var tbox = $(tbox).eq(eqidx),
+						 Box1 = $("div", tbox).eq(0),
+						 Box2 = $("div", tbox).eq(1),
+						 Box2_tbody = $("tbody", Box2),
+						 tr_size1 = $("tbody tr", Box1).size(),
+						 tr_size2 = $("tbody tr", Box2).size(),
+						 differ = tr_size1 - tr_size2,
+						 td_size1 = $("tbody tr:first-child td", Box1).size(),
+						 td_size2 = $("tbody tr:first-child td", Box2).size(),
+						 box2tr = $(".BoxTab2 .Box1 tbody tr").size(),
+						 trone = "",
+						 tdh = "",
+						 tdx = "",
+						 cls = ""
+
+						 if( eqidx == 0 ){
+							 tdh = $("table", Box1).height();
+							 trone = $("tbody tr", Box1).size();
+							 val = trone - box2tr;
+							 $(".BoxTab2").css("height", tdh);
+							 
+							  if( tr_size2 % 2 ){
+									cls= "";
+								 }else{
+									cls = "odd"
+								 }
+
+								 if ( tr_size1 > tr_size2 ){
+									 for( var i =0; i < td_size2; i++ ){
+										tdx += "<td></td>";
+									 }
+									 for( var i =0; i<differ; i++ ){
+										 if( cls == "odd" ){
+											 cls = "";
+										 }else{
+											 cls = "odd";
+										 };
+										$('<tr class="'+ cls + '">' + tdx  +  '</tr>').appendTo(Box2_tbody)
+									 }
+								 }
+						 }else{
+							
+						 }
+				}
+				for( var i =0; i<$(".today_box").size(); i++ ){
+					ADD(".today_box", i);
+				}
+			}
+		}
+		ACT.func();
+	</script>
+</tbody>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8"/>
+    <title>img 확대축소 뷰 기능</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <link rel="stylesheet" href="http://m.spazon.com/styles/common-1.1.0.0.css?2015041400" type="text/css">
+    <style type="text/css">
+        .title {font-size:30px;padding:10px;text-align:center}
+        .wrap {position:relative;overflow:hidden;width:1000px;height:800px;margin:0 auto;border:2px solid #444}
+        .layer {position:absolute;left:15px;top:15px;width:300px;height:220px}
+        .layer .dimd {position:absolute;left:0;top:0;right:0;bottom:0;background:rgba(0,0,0,.9)}
+        .layer_inner {position:absolute;left:20px;top:30px;right:20px;bottom:20px;border:1px solid #000}
+        .layer .view {position:absolute;left:10px;top:10px;width:80px;height:50px;border:1px solid #000}
+        .close_layer {position:absolute;right:0;top:0;width:25px;height:25px;line-height:25px;color:#fff;font-size:30px;text-align:center}
+        .close_layer:visited {color:#fff}
+        .basic img {width:100%}
+        .sample {position:absolute;right:10px;bottom:10px;color:#fff;font-size:12px}
+    </style>
+</head>
+<body>
+<h1 class="title">zoom in/out</h1>
+<div class="wrap" id="wrap">
+    <div class="basic" id="basic"><img src="http://parkgolf.golfzon.com/images/parkgolf_title.png" alt=""/> <span class="sample" id="sample"></span></div>
+    <div class="layer" id="layer" style="left:0;top:0">
+        <span class="dimd"></span>
+        <div class="layer_inner">
+            <span class="dimd"></span>
+            <span class="view"></span>
+        </div>
+        <a href="" class="close_layer">x</a>
+    </div>
+</div>
+<script type="text/javascript">
+    function id(id){return document.getElementById(id)}
+    var wrap = id("wrap");
+    var basic = id("basic");
+    var layer = id("layer");
+    var sample = id("sample");
+    var before, after, lastX, lastY, beforeX, beforeY;
+    var X, Y, layerX, layerY;
+    var offsetLeft = wrap.offsetLeft;
+    var offsetTop = wrap.offsetTop;
+    var offsetRight = document.body.offsetWidth - (wrap.offsetTop + wrap.offsetWidth );
+    var offsetBottom = document.body.offsetHeight - (wrap.offsetTop + wrap.offsetHeight);
+    var wrapHeight = wrap.offsetHeight;
+    var layerWidth = layer.offsetWidth;
+    var layerHeight = layer.offsetHeight;
+    var state = false;
+
+    var _css = function(element,prop){
+        var el, read_css;
+        el = element;
+        if(!document.defaultView){
+            read_css = el.currentStyle[prop]; //IE(678)
+        }else{
+            read_css = document.defaultView.getComputedStyle(el,null).getPropertyValue(prop); // 크롬,파폭,오페라,IE(9,10,11)
+        }
+        return read_css;
+    };
+
+    var zoom = {
+        X : 0,
+        Y : 0,
+        dotX : 0,
+        dotY : 0,
+        innerW : 0,
+        innerH : 0,
+        left : offsetLeft,
+        top : offsetTop,
+        layerX : 0,
+        layerY : 0,
+        state : false,
+        offset : function(){
+            var dragObject = null;
+            var mouseOffset = null;
+        },
+        cursor : function(){
+            layer.onmouseenter = function () {
+                _css(this,"cursor");
+                this.style.cursor = "move";
+            };
+        },
+        down : function(){
+            layer.onmousedown = function(event){
+                console.log("down")
+                state = false;
+                zoom.move();
+                this.onmouseup = function(){
+                    document.body.onmousemove = null;
+                }
+            };
+        },
+        move : function(){
+            document.body.onmousemove = function (event) {
+                state = false;
+                this.X = Math.ceil(event.pageX); /* 브라우저 기준 좌표 */
+                this.Y = Math.ceil(event.pageY);
+
+                sample.innerHTML = this.X + "," + this.Y; /* 우측 하단에 좌표값 표시 */
+
+                if (this.X <= wrap.offsetLeft) {
+                    this.X = wrap.offsetLeft;
+                } else if (this.X >= wrap.offsetLeft + wrap.offsetWidth - layerWidth) {
+                    this.X = wrap.offsetLeft + wrap.offsetWidth - layerWidth
+                };
+
+                if (this.Y <= wrap.offsetTop) {
+                    this.Y = wrap.offsetTop;
+                } else if (this.Y >= wrap.offsetTop + wrap.offsetHeight - layerHeight) {
+                    this.Y = wrap.offsetTop + wrap.offsetHeight - layerHeight;
+                };
+
+                layer.style.left = this.X - wrap.offsetLeft - 100 + "px";
+                layer.style.top = this.Y - wrap.offsetTop - 100+ "px";
+            };
+            document.body.ondrag = function(){
+              console.log(1)
+            };
+        }
+    };
+    zoom.offset();
+    zoom.cursor();
+    zoom.down();
+</script>
+</body>
+</html>

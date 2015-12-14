@@ -1,0 +1,78 @@
+<!doctype html>
+<head>
+<title>touchstart 이벤트</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" />
+<meta name="description" content="" />
+<link type="text/css" rel="stylesheet" href="" />
+<style type="text/css">
+html, body	{width:100%; height:100%;}
+body	{font:normal normal 12px/1.2 dotum; margin:0;}
+.rect	{border:3px solid #e8e8e8; width:200px; height:200px; position:absolute; top:200px; left:200px; background:pink;text-align:center;line-height:200px;
+	transition-property:border-radius, background, font-size;
+	transition-duration:0.5s;
+}
+.rect:active	{background:#fb6fa7; color:#fff; border-radius:50%; font-size:17px;}
+</style>
+<!--<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>-->
+<script type="text/javascript">
+	window.onload = function(){
+		/*
+		cnt = 0;
+		setInterval(function(){
+			if(cnt < 360){
+				cnt++;
+			}else{
+				cnt = 0;
+			}
+			id("rect").style.transform = "rotate(" + cnt + "deg)";
+			id("rect").style.WebkitTransform = "rotate(" + cnt + "deg)";
+		},10);
+		*/
+
+		//ontouchstart
+		//ontouchend
+		//ontouchmove => metaKey, shiftKey, targetTouches, scale, ctrlKey, changedTouches, rotation, touches, altKey, pageY, layerY, pageX, charCode, view, which, keyCode, detail, layerX, returnValue, timeStamp, eventPhase, target, defaultPrevented, srcElement, type, clipboardData, cancelable, currentTarget, bubbles, cancelBubble, init/TouchEvent, initUIEvent, MOUSEOUT, preventDefault, FOCUS, CHANGE, initEvent, MOUSEMOVE, AT_TARGET, stopPropagation, SELECT, BLUR, KEYUP, MOUSEDOWN, MOUSEDRAG, NONE, MOUSEUP, CAPTURING_PHASE, MOUSEOVER, CLICK, BUBBLING_PHASE, DBLCLICK, KEYDOWN, KEYPRESS, DRAGDROP, stopImmediatePropagation
+
+		var cnt = 0, auto, state = true;
+		var elem = document.body;
+
+		elem.addEventListener("touchstart",start,false);//첫번째는 event 명, 두번째는 해당 이벤트를 실행시킬 함수, 세번째는 버블링. false stopPropagation
+		elem.addEventListener("touchend",end,false);// addEventListener(타 브라우저 모두 표준, 익스에서는 attachEvent로 사용가능. 참고로 removEventListener 는 삭제 기능. 익스에서는 detachEvent)
+
+		function start(e){
+			auto = setInterval(function(){
+				cnt++;
+			}, 10);
+		}
+
+		function end(e){
+			clearInterval(auto);
+			elem.innerHTML = cnt;
+			cnt = 0;
+		}
+	}
+
+	var id = function(a){return document.getElementById(a)};
+	//css 반환
+	var _css = function(element,prop){var el,read_css;el = element;if(!document.defaultView){read_css = el.currentStyle[prop];}else{read_css = document.defaultView.getComputedStyle(el,null).getPropertyValue(prop);}return read_css;}
+
+	/*
+	document.body.addEventListener('ontouch', orientationEventHandler, false);
+	function orientationEventHandler(){
+		alert(1);
+	}
+	*/
+
+
+
+</script>
+</head>
+<body>
+<h1>touchstart 이벤트</h1>
+<h1>touchend 이벤트</h1>
+	<div class="rect" id="rect">
+		터치! 또는 클릭!
+	</div>
+ </body>
+</html>

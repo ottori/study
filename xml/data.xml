@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<mytag>
+		<link href="http://www.google.com">Google</link>
+	</mytag>
+	<mytag>
+		<link href="http://www.daum.net">Daum.net</link>
+	</mytag>
+	<mytag>
+		<link href="http://www.nate.com">NAte.com</link>
+	</mytag>
+</root>

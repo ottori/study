@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="ko"  lang="ko">
+ <head>
+  <title></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+	<script type="text/javascript">
+		window.onload = function(){
+			var el = document.getElementById("rect");
+			document.documentElement.onmousemove = function(event){
+				var e = event || window.event;
+				var x = e.x || e.pageX;
+				var y = e.y || e.pageY;
+				el.style.top = y + "px";
+				el.style.left = x + "px";
+			}
+		}
+	</script>
+ </head>
+ <body>
+
+ <div id="rect" style="position:absolute; border:1px solid red; width:10px; height:10px;"></div>
+
+ </body>
+</html>

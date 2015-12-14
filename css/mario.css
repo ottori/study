@@ -1,0 +1,25 @@
+body {background:skyblue}
+.mario_wrap {position:absolute; left:0; top:0; right:0; bottom:0; border-bottom:2px solid green; background:url("../images/bg_mario.png") left bottom repeat-x}
+.mario {position:absolute; left:50px; bottom:80px; width:50px; height:60px; z-index:200}
+.mario img {width:100%; height:100%}
+#wrap {overflow:hidden; position:absolute; bottom:0; left:0; width:100%; height:100%}
+/*.green {display:-webkit-box; overflow-x:hidden; position:absolute; left:0; bottom:0; right:0; width:100%; height:40px}
+.green span {display:block; width:0; height:0; border:20px solid green; border-top-color:transparent}*/
+.cloud {display:block; position:absolute; width:10%; height:150px}
+/*.cloud:before {content:""; display:block; position:absolute; left:-60px; top:40px; width:120px; height:120px; border-radius:60px; background:#fff}
+.cloud:after {content:""; display:block; position:absolute; right:-50px; top:50px; width:100px; height:100px; border-radius:60px; background:#fff}*/
+.cloud1 {left:10%; top:100px; background:url("../images/cloude1.png") no-repeat; background-size:contain}
+.cloud2 {left:50%; top:100px; background:url("../images/cloude2.png") no-repeat; background-size:contain}
+.cloud3 {left:30%; top:180px; background:url("../images/cloude3.png") no-repeat; background-size:contain}
+.cloud4 {left:70%; top:120px; background:url("../images/cloude1.png") no-repeat; background-size:contain}
+.block {position:absolute; left:22%; bottom:20%; display:inline-block;}
+.block em {display:inline-block; width:18px; height:10px; background:#f9d21a; border-radius:4px; border:2px solid #ff7200;}
+.block2 {left:42%; bottom:33%}
+.block3 {left:62%; bottom:25%}
+button {position:fixed; bottom:10px; width:50px; height:50px; line-height:30px; font-size:15px; text-align:center; font-weight:bold; border-radius:50%; background:rgba(255,255,255,0.5)}
+.btn:active {background-color:#ff961b}
+.left {left:10px; padding-right:2px}
+.right {left:80px; padding-left:4px}
+.jump {left:150px; width:auto; line-height:25px; padding:3px 10px}
+
+

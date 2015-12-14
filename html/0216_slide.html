@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>엠티처</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="../css/commmon.css" />
+	<style type="text/css">
+	.wrap {.zoom:1}
+	.wrap:after {content:""; clear:both; display:block}
+	.roll_bn {float:left; position:relative; width:320px; margin:30px; border:2px solid #4b4b4b}
+	.roll_bn ul {overflow:hidden; position:relative; height:388px; margin-top:31px}
+	.roll_bn ul > li {position:absolute; overflow:hidden; top:0; left:0; width:318px}
+	.roll_bn div {position:absolute; left:27px; top:0; line-height:0; z-index:100;}
+	.roll_bn span {display:inline-block; *display:inline; *zoom:1; width:14px; height:14px; background:url(../images/common/bl_roll.png) no-repeat left top; line-height:0; font-size:0; cursor:pointer}
+	.roll_bn .on {background-position:right top}
+
+	.rollRight {float:left; overflow:hidden; position:relative; margin:30px; width:330px; height:418px; border:2px solid #4b4b4b}
+	.rollRight ul {.zoom:1; width:1650px}
+	.rollRight ul:after {content:""; clear:both; display:block}
+	.rollRight li {float:left; }
+	.rollRight li a {text-align:center; display:block; width:330px; height:418px; line-height:418px; font-weight:bold; font-size:30px;}
+	.rollRight .m1 {background:pink}
+	.rollRight .m2 {background:#fff}
+	.rollRight .m3 {background:yellow}
+	.rollRight .m4 {background:green}
+	.rollRight .m5 {background:#000}
+	.rollRight .btns {position:absolute; left:27px; top:5px; line-height:0; z-index:100}
+	.rollRight .btns ul li {float:left; margin-right:5px; }
+	.rollRight .btns ul li a {display:block; width:14px; height:14px; background:url(../images/common/bl_roll.png) no-repeat left top; line-height:0; font-size:0}
+	.rollRight .btns ul li.on a {background-position:right top}
+
+	</style>
+	<script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+<body>
+<div class="wrap">
+	<div id="roll_bn" class="roll_bn">
+		<ul>
+			<li class="on"><a href="#"><img src="../images/common/main_bn01.gif" alt="방학을 알차게 보내게 하기 위한 좋은 방법은 무엇일까? 즐거운 신학기 설문조사 이벤트"></a></li>
+			<li><a href="#"><img src="../images/common/main_bn02.gif" alt="메인배너2"></a></li>
+			<li><a href="#"><img src="../images/common/main_bn03.gif" alt="메인배너3"></a></li>
+		</ul>
+		<div>
+			<span class="on">1</span>
+			<span>2</span>
+			<span>3</span>
+		</div>
+	</div>
+	<div id="rollRight" class="rollRight">
+		<ul style="margin-left:0;">
+			<li class="m1"><a href="#">PINK</a></li>
+			<li class="m2"><a href="#">WHITE</a></li>
+			<li class="m3"><a href="#">YELLOW</a></li>
+			<li class="m4"><a href="#">GREEN</a></li>
+			<li class="m5"><a href="#">BLACK</a></li>
+		</ul>
+		<div id="btns" class="btns">
+			<ul>
+				<li class="on"><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function addClass(a,b){if(a.className.indexOf(b) > -1){return false;}else{a.className += " " + b;}}
+		function removeClass(a,b){if(a.className.indexOf(b) > -1){a.className = a.className.replace(b,"");}else{return false;}}
+		var obj = {
+			rollRight1 : function(){
+				this.rollRights = document.getElementById("rollRight");
+				this.btns = document.getElementById("btns");
+				this.rollBox = this.rollRights.getElementsByTagName("ul")[0];
+				this.rollBoxImg = this.rollBox.getElementsByTagName("li");
+				this.btnsObj = this.btns.getElementsByTagName("li");
+				var before = this.btnsObj[0]; 
+				var before_li = this.rollBoxImg[0];
+				var that = this;
+
+				for( var i =0; i < this.btnsObj.length; i++  ){
+					this.btnsObj[i].num = i;
+					this.rollBoxImg[i].style.zindex= this.rollBoxImg.length -1 -i;
+					this.btnsObj[i].onclick = function(){
+						if( before != null ){
+							removeClass(before,"on");
+							removeClass(before_li,"on");
+							//before.className = "";
+							//before_li.className = "";
+						}
+						//this.className = "on";
+						//that.rollBoxImg[this.num].className = "on";
+						addClass(this,"on");
+						addClass(that.rollBoxImg[this.num],"on");
+						before = this;
+						before_li = that.rollBoxImg[this.num];
+						myslide(this.num);
+					}
+				}
+				function myslide(index){
+					//if ul 의 마진 레프트가 -1650 보다 작아지면 리턴펄스
+					if( that.rollBox.style.marginLeft < 1650 ){
+						return false;
+					};
+					//zindex 조정
+					for( var i = 0; i < that.rollBoxImg.length; i++ ){
+						if( i == index ){
+							that.rollBoxImg[i].style.zIndex = that.rollBoxImg.length - 1;
+							//that.rollBoxImg[i].sytle.left = 100 + "%";
+						}else{
+							that.rollBoxImg[i].style.zIndex = that.rollBoxImg[i].style.zIndex - 1;
+						}
+					}
+					//slide 제어
+					var ul = that.rollBox;
+					var cnt = parseInt(ul.style.marginLeft);
+					var finalx = -330 * index;
+					var sliding2 = setInterval(function(){
+						if( cnt > finalx){
+							cnt--;
+							//cnt = 330 - (330 * 0.95);
+						}else{
+							cnt = finalx;
+							clearInterval(sliding2);
+						}
+						ul.style.marginLeft = cnt + "px";
+					}, 5);
+				}
+			}
+		};
+		onload = function(){
+			obj.rollRight1();
+		}
+	</script>
+</div>
+<script type="text/javascript">
+	$(function(){
+		var rollBn = document.getElementById("roll_bn");
+		var rollBnObj = rollBn.getElementsByTagName("li");
+		var rollBnBtn = rollBn.getElementsByTagName("span");
+
+		var before = rollBnBtn[0];
+		var before_li = rollBnObj[0];
+
+		for( var i=0; i<rollBnObj.length; i++ ){
+			rollBnBtn[i].num = i;
+			rollBnObj[i].style.zIndex = rollBnObj.length - 1 - i;
+			rollBnBtn[i].onclick = function(){
+				if( before != null ){
+					before.className = "";
+					before_li.className = "";
+				}
+				this.className ="on";
+				rollBnObj[this.num].className = "on";
+				before = this;
+				before_li = rollBnObj[this.num];
+
+				mySlide(this.num);
+			};
+		}
+		function mySlide(index){
+			//z index 조정
+			for(var i = 0; i < rollBnObj.length; i++){
+				if(i == index){
+					rollBnObj[i].style.zIndex = rollBnObj.length - 1;
+					rollBnObj[i].style.left = 100 + "%";
+				}else{
+					rollBnObj[i].style.zIndex = rollBnObj[i].style.zIndex - 1;
+				}
+			}
+			//슬라이드
+			var cnt = 100;
+			var sliding = setInterval(function(){
+				if( cnt > 0 ){
+					cnt = cnt * 0.95;
+				}else{
+					cnt = 0;
+					clearInterval(sliding);
+				}
+
+				rollBnObj[index].style.left = cnt + "%";
+			},1);
+
+		}
+
+
+	});
+</script>

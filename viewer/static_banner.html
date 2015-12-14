@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link rel="stylesheet" href="hiwebReset-1.0.0.css" />
+<style type="text/css">
+@charset "utf-8";
+/* RESET CORE : HTML5 & XHTML */
+html,body{height:100%;-webkit-text-size-adjust:none}
+body{direction:ltr; font-size:75%; line-height:1.5em; text-align:center}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,fieldset,p,input,button{margin:0;padding:0;font-family:'돋움',dotum,Helvetica,sans-serif}
+article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary{display:block}
+hr{display:none}
+li{list-style:none}
+button{border:0;background:transparent;cursor:pointer}
+i,em,address,optgroup{font-style:normal; font-weight:normal}
+img,input,select,textarea,fieldset,iframe{border:0;vertical-align:middle}
+a{text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* RESET CORE : HTML5 */
+input,button,select,textarea{resize:none}
+
+/* RESET CORE : XHTML */
+table{border-collapse:collapse;border-spacing:0}
+caption,legend{visibility:hidden;width:0;height:0;font-size:0;line-height:0}
+
+/* IMPORT : UTIL- HIDE & IR */
+.hide{display:block; position:absolute; top:-9999px; left:-9999px; visibility:hidden; width:1px; height:1px; font-size:0; line-height:0; text-indent:-9999px; overflow:hidden}
+.ir{display:block; line-height:0; text-indent:-9999px; overflow:hidden}
+.wrap{position:relative; margin:100px auto; width:266px; height:222px; overflow:hidden; outline:1px solid red}
+.btn_area{position:absolute; top:50%; left:0; margin:-12px 0; width:100%}
+.btn_area > a{width:16px; height:24px; background:url(http://momplus.mw.go.kr/images/main/mnBnnr_arrow.gif) 0 0 no-repeat}
+.btn_area .prev{float:left}
+.btn_area .next{float:right; background-position:0 -28px}
+.out {display:none}
+img {width:168px; height:222px}
+</style>
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var $btn = $('.btn_area');
+	
+		$btn.find('.prev').click(function(){
+			//$('ul li:first-child').toggleClass('out');
+			$('.roll li:first-child').appendTo('.roll');
+			return false;
+		});
+	
+		$btn.find('.next').click(function(){
+			//$('ul li:first-child').toggleClass('out');
+			$('.roll li:last').prependTo('.roll');
+			return false;
+		});
+	});
+</script>
+</head>
+<body>
+<div class="wrap">
+	<div class="btn_area">
+		<a href="#prev" class="prev ir">이전 배너</a>
+		<a href="#next" class="next ir">다음 배너</a>
+	</div>
+	<ul class="roll">
+		<li><a href="#"><img src="http://momplus.mw.go.kr/files/banner/20121213184315206.gif" alt="시설·기관 찾아보기 유익한 시설과 기관을 찾아보세요! - 자세히 보기"></a></li>
+		<li><a href="#"><img src="http://momplus.mw.go.kr/files/banner/20121213181126315.gif" alt="시설·기관 찾아보기 유익한 시설과 기관을 찾아보세요! - 자세히 보기"></a></li>
+		<li><a href="#"><img src="abc.jpg" alt="시설·기관 찾아보기 유익한 시설과 기관을 찾아보세요! - 자세히 보기"></a></li>
+		<li><a href="#"><img src="abc2.JPG" alt="시설·기관 찾아보기 유익한 시설과 기관을 찾아보세요! - 자세히 보기"></a></li>
+	</ul>
+</div>
+	
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" charset="utf-8"></script>
+
+</body>
+</html>

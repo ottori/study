@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title> 1222_animate</title>
+  <meta name="description" content="append에 관하여...2014-01-18" />
+ <style type="text/css">
+ #counter {width:150px; height:150px; background:pink}
+ </style>
+ <script type="text/javascript">
+	 window.onload = function(){
+		function id(b){
+			return document.getElementById(b);
+		};
+
+		function count(){
+			var btn = id("counter");
+			var ul = id("list");
+			var ol = id("number");
+			btn.onclick = function(){
+				if(this.num === undefined){
+					this.num = 0;
+				}
+				//var li = document.createElement("li");//내장함수
+				//this.num;
+				/*
+				var text = document.createTextNode("문자");
+				li.appendChild(text);
+				*/
+				ul.appendChild(ol.getElementsByTagName("li")[this.num]);//내장함수
+			}
+		}
+		count();
+
+		//document.createElement("태그명");
+		//document.createTextNode("문자열");
+		//태그.appendChild(신규로 생성한 태그 또는 현재 화면에 존재하는 html요소);
+
+		//html 요소를 만들어서 ul 에 추가
+
+	 }
+ </script>
+ </head>
+ <body>
+	<ul id="list">
+	</ul>
+	<a href="#"id="counter">버튼</a>
+
+	<ol id="number">
+		<li>내용1</li>
+		<li>내용2</li>
+		<li>내용3</li>
+		<li>내용4</li>
+	</ol>
+ </body>
+</html>

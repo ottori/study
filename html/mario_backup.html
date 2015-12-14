@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8"/>
+	<title>Let's Play Mario Game!!</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+	<meta name="author" content="O eunsun" />
+	<meta name="keywords" content="mario game" />
+	<meta name="description" content="Let's Mario Game!!!" />
+	<link rel="stylesheet" href="../css/common.css" />
+	<link rel="stylesheet" href="../css/mario.css" />
+	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+<div class="mario_wrap">
+	<span id="mario" class="mario" style="left:30px; bottom:64px"><img src="../images/mario.PNG" alt="mario" /></span>
+</div>
+<div id="wrap">
+		<span class="cloud cloud1"></span>
+		<span class="cloud cloud2"></span>
+		<span class="cloud cloud3"></span>
+		<span class="cloud cloud4"></span>
+		<div class="block block1"><em></em><em></em><em></em></div>
+		<div class="block block2"><em></em><em></em><em></em><em></em><em></em></div>
+		<div class="block block3"><em></em><em></em><em></em><em></em></div>
+		<div class="green">
+			<span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+		</div>
+	</div><!-- //wrap end -->
+	<button class="btn left"> ◀ </button>
+	<button class="btn right"> ▶ </button>
+	<button class="btn jump"> JUMP </button>
+	<script type="text/javascript">
+		function id(v){return document.getElementById(v)}
+		var mario =  id("mario");
+		var wrap = id("wrap");
+		var cnt = 0;
+		var cnt2 = 64; 
+		var cnt3 = 100;
+		//버튼
+		var btn_left = document.getElementsByTagName("button")[0]
+		var btn_right = document.getElementsByTagName("button")[1]
+		var btn_jump = document.getElementsByTagName("button")[2]
+
+		console.log(btn_left)
+		btn_right.onclick = function(){
+			bodyAction();
+			marioAction();
+		}
+		function bodyAction(){
+			var lefts = setInterval(function(){
+				cnt -= 3;
+				wrap.style.left = cnt + "px";
+				if( cnt <= -1000 ){
+					clearInterval(lefts)
+				}
+			}, 100)
+		}
+
+		function marioAction(){
+			var speed = 15, limit_jump = 100, limit_down = 64, dir = "top", this_y = 64, this_x = 100, sec = 0.1;
+			var motion = setInterval(function(){
+				if(dir == "top"){//점프
+					if(this_y < limit_jump){
+						this_y += speed;
+					}else{
+						dir = "bottom";
+					}
+				}else{//착지
+					if(this_y > limit_down){
+						this_y -= speed;
+					}else{
+						dir = "top";
+					}
+				}
+				this_x += speed;
+				mario.style.bottom = this_y + "px";
+				mario.style.left = this_x + "px";
+			}, sec * 1000);
+		}
+	</script>
+</body>
+</html>

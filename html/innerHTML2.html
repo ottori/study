@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script type="text/javascript">
+
+	//배열
+	var arr = new Array("aa","bbb","cc");
+	arr[0] = "aaa";
+	arr[1] = "bbb";
+
+	//배열 리터럴 형식으로 작성할 경우
+	var arr = ["aa","dfsd","sdfsad"];
+
+	//객체
+	var obj = new Object();
+	obj.myid = "aaaaa";
+	obj.pw = "pwpwpw";
+	obj.a = "aa";
+	for(var i in obj){
+		console.log(obj[i])
+	}
+
+	var json_test = {
+		myid : "aaaa",
+		pw : "json_pw"
+	}
+
+	//이걸 실제 적용하는 예제는 아래와 같다.
+
+	window.onload = function(){
+		activity.getting();
+	}
+
+	var activity = { //객체 생성
+		getting : function(aa){
+			console.log(this === activity1);
+			this.mydiv = document.getElementById("actions");
+			this.otherMet();
+		},
+		otherMet : function(){
+				console.log(this.mydiv);
+		}
+	}
+
+
+
+	/*
+	//연관배열
+	var 객체 -------------- 프로퍼티 : 값,
+			        |---- 프로퍼티 : 값,
+			        |---- 프로퍼티 : 값,
+			        |---- 프로퍼티 : 값,
+			        |---- {객체 : ------------ 프로퍼티 : 값,	//객체의 프로퍼티로 또다른 객체를 선언해도 된다. (2차원 배열과 같은 개념으로 보면됨)
+				|			|----  프로퍼티 : 값,
+				|			|----  프로퍼티 : 값,
+				|			|----  프로퍼티 : 값},
+				|
+				|
+			        |---- 프로퍼티 : 값,
+			        |---- 프로퍼티 : 값
+	*/
+	</script>
+ </head>
+ <body>
+	<p id="actions">동계올림픽</p>
+	<script type="text/javascript">
+		var txt =  document.getElementById("actions").innerHTML = "소치올림픽";
+		//document.write( txt );
+	</script>
+ </body>
+</html>

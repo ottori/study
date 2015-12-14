@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title> 3Days - color picker </title>
+<meta charset="utf-8">
+<meta name="keywords" content="color, 코드색상" />
+<meta name="description" content="코드색상 만들기" />
+<link type="text/css" rel="stylesheet" href="../css/common.css" />
+<link type="text/css" rel="stylesheet" href="../css/colorplus.css" />
+<script type="text/javascript" src="../js/jquery_1.8.3.min.js"></script>
+<script type="text/javascript" src="../js/colorplus.js"></script>
+</head>
+<body>
+	<ul class="color">
+		<li><a href="#" title="눌러보세요 : )">CSS3</a></li>
+		<li><a href="#" title="눌러보세요 : )">Color</a></li>
+		<li><a href="#" title="눌러보세요 : )">Picker~!</a></li>
+	</ul>
+	<div class="tableCell">
+		<p><a href="#">안녕하세요? 여러분</a></p>
+		<p><a href="#">좋은 아침입니다. </a></p>
+		<p><a href="#">즐거운 하루 보내세요 : )</a></p>
+		<p><a href="#">Good Luck To You ~</a></p>
+	</div>
+	<div>
+		<table>
+			<caption></caption>
+			<colgroup>
+				<col style="width:30%" />
+				<col style="width:*" />
+				<col style="width:30%" />
+			</colgroup>
+			<thead>
+				<tr>
+					<th>색상</th>
+					<th><label for="num">농도조절</label></th>
+					<th>결과</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>RED</td>
+					<td><input type="range" id="num1" class="bar" max="255"/><input type="text" class="txt" id="" /></td>
+					<td rowspan="3"><!--<button type="button">색 적용하기</button>--><div class="result"></div></td>
+				</tr>
+				<tr>
+					<td>GREEN</td>
+					<td><input type="range" id="num2" class="bar" max="255"/><input type="text" class="txt" id="" /></td>
+				</tr>
+				<tr>
+					<td>BLUE</td>
+					<td><input type="range" id="num3" class="bar" max="255"/><input type="text" class="txt" id="" /></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+<script type="text/javascript">
+//$('button').click(function() {
+//	$('.result').css({ background : 'rgb('+ $('#num1').val() + ',' + $('#num2').val() + ',' + $('#num3').val() + ')' });
+//});
+
+
+//alert('슬라이드를 움직여볼 것');
+/* 구현시 살펴봐야 할 내용!
+ *
+ * Javascript 
+ *	- this의 개념
+ *
+ * jQuery
+ *	- .change()
+ *	- .change() 가 어느 태그에 적용이 되는지
+ *	- .val()
+ *
+ *
+ * 생각해보기
+ *	- 어떻게 하면 한 함수로 작성할 수 있을까( 최대한 중복된 부분을 통합하기 )
+ */
+var num1 = 125;
+var num2 = 125;
+var num3 = 125;
+
+$('.bar').change(function(){
+	values = $(this).val();
+	$(this).next('.txt').val( values );
+
+});
+$('#num1').change(function() {
+	num1 = $(this).val();
+	$('.result').css({ background : 'rgb('+ num1 + ',' + num2 + ',' + num3 + ')' });
+});
+$('#num2').change(function() {
+	num2 = $(this).val();
+	$('.result').css({ background : 'rgb('+ num1 + ',' + num2 + ',' + num3 + ')' });
+});
+$('#num3').change(function() {
+	num3 = $(this).val();
+	$('.result').css({ background : 'rgb('+ num1 + ',' + num2 + ',' + num3 + ')' });
+});
+</script>
+</body>
+</html>

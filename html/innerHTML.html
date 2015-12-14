@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script type="text/javascript">
+
+	//배열
+	var arr = new Array("aa","bbb","cc");//원래는 왼쪽과 같은 형태이지만
+	arr[0] = "aaa";
+	arr[1] = "bbb";
+
+	//배열 리터럴 형식으로 작성할 경우
+	var arr = ["aa","dfsd","sdfsad"];
+
+	//객체
+	var obj = new Object(); //obj 변수에 객체를 만들어서 담겠다.
+	obj.myid = "aaaaa"; //객체의 프로퍼티를 만들고 값을 넣는다.
+	obj.pw = "pwpwpw"; //객체의 프로퍼티를 또 만들고 값을 넣는다.
+	obj.a = "aa";//객체의 프로퍼티를 또 만들고 값을 넣는다.
+	//이걸 리터럴 형식으로 바꾸면, 아래와 같은 형식으로 쓸 수 있다.
+	for(var i in obj){
+		console.log(obj[i])
+	}
+
+	var json_test = { //json_test 라는 변수에 객체를 만들어서 담겠다. (프로퍼티 구분시 쉼표 주의)
+		myid : "aaaa", //객체의 프로퍼티를 만들고 값을 넣는다.
+		pw : "json_pw" //객체의 프로퍼티를 또 만들고 값을 넣는다. 마지막에는 쉼표 x
+	}
+	//이걸 실제 적용하는 예제를 보면 아래와 같다.
+
+	window.onload = function(){
+		activity.getting(); //HTML 엘리먼트를 참조할것이므로, 윈도우 온로드에서 한번 실행
+	}
+
+	var activity = { //객체 생성
+		getting : function(aa){ //방금 만든 activity 객체에 getting 프로퍼티를 만들어서 함수를 담는다.
+			//this는 자기자신을 생성한 객체를 가르킨다.
+			console.log(this === activity);
+			this.mydiv = document.getElementById("actions"); //activity 객체의 프로퍼티로 mydiv 라는걸 생성하여, 태그를 담는다.
+			//(현재 소스상에는 mydiv라는 프로퍼티가 없지만, 메모리에 등록되어 있다.)
+			this.otherMet(); //this는 객체 activity를 가르키므로, this.otherMet()을 호출하면 아래의 함수가 실행된다.
+		},
+		otherMet : function(){
+			console.log(this.mydiv);//this는 객체 activity를 가르키므로, this.mydiv에는 위 함수에서 설정한대로 들어가있다.
+			//중요 : this 의 유효범위, 객체, 프로퍼티(키 : 값 쌍으로 이루어짐)
+			//값에는 또다른 객체가 들어올수도 있다.
+		}
+	}
+
+
+
+	/*
+	//연관배열
+	var 객체 -------------- 프로퍼티 : 값,
+			        |---- 프로퍼티 : 값,
+			        |---- 프로퍼티 : 값,
+			        |---- 프로퍼티 : 값,
+			        |---- {객체 : ------------ 프로퍼티 : 값,	//객체의 프로퍼티로 또다른 객체를 선언해도 된다. (2차원 배열과 같은 개념으로 보면됨)
+				|			|----  프로퍼티 : 값,
+				|			|----  프로퍼티 : 값,
+				|			|----  프로퍼티 : 값},
+				|
+				|
+			        |---- 프로퍼티 : 값,
+			        |---- 프로퍼티 : 값
+	*/
+	</script>
+ </head>
+ <body>
+	<p id="actions">동계올림픽</p>
+	<script type="text/javascript">
+		var txt =  document.getElementById("actions").innerHTML = "소치올림픽";
+		//document.write( txt );
+	</script>
+ </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="ko"  lang="ko">
+ <head>
+  <title></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <script type="text/javascript">
+	  window.onload = function(){
+		var inpt1 = document.getElementById("inpt1");
+		var inpt2 = document.getElementById("inpt2");
+		var inpt3 = document.getElementById("inpt3");
+	  }
+	function actions(){
+	//	var test = document.getElementById("test");
+		var view = document.test1.test.value;
+		alert( eval(view) );
+	}
+
+	function plus(){
+		var view1 = inpt1.value + inpt2.value;
+		alert(view1);
+	}
+	function evals(){
+		//var result = eval(inpt1.value ) + eval( inpt2.value );
+		var result = parseInt(inpt1.value) + parseInt(inpt2.value );
+		inpt3.value = result;
+		alert(result);
+	}
+
+  </script>
+ </head>
+ <body>
+		eval 함수 : <input type="text" id="test" name="test"/> 
+		<br/ ><br/ >
+		<button class="btns" onclick="actions();">eval 함수 실행</button>
+		<br /><br />
+		그냥 더하기 : <input type="text" name="inpt1" id="inpt1"/> + <input type="text" name="inpt2" id="inpt2" /> = <input type="text" name="inpt3" id="inpt3" />
+		<br /><br />
+		<button class="btns" onclick="plus();">그냥 더하기</button>
+		<button class="btns" onclick="evals();">eval 더하기</button>
+ </body>
+</html>

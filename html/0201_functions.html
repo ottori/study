@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+ <head>
+  <title>함수기본사용</title>
+  <meta name="description" content="" />
+  <link type="text/css" rel="stylesheet" href="" />
+  <link rel="stylesheet" href="../css/common.css" />
+  <style type="text/css">
+  .button {display:block}
+  .box {display:-webkit-box; width:300px; height:340px}
+  .box button {display:block; width:31%; padding:0; margin:0;}
+  .wrap {position:relative; margin-top:150px}
+  .over {position:absolute; left:62px; top:0}
+  .over button {width:57px; height:230px; margin-right:34px; background:#000}
+  .over button:active {background:#f1f1f1}
+  .over button.jump {margin-right:117px}
+  </style>
+  <script type="text/javascript">
+	  
+	function actions(sum1, sum2){
+	    return sum1 + sum2;
+	} 
+	function actions2(sum){
+	    return eval(sum);
+	}
+	window.onload = function(){
+		var box =  document.getElementById("box");
+		var button = box.getElementsByTagName("button");
+
+		for( i=0; i < button.length; i++ ){
+			button[i].onclick = function(){
+				alert(this.value);
+			}
+		}
+	};
+
+  </script>
+ </head>
+ <body>
+	<input type="button" value="1+2" onclick="alert(actions(1,2));" class="button" />
+	<input type="button" value="2+2" onclick="actions();" class="button" />
+	<input type="button" value="2+3" onclick="actions();" class="button" />
+	<input type="text" id="inp" class="inp"/> + 10
+	<br />
+	<input type="button" value="2+3" onclick="alert(actions2(this.value));" class="button" />
+	<br />
+	<div class="wrap">
+		<div class="box" id="box">
+			<button type="button" value="도 : 도인같은 이영주?? ;ㅁ;;;"></button>
+			<button type="button" value="레 : 레미제라블 같이 곧은 성품을 지녔나요??? 'ㅁ '"></button>
+			<button type="button" value="미 : 미인을 좋아하는 당신"></button>
+			<button type="button" value="파 : 파라오 처럼 꿈이 큰 당신"></button>
+			<button type="button" value="솔 : 솔로로 오랫동안 달려왔나요?"></button>
+			<button type="button" value="라 : 라잇나우 지금이 바로 새로운 "></button>
+			<button type="button" value="시 : 시작입니다"></button>
+			<button type="button" value="도 : 도인같은 이영주??"></button>
+			<button type="button" value="레 : 레미제라블 같이 곧은 성품을 지녔나요??? 'ㅁ '"></button>
+			<button type="button" value="미 : 미인을 좋아하는 당신"></button>
+			<button type="button" value="파 : 파라오 처럼 꿈이 큰 당신"></button>
+			<button type="button" value="솔 : 솔로로 오랫동안 달려왔나요?"></button>
+			<button type="button" value="라 : 라잇나우 지금이 바로 새로운 "></button>
+			<button type="button" value="시 : 시작입니다"></button>
+			<button type="button" value="도 : 도인같은 이영주??"></button>
+			<button type="button" value="레 : 레미제라블 같이 곧은 성품을 지녔나요??? 'ㅁ '"></button>
+			<button type="button" value="미 : 미인을 좋아하는 당신"></button>
+			<button type="button" value="파 : 파라오 처럼 꿈이 큰 당신"></button>
+			<button type="button" value="솔 : 솔로로 오랫동안 달려왔나요?"></button>
+			<button type="button" value="라 : 라잇나우 지금이 바로 새로운 "></button>
+			<button type="button" value="시 : 시작입니다"></button>
+		</div>
+		<div class="over">
+			<button type="button" value=""></button>
+			<button type="button" value=""></button>
+			<button type="button" value="" class="jump"></button>
+			<button type="button" value=""></button>
+			<button type="button" value=""></button>
+			<button type="button" value="" class="jump"></button>
+			<button type="button" value=""></button>
+			<button type="button" value=""></button>
+			<button type="button" value="" class="jump"></button>
+			<button type="button" value=""></button>
+			<button type="button" value=""></button>
+			<button type="button" value="" class="jump"></button>
+			<button type="button" value=""></button>
+			<button type="button" value=""></button>
+		</div>
+	</div>
+
+
+
+ </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<meta charset="utf-8" />
+	<title>디자인 라디오</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../css/common.css" />
+	<script type="text/javascript" src="../js/jquery_1.8.3.min.js"></script>
+	<style type="text/css">
+		.radioBox {display:inline-block; width:14px; height:14px; margin-right:3px; vertical-align:middle; background:url("../images/radio_off.png") no-repeat; cursor:pointer}
+		.radioBox.on {background:url("../images/radio_on.png") no-repeat}
+		.radio {width:0; height:0}
+		.cellBox label {display:inline-block; margin-top:2px; margin-right:13px; vertical-align:middle; cursor:pointer}
+	</style>
+	<script type="text/javascript">
+		$(function(){
+			$(".jsRadio .radioBox").click(function(){
+				var ch = this.childNodes[0].checked;
+				if( ch == true ){
+				}else if( ch == false ){
+					ch = true;
+					this.childNodes[0].checked = true;
+				}
+				$(this).parents(".jsRadio").find(".radioBox").removeClass("on");
+				$(this).addClass("on");
+			});
+		});
+	</script>
+</head>
+<body><br/><br/>
+	<div class="cellBox jsRadio">
+		<span class="radioBox on"><input type="radio" id="tel1" name="ra" class="radio" checked="checked" /></span> <label for="tel1">왼쪽</label>
+		<span class="radioBox"><input type="radio" id="tel2" name="ra" class="radio" /></span> <label for="tel2">오른쪽</label>
+	</div>
+	<!-- 위 코드를 쓰삼 -->
+
+
+
+	<!-- 아래는 그냥... -->
+	<strong class="strong">라디오 선택 클릭 & 터치 Go</strong><br/>
+	<strong class="strong">웬만하면 인풋은 기본으로 갑시다!!</strong>
+	<a href="#"></a><strong class="nose"></strong><em></em>
+	<style type="text/css">
+		a {position:absolute; left:20px; top:-95px; width:100px; height:200px; background:#fef1d3; border-radius:50%;}
+		em {position:absolute; left:66px; top:30px; height:21px; width:5px; background:#4b4b4b}
+		.nose {position:absolute; left:43px; top:30px; height:51px; width:51px; border-radius:50%; background:red;}
+		.strong {padding-left:30px}
+		.nose:before {content:""; display:block; width:60px; height:30px; background:#fef1d3; position:absolute; }
+		.cellBox {padding:100px 30px 30px}
+		.radio {position:absolute; z-index:10; left:30px; top:0; width:30px; height:30px; border-radius:50%}
+		#tel2 {left:80px}
+	</style>
+</body>
+</html>

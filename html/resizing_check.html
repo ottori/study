@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>사용자 리사이징 체크</title>
+	<meta name="author" content="youngjoolee" />
+	<meta name="description" content="사용자가 리사이징을 멈췄을때 체크해내는 기능" />
+</head>
+<script type="text/javascript">
+that.resizeState = false;
+if(this.visualAuto === undefined){
+	that.resizeState = true;
+	auto = setInterval(function(){
+		if(that.resizeState == false) return false;
+		if(lock == "off") return false;
+		next.click();
+	},autoTime);
+	this.visualAuto = true;
+}else{
+	if(that.resizeComplete_state === undefined){
+		that.resizeComplete = setTimeout(function(){
+			that.resizeState = true;
+			clearTimeout(that.resizeComplete);
+			delete that.resizeComplete_state;
+		},1000);
+		that.resizeComplete_state = true;
+	}
+	clearInterval(auto);
+	delete auto;
+}
+</script>
+<body>
+
+</body>
+</html>

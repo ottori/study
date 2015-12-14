@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>이미지 바꾸기</title>
+<style type="text/css">
+	body {margin:0; padding:0; text-align:center; background:#2b2b2b}
+	ul, li, p, a {margin:0; padding:0;}
+	li {list-style:none}
+	.wrap {position:relative; width:1200px; margin:0 auto}
+	.wrap > a {display:block; position:absolute; text-decoration:none; color:#e5e5e5; font-size:50px; }
+	.wrap > a:hover {color:yellow}
+	.wrap .prevBtn {left:50px; top:270px;}
+	.wrap .nextBtn {right:50px; top:270px;}
+	.album {text-align:center}
+	.album p {width:500px; height:350px; padding:120px 0; margin:0 auto; text-align:center; background:#2b2b2b}
+	.album p img {width:160px; margin:0 auto; border:3px solid #000; vertical-align:middle}
+	.album p span {display:inline-block; width:0; height:100%; vertical-align:middle}
+	.thumbNail ul {width:1080px; margin:0 auto; .zoom:1}
+	.thumbNail ul:after {content:""; clear:both; display:block}
+	.thumbNail ul li {float:left; width:140px; height:140px; line-height:140px; margin-right:8px; border:3px solid #000}
+	.thumbNail ul li a {display:block; width:140px; height:140px; line-height:140px}
+	.thumbNail ul li a:active {background:#4b4b4b}
+	.thumbNail ul li img {display:inline-block; width:50px; height:auto; vertical-align:middle}
+	.thumbNail ul li span {display:inline-block; width:0; height:100%; vertical-align:middle}
+</style>
+<script type="text/javascript">
+	window.onload = function(){
+		totalFunction();
+		/*var album = document.getElementById("album");
+		var bigSize = document.getElementById("bigSize");
+		var list = document.getElementByTagName("thumbNail");
+		var smallSize = list.getElementByTagName("a");
+		var max = smallSize.length;
+
+		for(i=1; i<max; i++){
+			bigSize.src = 'vil' + i ;
+		}
+
+		samllSize.onclick() = function(){
+			imgChange();
+		}
+		return false;*/
+	};
+	//첫번째 방법.  html 코드 내의 a 태그에 각각 onclick 을 삽입한다.
+	/*function imgChange(a){
+		var me = a;
+		var img = me.getElementsByTagName("img")[0];
+		var bigSize = document.getElementById("bigSize");
+		bigSize.src = img.src;
+	}*/
+	//두번째 방법. html코드 내에 onclick 을 삽입하지 말고 script 내에서 함수를 만들어 호출한다.
+	function id(b){
+		return document.getElementById(b);
+	}
+
+	function totalFunction(){
+		var bigSize = id("bigSize");
+		var thumbNail = id("thumbNail");
+		var thumbNailLi = thumbNail.getElementsByTagName("a");
+		var prevBtn =  id("prevBtn");
+		var nextBtn = id("nextBtn");
+
+		function IR(){
+			for( var i=0; i < thumbNailLi.length; i++ ){
+				thumbNailLi[i].onclick = function(){
+					var imgs = this.getElementsByTagName("img")[0];
+					console.log(imgs);
+					bigSize.src = imgs.src;
+					return false;
+				}
+			}
+		}
+
+		function Slide(){
+			var cnt = 0;
+			prevBtn.onclick = function(){
+				cnt--;
+				if( cnt <= 0 ){
+					cnt = 0;
+				}console.log(cnt);
+				bigSize.src = thumbNailLi[cnt].getElementsByTagName("img")[0].src;
+			}
+			nextBtn.onclick = function(){
+				if( cnt >= 0 && cnt < thumbNailLi.length - 1 ){
+					cnt++;
+				}console.log(cnt);
+				bigSize.src = thumbNailLi[cnt].getElementsByTagName("img")[0].src;
+			}
+		}
+		IR();
+		Slide();
+
+	}
+
+
+</script>
+</head>
+<body>
+<!--<div class="wrap">
+	<a href="#" class="prevBtn">◀</a><a href="#" class="nextBtn">▶</a>
+	<div class="album">
+		<p><img src="../images/am1.jpg" alt="빅사이즈" id="bigSize" /><span></span></p>
+	</div>
+	<div class="thumbNail">
+		<ul>
+			<li><a href="#" onclick="imgChange(this); return false;"><img src="../images/am1.jpg" alt="" /><span></span></a></li>
+			<li><a href="#" onclick="imgChange(this); return false;"><img src="../images/am2.jpg" alt="" /><span></span></a></li>
+			<li><a href="#" onclick="imgChange(this); return false;"><img src="../images/am3.jpg" alt="" /><span></span></a></li>
+			<li><a href="#" onclick="imgChange(this); return false;"><img src="../images/am4.jpg" alt="" /><span></span></a></li>
+			<li><a href="#" onclick="imgChange(this); return false;"><img src="../images/am5.jpg" alt="" /><span></span></a></li>
+			<li><a href="#" onclick="imgChange(this); return false;"><img src="../images/am6.jpg" alt="" /><span></span></a></li>
+			<li><a href="#" onclick="imgChange(this); return false;"><img src="../images/am7.jpg" alt="" /><span></span></a></li>
+		</ul>
+	</div>
+</div>-->
+<!-- 아래는 위 코드 복제본 -->
+<div class="wrap">
+	<a href="#" id="prevBtn" class="prevBtn">◀</a><a href="#" id="nextBtn" class="nextBtn">▶</a>
+	<div class="album">
+		<p><img src="../images/am1.jpg" alt="빅사이즈" id="bigSize" /><span></span></p>
+	</div>
+	<div id="thumbNail" class="thumbNail">
+		<ul>
+			<li><a href="#"><img src="../images/am1.jpg" alt="" /><span></span></a></li>
+			<li><a href="#"><img src="../images/am2.jpg" alt="" /><span></span></a></li>
+			<li><a href="#"><img src="../images/am3.jpg" alt="" /><span></span></a></li>
+			<li><a href="#"><img src="../images/am4.jpg" alt="" /><span></span></a></li>
+			<li><a href="#"><img src="../images/am5.jpg" alt="" /><span></span></a></li>
+			<li><a href="#"><img src="../images/am6.jpg" alt="" /><span></span></a></li>
+			<li><a href="#"><img src="../images/am7.jpg" alt="" /><span></span></a></li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

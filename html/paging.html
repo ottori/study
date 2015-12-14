@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="ko"  lang="ko">
+<head>
+	<title>현재 page 체크 기능</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="../css/common.css" />
+	<script type="text/javascript" src="../js/jquery_1.8.3.min.js"></script>
+	<style type="text/css">
+		body{margin:30px}
+		.box_page {width:280px; height:132px; padding:5px 20px 20px 10px; position:relative; border:2px solid #ccc; background:#f1f1f1; font-size:13px; border-radius:5px}
+		.box_page .paging {position:absolute; right:10px; top:5px; font-weight:bold; border:2px solid #444; border-radius:4px; padding:0 5px}
+		.box_page .paging span {color:blue}
+		.box_page .paging em {font-weight:bold; color:red}
+		.box_page ul {display:none; overflow:hidden; height:106px}
+		.box_page ul.on {display:block}
+		.box_page ul li a {overflow:hidden; text-overflow:ellipsis; display:block; white-space:nowrap; line-height:18px}
+		.box_page ul li a:hover {background:gray; color:#fff}
+		.btn {padding:3px 0 10px}
+		.btn a {border:1px solid #444; color:gray; border-radius:3px} .btn a:hover {color:#fff; background:gray}
+		#wax {border:1px solid #444; height:300px; width:300px}
+	</style>
+	<script type="text/javascript">
+	</script>
+</head>
+<tbody>
+	<strong>뭐든지 여러개를 하나의 함수로 돌릴 수 있어야 함!</strong><br/>
+	<strong>현재 페이지 체크 기능 - 게시글의 갯수를 계산하여 전체 페이지 수와 현재 페이지 순서를 숫자로 뿌려줌</strong><br/><br/>
+	<div class="wrap">
+		<div class="box_page">
+			<div class="btn"><a href="#">이전</a> <a href="#">다음</a></div>
+			<div class="paging">
+				<span><em>1</em> / 5 PAGE</span>
+			</div>
+			<ul>
+				<li><a href="#">[1] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[2] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내.</a></li>
+				<li><a href="#">[3] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내.</a></li>
+				<li><a href="#">[4] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[5] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[6] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+
+				<li><a href="#">[7] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+				<li><a href="#">[8] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+				<li><a href="#">[9] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+				<li><a href="#">[10] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+				<li><a href="#">[11] 경부선 철도 예약 안내 공지. 2015 명절 연휴를 즐겁게 보내기 위한 이벤트</a></li>
+				<li><a href="#">[12] 경부선 철도 예약 안내 공지. 2015 명절 연휴를 즐겁게 보내기 위한 이벤트</a></li>
+				
+				<li><a href="#">[13] 경부선 철도 예약 안내 공지. 2015 명절 연휴를 즐겁게 보내기 위한 이벤트</a></li>
+				<li><a href="#">[14] 경부선 철도 예약 안내 공지. 2015 명절 연휴를 즐겁게 보내기 위한 이벤트</a></li>
+				<li><a href="#">[15] 경부선 철도 예약 안내 공지. 2015 명절 연휴를 즐겁게 보내기 위한 이벤트</a></li>
+				<li><a href="#">[16] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[17] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[18] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				
+				<li><a href="#">[19] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[20] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[21] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+				<li><a href="#">[22] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+				<li><a href="#">[23] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+				<li><a href="#">[24] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+				
+				<li><a href="#">[25] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+				<li><a href="#">[26] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[27] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+			</ul>
+		</div><br /><br />
+
+		<div class="box_page">
+			<div class="btn"><a href="#">이전</a> <a href="#">다음</a></div>
+			<div class="paging">
+				<span><em>1</em> / 5 PAGE</span>
+			</div>
+			<ul>
+				<li><a href="#">[1] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[2] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내.</a></li>
+				<li><a href="#">[3] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내.</a></li>
+				<li><a href="#">[4] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[5] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[6] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+
+				<li><a href="#">[7] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+				<li><a href="#">[8] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+				<li><a href="#">[9] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+				<li><a href="#">[10] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+				<li><a href="#">[11] 경부선 철도 예약 안내 공지. 2015 명절 연휴를 즐겁게 보내기 위한 이벤트</a></li>
+				<li><a href="#">[12] 경부선 철도 예약 안내 공지. 2015 명절 연휴를 즐겁게 보내기 위한 이벤트</a></li>
+				
+				<li><a href="#">[13] 경부선 철도 예약 안내 공지. 2015 명절 연휴를 즐겁게 보내기 위한 이벤트</a></li>
+				<li><a href="#">[14] 경부선 철도 예약 안내 공지. 2015 명절 연휴를 즐겁게 보내기 위한 이벤트</a></li>
+				<li><a href="#">[15] 경부선 철도 예약 안내 공지. 2015 명절 연휴를 즐겁게 보내기 위한 이벤트</a></li>
+				<li><a href="#">[16] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[17] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[18] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				
+				<li><a href="#">[19] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[20] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[21] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+				<li><a href="#">[22] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+				<li><a href="#">[23] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+				<li><a href="#">[24] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+				
+				<li><a href="#">[25] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+				<li><a href="#">[26] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[27] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[28] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[29] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[30] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+
+				<li><a href="#">[31] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[32] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[33] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[34] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[35] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[36] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+
+				<li><a href="#">[37] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+				<li><a href="#">[38] KTX 열차 운행 안내입니다. </a></li>
+				<li><a href="#">[39] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[40] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[41] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[42] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+
+				<li><a href="#">[43] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+				<li><a href="#">[44] KTX 열차 운행 안내입니다. </a></li>
+				<li><a href="#">[45] KTX 열차 운행 안내입니다. </a></li>
+				<li><a href="#">[46] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[47] KTX 열차 운행 안내입니다. </a></li>
+				<li><a href="#">[48] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+			</ul>
+		</div><br /><br />
+
+		<div class="box_page">
+			<div class="btn"><a href="#">이전</a> <a href="#">다음</a></div>
+			<div class="paging">
+				<span><em>1</em> / 5 PAGE</span>
+			</div>
+			<ul>
+				<li><a href="#">[1] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[2] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내.</a></li>
+				<li><a href="#">[3] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내.</a></li>
+				<li><a href="#">[4] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[5] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[6] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+
+				<li><a href="#">[7] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+				<li><a href="#">[8] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+				<li><a href="#">[9] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+				<li><a href="#">[10] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+				<li><a href="#">[11] 경부선 철도 예약 안내 공지. 2015 명절 연휴를 즐겁게 보내기 위한 이벤트</a></li>
+				<li><a href="#">[12] 경부선 철도 예약 안내 공지. 2015 명절 연휴를 즐겁게 보내기 위한 이벤트</a></li>
+				
+				<li><a href="#">[13] 경부선 철도 예약 안내 공지. 2015 명절 연휴를 즐겁게 보내기 위한 이벤트</a></li>
+				<li><a href="#">[14] 경부선 철도 예약 안내 공지. 2015 명절 연휴를 즐겁게 보내기 위한 이벤트</a></li>
+				<li><a href="#">[15] 경부선 철도 예약 안내 공지. 2015 명절 연휴를 즐겁게 보내기 위한 이벤트</a></li>
+				<li><a href="#">[16] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[17] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[18] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				
+				<li><a href="#">[19] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[20] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[21] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+				<li><a href="#">[22] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+				<li><a href="#">[23] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+				<li><a href="#">[24] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+				
+				<li><a href="#">[25] KTX 열차 운행 안내입니다. 2월 29일 설 연휴 명절 기차 예약 안내</a></li>
+				<li><a href="#">[26] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[27] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[28] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[29] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[30] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+
+				<li><a href="#">[31] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[31] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[32] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[33] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[34] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+				<li><a href="#">[35] 2월 공지사항입니다. 진행중인 입사공고입니다.</a></li>
+			</ul>
+		</div><br /><br />
+<div>
+</div>
+	</div>
+	<script type="text/javascript">
+		PAGING = {
+			page : function( box ){
+				var box_page = box,
+					 total_page = $(".paging span", box_page),
+					 prev = $(".btn a:first-child", box_page),
+					 next = $(".btn a:last-child", box_page),
+					 ul = $("ul", box_page),
+					 li = $("li", ul),
+					 liheight = li.height();
+					 lilength = li.size(),
+					 num = 6, //기본 노출 게시물 개수
+					 total = Math.ceil( lilength / num ),
+					 apage = num / total,
+					 cnt = "",
+					 new_array = []
+
+					 console.log(total)
+
+				for( var i =0; i < lilength; i++ ){
+					$("li", ul).eq(i);
+					if( i % 6 ){
+						li.eq(i).appendTo(box_page.find("ul").eq(-1));
+					}else{
+						$("<ul></ul>").appendTo(box_page);
+						li.eq(i).appendTo(box_page.find("ul").eq(-1));
+					}
+				};
+				ul.eq(0).remove();
+				ul = $("ul", box_page);
+				ul.eq(0).addClass("on");
+
+				total_page.html(" <em>1</em> / " + total + " PAGE");
+
+				prev.click(function(){
+					if( cnt > 0 ){
+						cnt--;
+						ul.removeClass("on");
+						ul.eq(cnt).addClass("on");
+						console.log(cnt)
+						total_page.find("em").text(cnt+1);
+					}else{
+						cnt =0;
+					};
+				});
+
+				next.click(function(){
+					if( cnt < total -1 ){
+						cnt++;
+						ul.removeClass("on");
+						ul.eq(cnt).addClass("on");
+						total_page.find("em").text(cnt+1);
+					}else{
+						cnt = total - 2;
+					};
+					console.log(cnt)
+				});
+			}
+		}
+		for ( var i =0; i<$(".box_page").size(); i++ ){
+			PAGING.page( $(".box_page").eq(i) );
+		}
+	</script>
+</tbody>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<title>openWindow</title>
+	<meta charset="utf-8"/>
+	<meta name="author" content="오은선" />
+	<style type="text/css">
+		.owl {display:block; overflow:visible; margin:30px; background:orange; color:#4b4b4b; width:100px; height:100px; padding:20px; text-align:center}</style>
+</head>
+<body style="background:#eee">
+	<a href="#" id="_blank" class="owl">Click 하여 새창 열기</a>
+	<script type="text/javascript">
+		document.getElementById("_blank").onclick = function(){
+			var proper = "width=" + screen.width + ", height=" + 500;
+			window.open("http://google.com","",proper);
+		}
+		var a = {
+			a1 : "1",
+			a2 : function(){
+				console.log(this === a);
+			},
+			a3 : {
+				a3_1 : 1,
+				a3_2 : function(){
+					console.log(this === a.a3);
+				},
+				a3_3 : {
+					a3_3_1 : {
+						c : function(){
+							console.log(this === a.a3.a3_3.a3_3_1);
+						}
+					}
+				}
+			},
+			a4 : []
+		};
+		a.a2();
+		a.a3.a3_2();
+		a.a3.a3_3.a3_3_1.c();
+
+		function MyClass(a){
+			this.name = a;
+		}
+		MyClass.prototype.age = function(a){
+			this.age = a;
+			console.log(this.name + " / " + this.age);
+		}
+
+		var test1 = new MyClass("lee young joo");
+		test1.age(30);
+		var test2 = new MyClass("Oh");
+		test2.age(29);
+		var test3 = new MyClass("kim");
+		test3.age(44);
+	</script>
+</body>
+</html>

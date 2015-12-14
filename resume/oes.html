@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<meta charset="utf-8" />
+	<title>오은선 감각있는 UI개발자</title>
+	<meta name="description" content="오은선 소개 페이지입니다" />
+	<meta name="auther" content="오은선" />
+    <link rel="shortcut icon" href="../images/oes.png" />
+	<link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="../css/common.css" />
+	<link rel="stylesheet" href="../css/style2.css" />
+	<script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="../js/raphael.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<!--[If lte IE 9]><link rel="stylesheet" href="../css/style_ie.css" /><![endif]-->
+	<!--[if lt IE 9]><script src="../js/html5Shiv.js"></script><![endif]-->
+	<script type="text/javascript">
+		window.onload = function () {
+			var remove = spinner("holder", 70, 100, 12, 25, "#000");
+			var form = {
+				form: document.getElementsByTagName("form")[0],
+				r1: document.getElementById("radius1"),
+				r2: document.getElementById("radius2"),
+				count: document.getElementById("count"),
+				width: document.getElementById("width"),
+				color: document.getElementById("color")
+			};
+		};
+		
+		function spinner(holderid, R1, R2, count, stroke_width, colour) {
+			var sectorsCount = count || 12,
+				color = colour || "#000",
+				width = stroke_width || 15,
+				r1 = Math.min(R1, R2) || 35,
+				r2 = Math.max(R1, R2) || 60,
+				cx = r2 + width,
+				cy = r2 + width,
+				r = Raphael(holderid, r2 * 2 + width * 2, r2 * 2 + width * 2),
+				
+				sectors = [],
+				opacity = [],
+				beta = 2 * Math.PI / sectorsCount,
+
+				pathParams = {stroke: color, "stroke-width": width, "stroke-linecap": "round"};
+				Raphael.getColor.reset();
+			for (var i = 0; i < sectorsCount; i++) {
+				var alpha = beta * i - Math.PI / 2,
+					cos = Math.cos(alpha),
+					sin = Math.sin(alpha);
+				opacity[i] = 1 / sectorsCount * i;
+				sectors[i] = r.path([["M", cx + r1 * cos, cy + r1 * sin], ["L", cx + r2 * cos, cy + r2 * sin]]).attr(pathParams);
+				if (color == "rainbow") {
+					sectors[i].attr("stroke", Raphael.getColor());
+				}
+			}
+			var tick;
+			(function ticker() {
+				opacity.unshift(opacity.pop());
+				for (var i = 0; i < sectorsCount; i++) {
+					sectors[i].attr("opacity", opacity[i]);
+				}
+				r.safari();
+				tick = setTimeout(ticker, 1000 / sectorsCount);
+			})();
+			return function () {
+				clearTimeout(tick);
+				r.remove();
+			};
+		}
+	</script>
+</head>
+<body>
+	<!-- 로딩페이지 -->
+	<div class="loadingBox">
+			<div id="holder"></div>
+	</div>
+	<!-- //로딩페이지 -->
+
+	<!-- 맨 위로 -->
+	<a href="#"><span>TOP</span></a>
+	<!-- // 맨 위로 -->
+
+	<!-- 본문 시작 -->
+	<div class="body">
+		<header>
+			<div>
+				<div><h1><a href="#">O EUN SUN</a></h1></div>
+				<nav>
+					<h2 class="hide">OES 전체 메뉴</h2>
+					<ul class="gnb">
+						<li><a href="#van4">Portfolio</a></li>
+						<li><a href="#van2">Profile</a></li>
+						<li><a href="#van3">Motto</a></li>
+						<li><a href="#van6">Self-introduction</a></li>
+						<li><a href="#van5">Skill</a></li>
+						<li><a href="#van7">Other</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<div class="wrap">
+			<section>
+				<h3 class="hide">오은선 포트폴리오 본문</h3>
+				<article class="van1" id="van1">
+					<div>
+						<h3 class="hide">오은선은 어떤 인간인가</h3>
+						<p>기술과 인성을 함께 갖춘 인재</p>
+						<p>일과 사람을 사랑으로 품을 줄 아는 인재입니다.</p>
+					</div>
+				</article>
+
+				<article class="van2" id="van2">
+					<div>
+						<h3>PROFILE OES</h3>
+						<div class="clear">
+							<div class="left">
+								<img src="../images/oes2013.jpg" alt="오은선" /><span class="empty"></span>
+							</div>
+							<div class="right">
+							</div>
+						</div>
+					</div>
+				</article>
+
+				<article class="van3" id="van3">
+					<div>
+						<h3>MOTTO(좌우명)</h3>
+						<div>
+							<strong class="motto">It is all in the mind.</strong>
+							<strong>모든 것이 마음에 있다.</strong>
+							
+							<div class="mottoExp">
+								<p>정말로 그렇습니다. 이 세상 모든 것이 마음에 있으면 있고, 없으면 없습니다.</p>
+								<p>하고자 하는 마음이 진실이면 상황이 아무리 열악해도 <br/>어떻게든 방법을 찾아 움직이게 됩니다. 그 마음이 진실되면 진실될 수록 끝까지 노력하여 결국 이루게 됩니다.</p>
+								<p>대부분의 사람은 일이 잘 안되면 그 원인을 상황에서 찾으려 합니다. 하지만 근본적인 원인은 상황이 아니라 내 마음에 있다는 것.</p>
+								<p>모든 일은 시간과 장소에 있는 것이 아니라 마음에 있습니다.</p>
+								<p>하고자 하는 자는 방법을 찾고 게으른 자는 구실만 찾는 법이지요.</p>
+							</div>
+						</div>
+					</div>
+				</article>
+
+				<article class="van4" id="van4">
+					<div>
+						<h3>PORTFOLIO</h3>
+						<div class="tableWrap projectList">
+							<div class="tableStyle1">
+								<table class="jsCell">
+									<caption>오은선 프로젝트 수행이력</caption>
+									<colgroup>
+										<col style="width:30%" />
+										<col style="width:12%" />
+										<col style="width:12%" />
+										<col style="width:15%" />
+										<col />
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="col">프로젝트명</th>
+											<th scope="col">투입시작일</th>
+											<th scope="col">투입종료일</th>
+											<th scope="col">담당역할</th>
+											<th scope="col">URL</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>파고다 다이렉트 잉글리쉬 반응형 웹 리뉴얼</td>
+											<td>2015-3-12</td>
+											<td>2015-04-30</td>
+											<td>PL / 퍼블리싱 및 script</td>
+											<td>현재 미오픈상태</td>
+										</tr>
+										<tr>
+											<td>한국마사회 기업사이트 리뉴얼</td>
+											<td>2014-11-10</td>
+											<td>2015-03-11</td>
+											<td>PL / 퍼블리싱 및 script</td>
+											<td><a title="새창열림" target="_blank" href="http://kra.co.kr/main.do">http://kra.co.kr/main.do</a></td>
+										</tr>
+										<tr>
+											<td>한국마사회 전자조달</td>
+											<td>2014-11-10</td>
+											<td>2015-03-11</td>
+											<td>PL / 퍼블리싱 및 script</td>
+											<td><a title="새창열림" target="_blank" href="http://ebid.kra.co.kr/main/home.do">http://ebid.kra.co.kr/main/home.do</a></td>
+										</tr>
+										<tr>
+											<td>한국마사회 렛츠런파크</td>
+											<td>2014-11-10</td>
+											<td>2015-03-11</td>
+											<td>퍼블리싱 및 script</td>
+											<td><a title="새창열림" target="_blank" href="http://park.kra.co.kr/seoul_main.do">http://park.kra.co.kr/seoul_main.do</a></td>
+										</tr>
+										<tr>
+											<td>한국마사회 경마정보</td>
+											<td>2014-11-10</td>
+											<td>2015-03-11</td>
+											<td>퍼블리싱 및 script</td>
+											<td><a title="새창열림" target="_blank" href="http://race.kra.co.kr/seoulMain.do">http://race.kra.co.kr/seoulMain.do</a></td>
+										</tr>
+										<tr>
+											<td>한국마사회 마토</td>
+											<td>2014-11-10</td>
+											<td>2015-03-11</td>
+											<td>퍼블리싱</td>
+											<td><a title="새창열림" target="_blank" href="http://knetz.kra.co.kr/">http://knetz.kra.co.kr/	</a></td>
+										</tr>
+										<tr>
+											<td>한국마사회 렛츠런ccc</td>
+											<td>2014-11-10</td>
+											<td>2015-03-11</td>
+											<td>퍼블리싱 및 script</td>
+											<td><a title="새창열림" target="_blank" href="http://ccc.kra.co.kr/main_view.do">http://ccc.kra.co.kr/main_view.do</a></td>
+										</tr>
+										<tr>
+											<td>한국마사회 고객센터</td>
+											<td>2014-11-10</td>
+											<td>2015-03-11</td>
+											<td>퍼블리싱 및 script</td>
+											<td><a title="새창열림" target="_blank" href="http://www.kra.co.kr/csCenter.do">http://www.kra.co.kr/csCenter.do</a></td>
+										</tr>
+										<tr>
+											<td>화천기계 반응형 웹 리뉴얼</td>
+											<td>2014-09-01</td>
+											<td>2014-10-03</td>
+											<td>PL / 퍼블리싱 및 script</td>
+											<td><a title="새창열림" target="_blank" href="http://www.hwacheon.co.kr/ko/main.do">http://www.hwacheon.co.kr/ko/main.do</a></td>
+										</tr>
+										<tr>
+											<td>LG SmartWorld 웹 및 네이티브앱 리뉴얼</td>
+											<td>2014-06-30</td>
+											<td>2014-10-03</td>
+											<td>PL / 퍼블리싱 및 script</td>
+											<td><a title="새창열림" target="_blank" href="http://kr.lgworld.com/web.main.dev">http://kr.lgworld.com/web.main.dev</a></td>
+										</tr>
+										<tr>
+											<td><span>부천시시설관리공단 웹접근성개선 및 컨설팅</span> <img class="wa" src="../images/wah.png" alt="미래창조과학부 WEB ACCESSIBILITY 마크(웹 접근성 품질인증 마크)" /></td>
+											<td>2014-06-01</td>
+											<td>2014-06-29</td>
+											<td>접근성 고도화 및 인증마크 획득</td>
+											<td><a title="새창열림" target="_blank" href="http://www.bcs.or.kr/">http://www.bcs.or.kr/</a></td>
+										</tr>
+										<tr>
+											<td><span>동래구국민체육센터 웹접근성 및 컨설팅</span> <img class="wa" src="../images/wah.png" alt="미래창조과학부 WEB ACCESSIBILITY 마크(웹 접근성 품질인증 마크)" /></td>
+											<td>2014-06-01</td>
+											<td>2014-06-29</td>
+											<td>PL / 접근성 고도화 및 인증마크 획득</td>
+											<td><a title="새창열림" target="_blank" href="http://sports.dongnae.go.kr">http://sports.dongnae.go.kr</a></td>
+										</tr>
+										<tr>
+											<td>사우디 자잔대학교 하이브리드 앱 구축</td>
+											<td>2014-04-10</td>
+											<td>2014-05-30</td>
+											<td>퍼블리싱 및 script</td>
+											<td>jazan app</td>
+										</tr>
+										<tr>
+											<td>삼성 CIC 3.0 통합 UI/UX 웹퍼블리싱</td>
+											<td>2014-03-01</td>
+											<td>2014-03-31</td>
+											<td>퍼블리싱</td>
+											<td>내부 오픈</td>
+										</tr>
+										<tr>
+											<td>올림푸스 웹 및 모바일 리뉴얼</td>
+											<td>2014-02-14</td>
+											<td>2014-02-30</td>
+											<td>퍼블리싱</td>
+											<td><a title="새창열림" target="_blank" href="http://www.olympus.co.kr/">http://www.olympus.co.kr/</a></td>
+										</tr>
+										<tr>
+											<td>SMART EVER 교육 앱 구축</td>
+											<td>2014-12-23</td>
+											<td>2014-02-07</td>
+											<td>PL / 퍼블리싱 및 script</td>
+											<td>smart ever app</td>
+										</tr>
+										<tr>
+											<td>방위사업청 리뉴얼</td>
+											<td>2013-11-04</td>
+											<td>2013-12-16</td>
+											<td>퍼블리싱 및 script</td>
+											<td><a title="새창열림" target="_blank" href="http://www.dapa.go.kr/mbshome/mbs/dapa_kr/index.jsp">http://www.dapa.go.kr/mbshome/mbs/dapa_kr/index.jsp</a></td>
+										</tr>
+										<tr>
+											<td><span>성남시청소년재단 웹접근성 및 컨설팅</span> <img class="wa" src="../images/wah.png" alt="미래창조과학부 WEB ACCESSIBILITY 마크(웹 접근성 품질인증 마크)" /></td>
+											<td>2013-10-01</td>
+											<td>2013-10-15</td>
+											<td>접근성 고도화 및 인증마크 획득</td>
+											<td><a title="새창열림" target="_blank" href="http://www.snyouth.or.kr/">http://www.snyouth.or.kr/</a></td>
+										</tr>
+										<tr>
+											<td>인천아시안게인 홍보 모바일 웹 구축 참여</td>
+											<td>2013-10-16</td>
+											<td>2013-11-03</td>
+											<td>퍼블리싱</td>
+											<td><a title="새창열림" target="_blank" href="http://m.incheon2014ag.org/index">http://m.incheon2014ag.org/index</a></td>
+										</tr>
+										<tr>
+											<td><span>농심 반응형 웹 리뉴얼</span> <img class="wa" src="../images/wa_mark.png" alt="2013 웹와치 심사 웹접근성 우수사이트 인증마크."></td>
+											<td>2013-08-12</td>
+											<td>2013-09-31</td>
+											<td>퍼블리싱 및 script</td>
+											<td><a title="새창열림" target="_blank" href="http://www.nongshim.com">http://www.nongshim.com</a></td>
+										</tr>
+										<tr>
+											<td><span>숭실사이버대학교 리뉴얼 및 접근성 개선</span> <img class="wa" src="../images/wah.png" alt="미래창조과학부 WEB ACCESSIBILITY 마크(웹 접근성 품질인증 마크)" /></td>
+											<td>2013-07-15</td>
+											<td>2013-08-10</td>
+											<td>퍼블리싱</td>
+											<td><a title="새창열림" target="_blank" href="http://www.kcu.ac/">http://www.kcu.ac/</a></td>
+										</tr>
+										<tr>
+											<td><span>한화 갤러리아 브랜드 사이트 접근성 개선</span> <img class="wa" src="../images/wa_mark.png" alt="2013 웹와치 심사 웹접근성 우수사이트 인증마크."></td>
+											<td>2013-04-01</td>
+											<td>2013-07-12</td>
+											<td>접근성 고도화 및 인증마크 획득</td>
+											<td>
+												<a title="새창열림" target="_blank" href="http://www.hanwhagalleria.co.kr/">http://www.hanwhagalleria.co.kr/</a>
+											</td>
+										</tr>
+										<tr>
+											<td>한화 갤러리아 타임월드 접근성 개선 </td>
+											<td>2013-04-01</td>
+											<td>2013-07-12</td>
+											<td>접근성 고도화</td>
+											<td>
+												<a title="새창열림" target="_blank" href="http://ir.timeworld.co.kr/index.jsp">http://ir.timeworld.co.kr/index.jsp</a>
+											</td>
+										</tr>
+										<tr>
+											<td>한화 갤러리아 지점안내 접근성 개선 </td>
+											<td>2013-04-01</td>
+											<td>2013-07-12</td>
+											<td>접근성 고도화</td>
+											<td>
+												<a title="새창열림" target="_blank" href="http://branch.galleria.co.kr/">http://branch.galleria.co.kr/</a>
+											</td>
+										</tr>
+										<tr>
+											<td>한화 갤러리아 윤리경영 접근성 개선 </td>
+											<td>2013-04-01</td>
+											<td>2013-07-12</td>
+											<td>접근성 고도화</td>
+											<td>
+												<a title="새창열림" target="_blank" href="http://www.hanwhagalleria.co.kr/ethics/index.jsp">http://www.hanwhagalleria.co.kr/ethics/index.jsp</a>
+											</td>
+										</tr>
+										<tr>
+											<td>한화 갤러리아 공정거래자율준수 접근성 개선 </td>
+											<td>2013-04-01</td>
+											<td>2013-07-12</td>
+											<td>접근성 고도화</td>
+											<td>
+												<a title="새창열림" target="_blank" href="#">http://www.hanwhagalleria.co.kr/fair/index.jsp</a>
+											</td>
+										</tr>
+										<tr>
+											<td>한화 갤러리아 입점안내 접근성 개선 </td>
+											<td>2013-04-01</td>
+											<td>2013-07-12</td>
+											<td>접근성 고도화</td>
+											<td>
+												<a title="새창열림" target="_blank" href="#">http://www.hanwhagalleria.co.kr/location/index.jsp</a>
+											</td>
+										</tr>
+										<tr>
+											<td>한화 갤러리아 승마단 접근성 개선 </td>
+											<td>2013-04-01</td>
+											<td>2013-07-12</td>
+											<td>접근성 고도화</td>
+											<td>
+												<a title="새창열림" target="_blank" href="#">http://horse.galleria.co.kr/</a>
+											</td>
+										</tr>
+										<tr>
+											<td>한화 갤러리아 센터시티 접근성 개선 </td>
+											<td>2013-04-01</td>
+											<td>2013-07-12</td>
+											<td>접근성 고도화</td>
+											<td>
+												<a title="새창열림" target="_blank" href="#">http://branch.galleria.co.kr/branch/guide/main.jsp?searchDptCd=B143&lm=1</a>
+											</td>
+										</tr>
+										<tr>
+											<td>빈스 앤 베리즈 사이트 리뉴얼 </td>
+											<td>2013-04-08</td>
+											<td>2013-07-12</td>
+											<td>퍼블리싱</td>
+											<td>
+												<a title="새창열림" target="_blank" href="#">http://www.beansnberries.co.kr/index.jsp</a>
+											</td>
+										</tr>
+										<tr>
+											<td><span>AIA생명 접근성 개선 및 컨설팅</span> <img class="wa" src="../images/wa_mark.png" alt="웹와치 심사 웹접근성 우수사이트 인증마크."></td>
+											<td>2013-02-01</td>
+											<td>2013-04-05</td>
+											<td>접근성 개선</td>
+											<td><a title="새창열림" target="_blank" href="http://www.aia.co.kr/kr/">http://www.aia.co.kr/kr/</a></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</article>
+
+				<article class="van5" id="van5">
+					<div>
+						<h3>SKILL</h3>
+						<div class="skill">
+							<div class="tableWrap">
+								<div class="tableStyle1">
+									<table class="jsCell">
+										<caption>역량정보</caption>
+										<colgroup>
+											<col /><col /><col /><col /><col /><col /><col /><col />
+										</colgroup>
+										<tbody>
+											<tr>
+												<td>
+													<div class="gragh">
+														<dl>
+															<dt>HTML5 / CSS3</dt>
+															<dd>
+																<div class="donut" id="donut1">
+																	<span class="value">9.8</span>
+																	<span class="mask_l"><span><span></span></span></span>
+																	<span class="mask_r"><span><span></span></span></span>
+																</div>
+															</dd>
+														</dl>
+													</div>
+												</td>
+												<td>
+													<div class="gragh">
+														<dl>
+															<dt>웹 접근성</dt>
+															<dd>
+																<div class="donut" id="donut2">
+																	<span class="value">9.5</span>
+																	<span class="mask_l"><span><span></span></span></span>
+																	<span class="mask_r"><span><span></span></span></span>
+																</div>
+															</dd>
+														</dl>
+													<dl>
+													</div>
+												</td>
+												<td>
+													<div class="gragh">
+														<dl>
+															<dt>JAVASCRIPT</dt>
+															<dd>
+																<div class="donut" id="donut3">
+																	<span class="value">8</span>
+																	<span class="mask_l"><span><span></span></span></span>
+																	<span class="mask_r"><span><span></span></span></span>
+																</div>
+															</dd>
+														</dl>
+													</div>
+												</td>
+												<td>
+													<div class="gragh">
+														<dl>
+															<dt>JQUERY</dt>
+															<dd>
+																<div class="donut" id="donut4">
+																	<span class="value">9</span>
+																	<span class="mask_l"><span><span></span></span></span>
+																	<span class="mask_r"><span><span></span></span></span>
+																</div>
+															</dd>
+														</dl>
+													</div>
+												</td>
+												<td>
+													<div class="gragh">
+														<dl>
+															<dt>Bootstrap</dt>
+															<dd>
+																<div class="donut" id="donut5">
+																	<span class="value">7</span>
+																	<span class="mask_l"><span><span></span></span></span>
+																	<span class="mask_r"><span><span></span></span></span>
+																</div>
+															</dd>
+														</dl>
+													</div>
+												</td>
+												<td>
+													<div class="gragh">
+														<dl>
+															<dt>SASS</dt>
+															<dd>
+																<div class="donut" id="donut6">
+																	<span class="value">7</span>
+																	<span class="mask_l"><span><span></span></span></span>
+																	<span class="mask_r"><span><span></span></span></span>
+																</div>
+															</dd>
+														</dl>
+													</div>
+												</td>
+												<td>
+													<div class="gragh">
+														<dl>
+															<dt>illustration 제작</dt>
+															<dd>
+																<div class="donut" id="donut7">
+																	<span class="value">8</span>
+																	<span class="mask_l"><span><span></span></span></span>
+																	<span class="mask_r"><span><span></span></span></span>
+																</div>
+															</dd>
+														</dl>
+													</div>
+												</td>
+												<td>
+													<div class="gragh">
+														<dl>
+															<dt>Wordpress</dt>
+															<dd>
+																<div class="donut" id="donut8">
+																	<span class="value">6</span>
+																	<span class="mask_l"><span><span></span></span></span>
+																	<span class="mask_r"><span><span></span></span></span>
+																</div>
+															</dd>
+														</dl>
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+
+						<div class="skill">
+							<div class="commt">
+								<ul>
+									<li>IDE : 이클립스 / 에디트플러스 / 어도비 브라켓 / 압타나</li>
+									<li>SVN : Tortoise SVN / Git Hub 사용</li>
+									<li>Ajax 통신 - json 방식, xml 방식</li>
+									<li>웹접근성 - 다양한 웹 접근성 컨설팅 및 인증마크 획득 경험 有</li>
+									<li>반응형 / 모바일 웹 -  농심, LG SMARTWORLD, 자잔대학교 하이브리드 앱, 방위사업청, 파고다어학원, 스마트에버, 인천아시안게임 등 여러 경험을 통한 이슈와 노하우 有</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</article>
+
+				<article class="van6" id="van6">
+					<div>
+						<h3>SELF-INTRODUCTION - 자기소개서</h3>
+						<div class="introduce">
+							<ul>
+								<li class="int1"><a href="#" title="Why Me? ajax 호출">핵심</a></li>
+								<li class="int2"><a href="#" title="가치관 ajax 호출">가치관</a></li>
+								<li class="int3"><a href="#" title="포부 ajax 호출">포부</a></li>
+								<li class="int4"><a href="#" title="성격 ajax 호출">성격</a></li>
+								<li class="int5"><a href="#" title="경력 ajax 호출">경력</a></li>
+							</ul>
+						</div>
+						
+						<div class="introContents">
+							<div>
+								<span>위 자기소개서 항목을 클릭해주세요</span>
+								<p></p>
+							</div>
+						</div>
+					</div>
+				</article>
+
+				<article class="van7" id="van7">
+					<div class="likes">
+						<h3>Other - 좋아하는 것</h3>
+						<article>
+							<h4>일러스트</h4>
+							<p>디자이너가 되기 위해 미술을 전공했던 바 있습니다.</p>
+							<p>특히 인물화가 제일 재미있습니다. 인물의 눈코입을 묘사하고 있으면 자신도 모르게 그림 속으로 빨려들어가는 느낌이 들 때가 있습니다.</p>
+							<p>어두운 부분을 풍부한 톤으로 확 집어넣고 하이라이트가 되는 부분을 밝게 확 끌어당겨주면 실사 같은 인물화가 완성되는데 <br/>그 [순간의 맛] 은 정말 느껴보지 않고는 알 수 없는 희열감이요.</p>
+							<p>일을 함에 있어서도 가끔식 전공을 발휘할 수 있는 기회가 주어지곤 하는데 그럴때 마다 뿌듯함을 느끼곤 합니다.</p>
+						</article>
+
+						<article>
+							<h4>피아노 연주</h4>
+							<p>학창시절 피아노 학원을 7년간 다니며 피아니스트의 꿈을 키웠던 적이 있습니다.</p>
+							<p>일요일 오전 화려한 햇빛이 뿌려진 피아노 건반을 치고 있으면 그 순간만큼은 홀로 환상에 젖어 날아갈 것 같은 기분이 듭니다.</p>
+							<p>가끔 지인에게 결혼식 피아노 연주를 부탁받아 쳐주기도 합니다.</p>
+						</article>
+
+						<article>
+							<h4>성악</h4>
+							<p>학창시절 중창단에서 활동한 바 있으며 특히 성악을 좋아합니다.</p>
+							<p>학교 행사가 있거나 전체 신입생 오리엔테이션시 강당에서 앞에 나가서 노래를 부르고 학생들을 가르치는 경험을 하였습니다.</p>
+							<p>수업 시간 외 제가 좋아하는 일을 하는 것이 학창시절의 좋은 활력소가 되었습니다.</p>
+							<p>일을 하다가도 주위에 사람이 없으면 혼자 노래를 부르곤 합니다. 기분이 좋지 않다가도 습관적으로 노래를 흥얼거리고 있으면 금방 나아지곤 합니다.</p>
+						</article>
+
+						<article>
+							<h4>Study / 연구</h4>
+							<p>누구나에게 공부는 평생 해야 하는 일이며 자기 자신을 발전시키기 위해 꼭 필요한 일입니다.</p>
+							<p>선천적으로 공부하기를 좋아하는 것은 어려운 일이지만 반복과 습관화 하다보면 안되는 일은 없다고 생각합니다.</p>
+							<p>학창시절에도 미술전공을 택했으나 절대 공부를 소홀히 하지 않았고 성인이 되어 직장에서도 필요한 경우 매진하여 꼭 결과를 이끌어내는 경험이 많았습니다.</p>
+							<p>한 예로 350여명 규모의 이전 직장 KT 대구경북모바일센터 업무지식경진대회가 개최되었으며 1위를 입상.</p>
+							<p>이 대회에서 1위 입상자는 물론 그가 속한 팀 전원에게 상금 및 휴가가 주어졌습니다. </p>
+						</article>
+						
+						<div>
+							<ul>
+								<li>
+									<div class="illi"><a href="" title="캐리비안의 해적 새창열림" onclick="window.open('../images/caribbean.png','name','resizable=yes width=320 height=390');return false"><img src="../images/caribbean.png" alt="캐리비안의 해적 포스터 일러스트" /></a></div>
+									<div class="exp">
+										<p>캐리비안의 해적 포스터</p>
+										<p>4B,8B연필 제작</p>
+									</div>
+								</li>
+								<li>
+									<div class="illi"><a href="" title="포토샵 일러스트 새창열림" onclick="window.open('../images/mouse1.jpg','name','resizable=yes width=320 height=426');return false"><img src="../images/mouse1.jpg" alt="포토샵 마우스로 채색한 일러스트" /></a></div>
+									<div class="exp">
+										<p>인물 일러스트</p>
+										<p>포토샵 제작</p>
+									</div>
+								</li>
+								<li class="piano">
+									<div class="illi"><a href="" title="새창열림" onclick="window.open('../images/es08_2.jpg','name','resizable=yes width=700 height=593');return false"><img src="../images/es08_2.jpg" alt="결혼식 피아노 반주" /></a></div>
+									<div class="exp">
+										<p>피아노 연주</p>
+									</div>
+								</li>
+								<li class="piano">
+									<div class="illi"><a href="" title="새창열림" onclick="window.open('../images/smart.jpg','name','resizable=yes width=600 height=450');return false"><img src="../images/smart.jpg" alt="결혼식 피아노 반주" /></a></div>
+									<div class="exp">
+										<p>업무지식경진대회1위</p>
+									</div>
+								</li>
+								<li><div></div></li>
+								<li><div></div></li>
+								<li><div></div></li>
+							</ul>
+						</div>
+					</div>
+				</article>
+
+			</section>
+
+			<footer>
+				<div>
+					<div class="fcontents">
+						<strong>UI 개발자 오은선</strong>
+						<div><span>+82 10-3378-1526</span> 
+						<div><span>osaraitne@gmail.com</span></div>
+						<span>@2015 O EUNSUN</span>
+						<a href="#" class="top"><span>TOP</span></a>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</div>
+	<!-- //본문 종료 -->
+	<script type="text/javascript">
+		var load = {
+			loading : function(){
+				var loads = setInterval(function(){
+					$(".loadingBox").animate({
+						"opacity":"0"
+					},1000, function(){
+						$(this).hide();
+					});
+					$(".body").animate({
+						"opacity" : 1
+					},1500, function(){
+						clearInterval(loads);
+					});
+				},1000);
+			}
+		}
+		load.loading();
+		var right = $(".right");
+		var arr = [];
+
+		$.ajax({
+			url:"../json/default.json",
+			context : document.body,
+			dataType : "json",
+			success : function(data){
+				for( i in data ){
+					arr.push("<dl>");
+					arr.push("<dt>");
+					arr.push(i);
+					arr.push("</dt>");
+					arr.push("<dd>");
+					arr.push(data[i]);
+					arr.push("</dd>");
+					arr.push("</dl>");
+				};
+				right.html(arr.join(''));
+			},
+			error : function(){
+				console.log("ajax 통신 ... ")
+			}
+		});
+
+		$(".introduce li a").click(function(e){
+			var idx = $(this).parents("li").index() +1;
+			var json = "../json/intro" + idx + ".json";
+
+				$.ajax({
+					url: json,
+					context : document.body,
+					dataType : "json",
+					success : function(data){
+						for( o in data ){
+							$(".introContents span").remove();
+							$(".introContents p").text( data[o] )
+						};
+						console.log("ajax 통신 성공! ")
+					},
+					error : function(){
+						console.log("ajax 통신 ... ")
+					}
+				});
+			e.preventDefault();
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>json ajax</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="jquery-1.9.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$.getScript('data.js', function(data){
+				//console.log(data);
+			}).success(function(data){
+				console.log("성공");
+			}).done(function(){
+				var data = abc;//abc는 js파일에 있는 데이터 변수
+				for(var i in data){
+					console.log("key : " + i + " , value : " + data[i] + "\r");
+				}
+			}).error(function(data){
+				console.log("실패");
+			}).complete(function(data){
+				console.log("js 호출완료");
+			});
+
+			//아래 형식도 가능
+			/*
+			$.ajax({
+				url : "data.js",
+				type : "get",
+				dataType : "script",
+				success : function(data, state, jqxhr){
+					var data = abc;//abc는 js파일에 있는 데이터 변수
+					for(var i in data){
+						console.log("key : " + i + " , value : " + data[i] + "\r");
+					}
+				},
+				error : function(e){
+					console.log("error");
+				}
+			});
+			*/
+
+
+		});
+	</script>
+	<style type="text/css">
+	</style>
+</head>
+
+<body>
+	<a href="data.json">json</a>
+	<div id="div">
+		<ul>
+		</ul>
+	</div>
+</body>
+</html>

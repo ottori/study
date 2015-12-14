@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="imagetoolbar" content="no" />
+	<meta name="ROBOTS" content="all" />
+	<meta name="description" content="" />
+	<meta name="keyword" content="" />
+	<meta name="author" content="" />
+	<meta name="copyright" content="" />
+	<meta name="reply-to" content="" />
+	<meta name="date" content="" />
+	<meta name="description" content="" />
+	<link type="text/css" rel="stylesheet" href="" />
+	<script type="text/javascript">
+		//객체 선언
+		var obj = {
+			setting : function(){
+				this.wrap = document.getElementsByTagName("ul")[0];
+				this.list = this.wrap.getElementsByTagName("li");
+				this.getting();
+			},
+			getting : function(){
+				var that = this;
+				for(var i = 0; i < this.list.length; i++){
+					this.list[i].onclick = function(){
+						//this.result(); //x 잘못된거 ( 왼쪽의 this는 list[i]를 가리킴. obj 가 아님 )
+						that.result(); //o 올바른거 ( 윗줄에 this(obj) 를 that  이라는 변수에 담아놨으므로 that 으로 사용하면 된다. that은 obj를 의미 )
+					}
+				}
+			},
+			result : function(){
+				console.log(111);
+			}
+		};
+
+		window.onload = function(){
+			obj.setting();
+		}
+	</script>
+ </head>
+ <body>
+	<ul>
+		<li>첫번째</li>
+		<li>두번째</li>
+		<li>세번째</li>
+	</ul>
+ </body>
+</html>

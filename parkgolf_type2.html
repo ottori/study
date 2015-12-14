@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8"/>
+    <title>파크골프 샘플</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <link rel="stylesheet" href="http://m.spazon.com/styles/common-1.1.0.0.css?2015041400" type="text/css">
+    <link rel="stylesheet" href="parkgolf/css/style.css" type="text/css">
+    <script type="text/javascript" src="js/jquery_1.8.3.min.js"></script>
+</head>
+<body>
+    <a href="#section" class="skip">본문 바로가기</a>
+    <div class="wrap">
+        <div class="header" id="header">
+            <div class="inner">header 영역</div>
+        </div>
+        <div class="quick" id="quick">
+            <a href="">1</a>
+            <a href="">2</a>
+            <a href="">3</a>
+            <a href="">4</a>
+            <a href="">5</a>
+            <a href="">6</a>
+        </div>
+        <div class="section1 sect" id="section">
+            <div class="inner"><img src="" alt=""/></div>
+            <div class="event">도심 공원에서 즐기는 골프. 골프존 파크골프</div>
+        </div>
+        <div class="section2 sect">
+            <div class="inner">
+                <p class="intro1">파크골프란?</p>
+                <p class="intro2">PARK GOLF PARKGOLF</p>
+                <p class="intro3">공원+골프=Park Golf</p>
+            </div>
+        </div>
+        <div class="section3 sect">
+            <div class="inner">
+                <p class="intro1"></p>
+                <p class="intro2"></p>
+                <p class="intro3"></p>
+                <p class="intro4"></p>
+            </div>
+        </div>
+        <div class="section4 sect">
+            <div class="inner">
+                <p class="intro1"></p>
+                <p class="intro2"></p>
+                <p class="intro3"></p>
+            </div>
+        </div>
+        <div class="section5 sect">
+            <div class="inner">
+                <p class="intro1"></p>
+                <p class="intro2"></p>
+                <p class="intro3"></p>
+            </div>
+        </div>
+        <div class="section6 sect">
+            <div class="inner">
+                <p class="intro1"></p>
+                <p class="intro2"></p>
+                <p class="intro3"></p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var arr = [];
+        var after;
+        var sh = [];
+
+        $(".sect").each(function(){
+            var text = $(this).find("p");
+            for(var i=0; i<text.length; i++){
+                var top = parseInt( text.css("top") );
+                text.css({"top": top + 900 + "px", opacity: 1});
+                sh.push(top);
+            };
+            if(after != null ){
+                sh = [];
+            }else{
+            };
+            after = sh;
+            arr.push(after);
+        });
+
+        //브라우저 상하 강제 리사이징시 fixed 영역처리 요청사항 적용
+        resize();
+        $(window).resize(function(){ resize(); });
+        function resize(){
+            if($(window).height() > 1063){
+                $(".event").css("position","absolute");
+            }else{
+                $(".event").css("position","fixed");
+            };
+        };
+
+        var oes = {
+            floating: function () {
+                var floating = $("#quick")
+                    , link = $("a", floating)
+                    , idx = 0, uio = 0 , speed = 0, pos = [0]
+                    , state = true
+                    , color, scrolls, before
+                    , firstColor = $(".header").css("background-color")
+
+                //각 섹션별 scrolling 값 세팅
+                var hh = $(".section" + idx).height()
+                for(var i=1; i < link.length +1;i++){
+                    uio += $(".section" + i).height()
+                    pos.push(uio)
+                };
+                console.log(pos)
+
+                //스크롤 동작
+                function move() {
+                    state = false;
+                    $("html, body").animate({
+                        "scrollTop": pos[idx] + "px"
+                    }, {
+                        duration: 500,
+                        complete: function () {
+                            $("#header").css({
+                                "background-color" : color
+                            });
+                        }
+                    });
+                    setTimeout(function(){
+                        state = true;
+                    },600)
+                };
+
+                //퀵 네비게이션 클릭시 각 섹션별 스크롤동작 호출 + 헤더영역 색상 체인지
+                link.stop().click(function(){
+                    state = false;
+                    idx = $(this).index();
+                    //섹션 color값과 같은 값을 변수에 담음
+                    if(idx == 0){
+                        color = "#fff";
+                    }else if( idx == 1){
+                        color = "#2f63d0";
+                    }else{
+                        color = $(".section" + (idx +1)).css("background-color");
+                    }
+                    link.removeClass("on");
+                    $(this).addClass("on");
+                    move();
+                    return false;
+                });
+
+                //현재 섹션영역 ON 표시
+                $(window).scroll(function() {
+                    scrolls = document.body.scrollTop || document.documentElement.scrollTop;
+                    if(before > scrolls){
+                        console.log("올라감")
+                    }else{
+                        console.log("내려감")
+                        for(i=0;i<$(".sect").length;i++){
+                            sh = $(".section"+i).find("p").css("top");
+                            if( scrolls > pos[i] - 300 && scrolls < pos[i+1]) {
+                                console.log(456456)
+                            }
+                        }
+                        /*if(scrolls > pos[1] - 300 && scrolls < pos[2]) {
+                            $(".section2 .inner p").animate({
+                                "top": "50px"
+                            },300);
+                        }else if(scrolls > pos[2] - 300 && scrolls < pos[3]){
+                            $(".section3 .inner p").animate({
+                                "top": "50px"
+                            },300);
+                        }else if(scrolls > pos[3] - 300 && scrolls < pos[4]){
+                            $(".section4 .inner p").animate({
+                                "top": "50px"
+                            },300);
+                        }else if(scrolls > pos[4] - 300 && scrolls < pos[5]){
+                            $(".section5 .inner p").animate({
+                                "top": "50px"
+                            },300);
+                        }else if(scrolls > pos[5] -300){
+                            $(".section6 .inner p").animate({
+                                "top": "50px"
+                            },300);
+                        }*/
+                    };
+
+                    if(state == false) {
+                        return false;
+                    };
+                    color = $(".section" + (idx +1)).css("background-color");
+                    link.removeClass("on");
+                    if(scrolls < pos[1]){
+                        idx = 0;
+                        color = "#fff";
+                    }else if(scrolls > pos[1] && scrolls < pos[2]){
+                        idx = 1;
+                        color = "#2f63d0";
+                    }else if(scrolls > pos[2] && scrolls < pos[3]){
+                        idx = 2;
+                    }else if(scrolls > pos[3] && scrolls < pos[4]){
+                        idx = 3;
+                    }else if(scrolls > pos[4] && scrolls < pos[5]-300){
+                        idx = 4;
+                    }else if(scrolls > pos[5]-300){
+                        idx = 5;
+                    };
+                    console.log(idx)
+
+                    $(link[idx]).addClass("on");
+                    $("#header").css({
+                        "background-color" : color
+                    });
+
+                    before = scrolls;
+                });
+
+            }
+        };
+        oes.floating();
+    </script>
+
+
+    <script>
+        //https://github.com/jquery/jquery-mousewheel
+        !function(a){"function"==typeof define&&define.amd?define(["jquery"],a):"object"==typeof exports?module.exports=a:a(jQuery)}(function(a){function b(b){var g=b||window.event,h=i.call(arguments,1),j=0,l=0,m=0,n=0,o=0,p=0;if(b=a.event.fix(g),b.type="mousewheel","detail"in g&&(m=-1*g.detail),"wheelDelta"in g&&(m=g.wheelDelta),"wheelDeltaY"in g&&(m=g.wheelDeltaY),"wheelDeltaX"in g&&(l=-1*g.wheelDeltaX),"axis"in g&&g.axis===g.HORIZONTAL_AXIS&&(l=-1*m,m=0),j=0===m?l:m,"deltaY"in g&&(m=-1*g.deltaY,j=m),"deltaX"in g&&(l=g.deltaX,0===m&&(j=-1*l)),0!==m||0!==l){if(1===g.deltaMode){var q=a.data(this,"mousewheel-line-height");j*=q,m*=q,l*=q}else if(2===g.deltaMode){var r=a.data(this,"mousewheel-page-height");j*=r,m*=r,l*=r}if(n=Math.max(Math.abs(m),Math.abs(l)),(!f||f>n)&&(f=n,d(g,n)&&(f/=40)),d(g,n)&&(j/=40,l/=40,m/=40),j=Math[j>=1?"floor":"ceil"](j/f),l=Math[l>=1?"floor":"ceil"](l/f),m=Math[m>=1?"floor":"ceil"](m/f),k.settings.normalizeOffset&&this.getBoundingClientRect){var s=this.getBoundingClientRect();o=b.clientX-s.left,p=b.clientY-s.top}return b.deltaX=l,b.deltaY=m,b.deltaFactor=f,b.offsetX=o,b.offsetY=p,b.deltaMode=0,h.unshift(b,j,l,m),e&&clearTimeout(e),e=setTimeout(c,200),(a.event.dispatch||a.event.handle).apply(this,h)}}function c(){f=null}function d(a,b){return k.settings.adjustOldDeltas&&"mousewheel"===a.type&&b%120===0}var e,f,g=["wheel","mousewheel","DOMMouseScroll","MozMousePixelScroll"],h="onwheel"in document||document.documentMode>=9?["wheel"]:["mousewheel","DomMouseScroll","MozMousePixelScroll"],i=Array.prototype.slice;if(a.event.fixHooks)for(var j=g.length;j;)a.event.fixHooks[g[--j]]=a.event.mouseHooks;var k=a.event.special.mousewheel={version:"3.1.12",setup:function(){if(this.addEventListener)for(var c=h.length;c;)this.addEventListener(h[--c],b,!1);else this.onmousewheel=b;a.data(this,"mousewheel-line-height",k.getLineHeight(this)),a.data(this,"mousewheel-page-height",k.getPageHeight(this))},teardown:function(){if(this.removeEventListener)for(var c=h.length;c;)this.removeEventListener(h[--c],b,!1);else this.onmousewheel=null;a.removeData(this,"mousewheel-line-height"),a.removeData(this,"mousewheel-page-height")},getLineHeight:function(b){var c=a(b),d=c["offsetParent"in a.fn?"offsetParent":"parent"]();return d.length||(d=a("body")),parseInt(d.css("fontSize"),10)||parseInt(c.css("fontSize"),10)||16},getPageHeight:function(b){return a(b).height()},settings:{adjustOldDeltas:!0,normalizeOffset:!0}};a.fn.extend({mousewheel:function(a){return a?this.bind("mousewheel",a):this.trigger("mousewheel")},unmousewheel:function(a){return this.unbind("mousewheel",a)}})});
+
+        /*
+         * jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/
+         *
+         */
+
+        // t: current time, b: begInnIng value, c: change In value, d: duration
+        jQuery.easing['jswing'] = jQuery.easing['swing'];
+
+        jQuery.extend( jQuery.easing,
+                {
+                    def: 'easeOutQuad',
+                    swing: function (x, t, b, c, d) {
+                        //alert(jQuery.easing.default);
+                        return jQuery.easing[jQuery.easing.def](x, t, b, c, d);
+                    },
+                    easeInQuad: function (x, t, b, c, d) {
+                        return c*(t/=d)*t + b;
+                    },
+                    easeOutQuad: function (x, t, b, c, d) {
+                        return -c *(t/=d)*(t-2) + b;
+                    },
+                    easeInCubic: function (x, t, b, c, d) {
+                        return c*(t/=d)*t*t + b;
+                    },
+                    easeOutCubic: function (x, t, b, c, d) {
+                        return c*((t=t/d-1)*t*t + 1) + b;
+                    },
+                    easeInSine: function (x, t, b, c, d) {
+                        return -c * Math.cos(t/d * (Math.PI/2)) + c + b;
+                    },
+                    easeOutSine: function (x, t, b, c, d) {
+                        return c * Math.sin(t/d * (Math.PI/2)) + b;
+                    },
+                    easeInExpo: function (x, t, b, c, d) {
+                        return (t==0) ? b : c * Math.pow(2, 10 * (t/d - 1)) + b;
+                    },
+                    easeOutExpo: function (x, t, b, c, d) {
+                        return (t==d) ? b+c : c * (-Math.pow(2, -10 * t/d) + 1) + b;
+                    },
+                    easeInCirc: function (x, t, b, c, d) {
+                        return -c * (Math.sqrt(1 - (t/=d)*t) - 1) + b;
+                    },
+                    easeOutCirc: function (x, t, b, c, d) {
+                        return c * Math.sqrt(1 - (t=t/d-1)*t) + b;
+                    }
+                });
+        /**
+         * Created by woosuk on 2014-12-04.
+         */
+
+        var $win = $(window),
+                sTop,
+                wH,
+                scrollIndex = 0,
+                $body = $("body"),
+                $wrap = $("#mainWrap"),
+                $topBar = $("#topBar"),
+                $cont3 = $("#cont3"),
+                $footer = $("#footer"),
+                $whyList = $(".whyList"),
+                htmlclass = $("html").prop("class");
+        if(htmlclass.match("ie")) {
+            if(htmlclass.match("ie9")) {
+                $("html").addClass("oldIE");
+            } else {
+                $("html").addClass("very-oldIE");
+            }
+        }
+        jQuery.fn.pageInit = function(arg) {
+            page = jQuery.extend({
+                hn : "",
+                sn : ""
+            }, arg || {});
+            var convertObj = function(obj) {
+                $.each(obj, function(key, val) {
+                    if(val == "") {
+                        var value = -1;
+                    } else {
+                        var value = Number(val);
+                    }
+                    eval("obj." + key+"=" + value);
+                });
+            }
+            convertObj(arg);
+            if(window.console){console.log(arg)};
+            var $allmenu = $("#header", $wrap),
+                    $gnb = $("#gnb", $allmenu),
+                    $anchor = $("a", $gnb),
+                    $nav = $("#nav", $wrap),
+                    sitemapStr = $("ul.menu", $gnb).html(),
+                    $allmenuBtn = $(".allmenuBtn", $wrap),
+                    $allmenuTxt = $(".allmenuTxt", $wrap),
+                    $allmenuCloseBtn = $(".allMenuClose", $allmenu),
+                    $familysite = $(".family_layer"),
+                    $famBtn = $(".familysite"),
+                    isMenuDown = false;
+            $("#footer ul.menu").html(sitemapStr);
+            $famBtn.on("click", function() {
+                $familysite.toggleClass("on");
+                return false;
+            });
+            $allmenuBtn.on("click", function(){
+                $allmenu.stop().animate({
+                    "top":"0px"
+                });
+                return false;
+            });
+            $allmenuCloseBtn.on("click", function(){
+                $allmenu.stop().animate({
+                    "top":"-414px"
+                });
+                return false;
+            });
+            $allmenu.on("mouseleave", function() {
+                var t = setTimeout(function() {
+                    $allmenu.stop().animate({
+                        "top":"-414px"
+                    });
+                }, 500);
+            });
+            $allmenuTxt.on("mouseenter", function() {
+                $(this).fadeOut();
+            });
+            var allmenuTxtTimer = setTimeout(function() {
+                $allmenuTxt.fadeOut();
+            }, 4000);
+        }
+        jQuery.fn.mainVisual = function() {
+            var $this = $(this),
+                    $indi = $(".indicator", $this),
+                    $viewport = $(".viewport", $this),
+                    $item = $("> li", $viewport),
+                    $playStop = $(".playStop", $indi),
+                    vMax = $item.length,
+                    vIndex = 0,
+                    vTimer,
+                    interval = 5000,
+                    isAuto = true;
+            $item.each(function(i) {
+                if(i == 0) {
+                    $indi.append("<li><a href=\"#\" class=\"point mui ir on\">" + i + "</a></li>");
+                } else {
+                    $indi.append("<li><a href=\"#\" class=\"point mui ir\">" + i + "</a></li>");
+                }
+            });
+            $indi.css({
+                "margin-left" : -(30 * (vMax + 1) / 2) + "px"
+            });
+            var $indiBtn = $("> li > a.point", $indi);
+            function next() {
+                vIndex++;
+                if(vIndex == vMax) {
+                    vIndex = 0;
+                }
+                $indiBtn.eq(vIndex).trigger("click");
+            }
+            $playStop.on("click", function() {
+                clearTimeout(vTimer);
+                if(!isAuto) {
+                    isAuto = true;
+                    $playStop.removeClass("stopped").text("�먮룞�ъ깮 以묒�");
+                    vTimer = setTimeout(function() {
+                        next();
+                    }, interval);
+                } else {
+                    $playStop.addClass("stopped").text("�먮룞�ъ깮 �쒖옉");
+                    isAuto = false;
+                }
+                return false;
+            });
+            $indiBtn.on("click", function() {
+                clearTimeout(vTimer);
+                if(!$(this).hasClass("on")) {
+                    var ii = $indiBtn.index($(this)[0]),
+                            $target = $item.eq(ii),
+                            dur = 300;
+                    $indiBtn.removeClass("on");
+                    $(this).addClass("on");
+                    $target.css({
+                        "opacity" : "1",
+                        "z-index" : "2"
+                    });
+                    $item.filter(".now").stop().animate({
+                        "opacity" : "0"
+                    },{
+                        duration : dur,
+                        queue : false,
+                        easing : "linear",
+                        complete : function() {
+                            $item.not($target).css({
+                                "opacity" : "1",
+                                "z-index" : "1"
+                            }).removeClass("now");
+                            $item.find(".txt1").removeClass("on");
+                            $target.css({
+                                "z-index" : "3"
+                            }).addClass("now");
+                            var t = setTimeout(function() {
+                                $target.find(".txt1").addClass("on");
+                            }, 200);
+
+                        }
+                    });
+                    vIndex = ii;
+                    if(isAuto) {
+                        vTimer = setTimeout(function() {
+                            next();
+                        }, interval);
+                    }
+                }
+                return false;
+            });
+            var t = setTimeout(function() {
+                $item.eq(0).find(".txt1").addClass("on");
+            }, 300);
+            vTimer = setTimeout(function() {
+                next();
+            }, interval);
+        }
+        jQuery(".visual").mainVisual();
+        jQuery.fn.bannerSlide = function() {
+            var $this = $(this),
+                    $ul =  $(".viewport > ul", $this),
+                    $li =  $("> li", $ul),
+                    $link = $("> a", $li),
+                    $btn = $("> .bBtn", $this),
+                    $prev = $btn.filter(".prev"),
+                    $next = $btn.filter(".next"),
+                    max = $li.length,
+                    vTimer,
+                    interval = 5000,
+                    index = 0;
+            $ul.css("width", max * 980 + "px");
+
+            vTimer = setTimeout(function() {
+                next();
+            }, interval);
+
+            function moveSlide(num) {
+                clearTimeout(vTimer);
+                if(num == 0) {
+                    $prev.addClass("disabled");
+                } else {
+                    $prev.removeClass("disabled");
+                }
+                if(num == (max - 1)) {
+                    $next.addClass("disabled");
+                } else {
+                    $next.removeClass("disabled");
+                }
+                $ul.stop().animate({
+                    "left" : -(num * 980) + "px"
+                },{
+                    duration : 1000,
+                    queue : false,
+                    easing : "easeOutCubic"
+                });
+                vTimer = setTimeout(function() {
+                    next();
+                }, interval);
+            }
+            function next() {
+                index = index + 1;
+                if(index == max) {
+                    index = 0;
+                }
+                moveSlide(index);
+                return false;
+            }
+            $prev.on("click", function() {
+                index = index - 1;
+                if(index < 0) {
+                    index = 0;
+                }
+                moveSlide(index);
+                return false;
+            });
+            $next.on("click", function() {
+                index = index + 1;
+                if(index == max) {
+                    index = max - 1;
+                }
+                moveSlide(index);
+                return false;
+            });
+            $link.on("click", function() {
+                if($(this).hasClass("movieCall") == true) {
+                    var movieURL = $(this).data("movie");
+                    $body.append("<div class=\"dimmed\"></div><div class=\"moviePop\"><iframe width=\"854\" height=\"508\" src=\"http://www.youtube.com/embed/" + movieURL + "?rel=0\" frameborder=\"0\" allowfullscreen=\"\"></iframe><a href=\"\" class=\"moviePopClose mui ir\">�リ린</a></div>");
+                    $("div.dimmed").height($(document).height());
+                    sTop = $win.scrollTop();
+                    wH = $win.height();
+                    $("div.moviePop").css("top", sTop + (wH - 508) / 2 +  "px");
+                    return false;
+                }
+            });
+            $(document).on("click", ".moviePopClose", function() {
+                $("div.dimmed").remove();
+                $(this).parent().remove();
+                return false;
+            });
+        }
+        var h_banner = jQuery(".banner").bannerSlide();
+
+        function onResize() {
+            if($win.width() > $win.height()) {
+                wH = $win.height() > 740 ? $win.height() : 740;
+            } else {
+                wH = 740;
+            }
+            $cont3.height(wH);
+        }
+        function onScroll() {
+            sTop = $win.scrollTop();
+            if(sTop > 0) {
+                scrollIndex = 0;
+                $topBar.addClass("moving");
+                if(sTop >= 740) {
+                    scrollIndex = 1;
+                    $topBar.addClass("colored");
+                    if(sTop >= 1480) {
+                        scrollIndex = 2;
+                        $topBar.addClass("last");
+                    } else {
+                        $topBar.removeClass("last");
+                    }
+                } else {
+                    $topBar.removeClass("colored");
+                }
+            } else {
+                $topBar.removeClass("moving");
+            }
+        }
+        function scrollPage(num) {
+            var dur = 600;
+            if(num == 0) {
+                var targetAxis = 0;
+            } else if(num == 1) {
+                var targetAxis = 740;
+            } else if(num == 2) {
+                var targetAxis = 1480;
+            }
+            $("body, html").stop().animate({
+                scrollTop : targetAxis
+            }, {
+                duration : dur,
+                easing : "easeOutCubic",
+                queue : false
+            });
+        }
+        function nextPage() {
+            var toPage = scrollIndex + 1;
+            if(toPage > 4) {
+                toPage = 4;
+            }
+            scrollPage(toPage);
+        }
+        function prevPage() {
+            var toPage = scrollIndex - 1;
+            if(toPage < 0) {
+                toPage = 0;
+            }
+            scrollPage(toPage);
+        }
+        $win.on("mousewheel", function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if($("body").is(":animated") || $("html").is(":animated") ) {
+                return false;
+            }
+            if(e.deltaY < 0) {
+                nextPage();
+            } else if(e.deltaY > 0) {
+                prevPage();
+            }
+        });
+        $win.on("resize", function() {
+            onResize();
+        });
+        $win.on("scroll", function() {
+            onScroll();
+        });
+        onResize();
+
+
+        /*
+         * 留곹겕 遺�遺� �섏젙
+         */
+        $(".family_layer a").bind("click",function(e){
+            e.preventDefault();
+            window.open($(this).attr("href"), '_blank');
+        });
+    </script>
+
+</body>
+</html>

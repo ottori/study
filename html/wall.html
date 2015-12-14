@@ -1,0 +1,476 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<title>미로</title>
+	<meta name="author" content="" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+</head>
+<body>
+<div id="world"></div>
+
+<script type="text/javascript">
+(function () {
+    Game = {};
+    Game.World = function (container, w, h) {
+        this.w = w;
+        this.h = h;
+        this.c = 71;
+        this.r = 71;
+        this.container = container;
+        this.cellSize = 5;
+        this.actrCnvs = document.createElement("canvas");
+        this.actrCnvs.width = w;
+        this.actrCnvs.height = h;
+
+        var actrCtxt = this.actrCnvs.getContext("2d");
+
+        this.actor = new Game.Actor(actrCtxt, this.cellSize);
+        this.input = new Game.Input();
+        this.map = new Maze(w, h, this.c, this.r, this.cellSize);
+        this.mapData = this.map.mapData;
+        this.actor.setX(this.map.start.x);
+        this.actor.setY(this.map.start.y);
+        this.map.canvas.style.position = this.actrCnvs.style.position = "absolute";
+        container.appendChild(this.map.canvas);
+        container.appendChild(this.actrCnvs);
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+    }
+    Game.World.prototype = {
+        run: function () {
+            requestAnimationFrame(Game.Util.bind(this, this._tick));
+        },
+        _render: function () {
+            this.actor.render();
+        },
+        _tick: function () {
+            var inputStatus = this.input.getStatus();
+            var ax = this.actor.getX();
+            var ay = this.actor.getY();
+            var spd = this.actor.getSpeed();
+            var tilePos = this._getTilePos(ax, ay);
+            var checkCell;
+            var tempC, tempR;
+            var hSize = this.actor.getHalfSize();
+
+            checkCell = this.mapData[tilePos.c][tilePos.r];
+            if (checkCell.isEnd && this._isCheckIn(this.actor, checkCell)) {
+                alert("congratulations...!!!");
+                return;
+            }
+            if (inputStatus.U) {
+                tilePos = this._getTilePos(ax, ay - spd);
+                tempC = tilePos.c;
+                tempR = tilePos.r - 1;
+                if (tempR < 0) tempR = 0;
+                checkCell = this.mapData[tempC][tempR];
+                if (checkCell.typ == 0) {
+                    if (!this._isCollision(this.actor, checkCell, "U")) {
+                        this.actor.moveUp();
+                    }
+                } else {
+                    if (this._isCheckIn(this.actor, checkCell, "U")) {
+                        this.actor.moveUp();
+                    }
+                }
+            }
+            if (inputStatus.D) {
+                tilePos = this._getTilePos(ax, ay + spd);
+                tempC = tilePos.c;
+                tempR = tilePos.r + 1;
+                if (tempR <= this.r - 1) {
+                    checkCell = this.mapData[tempC][tempR];
+                    if (checkCell.typ == 0) {
+                        if (!this._isCollision(this.actor, checkCell, "D")) {
+                            this.actor.moveDown();
+                        }
+                    } else {
+                        if (this._isCheckIn(this.actor, checkCell, "D")) {
+                            this.actor.moveDown();
+                        }
+                    }
+                }
+            }
+            if (inputStatus.L) {
+                tilePos = this._getTilePos(ax - spd, ay);
+                tempC = tilePos.c - 1;
+                tempR = tilePos.r;
+                if (tempC >= 0) {
+                    checkCell = this.mapData[tempC][tempR];
+                    if (checkCell.typ == 0) {
+                        if (!this._isCollision(this.actor, checkCell, "L")) {
+                            this.actor.moveLeft();
+                        }
+                    } else {
+                        if (this._isCheckIn(this.actor, checkCell, "L")) {
+                            this.actor.moveLeft();
+                        }
+                    }
+                }
+            }
+            if (inputStatus.R) {
+                tilePos = this._getTilePos(ax + spd, ay);
+                tempC = tilePos.c + 1;
+                tempR = tilePos.r;
+                if (tempC <= this.c - 1) {
+                    checkCell = this.mapData[tempC][tempR];
+                    if (checkCell.typ == 0) {
+                        if (!this._isCollision(this.actor, checkCell, "R")) {
+                            this.actor.moveRight();
+                        }
+                    } else {
+                        if (this._isCheckIn(this.actor, checkCell, "R")) {
+                            this.actor.moveRight();
+                        }
+                    }
+                }
+            }
+
+            this._render();
+            requestAnimationFrame(Game.Util.bind(this, this._tick));
+
+        },
+        _getTilePos: function (x, y) {
+            return {
+                c: parseInt(x / this.cellSize),
+                r: parseInt(y / this.cellSize)
+            }
+        },
+        _isCollision: function (actor, cell, dir) {
+            var actBnd = actor.getBounds();
+            var celBnd = actor.getBounds.call(cell);
+            var hSize = actor.getHalfSize();
+            switch (dir) {
+                case "U":
+                    if (actBnd.top <= celBnd.bottom) {
+                        actor.setY(celBnd.bottom + hSize);
+                        return true;
+                    }
+                    break;
+                case "D":
+                    if (actBnd.bottom >= celBnd.top) {
+                        actor.setY(celBnd.top - hSize);
+                        return true;
+                    }
+                    break;
+                case "L":
+                    if (actBnd.left <= celBnd.right) {
+                        actor.setX(celBnd.right + hSize);
+                        return true;
+                    }
+                    break;
+                case "R":
+                    if (actBnd.right >= celBnd.left) {
+                        actor.setX(celBnd.left - hSize);
+                        return true;
+                    }
+                    break;
+            }
+        },
+        _isCheckIn: function (actor, cell, dir) {
+            var actBnd = actor.getBounds();
+            var celBnd = actor.getBounds.call(cell);
+            switch (dir) {
+                case "U":
+                case "D":
+                    if (actBnd.left >= celBnd.left && actBnd.right <= celBnd.right) return true;
+                    break;
+                case "L":
+                case "R":
+                    if (actBnd.top >= celBnd.top && actBnd.bottom <= celBnd.bottom) return true;
+                    break;
+                default:
+                    if (actBnd.left >= celBnd.left && actBnd.right <= celBnd.right && actBnd.top >= celBnd.top && actBnd.bottom <= celBnd.bottom) return true;
+            }
+        }
+    }
+
+    Game.Actor = function (ctxt, size) {
+        this.x = 0;
+        this.y = 0;
+        this.spd = 1;
+        this.c = 0;
+        this.r = 0;
+        this.ctxt = ctxt;
+        this.cnvs = ctxt.canvas;
+        this.size = size;
+    }
+
+    Game.Actor.prototype = {
+        moveUp: function () {
+            this.y -= this.spd;
+        },
+        moveDown: function () {
+            this.y += this.spd;
+        },
+        moveRight: function () {
+            this.x += this.spd;
+        },
+        moveLeft: function () {
+            this.x -= this.spd;
+        },
+        getSpeed: function () {
+            return this.spd;
+        },
+        getX: function () {
+            return this.x;
+        },
+        setX: function (value) {
+            this.x = value;
+        },
+        getY: function () {
+            return this.y;
+        },
+        setY: function (value) {
+            this.y = value;
+        },
+        getSize: function () {
+            return this.size
+        },
+        getHalfSize: function () {
+            return this.size / 2
+        },
+        render: function () {
+            this.cnvs.width = this.cnvs.width;
+            this.ctxt.save();
+            this.ctxt.fillStyle = "#F00";
+            this.ctxt.translate(-this.size / 2, -this.size / 2);
+            this.ctxt.fillRect(this.x, this.y, this.size, this.size);
+            this.ctxt.restore();
+        },
+        getBounds: function () {
+            var l = Math.ceil(this.x - this.size / 2);
+            var r = Math.ceil(this.x + this.size / 2);
+            var t = Math.ceil(this.y - this.size / 2);
+            var b = Math.ceil(this.y + this.size / 2);
+            return {
+                left: l,
+                right: r,
+                top: t,
+                bottom: b
+            };
+        }
+    }
+
+
+    Game.Input = function () {
+        this.status = {};
+        var self = this;
+        document.addEventListener("keydown", function (event) {
+            switch (event.keyCode) {
+                case 37:
+                    self.status.L = true;
+                    break;
+                case 38:
+                    self.status.U = true;
+                    break;
+                case 39:
+                    self.status.R = true;
+                    break;
+                case 40:
+                    self.status.D = true;
+                    break;
+            }
+        });
+
+        document.addEventListener("keyup", function (event) {
+            switch (event.keyCode) {
+                case 37:
+                    self.status.L = false;
+                    break;
+                case 38:
+                    self.status.U = false;
+                    break;
+                case 39:
+                    self.status.R = false;
+                    break;
+                case 40:
+                    self.status.D = false;
+                    break;
+            }
+        })
+    }
+    Game.Input.prototype = {
+        getStatus: function () {
+            return this.status;
+        }
+    }
+
+
+    Maze = function (w, h, c, r, size, x, y) {
+        var cnvs = document.createElement("canvas");
+        cnvs.width = w;
+        cnvs.height = h;
+        var ctxt = cnvs.getContext("2d");
+        var map = getEmptMap(c, r);
+        var sx, sy;
+        var start;
+        var end;
+        if (!x) {
+            while (true) {
+                sx = Math.round(Math.random() * (c - 1));
+                if (sx % 2 != 0) break;
+            }
+        } else {
+            sx = x;
+        }
+
+        if (!y) {
+            while (true) {
+                sy = Math.round(Math.random() * (r - 1));
+                if (sy % 2 != 0) break;
+            }
+        } else {
+            sy = y;
+        }
+
+
+        dfs(sx, sy);
+        return {
+            canvas: cnvs,
+            context: ctxt,
+            mapData: map,
+            start: start,
+            end: end
+        };
+
+        function getEmptMap(c, r) {
+            var rslt = [];
+            var halfSize = size / 2;
+            for (var i = 0; i < c; i += 1) {
+                rslt[i] = [];
+                for (var j = 0; j < r; j += 1) {
+                    rslt[i][j] = {
+                        typ: 0,
+                        c: i,
+                        r: j,
+                        x: i * size + halfSize,
+                        y: j * size + halfSize,
+                        size: size
+                    };
+                }
+            }
+            return rslt;
+        }
+
+        function getNextCell(x, y) {
+            var temp = ["U", "D", "L", "R"];
+            var dir = [];
+            while (temp.length) {
+                dir.push(temp.splice(Math.round(Math.random() * (temp.length - 1)), 1)[0]);
+            }
+
+            for (var i = 0, cnt = dir.length; i < cnt; i += 1) {
+                switch (dir[i]) {
+                    case "U":
+                        if (y - 2 <= 0) continue;
+                        if (map[x][y - 2].typ == 0) {
+                            map[x][y - 2].typ = 1;
+                            map[x][y - 1].typ = 1;
+                            return map[x][y - 2];
+                        }
+                        break;
+                    case "D":
+                        if (y + 2 >= r - 1) continue;
+                        if (map[x][y + 2].typ == 0) {
+                            map[x][y + 2].typ = 1;
+                            map[x][y + 1].typ = 1;
+                            return map[x][y + 2];
+                        }
+                        break;
+                    case "R":
+                        if (x + 2 >= c - 1) continue;
+                        if (map[x + 2][y].typ == 0) {
+                            map[x + 2][y].typ = 1;
+                            map[x + 1][y].typ = 1;
+                            return map[x + 2][y];
+                        }
+                        break;
+                    case "L":
+                        if (x - 2 <= 0) continue;
+                        if (map[x - 2][y].typ == 0) {
+                            map[x - 2][y].typ = 1;
+                            map[x - 1][y].typ = 1;
+                            return map[x - 2][y];
+                        }
+                        break;
+                }
+            }
+            return null;
+        }
+
+        function dfs(sx, sy) {
+            var vstStack = [];
+            var x = sx;
+            var y = sy;
+            var cell = map[x][y];
+            var lastCell;
+            var maxStackLength = 0;
+            cell.typ = 1;
+            cell.isStart = true;
+            start = cell;
+            vstStack.push(cell);
+            while (true) {
+                cell = getNextCell(cell.c, cell.r);
+                if (cell) {
+                    cell.typ = 1;
+                    vstStack.push(cell);
+                    if (maxStackLength < vstStack.length) {
+                        lastCell = vstStack[vstStack.length - 1]
+                        maxStackLength = vstStack.length;
+                    }
+                } else {
+                    if (vstStack.length > 0) {
+                        cell = vstStack.pop();
+                    } else {
+                        lastCell.isEnd = true;
+                        end = lastCell;
+                        break;
+                    }
+                }
+            }
+            render();
+        }
+
+        function render() {
+            cnvs.width = cnvs.width;
+            var cell;
+            for (var i = 0, cnt = map.length; i < cnt; i += 1) {
+                for (var j = 0, cnt2 = map[i].length; j < cnt2; j += 1) {
+                    cell = map[i][j];
+                    ctxt.save();
+                    if (cell.isStart) {
+                        ctxt.fillStyle = "#CCC";
+                    } else if (cell.isEnd) {
+                        ctxt.fillStyle = "#0F0";
+                    } else {
+                        switch (cell.typ) {
+                            case 0:
+                                ctxt.fillStyle = "#777";
+                                break;
+                            case 1:
+                                ctxt.fillStyle = "#FFF";
+                                break;
+                        }
+                    }
+                    ctxt.translate(-size / 2, -size / 2);
+                    ctxt.fillRect(cell.x, cell.y, size, size);
+                    ctxt.restore();
+                }
+            }
+        }
+    }
+    Game.Util = {
+        bind: function bind(ctxt, callback) {
+            return function () {
+                callback.call(ctxt);
+            }
+        }
+    }
+})();
+
+var world = new Game.World(document.getElementById("world"), 380, 380);
+world.run();
+</script>
+</body>
+</html>

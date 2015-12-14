@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<title>별점 스크립트</title>
+	<link rel="stylesheet" href="../css/common.css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<style type="text/css">
+		body{padding:30px}
+		h1 {font-weight:bold; font-size:13px; margin-bottom:20px; padding-bottom:10px; border-bottom:1px solid #4b4b4b}
+		.star {position:relative;  width:130px; height:20px; border:1px solid #ccc; padding:2px}
+		.star.on {height:150px}
+		.star_box {position:relative; width:100px; }
+		strong {display:block; text-align:center; line-height:22px; color:#666}
+		.star_ul {display:none; position:absolute; left:0; top:25px; margin-left:20px}
+		.star_ul li {line-height:20px}
+		.star_ul li a {display:block; text-align:center}
+		.star_ul li a:hover {background:#f1f1f1}
+		.star.on .star_ul {display:block}
+		.btn {position:absolute; z-index:100; right:2px; top:2px; width:23px; height:18px; text-align:center; background:#eee; border:1px solid #ccc}
+		.btn:active {background:#4b4b4b; color:#fff}
+	</style>
+</head>
+<body>
+	<h1>★ 별점 평가하기</h1>
+	<div class="star">
+		<div class="star_box">
+			<strong class="value">평가하기</strong>
+			<ul class="star_ul">
+				<li><a href="#"><span class="hidden">별0개</span>☆☆☆☆☆</a></li>
+				<li><a href="#"><span class="hidden">별1개</span>★☆☆☆☆</a></li>
+				<li><a href="#"><span class="hidden">별2개</span>★★☆☆☆</a></li>
+				<li><a href="#"><span class="hidden">별3개</span>★★★☆☆</a></li>
+				<li><a href="#"><span class="hidden">별4개</span>★★★★☆</a></li>
+				<li><a href="#"><span class="hidden">별5개</span>★★★★★</a></li>
+			</ul>
+		</div>
+		<a href="#" class="btn">▼</a>
+	</div>
+	<script type="text/javascript">
+		var values = $(".value"),
+			 star_ul = $(".star_ul"),
+			 satr_li = $("li", star_ul)
+
+		$(".btn").click(function(){
+			$(".star").toggleClass("on")
+		});
+
+		satr_li.click(function(){
+			var thisLi = this.innerHTML;
+			values.html(thisLi);
+			$(".star").removeClass("on");
+		});
+		
+
+	</script>
+</body>
+</html>

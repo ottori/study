@@ -1,0 +1,11 @@
+{
+	"name" : "오은선",
+	"birth" : "1986.10.25",
+	"sex" : "F",
+	"likes" : [ "Drawing","사과","딸기","notebook","skate","study" ],
+	"forte" : [ "Drawing","Playing Piano","embracing","study","smile" ],
+	"projects" : [ "한화","농심","스마트에버","LG","방사청","성남시","KRA" ],
+	"skill" : ["html","css","javascript","jquery","sass","illustrate"],
+	"phone" : "010-3378-1526",
+	"address" : "서울시 관악구 중앙동"
+}

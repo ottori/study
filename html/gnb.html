@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="ko"  lang="ko">
+ <head>
+  <title> 1211_script </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link type="text/css" rel="stylesheet" href="../css/common.css" />
+  <style type="text/css">
+  #GNB {width:100%; margin:100px auto}
+  #GNB ul {width:1000px; .zoom:1; margin:0 auto}
+  #GNB ul:after {content:""; clear:both; display:block}
+  #GNB ul li {float:left; width:19%; height:20px; margin-right:1%}
+  #GNB ul li a {display:block; width:100%; height:20px; line-height:20px; text-align:center; font-weight:bold; color:#4b4b4b; background:#e1e1e1;}
+  #GNB ul li.on a {color:#fff; background:#4b4b4b}
+  </style>
+  <script type="text/javascript">
+		window.onload = function(){
+			/*
+			var mama = document.getElementById("GNB");
+			var children = mama.getElementsByTagName("li");
+
+			
+			for (var i = 0; i <= 4; i++){
+				children[i].onclick = function(){
+					for( b =0 ; b<=4; b++ ){
+						children[b].className = "";
+					}
+					if( this.className == "on"){
+						this.className = "";
+					}
+					else{
+						this.className = "on";
+					}
+				}
+			};
+			*/
+			tabmenu();
+		};
+		function tabmenu(){
+			var mama = document.getElementById("GNB");
+			var children = mama.getElementsByTagName("li");
+			var before = null;
+			for(var i = 0; i < children.length; i++){
+				children[i].onclick = function(){
+					if(before != null){ //before의 값이 null이 아닐때는, 이전에 뭔가를 클릭했다고 간주한다.
+						before.className = ""; //이전에 뭔가를 클릭한것이 있다면 해당 요소의 클래스를 빼준다.
+					}
+					this.className = "on";
+					before = this; //현재 클릭한걸 어떤 변수에 저장해둔다.
+				}
+			}
+		}
+/*
+1. 함수를 호출한다.(인자를 넘긴다)
+2. 함수를 작성한다.(넘어온 인자 갯수만큼 매개변수를 작성한다.)
+3. 함수 내부를 작성한다.
+4. 일단은 변수 하나 만들어서 아이디부터 정의하고 본다.
+5. 특정태그를 지정하려면, 변수.getElementsByTagName(태그명)[인덱스번호] 이 형식을 반드시 지켜야 한다.
+*/
+  </script>
+ </head>
+ <body>
+<div id="GNB">
+	<ul>
+		<li><a href="#">JAVA</a></li>
+		<li><a href="#">SCRIPT</a></li>
+		<li><a href="#">HTML</a></li>
+		<li><a href="#">CSS</a></li>
+		<li><a href="#">XHTML</a></li>
+	</ul>
+</div>
+
+ </body>
+</html>

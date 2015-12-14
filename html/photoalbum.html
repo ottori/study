@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<title>가족사진첩</title>
+	<meta charset="utf-8"/>
+	<meta name="author" content="" />
+	<meta name="keywords" content="" />
+	<link rel="stylesheet" href="../css/common.css" />
+	<style type="text/css">
+		body {padding:30px}
+		h1 {font-size:15px; background:#eee; padding:10px} ul {margin:10px 0} ul:after {content:""; clear:both; display:block}
+		li {float:left; margin:3px 10px 3px 0} p {font-weight:bold; margin-top:10px; padding:10px; background:#eee}
+		a {display:block; padding:5px; width:100px; background:#eee}
+		.imgWrap {width:100%; text-align:center}
+	</style>
+</head>
+<body>
+	<h1>가족사진</h1>
+	<ul>
+		<li><a href="../images/am1.jpg" title="* 이미지 111">* 이미지 1</a></li>
+		<li><a href="../images/am2.jpg" title="* 이미지 222">* 이미지 2</a></li>
+		<li><a href="../images/am3.jpg" title="* 이미지 333">* 이미지 3</a></li>
+		<li><a href="../images/am4.jpg" title="* 이미지 444">* 이미지 4</a></li>
+	</ul>
+	<div class="imgWrap"><img src="../images/pm.jpg" id="dfs" style="width:100px; height:200px;" alt="돔스크립트 온라인 가족 사진첩" /></div>
+	
+	<p id="description">사진을 선택하세요.</p>
+	<script type="text/javascript">
+		var placeholder = document.getElementById("placeholder");
+		var description = document.getElementById("description");
+
+		var a = document.getElementsByTagName("a");
+		confirm(123456)
+		
+		if( !document.getElementById("placeholder") ){
+			return false;
+		}
+		for( var i =0; i< a.length; i++ ){
+			var myA = a[i];
+			myA.onclick = function(){
+				showPic(this)
+			return false;
+			}
+		}
+		function showPic( whichpic ){
+			var source = whichpic.getAttribute("href");
+			var titleText = whichpic.getAttribute("title");
+			placeholder.setAttribute("src",source);
+			nodeValues = whichpic.getAttribute("title");
+			description.childNodes[0].nodeValue = nodeValues;
+			alert("12345!!!!!")
+		}
+
+	</script>
+</body>
+</html>

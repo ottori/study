@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+ <head>
+  <title>복습하기_0126</title>
+  <meta name="description" content="" />
+  <link type="text/css" rel="stylesheet" href="../css/common.css" />
+  <style type="text/css">
+	.wrap {width:300px;  padding:30px; }
+	input {border:1px solid #4b4b4b; height:20px}
+	.wrap div {padding:10px; margin:10px; border:1px solid #4b4b4b; cursor:pointer; background:#f1f1f1}
+	.wrap .str_replace_on {background:#4b4b4b; color:#fff}
+  </style>
+  <script type="text/javascript">
+	function id(b){
+		return document.getElementById(b);
+	}
+	window.onload = function(){
+		var wrap = id("wrap");
+		var cNode = id("cNode");
+		var appd = id("appd");
+		var box = wrap.getElementsByTagName("div");
+
+		for ( i=0; i < box.length; i++ ){
+			box[i].onclick = function(){
+				var first = this.className; //str_replace_on
+
+				if ( this.className == "str_replace" ){
+					this.className =  first + "_on";
+				}else{
+					this.className = this.className.replace("_on","");
+					console.log(first); //str_replace_on
+				}
+			}
+		}
+		cNode.onclick = function(){
+			var pps = document.createElement("p");
+			//pps.innerHTML = "안녕"
+			var texts = document.createTextNode("안녕하세요^^");
+			pps.appendChild( texts );
+			this.appendChild( pps );
+		}
+		var cnt = 1;
+		appd.onclick =  function(){
+			cnt++;
+			var inHTML = document.createElement("p");
+			var strongs  = document.createElement("strong");
+			var text2 = document.createTextNode("테스트");
+			this.innerHTML = "<p>테스트</p>" + "<p><strong>숫자</strong></p>" + cnt;
+			var inblock = this.getElementsByTagName("p");
+			for( i=0; i < inblock.length; i++ ){
+				inblock[i].style.display = "inline-block";
+			}
+		}
+
+	}
+  </script>
+ </head>
+ <body>
+ <div id="wrap"class="wrap">
+	<input type="text" name="" id="inp" />
+
+	<div class="str_replace">현재 div 클래스명 변경하기</div>
+
+	<div id="cNode" class="chgNode">nodeValue 변경!</div>
+
+	<div id="appd" class="append">html 생성하여 추가</div>
+</div>
+ </body>
+</html>

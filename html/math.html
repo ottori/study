@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<title>삼각함수 - 공돌리기</title>
+	<meta name="author" content="" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href="../css/common.css" />
+	<style type="text/css">
+	.wrap {position:relative; left:200px; top:200px}
+	.vos {position:absolute; left:0; top:0;width:20px; height:20px; border-radius:50%; background:red}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			/* 공돌리기 */
+			var circle = document.getElementById("circle");
+			var obj = {
+				cnt : 0,
+				cnt_y : 0,
+				action : function(){
+					var that = this;
+					rightA = setInterval(function(){
+						that.cnt += 0.2;
+						var sin = Math.ceil(Math.PI / 180) * Math.sin(that.cnt / 10) * 100;
+						var cos = Math.ceil(Math.PI / 180) * Math.cos(that.cnt / 10) * 100;
+						console.log( sin )
+						circle.style.left = sin + "px";
+						circle.style.top = cos + "px";
+					},10)
+				}
+			}
+			obj.action();
+		}
+		/* //공돌리기 */
+	</script>
+</head>
+<body>
+	<div class="wrap">
+		<div class="vos" id="circle" style="position:absolute; left:0;top:0;"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<title>LG SmartWorld</title>
+	<meta name="despcrition" content="lg smartworld for Watch Main 스크립트 기능" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<link rel="shortcut icon" href="http://kr.lgworld.com/images/common/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="http://kr.lgworld.com/common/css/default.css" />
+	<!--<link rel="stylesheet" href="http://check86.cafe24.com/study/css/common.css" />-->
+	<link rel="stylesheet" type="text/css" href="http://kr.lgworld.com/common/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="http://kr.lgworld.com/common/css/main.css" />
+	<script type="text/javascript" src="http://kr.lgworld.com/common/js/jquery-1.9.1.min.js"></script>
+	<style type="text/css">
+		#cont_in .line_box h2 {margin:0; padding:0 0 0 20px}
+		.watch_collect {overflow:hidden; width:686px; height:300px; margin:20px 0; padding:5px; border:1px solid #d9d9d9}
+		.watch_collect > div {position:relative; height:280px; padding-top:20px; background:#f7f7f7; .zoom:1}
+		.watch_collect > div:after {content:""; clear:both; display:block}
+		.watch_collect h2 {padding-top:12px}
+		.watch_collect .watch_collect_tit {display:block; padding-top:15px; text-align:center; font-size:15px; color:#282828; font-weight:700}
+		.watch_collection {overflow:hidden; height:180px; margin:0 24px}
+		.watch_collection ul {.zoom:1; position:relative; height:175px}
+		.watch_collection ul:after {content:""; clear:both; display:block}
+		.watch_collection ul li {float:left; margin:50px 11px 32px}
+		.watch_collection ul li {display:block; position:relative; width:91px; height:91px; padding:1px; /* background:url(images/bg_watch_collection.png) no-repeat; */ background-color:#4b4b4b; border-radius:50%}
+		.watch_collection ul li img {display:block; width:91px; height:91px;border-radius:50%}
+		.watch_collection ul li div {display:none; position:absolute; left:261px; top:0; width:128px; height:128px; padding:22px 11px; /*background:url(images/watch_frame.png) no-repeat; */background-color:#eee}
+		.watch_collection ul li div a {width:128px; height:128px}
+		.watch_collection ul li div.hiTop {display:block; z-index:100}
+		.watch_collection ul li.watchtabs {width:128px; height:128px; margin:0 15px; padding:11px; /*background:url(images/watch_frame.png) no-repeat*/}
+		.watch_collection ul li.watchtabs a {width:127px; height:127px; background:none}
+		.watch_collection ul li.watchtabs img {width:128px; height:128px}
+		.btn_collection {position:absolute; z-index:1000; height:100%; line-height:280px;width:20px; text-align:center; font-size:18px;top:0}.btn_collection:hover{text-decoration:none}.btn_collection:active{background:#e7e7e7} .prev{left:0} .next{right:0}
+		.line_box .more {top:19px} .line_box .more a {background-position:right 4px}
+	</style>
+</head>
+<body>
+<div id="wrap">
+	<div id="container">
+		<div id="side">
+				<!-- category menu link -->
+				<h1><a href="http://kr.lgworld.com/web.main.dev"><img src="http://kr.lgworld.com/images/common/logo_smart.gif" alt="엘지스마트월드 로고이미지 메인페이지로 이동합니다" /></a></h1>
+				<div id="lnb">
+					<h2 class="blind">왼쪽메뉴</h2>
+					<ul>
+						<li>
+							<span id="BASIC_MENU_101">추천 카테고리</span>
+							<ul class="lnb_area">
+								<li id="BASIC_MENU_102">
+									<button type="button"><img src="http://kr.lgworld.com/images/menu/side_icon01.gif" alt="" /><img src="http://kr.lgworld.com/images/menu/side_icon01_on.gif" class="hidden" alt="" /><span>LG 스페셜</span></button>
+									<ul class="categoryitems">
+										<li id="lf_00000000000000001116"><a href="javascript:fnc_menuView('web.lgsw.categories.RetrieveLgSpecialCmd.dev','00000000000000001116');">퀵서클 Apps</a></li>
+										<li id="lf_00000000000000001093"><a href="javascript:fnc_menuView('web.lgsw.categories.RetrieveLgSpecialCmd.dev','00000000000000001093');">LG Apps</a></li>
+										<li id="lf_1"><a href="javascript:fnc_menuView('web.lgsw.categories.RetrieveLgSpecialCmd.dev','1');">전자사전</a></li><li id="lf_00000000000000001088"><a href="javascript:fnc_menuView('web.lgsw.categories.RetrieveLgSpecialCmd.dev','00000000000000001088');">3D Zone</a></li>
+									</ul> <!-- categoryitems -->
+								</li>
+								<li id="BASIC_MENU_103">
+									<button type="button"><img src="http://kr.lgworld.com/images/menu/side_icon02.gif" alt="" /><img src="http://kr.lgworld.com/images/menu/side_icon02_on.gif" class="hidden" alt="" /><span>LG 폰꾸미기</span></button>
+									<ul class="categoryitems">
+										<li id="lf_116"><a href="javascript:fnc_menuView('web.lgsw.categories.RetrieveCustomization.dev','116');">홈테마</a></li>
+										<li id="lf_117"><a href="javascript:fnc_menuView('web.lgsw.categories.RetrieveCustomization.dev','117');"></a></li>
+										<li id="lf_118"><a href="javascript:fnc_menuView('web.lgsw.categories.RetrieveCustomization.dev','118');">폰트</a></li>
+										<li id="lf_111"><a href="javascript:fnc_menuView('web.lgsw.categories.RetrieveCustomization.dev','111');">벨소리</a></li>
+										<li id="lf_121"><a href="javascript:fnc_menuView('web.lgsw.categories.RetrieveCustomization.dev','121');">Q보이스 테마</a></li>
+									</ul> <!-- categoryitems -->
+								</li>
+								<li id="BASIC_MENU_104">
+									<button type="button"><img src="http://kr.lgworld.com/images/menu/side_icon03.gif" alt="" /><img src="http://kr.lgworld.com/images/menu/side_icon03_on.gif" class="hidden" alt="" /><span>운영자 추천</span></button>
+									<ul class="categoryitems">
+										<li id="lf_T02"><a href="javascript:fnc_menuView('web.lgswStaffPicks.RetrieveLGStaffPicksList.dev','T02');">프리미엄 추천</a></li>
+										<li id="lf_T03"><a href="javascript:fnc_menuView('web.lgswStaffPicks.RetrieveStaffPicksList.dev','T03');">테마 추천</a></li>
+									</ul> <!-- categoryitems -->
+								</li>
+								<li id="lf_BASIC_MENU_105"><a href="javascript:fnc_menuView('web.lgswThemeEvent.RetrieveEventList.dev','BASIC_MENU_105');"><img src="http://kr.lgworld.com/images/menu/side_icon04.gif" alt="" /><img src="http://kr.lgworld.com/images/menu/side_icon04_on.gif" class="hidden" alt="" />이벤트</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<span id="BASIC_MENU_106">일반 카테고리</span>
+							<ul class="lnb_area">
+								<li id="lf_105"><a href="javascript:fnc_menuView('web.lgsw.categories.RetrieveCategoryApplList.dev','105');"><img src="http://kr.lgworld.com/images/menu/side_icon05.gif" alt="" /><img src="http://kr.lgworld.com/images/menu/side_icon05_on.gif" class="hidden" alt="" />엔터테인먼트</a></li>
+								<li id="lf_122"><a href="javascript:fnc_menuView('web.lgsw.categories.RetrieveCategoryApplList.dev','122');"><img src="http://kr.lgworld.com/images/menu/side_icon20.gif" alt="" /><img src="http://kr.lgworld.com/images/menu/side_icon20_on.gif" class="hidden" alt="" />Hi-Fi음원(MQS) </a></li>
+								<li id="lf_101"><a href="javascript:fnc_menuView('web.lgsw.categories.RetrieveCategoryApplList.dev','101');"><img src="http://kr.lgworld.com/images/menu/side_icon06.gif" alt="" /><img src="http://kr.lgworld.com/images/menu/side_icon06_on.gif" class="hidden" alt="" />게임</a></li>
+								<li id="lf_110"><a href="javascript:fnc_menuView('web.lgsw.categories.RetrieveCategoryApplList.dev','110');"><img src="http://kr.lgworld.com/images/menu/side_icon07.gif" alt="" /><img src="http://kr.lgworld.com/images/menu/side_icon07_on.gif" class="hidden" alt="" />유틸리티</a></li>
+								<li id="lf_102"><a href="javascript:fnc_menuView('web.lgsw.categories.RetrieveCategoryApplList.dev','102');"><img src="http://kr.lgworld.com/images/menu/side_icon08.gif" alt="" /><img src="http://kr.lgworld.com/images/menu/side_icon08_on.gif" class="hidden" alt="" />교육</a></li>
+								<li id="lf_108"><a href="javascript:fnc_menuView('web.lgsw.categories.RetrieveCategoryApplList.dev','108');"><img src="http://kr.lgworld.com/images/menu/side_icon09.gif" alt="" /><img src="http://kr.lgworld.com/images/menu/side_icon09_on.gif" class="hidden" alt="" />라이프스타일</a></li>
+							</ul>
+						</li>
+						<li>
+							<span id="BASIC_MENU_113">고객센터</span>
+							<ul class="lnb_area">
+								<li id="lf_BASIC_MENU_114"><a href="javascript:fnc_menuView('web.lgsw.support.RetrieveNoticeList.dev','BASIC_MENU_114');"><img src="http://kr.lgworld.com/images/menu/side_icon11.gif" alt="" /><img src="http://kr.lgworld.com/images/menu/side_icon11_on.gif" class="hidden" alt="" />공지사항</a>
+								</li>
+								<li id="lf_BASIC_MENU_115"><a href="javascript:fnc_menuView('web.lgsw.support.RetrieveFaq.dev','BASIC_MENU_115');"><img src="http://kr.lgworld.com/images/menu/side_icon12.gif" alt="" /><img src="http://kr.lgworld.com/images/menu/side_icon12_on.gif" class="hidden" alt="" />자주 묻는 질문</a>
+								</li>
+								<li id="lf_BASIC_MENU_116"><a href="javascript:fnc_menuView('web.lgsw.support.RetrieveContactUs.dev','BASIC_MENU_116');"><img src="http://kr.lgworld.com/images/menu/side_icon13.gif" alt="" /><img src="http://kr.lgworld.com/images/menu/side_icon13_on.gif" class="hidden" alt="" />1:1 문의</a>
+								</li>
+								<li id="lf_BASIC_MENU_117"><a href="javascript:fnc_menuView('web.lgsw.support.RetrieveGuide.dev','BASIC_MENU_117');"><img src="http://kr.lgworld.com/images/menu/side_icon14.gif" alt="" /><img src="http://kr.lgworld.com/images/menu/side_icon14_on.gif" class="hidden" alt="" />가이드 </a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		<!-- content -->
+		<div id="content">
+		<!-- search area -->
+			<div id="search_wrap">
+				<div id="search" style="position:relative;">
+					<form name="searchform" id="AKCFrm" method="post" action="web.Search.dev" onsubmit="return seachKwd(this);">
+						<div id="search_select">
+							<a href="#none" id="choiceCombosrchcode" title="통합검색" class="combo_open" onclick="showComboList('comboListsrchcode')"><span>전체</span><input type="hidden" name="srchcode" value="01"></a>
+							<ul id="comboListsrchcode" class="combo_list" title="통합검색" style="display: none;">
+							<li onclick="onChangeNomal(this,'choiceCombosrchcode', 'comboListsrchcode');" class="on"><a href="#none" title="전체">전체</a><input type="hidden" value="01"></li>
+							<li onclick="onChangeNomal(this,'choiceCombosrchcode', 'comboListsrchcode');"><a href="#none" title="어플리케이션">어플리케이션</a><input type="hidden" value="02"></li>
+							<li onclick="onChangeNomal(this,'choiceCombosrchcode', 'comboListsrchcode');"><a href="#none" title="리뷰">리뷰</a><input type="hidden" value="04"></li>
+							<li onclick="onChangeNomal(this,'choiceCombosrchcode', 'comboListsrchcode');"><a href="#none" title="고객센터">고객센터</a><input type="hidden" value="05"></li>
+							</ul>
+						</div>
+						<div id="auto_search">
+							<input type="text" id="m_search" class="total_search" title="검색어" name="kwd" value="" autocomplete="off" onkeydown="searchKeyUp();">
+							<a href="#none" id="btnAutoarea" class="btn_search2">
+								<img id="AKCArrow" src="http://kr.lgworld.com/images/common/btn_search_on.png" class="png24" alt="Search" style="display: none;">
+							</a>
+							<div id="AKCDiv" style="DISPLAY:block;Z-INDEX:300;POSITION:absolute;top:34px;left:0;width:233px;">
+								<iframe id="AKCIfrm" style="WIDTH: 100%; HEIGHT:0 " name="AKCIfrm" title="자동완성리스트" marginwidth="0" marginheight="0" src="" frameborder="0" scrolling="no">
+								</iframe>
+							</div>
+						</div>
+						<input type="submit" class="btn_search" value="검색">
+					</form>
+				</div>
+				<div id="popular">
+					<span class="hidden">검색랭킹순위</span>
+					<ul id="rolling" style="height: 27px;">
+					<li><span class="no">1</span> <a href="javascript:goppkKwd('smart world');">smart world</a> <img src="http://kr.lgworld.com/images/common/ic_rank_down.gif" alt="순위하락"></li>
+					<li><span class="no">2</span> <a href="javascript:goppkKwd('G3');">G3</a> <img src="http://kr.lgworld.com/images/common/ic_rank_down.gif" alt="순위하락"></li>
+					<li><span class="no">3</span> <a href="javascript:goppkKwd('lg');">lg</a> <img src="http://kr.lgworld.com/images/common/ic_rank_rising.gif" alt="순위대폭상승"></li>
+					<li><span class="no">4</span> <a href="javascript:goppkKwd('G2');">G2</a> <img src="http://kr.lgworld.com/images/common/ic_rank_down.gif" alt="순위하락"></li>
+					<li><span class="no">5</span> <a href="javascript:goppkKwd('smartworld');">smartworld</a> <img src="http://kr.lgworld.com/images/common/ic_rank_down.gif" alt="순위하락"></li>
+					<li><span class="no">6</span> <a href="javascript:goppkKwd('metro');">metro</a> <img src="http://kr.lgworld.com/images/common/ic_new.gif" alt="신규진입"></li>
+					<li><span class="no">7</span> <a href="javascript:goppkKwd('퀵서클');">퀵서클</a> <img src="http://kr.lgworld.com/images/common/ic_new.gif" alt="신규진입"></li>
+					<li><span class="no">8</span> <a href="javascript:goppkKwd('365폰트');">365폰트</a> <img src="http://kr.lgworld.com/images/common/ic_new.gif" alt="신규진입"></li>
+					<li><span class="no">9</span> <a href="javascript:goppkKwd('오르골');">오르골</a> <img src="http://kr.lgworld.com/images/common/ic_new.gif" alt="신규진입"></li>
+					<li><span class="no">10</span> <a href="javascript:goppkKwd('고딕');">고딕</a> <img src="http://kr.lgworld.com/images/common/ic_rank_rising.gif" alt="순위대폭상승"></li>
+					</ul>
+				</div>
+			</div>
+			<div id="cont_in">
+				<div id="watch_collect" class="line_box watch_collect" style="float:left">
+					<div>
+						<h2><span>Premium OES Picture</span></h2>
+						<a href="#" class="btn_collection prev">◀</a>
+							<div class="watch_collection">
+								<ul>
+									<li><img src="http://check86.cafe24.com/study/images/winimg1.jpg" alt="" /></li>
+									<li><img src="http://check86.cafe24.com/study/images/winimg2.jpg" alt="" /></li>
+									<li id="watchtabs" class="watchtabs"><a href="http://codepen.io" title="이벤트3 새창열림" id="focused" target="_blank"><img src="http://check86.cafe24.com/study/images/winimg3.jpg" alt="" /></a></li>
+									<li><img src="http://check86.cafe24.com/study/images/winimg4.jpg" alt="" /></li>
+									<li><img src="http://check86.cafe24.com/study/images/winimg5.jpg" alt="" /></li>
+									<li><img src="http://check86.cafe24.com/study/images/winimg1.jpg" alt="" /></li>
+									<li><img src="http://check86.cafe24.com/study/images/winimg2.jpg" alt="" /></li>
+									<li><img src="http://check86.cafe24.com/study/images/winimg3.jpg" alt="" /></li>
+									<li><img src="http://check86.cafe24.com/study/images/winimg4.jpg" alt="" /></li>
+									<li><img src="http://check86.cafe24.com/study/images/winimg5.jpg" alt="" /></li>
+									<li><img src="http://check86.cafe24.com/study/images/winimg1.jpg" alt="" /></li>
+									<li><img src="http://check86.cafe24.com/study/images/winimg2.jpg" alt="" /></li>
+									<li><img src="http://check86.cafe24.com/study/images/winimg3.jpg" alt="" /></li>
+								</ul>
+							</div>
+						<a href="#" class="btn_collection next">▶</a>
+						<strong class="watch_collect_tit">JAVASCRIPT LIST</strong>
+						<span class="more"><a href="#" title="Premium OES Picture 더보기">more</a></span>
+					</div>
+				</div>
+				<p><em style="font-weight:bold; color:red">▲ jQuery 구현함 : </em> 썸네일 클릭시 해당 썸네일 정보가 중앙에 표시되며 중앙 썸네일을 클릭하면 해당 링크정보로 이동함</p>
+				<!-- jquery 구현 -->
+				<script type="text/javascript">
+					var ul = $( ".watch_collection ul" )
+						, li = $( "li", ul )
+						, watchtabs = $(".watchtabs")
+						, btn_collection = $("a.btn_collection")
+						, prev = $("a.prev")
+						, next = $("a.next")
+						, cnt = 2
+						, ont = li.size() - 3
+						, total = 0
+						, state = true;
+						
+						for( var i = 0; i < li.size(); i++ ){
+							var li_width = li.eq(i).width()
+							, li_margin_left = parseInt( li.eq(i).css("margin-left") )
+							, li_margin_right = parseInt( li.eq(i).css("margin-right") )
+							, li_padding_left = parseInt( li.eq(i).css("padding-left") )
+							, li_padding_right = parseInt( li.eq(i).css("padding-right") );
+							total += li_width + li_margin_left + li_margin_right + li_padding_left + li_padding_right;
+						}
+						ul.css("width", total) //total Ul Width
+						
+						btn_collection.click(function(){
+							if(state == false) return false;
+							if( $(this).hasClass("next") ){
+								if( cnt < ont ){
+									state = false;
+									cnt++;
+									ul.animate({
+										"margin-left" : "-=115px"
+									},{
+										duration : 200,
+										complete : function(){
+											state = true;
+										}
+									});
+								}
+								li.eq(cnt-1).removeClass("watchtabs");
+								li.eq(cnt).addClass("watchtabs")
+							}else if( $(this).hasClass("prev") ){
+								if( ul.css("margin-left") < 0 + "px" ){
+									state = false;
+									cnt--;
+									if( cnt < 0 ){
+										cnt = 2;
+										return false;
+									}
+									ul.animate({
+										"margin-left" : "+=115px"
+									},{
+										duration : 200,
+										complete : function(){
+											state = true;
+										}
+									});
+									li.removeClass("watchtabs");
+									li.eq(cnt).addClass("watchtabs");
+								}
+							}
+						});
+				</script>
+
+				<div id="watch_collect2" class="line_box watch_collect" style="float:left">
+					<div>
+						<h2><span>Premium OES Picture</span></h2>
+						<a href="#" class="btn_collection prev">◀</a>
+							<div class="watch_collection">
+								<ul>
+									<li style="margin:0 10px"><img src="http://check86.cafe24.com/study/images/winimg1.jpg" alt="" /></li>
+									<li><img src="http://check86.cafe24.com/study/images/winimg2.jpg" alt="" /></li>
+									<li id="watchtabs" class="watchtabs"><a href="http://codepen.io" title="이벤트3 새창열림" id="focused" target="_blank"><img src="http://check86.cafe24.com/study/images/winimg3.jpg" alt="" /></a></li>
+									<li><img src="http://check86.cafe24.com/study/images/winimg4.jpg" alt="" /></li>
+									<li><img src="http://check86.cafe24.com/study/images/winimg5.jpg" alt="" /></li>
+									<li><img src="http://check86.cafe24.com/study/images/winimg1.jpg" alt="" /></li>
+									<li><img src="http://check86.cafe24.com/study/images/winimg2.jpg" alt="" /></li>
+									<li><img src="http://check86.cafe24.com/study/images/winimg3.jpg" alt="" /></li>
+									<li><img src="http://check86.cafe24.com/study/images/winimg4.jpg" alt="" /></li>
+									<li><img src="http://check86.cafe24.com/study/images/winimg5.jpg" alt="" /></li>
+									<li><img src="http://check86.cafe24.com/study/images/winimg1.jpg" alt="" /></li>
+									<li><img src="http://check86.cafe24.com/study/images/winimg2.jpg" alt="" /></li>
+									<li><img src="http://check86.cafe24.com/study/images/winimg3.jpg" alt="" /></li>
+								</ul>
+							</div>
+						<a href="#" class="btn_collection next">▶</a>
+						<strong class="watch_collect_tit">JAVASCRIPT LIST</strong>
+						<span class="more"><a href="#" title="Premium OES Picture 더보기">more</a></span>
+					</div>
+				</div>
+				<p><em style="font-weight:bold; color:red">▲ 순수 Javascript 구현 : </em> 썸네일 클릭시 해당 썸네일 정보가 중앙에 표시되며 중앙 썸네일을 클릭하면 해당 링크정보로 이동함</p>
+				<!-- pure js 구현 -->
+				<script type="text/javascript">
+					var _css = function(element,prop){ var el,read_css; el = element; if( !document.defaultView ){ read_css = el.currentStyle[prop]; }else{ read_css = document.defaultView.getComputedStyle(el,null)[prop]; } return read_css}
+
+					var collect = document.getElementById("watch_collect2")
+						, collect_ul = collect.getElementsByTagName("ul")[0]
+						, child = collect.getElementsByTagName("li")
+						, a = collect.getElementsByTagName("a")
+						, myA; 
+
+						for( var i =0; i<child.length; i++){
+							var childWidth = child[i].offsetWidth
+								, childMarginLeft = _css(child[i],"marginLeft")
+
+							console.log(childMarginLeft)
+						}
+
+
+				</script>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

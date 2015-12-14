@@ -1,0 +1,360 @@
+<!Doctype html>
+<html lang="ko">
+ <head>
+ <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+ <meta charset="euc-kr" />
+  <title>금리제안_온라인 금리제안 시스템_기업정보</title>
+  <meta name="description" content="" />
+  <link rel="shortcut icon" href="../../" />
+<!--[if lt IE 9]> <script src="../../company/js/html5shiv.js"></script> <![endif]-->
+  <script type="text/javascript" src="../js/jquery_1.8.3.min.js"></script>
+  <style type="text/css">
+	html,body{width:840px}
+	body{font-size:75%;line-height:2em}
+	body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,fieldset,p,input,button,pre{margin:0;padding:0;font-family:Dotum,"돋움","굴림",Helvetica,sans-serif;color:#444}
+	article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary{display:block}
+	hr{display:none}
+	h1,h2,h3,h4,h5,h6{font-weight:normal}
+	ol,ul,li{list-style-type:none}
+	button{border:0;background:transparent;cursor:pointer}
+	i,em,address,optgroup,cite,code,dfn,var{font-style:normal;font-weight:normal}
+	img,input,select,textarea,fieldset,iframe{border:0;vertical-align:middle}
+	a{color:#444;text-decoration:none; cursor:pointer}
+	a:hover {text-decoration:none}
+	input,button,select,textarea{resize:none;font-size:12px}
+	input[type="radio"], input[type="checkbox"] {width:13px; height:13px; margin:0; padding:0}
+	button{display:inline-block; margin:0; padding:0;background:none; border:0 none; text-align:center; vertical-align:middle; white-space:nowrap; cursor:pointer; font-family:Dotum,"돋움",Helvetica,sans-serif}
+	*+html button {margin:-2px 2px; overflow:visible}
+	button > span, button > img, .btn > span, button > span > span, .btn > span > span {display:block; position:relative}
+	button::-moz-focus-inner {padding:0; border:0} /* 파이어폭스 버튼 내부 여백 제거 */
+	iframe {width:100%; overflow-x:hidden; overflow-y:auto}
+	label {vertical-align:middle}
+	table a:hover {text-decoration:underline; color:#006699}
+	/*a:hover,a:active {background:transparent}*/
+
+	/* RESET CORE : XHTML */
+	table{width:100%;border-collapse:collapse;border-spacing:0; table-layout:fixed}
+	table,th,td{border:0}
+	caption,legend{overflow:hidden;position:absolute; left:-1000px; top:-30px;width:0;height:0;font-size:0;line-height:0}
+	.haze, .hidden {overflow:hidden; width: 0; height: 0; font-size:0; line-height:0; position:absolute; left:0; top:-100px}
+
+	/* 기본 레이아웃 */
+	.online_pop {width:840px; min-height:750px}
+	#header {position:relative; height:48px; padding:8px 30px 0; border-bottom:3px solid #dc1920; background:#444}
+	#header h1 {width:283px; height:40px; background:url("../images/online/online_logo.gif") no-repeat}
+	#section {padding:30px}
+	h2.title {height:29px; padding-bottom:20px}
+	h2.tit_login {background:url("../images/online/online_tit_login.gif") no-repeat}
+	h2.tit_join {background:url("../images/online/online_tit_join.gif") no-repeat}
+	h2.tit_notice {background:url("../images/online/online_tit_notice.gif") no-repeat}
+	h2.tit_suggest {background:url("../images/online/online_tit_suggest.gif") no-repeat}
+	h2.tit_modify_incharge {background:url("../images/online/online_tit_modify.gif") no-repeat}
+	h2.tit_online_screen {background:url("../images/online/tit_online_screen.png") no-repeat}
+
+	/* input */
+	.inp_txt, .inp_mails, .inp_tel {height:24px; line-height:25px; padding:2px 10px; font-size:13px; border:1px solid #ccc; background:#fff}
+	table .inp_txt, table .inp_mails, table .inp_tel {height:20px; line-height:22px; padding:1px 4px}
+	select.select {height:24px; line-height:25px; padding:2px; border:1px solid #ccc; background:#fff; vertical-align:middle; font-family:Dotum, "돋움"; font-size:13px; letter-spacing:-1px}
+	.space1 {margin:0 5px 0 0}
+	.space2 {margin:0 5px}
+
+	/* Util Menu */
+	.util {zoom:1; padding-top:16px}
+	.util:after {content:""; clear:both; display:block}
+	.util li {float:left; margin-left:10px}
+	.util li a {overflow:visible; display:block; padding-left:10px; font-size:11px; line-height:1.2; vertical-align:middle; color:#fff; background:url("../images/online/bul_square_gray.gif") no-repeat 0 3px}
+
+	/* float clear */
+	.clear_box {zoom:1}
+	.clear_box:after {content:""; clear:both; display:block}
+	.float_left {float:left}
+	.float_right {float:right}
+
+	/* 로그인 */
+	.login {position:relative; padding:30px 160px 27px 163px; border-top:2px solid #ea7579; border-bottom:1px solid #888; background:#f7f7f7}
+	.login .login_form {margin-bottom:20px; border-bottom:1px solid #ccc}
+	.login .login_form label {display:block; float:left; width:66px; height:30px}
+	.login .login_form label span {overflow:hidden; width: 0; height: 0; font-size:0; line-height:0; position:absolute; left:0; top:-100px}
+	.login .login_form li {zoom:1}
+	.login .login_form li:after  {content:""; clear:both; display:block}
+	.login .login_form .id {padding-bottom:10px}
+	.login .login_form .id label {background:url("../images/online/online_txt_id.gif") no-repeat left center}
+	.login .login_form .pass {padding-bottom:20px}
+	.login .login_form .pass label {background:url("../images/online/online_txt_pass.gif") no-repeat left center}
+	.login .login_form .log {position:absolute; right:163px; top:30px; width:100px}
+	.login .login_form input {display:block; float:left; width:255px}
+	.btn_login > span {display:block; width:100px; height:70px; background:url("../images/online/btn_login.png") no-repeat}
+
+	/* 회원신청 */
+	.join .inp_txt {width:267px}
+	.join .inp_mails {width:112px}
+	.join .inp_tel {width:53px}
+	.join .select {width:275px}
+
+	/* 금리제안 */
+	.suggest {height:89px; padding:31px 0 29px 279px; border:1px solid #ccc; background:url("../images/online/bg_online_suggest1.gif") no-repeat}
+	.suggest p {line-height:20px}
+	.suggest .e_btn {margin-top:15px}
+
+	/* 테이블 box */
+	.tableskin {border-top:2px solid #666; border-bottom:1px solid #666}
+	.tableskin2 {border-top:1px solid #ccc; border-right:1px solid #ccc; border-left:1px solid #ccc}
+
+	/* 데이터 테이블 - thead 없는 테이블 */
+	.table_rowstyle th {min-height:15px; border-right:1px solid #ccc; border-top:1px solid #ccc; background:#f1f1f1; text-align:left}
+	.table_rowstyle tr:first-child th,
+	.table_rowstyle tr:first-child td {border-top:0}
+	.table_rowstyle th > div {padding-left:12px; height:29px; line-height:31px}
+	.table_rowstyle td {border-top:1px solid #ccc}
+	.table_rowstyle td > div {padding-left:10px}
+
+	/* 데이터 테이블 - thead 있는 테이블 */
+	.table_rowstyle.col thead th {border-right:0; border-bottom:1px solid #ccc; border-left:1px solid #ccc; text-align:center; padding:8px 0 4px; .padding:7px 0 5px}
+	.table_rowstyle.col td {border-left:1px solid #ccc; text-align:center}
+	.table_rowstyle.col .noline {border-left:0}
+	.online .table_rowstyle td > div {text-align:center; padding:5px 0}
+	.online .inp_txt {width:45px; margin:0 auto; padding-left:1px; padding-right:1px; text-align:left}
+
+	/* 게시판용 테이블 */
+	.table_colstyle thead th {min-height:15px; line-height:14px; padding:10px 0 8px; background:#f1f1f1}
+	.table_colstyle thead th:first-child {border-left:0}
+	.table_colstyle td {min-height:15px; line-height:1.2em; padding:9px 0 7px; text-align:center; border-top:1px solid #ccc}
+	.table_colstyle td .cell_links {text-align:left; text-overflow:ellipsis; overflow:hidden; white-space:nowrap; word-wrap:normal}
+
+	/* 게시판 상단 검색옵션, 서치 바 */
+	.page_box {zoom:1; margin-bottom:15px}
+	.page_box:after {content:""; clear:both; display:block}
+	.page_box1 {float:left}
+	.page_box2 {float:right}
+	.page_box2 input, .page_box2 button, .page_box2 a {float:left; display:block; margin-left:5px}
+	.page_box2 select {display:block; float:left; width:100px; margin-left:0}
+	.page_box2 label {overflow:hidden; width: 0; height: 0; font-size:0; line-height:0; position:absolute; left:0; top:-100px}
+	.page_box2 .inp_txt {width:184px; height:20px; line-height:22px; padding:1px 4px}
+
+	/* 첨부파일 */
+	.disk {display:block; width:13px; height:12px; margin:0 auto; background:url("../images/online/ico_disk.png") no-repeat}
+	.disk span {overflow:hidden; width: 0; height: 0; font-size:0; line-height:0; position:absolute; left:0; top:-100px}
+	.mark3 {margin-bottom:5px; color:#f5004d; font-weight:bold}
+
+	/* paging */
+	.bid_paging {margin:20px 0; text-align:center}
+	.bid_paging a, .bid_paging strong {display:inline-block; width:25px; height:12px; line-height:13px; margin-left:-2px; padding:6px 0 4px; font-weight:normal; color:#444; border:1px solid #ccc; vertical-align:middle}
+	.bid_paging a:hover {border-color:#333}
+	.bid_paging a span {display:block; width:0; height:0; line-height:0; font-size:0; color:transparent; opacity:0}
+	.bid_paging strong {color:#fff; font-weight:bold; border-color:#333; background:#333}
+	.bid_paging .btns {width:28px; border:1px solid #888}
+	.bid_paging .first_page {background:url("../images/sub/e_list_first.png") no-repeat center 7px}
+	.bid_paging .prev_page {margin:0 6px 0 -1px; background:url("../images/sub/e_list_prev.png") no-repeat center 7px}
+	.bid_paging .next_page {margin:0 1px 0 6px; background:url("../images/sub/e_list_next.png") no-repeat center 7px}
+	.bid_paging .last_page {background:url("../images/sub/e_list_last.png") no-repeat center 7px}
+
+	/* 버튼 */
+	.e_btn {display:inline-block; .display:inline; .zoom:1; text-align:center; vertical-align:middle}
+	.e_btn span {display:block}
+	.e_btnstyle2 span {min-width:50px; height:26px; line-height:30px; .line-height:28px; padding:0 15px;  font-weight:bold; color:#fff; border:1px solid #3c3c3c; background:#000 url("../images/sub/e_checkbtn_on.gif") repeat-x}
+	.e_btnstyle3 span {height:22px; line-height:25px; .line-height:23px; padding:0 5px 0; border:1px solid #bebebe; background:url("../images/sub/e_tablebtn.gif") repeat-x 0 bottom}
+	.e_btnstyle5 span {min-width:50px; height:26px; line-height:30px; .line-height:28px; padding:0 15px; font-weight:bold; border:1px solid #db1920; background:url("../images/sub/bg_e_redbtn.gif") repeat-x}
+	.e_bthstyle7 {margin-top:-2px;height:24px}
+	.e_btnstyle7 span {height:22px; line-height:25px; .line-height:24px; padding:0 11px; color:#fff; font-weight:bold; border:1px solid #000; background:#333}
+	.e_btn_err {padding:0 9px; border:1px solid #bebebe; background:url("../images/sub/e_tablebtn.gif") repeat-x  left bottom}
+	.e_btn_err span {min-width:43px; height:20px; line-height:24px; .line-height:23px; font-size:11px; padding:0 8px 0 0; background:url("../images/sub/right_err.gif") no-repeat right center}
+	button.e_btnstyle3 span {.height:21px}
+
+	/* 버튼 박스 정렬*/
+	.aligncenter {text-align:center; padding-top:20px}
+	.alignright {text-align:right}
+
+	@supports (-webkit-appearance:none){
+	.table_colstyle thead th {padding:9px 0}
+	.table_rowstyle.col thead th {padding:7px 0}
+	.table_colstyle td {padding:8px 0}
+	.e_btn span {line-height:26px}
+	.e_btnstyle3 span, .e_btnstyle4 span  {line-height:23px}
+	.e_btnstyle7 span, .e_btn_err span {line-height:22px}
+	.bid_paging a, .bid_paging strong {line-height:11px}
+	}
+	@supports (-moz-appearance:none) {
+	.table_colstyle thead th {padding:9px 0}
+	.table_rowstyle.col thead th {padding:7px 0}
+	.table_colstyle td {padding:8px 0}
+	.e_btn span {line-height:26px}
+	.e_btnstyle3 span, .e_btnstyle4 span {line-height:22px}
+	.e_btnstyle7 span, .e_btn_err span {line-height:22px}
+	.bid_paging a, .bid_paging strong {line-height:11px}
+	}
+	@media \0screen{
+	.table_rowstyle.col thead th {padding:7px 0 5px}
+	.e_btn span {line-height:28px}
+	.e_btnstyle3 span,.e_btnstyle4 span {line-height:23px}
+	.e_btnstyle7 span {line-height:24px}
+	.e_btn_err span {line-height:23px}
+	.bid_paging a, .bid_paging strong {line-height:12px}
+	}
+  </style>
+ </head>
+ <body>
+	<div class="online_pop">
+		<header id="header">
+			<div class="clear_box">
+				<h1 style="float:left; color:#fff; font-size:15px; font-weight:bold; line-height:40px;">LetsRun 온라인 금리제안 시스템</h1>
+				<div class="float_right util">
+					<ul>
+						<li><a href="#">금리제안</a></li>
+						<li><a href="#">담당자정보수정</a></li>
+						<li><a href="#">로그아웃</a></li>
+					</ul>
+				</div>
+			</div>
+		</header>
+		 <section id="section">
+			<h2 class="title tit_online_screen"><span class="hidden">금리제안</span></h2>
+			<!-- contents -->
+			<div class="contents">
+				<div class="online">
+					<strong>제시일자 : 2014-04-20</strong>
+					<p class="mark3">※ 삭제 추가시에는 <strong>확인</strong>버튼을 클릭하셔야 적용됩니다.</p>
+					<div class="tableskin">
+						<table class="table_rowstyle col">
+							<caption>금리제안</caption>
+							<colgroup>
+								<col style="width:13%" /><col /><col /><col /><col /><col /><col /><col /><col /><col /><col style="width:10%" /><col style="width:12%" />
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col" class="noline">상품구분</th>
+									<th scope="col">수시</th>
+									<th scope="col">1개월</th>
+									<th scope="col">2개월</th>
+									<th scope="col">3개월</th>
+									<th scope="col">6개월</th>
+									<th scope="col">1년</th>
+									<th scope="col">2년</th>
+									<th scope="col">기타1</th>
+									<th scope="col">비고</th>
+									<th scope="col">입력일시</th>
+									<th scope="col">추가/삭제</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="screen1">
+									<td class="noline">
+										<div>
+											<label for="selectfrm1" class="hidden">상품구분 선택</label>
+											<select  id="selectfrm1" title="상품구분 선택" class="select" style="width:90px">
+												<option value="">[상품구분]</option>
+												<option value="">정기예금1</option>
+												<option value="">정기예금2</option>
+												<option value="">CD</option>
+												<option value="">RP1</option>
+												<option value="">RP2</option>
+												<option value="">MMDA</option>
+												<option value="">신탁상품</option>
+												<option value="">후순위채</option>
+												<option value="">기타1</option>
+												<option value="">기타2</option>
+												<option value="">MMT</option>
+											</select>
+										</div>
+									</td>
+									<td><div><label for="selectfrm2" class="hidden">수시</label><input type="text" class="inp_txt" id="selectfrm2" /></div></td>
+									<td><div><label for="selectfrm3" class="hidden">1개월</label><input type="text" class="inp_txt" id="selectfrm3" /></div></td>
+									<td><div><label for="selectfrm4" class="hidden">2개월</label><input type="text" class="inp_txt" id="selectfrm4" /></div></td>
+									<td><div><label for="selectfrm5" class="hidden">3개월</label><input type="text" class="inp_txt" id="selectfrm5" /></div></td>
+									<td><div><label for="selectfrm6" class="hidden">6개월</label><input type="text" class="inp_txt" id="selectfrm6" /></div></td>
+									<td><div><label for="selectfrm7" class="hidden">1년</label><input type="text" class="inp_txt" id="selectfrm7" /></div></td>
+									<td><div><label for="selectfrm8" class="hidden">2년</label><input type="text" class="inp_txt" id="selectfrm8" /></div></td>
+									<td><div><label for="selectfrm9" class="hidden">기타1</label><input type="text" class="inp_txt" id="selectfrm9" /></div></td>
+									<td><div><label for="selectfrm10" class="hidden">비고</label><input type="text" class="inp_txt" id="selectfrm10" /></div></td>
+									<td><div></div></td>
+									<td>
+										<div>
+											<button class="e_btn e_btnstyle3 btn_tradd"><span>추가</span></button>
+											<button class="e_btn e_btnstyle3 btn_trdel" style="display:none"><span>삭제</span></button>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="aligncenter">
+						<button class="e_btn e_btnstyle5"><span>확인</span></button> <button class="e_btn e_btnstyle2"><span>취소</span></button>
+					</div>
+				</div>
+			</div>
+			<!-- //contents -->
+		 </section>
+	</div>
+	<script type="text/javascript">
+		//금리제안
+		var addRow = {
+			cnt : 0,
+			init : function(){
+				var btn_add = $(".btn_tradd"),
+						btn_del = $(".btn_trdel"),
+						str = "",
+						that = this;
+
+				btn_add.unbind("click");//기존에 바인딩 되어 있던 클릭이벤트 삭제
+				btn_del.unbind("click");//기존에 바인딩 되어 있던 클릭이벤트 삭제
+
+				btn_add.click(function(){
+					that.cnt++;
+					str = '';
+					str += '<tr>';
+					str +=      '<td class="noline">';
+					str +=          '<div>';
+					str +=              '<label for="selectfrm' + that.cnt + '_' + '1" class="hidden">상품구분 선택</label><!-- 필수 : 모든 label의 for값은 input의 id와 동일명으로 연결되어야 합니다. (한 html문서에 id 가 2개 이상 중복되지 않도록 처리필) -->';
+					str +=              '<select  id="selectfrm' + that.cnt + '_' + '1" title="상품구분 선택" class="select" style="width:90px"><!-- 필수 : id가 중복되면 안됩니다. -->';
+					str +=                  '<option value="">[상품구분]</option>';
+					str +=                  '<option value="">정기예금1</option>';
+					str +=                  '<option value="">정기예금2</option>';
+					str +=                  '<option value="">CD</option>';
+					str +=                  '<option value="">RP1</option>';
+					str +=                  '<option value="">RP2</option>';
+					str +=                  '<option value="">MMDA</option>';
+					str +=                  '<option value="">신탁상품</option>';
+					str +=                  '<option value="">후순위채</option>';
+					str +=                  '<option value="">기타1</option>';
+					str +=                  '<option value="">기타2</option>';
+					str +=                  '<option value="">MMT</option>';
+					str +=              '</select>';
+					str +=          '</div>';
+					str +=      '</td>';
+					str +=      '<td><div><label for="selectfrm' + that.cnt + '_' + '2" class="hidden">수시</label><input type="text" class="inp_txt" id="selectfrm' + that.cnt + '_' + '2" value="' + that.cnt + '" /></div></td>';
+					str +=      '<td><div><label for="selectfrm' + that.cnt + '_' + '3" class="hidden">1개월</label><input type="text" class="inp_txt" id="selectfrm' + that.cnt + '_' + '3" /></div></td>';
+					str +=      '<td><div><label for="selectfrm' + that.cnt + '_' + '4" class="hidden">2개월</label><input type="text" class="inp_txt" id="selectfrm' + that.cnt + '_' + '4" /></div></td>';
+					str +=      '<td><div><label for="selectfrm' + that.cnt + '_' + '5" class="hidden">3개월</label><input type="text" class="inp_txt" id="selectfrm' + that.cnt + '_' + '5" /></div></td>';
+					str +=      '<td><div><label for="selectfrm' + that.cnt + '_' + '6" class="hidden">6개월</label><input type="text" class="inp_txt" id="selectfrm' + that.cnt + '_' + '6" /></div></td>';
+					str +=      '<td><div><label for="selectfrm' + that.cnt + '_' + '7" class="hidden">1년</label><input type="text" class="inp_txt" id="selectfrm' + that.cnt + '_' + '7" /></div></td>';
+					str +=      '<td><div><label for="selectfrm' + that.cnt + '_' + '8" class="hidden">2년</label><input type="text" class="inp_txt" id="selectfrm' + that.cnt + '_' + '8" /></div></td>';
+					str +=      '<td><div><label for="selectfrm' + that.cnt + '_' + '9" class="hidden">기타1</label><input type="text" class="inp_txt" id="selectfrm' + that.cnt + '_' + '9" /></div></td>';
+					str +=      '<td><div><label for="selectfrm' + that.cnt + '_' + '10" class="hidden">비고</label><input type="text" class="inp_txt" id="selectfrm' + that.cnt + '_' + '10" /></div></td>';
+					str +=      '<td><div></div></td>';
+					str +=      '<td>';
+					str +=          '<div>';
+					str +=              '<button class="e_btn e_btnstyle3 btn_tradd"><span>추가</span></button>\n';
+					str +=              '<button class="e_btn e_btnstyle3 btn_trdel"><span>삭제</span></button>';
+					str +=          '</div>';
+					str +=      '</td>';
+					str +=  '</tr>';
+					$(str).appendTo($(this).parents("tbody"));
+					$(this).hide();
+					$(this).parents().prev().find(".btn_tradd").hide();
+					$(this).next(".btn_trdel").show();
+					that.init();
+				});
+				btn_del.click(function(){
+					if($(this).parents("tr").index() == $(this).parents("tbody").find("tr").size() - 1){
+						$(this).parents("tr").prev("tr").find(".btn_tradd").show();
+					}
+					$(this).parents("tr").remove();
+				});
+			}
+		};
+		addRow.init();
+
+	</script>
+ </body>
+</html>
+
+

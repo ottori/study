@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+ <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+ <meta charset="euc-kr" />
+  <title>프로토타입 예제</title>
+  <meta name="description" content="" />
+  <script type="text/javascript" src="../js/jquery_1.8.3.min.js"></script>
+  <script type="text/javascript">
+	//로딩이미지 생성 및 삭제
+	function Loading(){
+	}
+	Loading.prototype.init = function(str){
+		this.iconSrc = "../images/spinner_0.png";
+		this.targetElement = $("#" + str);
+		this.newObject = $("<div class=\"loadingbar\"></div>");
+		this.newObject.appendTo(this.targetElement);
+		this.newObject.html("<img src=\"" + this.iconSrc +"\" alt=\"로딩중입니다.\" />");
+	}
+	Loading.prototype.selectorSetting = function(){
+		this.obj = this.targetElement.find(".loadingbar");
+		this.img = $("img:eq(0)", this.obj);
+	}
+	Loading.prototype.cssSetting = function(){
+		var that = this;
+		var parent = this.obj.parent();
+		var cnt = 0;
+		while(parent.css("position") == "absolute"){
+			parent = parent.parent();
+		}
+		parent.css("position","relative");
+		this.obj.css({
+			"width" : that.img.width(),
+			"height" : that.img.height(),
+			"position" : "absolute",
+			"top" : (parent.height() / 2) - that.img.height() + "px",
+			"left" : (parent.width() / 2) - (that.img.width() / 2) + "px"
+		});
+	}
+	Loading.prototype.imageChange = function(){
+		var that = this;
+		this.img = this.img[0];
+		this.timer = 100;
+		this.count = 0;
+		this.countMax = 11;
+		this.intervals = setInterval(function(){
+			that.img.src = that.img.src.split("_")[0] + "_" + that.count + ".png";
+			if(that.count < that.countMax){
+				that.count++;
+			}else{
+				that.count = 0;
+			}
+		}, this.timer);
+	}
+
+	function loading_img_call(to){
+		if($("#" + to).find(".loadingbar").size() > 0) return false;
+		var inst = new Loading();
+		inst.init(to);
+		inst.selectorSetting();
+		inst.cssSetting();
+		inst.imageChange();
+	}
+	function loading_img_end(to){
+		$("#" + to).find(".loadingbar").remove();
+	}
+
+
+	function Classroom(){
+		this.element, this.age;
+		console.log(this)
+	}
+
+	Classroom.prototype.display = function(id){
+		document.getElementById(id).style.display = "none";
+	}
+	Classroom.prototype.position = function(str){
+		console.log(str);
+	}
+	Classroom.prototype.calculator = function(str){
+		console.log(str);
+	}
+	$(document).ready(function(){
+		var instance = new Classroom();
+		instance.display("test");
+		instance.position("나는 포지션");
+
+		var instance2 = new Classroom();
+		//instance2.display("222");
+		instance2.calculator("나는 계산기");
+
+		var instance3 = new Classroom();
+		//instance3.display("3");
+	});
+  </script>
+ </head>
+ <body style="background:none;">
+	<div id="test">testtest</div>
+	1.<br />
+	<a href="#" onclick="loading_img_call('wrap'); return false;">로딩이미지 호출 onclick="loading_img_call('wrap'); return false;"</a><br /><!-- 인자로 타겟 아이디를 지정 -->
+	<a href="#" onclick="loading_img_end('wrap'); return false;">완료됐을때 호출할 함수 onclick="loading_img_end('wrap'); return false;"</a><!-- 인자로 타겟 아이디를 지정 -->
+	<div id="wrap" style="background:#ccc;">내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용</div>
+
+
+	<br /><br />2.<br />
+	<a href="#" onclick="loading_img_call('wrap1'); return false;">로딩이미지 호출</a><br /><!-- 인자로 타겟 아이디를 지정 -->
+	<a href="#" onclick="loading_img_end('wrap1'); return false;">완료됐을때 호출할 함수 onclick="loading_img_end('wrap1'); return false;"</a><!-- 인자로 타겟 아이디를 지정 -->
+	<div id="wrap1" style="background:#ccc;">내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용</div>
+
+
+	<br /><br />3.<br />
+	<a href="#" onclick="loading_img_call('aaaaaaaaaaaa'); return false;">로딩이미지 호출</a><br /><!-- 인자로 타겟 아이디를 지정 -->
+	<a href="#" onclick="loading_img_end('aaaaaaaaaaaa'); return false;">완료됐을때 호출할 함수 onclick="loading_img_end('aaaaaaaaaaaa'); return false;"</a><!-- 인자로 타겟 아이디를 지정 -->
+	<div id="aaaaaaaaaaaa" style="background:#ccc;">내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용</div>
+ </body>
+</html>
+
+

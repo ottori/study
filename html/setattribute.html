@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<title>fure js</title>
+	<meta charset="utf-8"/>
+	<meta name="author" content="" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+</head>
+<body>
+<h1>가족 사진</h1>
+<input type="text" value="" id="input" />
+<div id="papa">
+	<ul>
+		<li><a href="../images/am1.jpg" onclick="showpic(this); return false;">아빠</a></li>
+		<li><a href="../images/am2.jpg"onclick="showpic(this); return false;">엄마</a></li>
+		<li><a href="../images/am3.jpg"onclick="showpic(this); return false;">딸</a></li>
+		<li><a href="../images/am4.jpg"onclick="showpic(this); return false;">아들</a></li>
+	</ul>
+</div>
+<img src="http://ellyess.cafe24.com/study/images/am1.jpg" alt="큰 사진 보기" id="placeholder" /><br /><br />
+<a href="#">크림치즈</a><br />
+<a href="#"><span>크림치즈치즈케익</span></a>
+
+
+
+<script type="text/javascript">
+	var placeholder = document.getElementById("placeholder");
+	var input = document.getElementById("input");
+	input.value = "안녕????"
+	input.style.border = "2px solid blue"
+
+	function showpic(whichpic){
+		var source = whichpic.getAttribute("href");
+		var placeholder = document.getElementById("placeholder");
+		placeholder.setAttribute("src", source)
+	}
+	var  papa = document.getElementById("papa");
+console.log( papa.childNodes.nodeType )
+
+
+
+
+
+</script>
+</body>
+</html>

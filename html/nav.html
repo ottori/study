@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<title>네비게이션</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="imagetoolbar" content="no" />
+	<meta name="author" content="오은선" />
+	<link type="text/css" rel="stylesheet" href="http://check86.cafe24.com/study/css/common.css" />
+	<style type="text/css">
+		.GNB {overflow:hidden; width:200px; margin:20px}
+		.GNB li {margin-top:5px}
+		.GNB a {display:block; height:20px; line-height:20px; padding:2px 20px; background:#eee; font-weight:bold; color:#4b4b4b}
+		.GNB li ul li a {padding-left:40px; background:#666; color:#fff; font-weight:normal}
+		.GNB li:nth-child(2) ul li a {background:yellow}
+		.GNB li:nth-child(3) ul li a {background:green}
+		.GNB li:nth-child(4) ul li a {background:pink}
+		.on {display:block !important}
+	</style>
+	<script type="text/javascript">
+		onload = function(){
+			gnb();
+
+		}
+		function id(v){return document.getElementById(v)}
+		function gnb(){
+			var GNB = id("GNB");
+			var GNBChild = GNB.getElementsByTagName("ul");
+			//var link = GNB.getElementsByTagName("a");
+			var Links = GNB.children;
+			var linkus = new Array();
+
+			for( var i =0; i< Links.length; i++){
+				if( Links[i].className == "1depth" ){
+					linkus.push(Links[i].getElementsByTagName("a")[0]); // this의 집합을 linkus 라는 뉴 Array 에 push하고 싶음
+				}
+			}
+			console.log(linkus.length);
+			var before = null;
+			for( var i = 0; i < GNBChild.length; i++ ){
+				Links[i].onclick = function(){
+					if(before != null){
+						before.className = "";
+					}
+					this.getElementsByTagName("div")[0].style.height = 0;
+					this.getElementsByTagName("div")[0].style.overflow = "hidden";
+					before = this.getElementsByTagName("ul")[0];
+				}
+			}
+		}
+	</script>
+ </head>
+ <body>
+	<ul id="GNB" class="GNB">
+		<li class="1depth"><a href="#">1 Class</a>
+			<div>
+				<ul style="display:none">
+					<li><a href="#">11111</a></li>
+					<li><a href="#">22222</a></li>
+					<li><a href="#">33333</a></li>
+					<li><a href="#">44444</a></li>
+					<li><a href="#">55555</a></li>
+				</ul>
+			</div>
+		</li>
+		<li class="1depth"><a href="#">2 Class</a>
+			<ul style="display:none">
+				<li><a href="#">11111</a></li>
+				<li><a href="#">22222</a></li>
+				<li><a href="#">33333</a></li>
+				<li><a href="#">44444</a></li>
+				<li><a href="#">55555</a></li>
+			</ul>
+		</li>
+		<li class="1depth"><a href="#">3 Class</a>
+			<ul style="display:none">
+				<li><a href="#">11111</a></li>
+				<li><a href="#">22222</a></li>
+				<li><a href="#">33333</a></li>
+				<li><a href="#">44444</a></li>
+				<li><a href="#">55555</a></li>
+			</ul>
+		</li>
+		<li class="1depth"><a href="#">4 Class</a>
+			<ul style="display:none">
+				<li><a href="#">11111</a></li>
+				<li><a href="#">22222</a></li>
+				<li><a href="#">33333</a></li>
+				<li><a href="#">44444</a></li>
+				<li><a href="#">55555</a></li>
+			</ul>
+		</li>
+		<li class="1depth"><a href="#">5 Class</a>
+			<ul style="display:none">
+				<li><a href="#">11111</a></li>
+				<li><a href="#">22222</a></li>
+				<li><a href="#">33333</a></li>
+				<li><a href="#">44444</a></li>
+				<li><a href="#">55555</a></li>
+			</ul>
+		</li>
+	</ul>
+ </body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+ <head>
+  <title>복습하기</title>
+  <meta name="description" content="" />
+  <link type="text/css" rel="stylesheet" href="../css/common.css" />
+  <style>
+	#wrap {padding-top:30px}
+	#wrap:after {content:""; clear:both; display:block}
+	.nav {padding-left:30px; float:left; width:300px}
+	h1 {height:40px; text-align:center; font-weight:bold; font-size:30px; height:30px; line-height:30px}
+	li a {display:block; width:200px; line-height:30px; line-height:30px; margin-bottom:5px; color:#fff; font-weight:bold; text-align:center; background:gray}
+	li li a {text-align:left; padding-left:20px; width:180px; background:#d0d0d0; color:#4b4b4b}
+	.divs {float:left; width:500px; text-align:right; height:30px; line-height:30px; background:#f1f1f1; padding-right:30px; font-weight:bold; font-size:20px}
+	.msg {padding-left:30px}
+	.msg p {padding:10px 30px 10px 0; font-size:16px; font-weight:bold}
+	.msg div {padding:10px; border:1px solid #d0d0d0}
+	.msg input {width:190px; padding-left:10px; border:1px solid #d0d0d0; height:30px; line-height:30px; background:#f1f1f1; font-size:18px; color:#2b2b2b}
+	label {display:inline-block; color:#4b4b4b; padding:0 10px; font-weight:bold; height:30px; line-height:30px; background:#f1f1f1; border:1px solid #d0d0d0; vertical-align:middle}
+	label:active {background:gray; color:#fff}
+  </style>
+  <script type="text/javascript">
+	  window.onload = function(){
+		function id(b){
+			return document.getElementById(b);
+		}
+		var msg = id("MSG");
+		var inp = msg.getElementsByTagName("input")[0];
+		var first = inp.value;
+
+		inp.onclick = function(){
+			this.value = "";
+		}
+		inp.onblur = function(){
+			if( this.value.length ==0 ){
+				this.value = first;
+			}
+			first = this.value;
+		}
+
+
+
+
+
+		/*
+		 var MSG = id("MSG");
+		 var inp = MSG.getElementsByTagName("input")[0];
+		 var first = inp.value;//기본값
+
+		 inp.onclick = function(){
+			 this.value = "";
+		 }
+		 inp.onblur = function(){
+			 if(this.value.length == 0){
+				 this.value = first;
+			 }
+			 first = this.value;
+		 }*/
+		 /*
+		 for( i=0; i < inp.length; i++ ){
+			 var int = i;
+			 inp[i].num = i + 1;
+			 inp[i].onfocus = inp[i].onclick = function(){
+				this.value = "";
+			 };
+			 inp[i].onblur = function(){
+				this.value = "label" + this.num;
+			 };
+		 }
+		 */
+	  }
+  </script>
+ </head>
+ <body>
+ <h1>SMART STUDY</h1>
+<div id="MSG" class="msg">
+	<p>* INPUT value 값 제거 및 text 제거</p>
+	<div>
+		<input type="text" id="inp1" value="label1" /> <label for="inp1">레이블1</label>
+		<input type="text" id="inp2" value="label2" /> <label for="inp2">레이블2</label>
+		<input type="text" id="inp3" value="label3" /> <label for="inp3">레이블3</label>
+		<input type="text" id="inp4" value="label4" /> <label for="inp4">레이블4</label>
+	</div>
+</div>
+<div id="wrap">
+	<div id="nav" class="nav">
+		<ul id="mobile">
+			<li>
+				<a href="#">HTML</a>
+				<ul>
+					<li><a href="#">1. Attributes</a></li>
+					<li><a href="#">1. TAGS</a></li>
+					<li><a href="#">1. Events</a></li>
+				</ul>	
+			</li>
+			<li>
+				<a href="#">CSS</a>
+				<ul>
+					<li><a href="#">2. Character</a></li>
+					<li><a href="#">2. PROTO TYPE</a></li>
+					<li><a href="#">2. JQUARY</a></li>
+				</ul>	
+			</li>
+			<li>
+				<a href="#">JAVASCRIPT</a>
+				<ul>
+					<li><a href="#">3. colors</a></li>
+					<li><a href="#">3. BERRIES</a></li>
+					<li><a href="#">3. HAPPY</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">APPENDIX</a>
+				<ul>
+					<li><a href="#">4. command identifiers</a></li>
+					<li><a href="#">4. tags</a></li>
+					<li><a href="#">4. events</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div class="divs">
+		<p id="locate">LOCATIONS!</p>
+	</div>
+</div>
+ </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="ko"  lang="ko">
+<head>
+	<title>html 복제</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="../css/common.css" />
+	<script type="text/javascript" src="../js/jquery_1.8.3.min.js"></script>
+	<style type="text/css">body {padding:20px}pre{display:block; width:100%; height:100%}
+		.cloneCode {border:1px solid #444; min-height:100px; width:500px; min-width:300px}button{border:1px solid #ccc; padding:5px 10px}button:hover{background:#444; color:#fff}
+	</style>
+</head>
+<strong>설명 : html과 해당 html에 script로 뿌려진 inlinestyle 을 뿌려진 태그모양 그대로 텍스트로 변환하여 다른 영역에 복사붙이기. </strong>
+
+<br/>
+<strong>1번 프레임</strong><br/>
+<strong>※ 쓰기 영역</strong>
+<div class="cloneBox1">
+
+	<div class="clone_in">
+		<div class="view">
+			<p>텍스트 적용</p>
+			<ul>
+				<li>가지</li>
+				<li>나무와 Tree!!!!!</li>
+			</ul>
+		</div>
+	</div>
+	<strong>※ 아래는 뿌려지는 영역</strong>
+	<div class="cloneCode">
+	</div>
+</div>
+<br/>
+<button id="button">Click 하여 html과 script로 뿌린 inline style 을 그대로 표현하기</button>
+	<script type="text/javascript">
+		$(".clone_in").css({
+			"border":"1px solid blue",
+			"width":"300px",
+			"height":"auto"
+		})
+		$(".clone_in p").css({
+			"color":"red","font-weight":"bold"
+		});
+		$(".cloneBox2 .clone_in p").css("color","blue")
+	</script>
+
+	<script type="text/javascript">
+		var ES = {
+			frame : function(){
+				function frameBox(box){
+					var cloneBox  = box,
+						clone_in = $(".clone_in .view", cloneBox),
+						cloneCode = $(".cloneCode", cloneBox)//뿌려질 영역
+						//txt = clone_in.clone(clone_in);
+
+						var clone = clone_in.clone();
+						clone.appendTo(cloneCode);
+
+						var txt = cloneCode.html();
+						cloneCode.html("");
+						var pre = $("<pre></pre>").appendTo(cloneCode);
+						console.log(txt)
+						pre.text(txt)
+
+				}
+				$("#button").click(function(){
+					for( var i =1; i<$(".view").size() +1; i++ ){
+						frameBox( $(".cloneBox"+ i) );
+					};
+				});
+			}
+		}
+		ES.frame();
+	</script>
+
+</div>
+</tbody>
+</html>

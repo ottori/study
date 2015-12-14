@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="ko"  lang="ko">
+ <head>
+  <title>스승님 과제</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="스승님 과제" />
+  <meta name="description" content="2014-01-20 스승님 과제" />
+  <style type="text/css">
+  *{margin:0; padding:0}  ul li {list-style:none}  .wrap {width:800px; margin:30px auto 0;.zoom:1}  .wrap:after {content:""; display:block; clear:both}
+  button {width:100px; height:30px; line-height:30px; margin-top:80px}
+  .prev {display:block; float:left; margin-right:30px}  .next {display:block; float:left}
+  .display {overflow:hidden; float:left; width:500px; height:200px; border:2px solid #000; margin-right:30px; background:#f1f1f1}
+  .display ul {width:auto; .zoom:1} 
+  .display ul:after {content:""; clear:both; display:block}
+  .display ul li {float:left; width:500px; height:200px; line-height:200px; text-align:center; font-weight:bold}
+  .m1 {background:#FDAAD5}  .m2 {background:#FDF0AF}  .m3 {background:#7ED4FC}  .m4 {background:#C2FDA1}  .m5 {background:#FC8873}  .m6 {background:#E60563}
+  </style>
+  <script type="text/javascript">
+		var actions = function(str){
+			var wrap = document.getElementById(str);
+			
+			var button = wrap.getElementsByTagName("button");
+			var btnL = button[0];
+			var btnR = button[1];
+			
+			var box = wrap.getElementsByTagName("ul");
+
+			for( i=0; i < box.length ; i++ ){
+				if( box[i].className == "liBox" ){
+					box = box[i];
+				};
+			};
+
+			var boxCont = box.getElementsByTagName("li");
+			var cnt = 0;
+			var before = boxCont[cnt];
+
+			btnL.onclick = function(){
+				before.style.display = "none";
+				if( cnt > 0 ){
+					cnt--;
+				}else{
+					cnt=0;
+				}
+				console.log(cnt);
+				boxCont[cnt].style.display = "block";
+				before = boxCont[cnt];
+			};
+
+			btnR.onclick = function(){
+				before.style.display = "none";
+				if( cnt < boxCont.length - 1 ){
+					cnt++;
+				}else{
+					cnt = boxCont.length - 1;
+				};
+				boxCont[cnt].style.display = "block";
+
+				before = boxCont[cnt];
+			};
+		};
+  </script>
+ </head>
+ <body>
+	 <div id="total">
+		<div class="wrap" id="wrap1">
+			<button class="prev">PREV</button>
+			<div class="display">
+				<ul class="liBox">
+					<li class="m1" style="display:block">M1.PINK</li>
+					<li class="m2" style="display:none;">M2.WHITE</li>
+					<li class="m3" style="display:none;">M3.WHITE YELLLOW</li>
+					<li class="m4" style="display:none;">M4.SKY BLUE</li>
+					<li class="m5" style="display:none;">M5.GREEN RIGHT</li>
+					<li class="m6" style="display:none;">M6.BLACK</li>
+				</ul>
+			</div>
+			<button class="prev">NEXT</button>
+		</div>
+		<script type="text/javascript">
+			actions("wrap1");
+		</script>
+
+		<div class="wrap" id="wrap2">
+			<button class="prev">PREV</button>
+			<div class="display">
+				<ul class="liBox">
+					<li class="m1">M1.PINK</li>
+					<li class="m2" style="display:none;">M2.WHITE</li>
+					<li class="m3" style="display:none;">M3.WHITE YELLLOW</li>
+					<li class="m4" style="display:none;">M4.SKY BLUE</li>
+					<li class="m5" style="display:none;">M5.GREEN RIGHT</li>
+					<li class="m6" style="display:none;">M6.BLACK</li>
+				</ul>
+			</div>
+			<button class="prev">NEXT</button>
+		</div>
+		<script type="text/javascript">
+			actions("wrap2");
+		</script>
+
+		<div class="wrap" id="wrap3">
+			<button class="prev">PREV</button>
+			<div class="display">
+				<ul class="liBox">
+					<li class="m1">M1.PINK</li>
+					<li class="m2" style="display:none;">M2.WHITE</li>
+					<li class="m3" style="display:none;">M3.WHITE YELLLOW</li>
+					<li class="m4" style="display:none;">M4.SKY BLUE</li>
+					<li class="m5" style="display:none;">M5.GREEN RIGHT</li>
+					<li class="m6" style="display:none;">M6.BLACK</li>
+				</ul>
+			</div>
+			<button class="prev">NEXT</button>
+		</div>
+		<script type="text/javascript">
+			actions("wrap3");
+		</script>
+	</div>
+ </body>
+</html>

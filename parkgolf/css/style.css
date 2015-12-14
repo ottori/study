@@ -1,0 +1,26 @@
+@charset "utf-8";
+body {padding-top:75px}
+.section1,.section2,.section3,.section4,.section5,.section6 {position:relative;overflow:hidden;}
+.inner {width:1000px;min-height:800px;margin:0 auto}
+.inner img {vertical-align:top}
+div {font-size:40px;text-align:center;}
+.skip {display:block;position:absolute;top:-100px;width:100%;height:0;line-height:25px;text-align:center;font-size:12px;background:#b85875;color:#fff}
+.skip:focus {position:fixed;left:0;top:0;z-index:200;height:25px;}
+.quick {position:fixed;z-index:100;left:30px;top:50%;margin-top:-150px;border:0}
+.quick a {display:block;width:30px;height:30px;border-radius:50%;-webkit-border-radius:50%;background:#000;text-align:center;line-height:30px;color:#fff;font-size:16px;font-weight:bold;margin-bottom:10px}
+.quick a.on {background:#fff;color:#000}
+#header {position:fixed;z-index:100;left:0;top:0;right:0;height:75px;line-height:75px;transition:background .5s;-webkit-transition:background .5s;border:0}
+#header .inner {min-height:0}
+.event {position:absolute;z-index:2;left:0;right:0;bottom:0;height:212px;line-height:212px;color:#fff;background:#3d6dd1;border:0}.footer {background:yellow;height:40px;line-height:40px;font-size:18px}
+.section1 {height:637px;background:#fff url(../images/s1.jpg) 50% 0 no-repeat}
+.section2 {height:844px;background:#2f63d0 url(../images/s2.jpg) 50% 0 no-repeat}
+.section3 {height:1411px;background:#232323 url(../images/s3.jpg) 50% 0 no-repeat}
+.section4 {height:878px;background:#f7f7f7 url(../images/s4.jpg) 50% 0 no-repeat}
+.section5 {height:1684px;background:#fff000 url(../images/s5.jpg) 50% 0 no-repeat}
+.section6 {height:1769px;background:#494949 url(../images/s6.jpg) 50% 0 no-repeat}
+.intro1 {width:1000px;height:70px;line-height:70px;margin:0 auto 10px;background:rgba(0,0,0,.5);top:50px}
+.intro2 {width:1000px;height:70px;line-height:70px;margin:0 auto 10px;background:rgba(0,0,0,.5);top:300px}
+.intro3 {width:1000px;height:70px;line-height:70px;margin:0 auto 10px;background:rgba(0,0,0,.5);top:500px}
+.intro4 {width:1000px;height:70px;line-height:70px;margin:0 auto 10px;background:rgba(0,0,0,.5);top:650px}
+
+.sect .inner p {position:absolute;left:50%;margin-left:-500px;color:#fff;opacity:0}

@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml="lang" lang="ko">
+<head>
+	<title>naver 롤링 뉴스 배너</title>
+	<meta charset="utf-8"/>
+	<meta name="author" content="오은선" />
+	<link rel="stylesheet" href="../css/common.css">
+	<style type="text/css">
+		.rollLineBox {position:relative; height:30px;  margin-top:30px; padding:3px 3px 3px 30px; background:skyblue}
+		#RollBox {overflow:hidden; height:30px}
+		#RollBox dl dt {right:0; top:0; width:0; height:0; visibility:hidden; line-height:0; font-size:0}
+		#RollBox ol li {height:26px; line-height:26px; padding:2px 0}
+		#RollBox ol li a {display:block; width:150px; height:18px; line-height:18px; padding:2px 2px 2px 10px; color:#4b4b4b; background:#fff;  border:2px solid #4b4b4b; border-radius:3px}
+		#RollBox ol li a span {display:block; float:right; width:30px; height:18px; line-height:18px; margin-right:3px; font-weight:bold; color:red; text-align:center}
+		#box1 {width:100px; height:100px; background:pink}
+		#SlideBox {width:550px; margin:30px}
+		#SlideBox ul:first-child {position:relative; width:168px; height:388px; line-height:388px}
+		#SlideBox ul:first-child li {position:absolute; left:0; top:0; background:#fff; border:2px solid #4b4b4b}
+		#SlideBox ul:first-child li a {display:block; width:164px; height:384px; line-height:300px}
+		#SlideBox ul li .am1 {background:url(../images/am1.jpg) no-repeat}
+		#SlideBox ul li .am2 {background:url(../images/am2.jpg) no-repeat}
+		#SlideBox ul li .am3 {background:url(../images/am3.jpg) no-repeat}
+		#SlideBox ul li .am4 {background:url(../images/am4.jpg) no-repeat}
+		#SlideBox .btns {.zoom:1; width:58px; margin:10px auto}
+		#SlideBox .btns:after {content:""; clear:both; display:block}
+		#SlideBox .btns li {float:left; margin-right:5px; }
+		#SlideBox .btns li.on a {background:#4b4b4b}
+		#SlideBox .btns a {display:block; border:2px solid #4b4b4b; border-radius:5px; width:5px; height:5px; line-height:0; font-size:0}
+		.on {position:relative; z-index:10; margin-top:-30px}
+		.box1Wrap {margin:30px}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			ES();
+		}
+		function ES(){
+			//실시간 검색어 슬라이드, box1 변수 할당
+			var RollBox = document.getElementById("RollBox");
+			var ol = RollBox.getElementsByTagName("ol")[0];
+			var child = RollBox.getElementsByTagName("li");
+			var box1 = document.getElementById("box1");
+
+			//이미지 슬라이드 변수 할당
+			var SlideBox = document.getElementById("SlideBox");
+			var ulBox = SlideBox.getElementsByTagName("ul")[0];
+			var ulBtn = SlideBox.getElementsByTagName("ul")[1];
+			var ulBoxChild = ulBox.getElementsByTagName("li");
+			var ulBtnChild = ulBtn.getElementsByTagName("li");
+
+			//실시간 검색어 슬라이드
+			var cycle = setInterval(function(){
+				mymotion();
+			},1500);
+			function mymotion(){
+				var cnt = 0;
+				var move = setInterval(function(){
+					if(cnt > -30){
+						cnt--;
+						ol.style.marginTop = cnt + "px";
+					}else{
+						ol.appendChild(ol.getElementsByTagName("li")[0]);
+						ol.style.marginTop = 0 + "px";
+						clearInterval(move);
+					}
+				},10);
+			}
+			// 왔다갔다 하는 PINK 박스
+			function leftMove(){
+				box1.style.marginLeft = 0;
+				var cnt = 0;
+				var cycle2 = setInterval(function(){
+					cnt++;
+					box1.style.marginLeft = cnt + "px";
+					if ( cnt >= 50 ){
+						clearInterval(cycle2);
+						rightMove();
+					}
+				}, 10);
+				function rightMove(){
+					box1.style.marginLeft = 50 + "px"; 
+					var cnt = 50;
+					var cycle3 = setInterval(function(){
+						cnt--;
+						box1.style.marginLeft = cnt + "px";
+						if( cnt <= 0){
+							clearInterval(cycle3);
+							leftMove();
+						}
+					},10);
+				};
+			};
+			leftMove();
+			
+			function click(){
+				for( var i=0; i < ulBoxChild.length; i++){
+					/*ulBoxChild[i].onclick = function(){
+						this.style.top = - 30 + "px";
+						console.log(ulBoxChild[2].sourceindex);
+						var idx = ulBoxChild[i].index;
+						alert( idx + "번째 카드를 선택하셨습니다");
+					}*/
+					ulBoxChild[i].num = i;
+					var before = null;
+					ulBoxChild[i].onclick = function(){
+						if( before != null ){
+							before.className = "";
+						}
+						this.className = "on";
+						before = this;
+						alert(this.num + "번째 카드를 선택하셨습니다");
+					}
+
+				}
+				
+			};
+			click();
+			function indexName(){
+			var www1 = document.getElementById("www1");
+			var wwwChild = www1.getElementsByTagName("li");
+				 for(var i=0; i < wwwChild.length; i++){ 
+				   if(wwwChild[i].sourceIndex == wwwChild.sourceIndex){       
+						var j=i; 
+						//break;  
+					} 
+				} 
+			  console.log(j);
+			}
+			function IMGSlide(){
+				var cnt = 0;
+				sd1();
+				sd2();
+				sd3();
+				sd4();
+
+				function sd1(){
+					var slide1 = setInterval(function(){
+						cnt++;
+						//cnt = cnt * 1.0005;
+						ulBoxChild[3].style.left = cnt + "px";
+						if( cnt >= 350 ){
+							clearInterval(slide1);
+						}
+					}, 5);
+				}
+				function sd2(){
+					var slide2 = setInterval(function(){
+						cnt++;
+						ulBoxChild[2].style.left = cnt + "px";
+						if( cnt >= 200 ){
+							clearInterval(slide2);
+						}
+					},5);
+				}
+				function sd3(){
+					var slide3 = setInterval(function(){
+						cnt++;
+						cnt = cnt * 1.1;
+						ulBoxChild[1].style.left = cnt + "px";
+						if( cnt >= 150 ){
+							clearInterval(slide3);
+						}
+					},5);
+				}
+				function sd4(){
+					var slide4 = setInterval(function(){
+						cnt++;
+						cnt = cnt * 1.1;
+						ulBoxChild[0].style.left = cnt + "px";
+						if( cnt >= 100 ){
+							clearInterval(slide4);
+						}
+					},5);
+				}
+			}
+			IMGSlide();
+		}
+	</script>
+</head>
+<body>
+<div class="rollLineBox">
+	<div id="RollBox">
+		<dl>
+			<dt>실시간 급상승 검색어</dt>
+			<dd>
+				<ol>
+					<li><a href="#">실시간 검색어<span>1위</span></a></li> 
+					<li><a href="#">실시간 검색어 *<span>2위</span></a></li>
+					<li><a href="#">실시간 검색어<span>3위</span></a></li>
+					<li><a href="#">실시간 검색어 *<span>4위</span></a></li>
+					<li><a href="#">실시간 검색어<span>5위</span></a></li>
+					<li><a href="#">실시간 검색어 *<span>6위</span></a></li>
+					<li><a href="#">실시간 검색어<span>7위</span></a></li>
+					<li><a href="#">실시간 검색어 *<span>8위</span></a></li>
+				</ol>
+			</dd>
+		</dl>
+	</div>
+</div>
+<div class="box1Wrap"><div id="box1"></div></div>
+<div id="SlideBox">
+	<ul>
+		<li style="left:0"><a href="#" class="am1">1</a></li>
+		<li style="left:0"><a href="#" class="am2">2</a></li>
+		<li style="left:0"><a href="#" class="am3">3</a></li>
+		<li style="left:0"><a href="#" class="am4">4</a></li>
+	</ul>
+	<ul class="btns">
+		<li><a href="#">1</a></li>
+		<li><a href="#">2</a></li>
+		<li><a href="#">3</a></li>
+		<li><a href="#">4</a></li>
+	</ul>
+</div>
+</body>
+</html>

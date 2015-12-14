@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title> 1222_animate</title>
+  <meta name="generator" content="editplus" />
+  <meta name="author" content="" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+ <style type="text/css">
+ #counter {width:150px; height:150px; background:pink}
+ </style>
+ <script type="text/javascript">
+ window.onload = function(){
+/*	function id(b){
+		return document.getElementById(b);
+	};
+	var counter = id("counter");*/
+
+	var counter = document.getElementById("counter");
+	var cnt = 0;
+	var sliding = setInterval(function(){
+		cnt++;
+		counter.style.marginLeft = cnt + "px";
+	});
+	
+	sliding();
+ }
+ </script>
+ </head>
+ <body>
+  <div id="counter">
+  
+  </div>
+ </body>
+</html>

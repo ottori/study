@@ -1,0 +1,44 @@
+<!doctype html>
+<head>
+<title>로딩에 사용</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="description" content="" />
+<link type="text/css" rel="stylesheet" href="" />
+<style type="text/css">
+body	{font:normal normal 12px/1.2 dotum; margin:0;}
+.rect	{border:1px solid #e1e1e1; position:absolute; top:200px; left:200px; 
+	transition-property:border-radius, background, font-size;
+	transition-duration:0.5s;
+}
+.rect:active	{background:blue; border-radius:50%; font-size:20px;}
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+<script type="text/javascript">
+	window.onload=function(){
+		cnt = 0;
+		setInterval(function(){
+			if( cnt <= 360 ){
+				cnt+=9;
+			}else{
+				cnt = 0;
+			}
+			
+			id("rect").style.transform = "rotate(" + cnt + "deg)";
+			id("rect").style.WebkitTransform = "rotate(" + cnt + "deg)";
+		},10)
+	}
+
+	var id = function(a){return document.getElementById(a)};
+
+
+
+
+</script>
+</head>
+<body>
+<h1>파고다 로딩 이미지</h1>
+	<div class="rect">
+		<img  id="rect" src="../images/ico_loading.png" alt="로딩중입니다" />
+	</div>
+ </body>
+</html>

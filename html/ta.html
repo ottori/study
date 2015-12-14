@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="ko"  lang="ko">
+ <head>
+  <title>노드 복사  cloneNode</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="description" content="0121_노드 복사 후 원하는 위치에 추가하기" />
+  <link rel="stylesheet" href="../css/common.css" />
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <style type="text/css">
+	body {padding:30px}
+	ul {display:table; width:100%; margin:0 0 30px; background:#eee}
+	li {display:table-cell; text-align:center; width:1%}
+	li {box-sizing:box; position:relative; width:100px; height:100px; border:1px dotted red; margin-bottom:20px}
+	li:after {content:""; display:block; position:absolute; left:50%; top:0; margin-left:-50px; border:50px solid skyblue; width:0; height:0}
+	li:first-child:after {border-top-color:transparent}
+	li:nth-child(2):after {border-right-color:transparent}
+	li:nth-child(3):after {border-left-color:transparent}
+	li:nth-child(4):after {border-bottom-color:transparent}
+	li:nth-child(5):after {border-left-color:transparent}
+	li:nth-child(6):after {border-top-color:transparent; border-right-color:transparent}
+	li:nth-child(7):after {border-top-color:transparent; border-left-color:transparent}
+	li:nth-child(8):after {border-top-color:transparent; border-right-color:transparent; border-left-color:transparent}
+	li:nth-child(9):after {border-bottom-color:transparent; border-right-color:transparent; border-left-color:transparent}
+	li:nth-child(10):after {border-top-color:transparent; border-bottom-color:transparent; border-left-color:transparent}
+	li:nth-child(11):after {border-top-color:transparent; border-bottom-color:transparent; border-right-color:transparent}
+	li:nth-child(12):after {border-left-color:transparent; border-right-color:transparent}
+	li:nth-child(13):after {border-top-color:transparent; border-bottom-color:transparent}
+	</style>
+ </head>
+ <body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+ </body>
+</html>
+

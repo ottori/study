@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Author" content="OES">
+  <title>무한 롤링</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <style type="text/css">
+	.wrap {position:relative; height:30px; margin-top:30px; padding:3px 3px 3px 30px; background:#eee}
+	.wrap2 {position:relative; width:200px; }
+	.RollBox {overflow:hidden; height:30px}
+	.RollBox dl dt {right:0; top:0; width:0; height:0; visibility:hidden; line-height:0; font-size:0}
+	.RollBox ol:after {content:""; clear:both; display:block}
+	.RollBox ol li {width:170px; height:26px; line-height:26px; padding:2px 0}
+	.RollBox ol li a {display:block; width:150px; height:18px; line-height:18px; padding:2px 2px 2px 10px; color:#4b4b4b; background:#fff;  border:2px solid #4b4b4b; border-radius:3px}	.RollBox ol li a span {display:block; float:right; width:30px; height:18px; line-height:18px; margin-right:3px; font-weight:bold; color:red; text-align:center}
+	.RB2 {overflow:hidden; width:170px}	.RB2 ol {width:1400px}	.RB2 ol li {float:left; width:auto; margin-right:4px} 	.RB2 ol li a {background:#eec4ff}.RB2 ol li a span {color:#581e70}	.RB3 ol li a {background:#c3dcff} .RB3 ol li a span {color:#1115a9}
+	#RollBox3 {overflow:hidden} #RollBox3 ol li .first {background:yellow}
+	.RB4 ol li {float:none}
+	.RB4 ol li a {background:#ffb3e9} .RB4 ol li a span {color:#940034}
+	.RB5 ol li a {background:gray; color:#fff }
+	.RB6 ol li a {background:yellow; color:red}  .RB6 ol li a span {color:red}
+	.prev_btn {display:block; position:absolute; left:-20px; top:6px}
+	.next_btn {display:block; position:absolute; right:10px; top:6px}
+	.stop_btn {display:block; position:absolute; right:0; top:6px}
+  </style>
+  <script type="text/javascript">
+	onload =function(){
+		topFlow();
+		door();
+		flowRight();
+		flowBottom();
+		flowAutoRight();
+		Auto();
+	}
+	function id(id){return document.getElementById(id);}
+	//위쪽 Flow
+	function topFlow(){
+		var RollBox = id("RollBox");
+		var ol = RollBox.getElementsByTagName("ol")[0];
+		var child = RollBox.getElementsByTagName("li");
+		
+		var cycle = setInterval(function(){
+			mymotion();
+		},1000);
+		function mymotion(){
+			var cnt = 0;
+			var move = setInterval(function(){
+				if( cnt > -30){
+					cnt--;
+					ol.style.marginTop = cnt + "px";
+				}else{
+					ol.appendChild(ol.getElementsByTagName("li")[0]);
+					ol.style.marginTop = 0 + "px";
+					clearInterval(move);
+				}
+			},10);
+		}
+	}
+	//왼쪽 Flow
+	function door(){
+		var RollBox2 = id("RollBox2");
+		var ol2 = RollBox2.getElementsByTagName("ol")[0];
+		function mymotion2(){
+			var cnt = 0;
+			var doorCycle = setInterval(function(){
+				if( cnt > -166 ){
+					cnt--;
+					ol2.style.marginLeft = cnt + "px";
+				}else{
+					ol2.appendChild(ol2.getElementsByTagName("li")[0]);
+					ol2.style.marginLeft = 0 + "px";
+					clearInterval(doorCycle);
+				}
+			},0.5);
+		}
+		var cycle2 = setInterval(function(){
+			mymotion2();
+		},1500);
+	}
+	//오른쪽 Flow
+	function flowRight(){
+		var RollBox3 = id("RollBox3");
+		var ol3 = RollBox3.getElementsByTagName("ol")[0];
+		var ol3Child = ol3.getElementsByTagName("li");
+		
+		function mymotion3(){
+			var cnt = -170;
+			ol3.insertBefore(ol3.getElementsByTagName("li")[7], ol3.getElementsByTagName("li")[0]);
+			ol3.style.marginLeft = - 170 + "px";
+
+			var flows = setInterval(function(){
+					cnt++;
+					ol3.style.marginLeft = cnt + "px";
+					if( cnt >= 0 ){
+						clearInterval(flows);
+					}
+			},1);
+		}
+		var cycle3 = setInterval(function(){
+			mymotion3();
+		},1400);
+	}
+	//아래쪽 Flow
+	function flowBottom(){
+		var RollBox4 = id("RollBox4");
+		var ol4 = RollBox4.getElementsByTagName("ol")[0];
+
+		function mymotion4(){
+			ol4.insertBefore( ol4.getElementsByTagName("li")[7], ol4.firstChild );
+			var cnt = -30;
+			var move4 = setInterval(function(){
+				if( cnt < 1 ){
+					cnt++; 
+					ol4.style.marginTop = cnt + "px";
+				}else{
+					clearInterval(move4);
+				}
+			},10);
+		}
+		var cycle4 = setInterval(function(){
+			mymotion4();
+		},1200);
+	}
+	//오른쪽 자동 Flow
+	function flowAutoRight(){
+		var RollBox5 = id("RollBox5");
+		var ol5 = RollBox5.getElementsByTagName("ol")[0];
+		var prev_btn = id("prev_btn");
+		var next_btn = id("next_btn");
+		var stop = id("stop_btn");
+		var dir = "ltr";
+		var power = "on";
+		var cnt = -170;
+
+		function mymotion5(){
+			var autoflows = setInterval(function(){
+				if(power == "off") return false;
+				if(dir == "ltr"){
+					if(cnt < 0){
+						cnt++;
+					}else{
+						ol5.insertBefore(ol5.getElementsByTagName("li")[7], ol5.firstChild);
+						cnt = -170;
+					}
+				}else{
+					if(cnt > -170){
+						cnt--;
+					}else{
+						ol5.appendChild(ol5.getElementsByTagName("li")[0]);
+						cnt = 0;
+					}
+				}
+				ol5.style.marginLeft = cnt + "px";
+			},10);
+		}
+		/*
+		function mymotion6(){
+			var cnt = 0;
+			var autoflows_back = setInterval(function(){
+				if( cnt > -170 ){
+					cnt--;
+					ol5.style.marginLeft = cnt + "px";
+				}else{
+					ol5.appendChild(ol5.getElementsByTagName("li")[0]);
+					cnt = 0;
+				}
+			},1);
+		}
+		*/
+		mymotion5();
+
+		prev_btn.onclick = function(){
+			dir = "rtl";
+		}
+		next_btn.onclick = function(){
+			dir = "ltr";
+		}
+		stop.onclick = function(){
+			if(power == "off"){
+				power = "on";
+			}else{
+				power = "off";
+			}
+		}
+	}
+	//왼쪽 자동 Flow
+	function Auto(){
+		var RollBox6 = id("RollBox6");
+		var ol6 = RollBox6.getElementsByTagName("ol")[0];
+		var dir = "ltr";
+		var cnt = 0;
+		autoplay();
+		function autoplay(){
+			//ol6.insertBefore(ol6.getElementsByTagName("li")[7], ol6.getElementsByTagName("li")[0]);
+			//ol6.style.marginLeft = -170 + "px";
+			var cycle10 = setInterval(function(){
+				if( dir  ==  "ltr" ){						
+					if( cnt < 0 ){
+						cnt++;
+					}else{
+						ol6.insertBefore(ol6.getElementsByTagName("li")[7], ol6.getElementsByTagName("li")[0]);
+						cnt=-170;
+					}
+				}
+				ol6.style.marginLeft = cnt + "px";
+			},10)
+		}
+		p_btn.onclick = function(){
+			dir = "ltr"
+		}
+	}
+  </script>
+ </head>
+ <body> 
+<div class="wrap">
+	<div id="RollBox" class="RollBox">
+		<dl>
+			<dt>List of jQuery API</dt>
+			<dd>
+				<ol>
+					<li><a href="#">jQuery API 1<span>1st</span></a></li> 
+					<li><a href="#">jQuery API 2 *<span>2st</span></a></li>
+					<li><a href="#">jQuery API 3<span>3st</span></a></li>
+					<li><a href="#">jQuery API 4 *<span>4st</span></a></li>
+					<li><a href="#">jQuery API 5<span>5st</span></a></li>
+					<li><a href="#">jQuery API 6 *<span>6st</span></a></li>
+					<li><a href="#">jQuery API 7<span>7st</span></a></li>
+					<li><a href="#">jQuery API 8 *<span>8st</span></a></li>
+				</ol>
+			</dd>
+		</dl>
+	</div>
+</div>
+<div class="wrap">
+	<div id="RollBox2" class="RollBox RB2">
+		<dl>
+			<dt>List of jQuery API</dt>
+			<dd>
+				<ol>
+					<li><a href="#">jQuery API 1<span>1st</span></a></li> 
+					<li><a href="#">jQuery API 2 *<span>2st</span></a></li>
+					<li><a href="#">jQuery API 3<span>3st</span></a></li>
+					<li><a href="#">jQuery API 4 *<span>4st</span></a></li>
+					<li><a href="#">jQuery API 5<span>5st</span></a></li>
+					<li><a href="#">jQuery API 6 *<span>6st</span></a></li>
+					<li><a href="#">jQuery API 7<span>7st</span></a></li>
+					<li><a href="#">jQuery API 8 *<span>8st</span></a></li>
+				</ol>
+			</dd>
+		</dl>
+	</div>
+</div>
+<div class="wrap">
+	<div id="RollBox3" class="RollBox RB2 RB3">
+		<dl>
+			<dt>List of jQuery API</dt>
+			<dd>
+				<ol><li><a href="#" class="first">jQuery API 1 홀수<span>1st</span></a></li><li><a href="#">jQuery API 2 짝수<span>2st</span></a></li><li><a href="#" class="first">jQuery API 3 홀수<span>3st</span></a></li>
+					<li><a href="#">jQuery API 4 짝수<span>4st</span></a></li>
+					<li><a href="#" class="first">jQuery API 5 홀수<span>5st</span></a></li>
+					<li><a href="#">jQuery API 6 짝수<span>6st</span></a></li>
+					<li><a href="#" class="first">jQuery API 7 홀수<span>7st</span></a></li>
+					<li><a href="#">jQuery API 8 짝수<span>8st</span></a></li>
+				</ol>
+			</dd>
+		</dl>
+	</div>
+</div>
+<div class="wrap">
+	<div id="RollBox4" class="RollBox RB2 RB3 RB4">
+		<dl>
+			<dt>List of jQuery API</dt>
+			<dd>
+				<ol>
+					<li><a href="#">jQuery API 1 odd<span>1st</span></a></li>
+					<li><a href="#">jQuery API 2 even<span>2st</span></a></li>
+					<li><a href="#">jQuery API 3 odd<span>3st</span></a></li>
+					<li><a href="#">jQuery API 4 even<span>4st</span></a></li>
+					<li><a href="#">jQuery API 5 odd<span>5st</span></a></li>
+					<li><a href="#">jQuery API 6 even<span>6st</span></a></li>
+					<li><a href="#">jQuery API 7 odd<span>7st</span></a></li>
+					<li><a href="#">jQuery API 8 even<span>8st</span></a></li>
+				</ol>
+			</dd>
+		</dl>
+	</div>
+</div>
+<div class="wrap">
+	<div class="wrap2">
+		<div id="RollBox5" class="RollBox RB2 RB3 RB5">
+			<dl>
+				<dt>List of jQuery API</dt>
+				<dd>
+					<ol>
+						<li><a href="#">jQuery API 1 odd<span>1st</span></a></li>
+						<li><a href="#">jQuery API 2 even<span>2st</span></a></li>
+						<li><a href="#">jQuery API 3 odd<span>3st</span></a></li>
+						<li><a href="#">jQuery API 4 even<span>4st</span></a></li>
+						<li><a href="#">jQuery API 5 odd<span>5st</span></a></li>
+						<li><a href="#">jQuery API 6 even<span>6st</span></a></li>
+						<li><a href="#">jQuery API 7 odd<span>7st</span></a></li>
+						<li><a href="#">jQuery API 8 even<span>8st</span></a></li>
+					</ol>
+				</dd>
+			</dl>
+		</div>
+		<a href="#" id="prev_btn" class="prev_btn">◀</a>
+		<a href="#" id="next_btn" class="next_btn">▶</a>
+		<a href="#" id="stop_btn" class="stop_btn">▶</a>
+	</div>
+</div>
+<div class="wrap">
+	<div class="wrap2">
+		<div id="RollBox6" class="RollBox RB2 RB3 RB5 RB6">
+			<dl>
+				<dt>List of jQuery API</dt>
+				<dd>
+					<ol>
+						<li><a href="#">jQuery API 1 odd<span>1st</span></a></li>
+						<li><a href="#">jQuery API 2 even<span>2st</span></a></li>
+						<li><a href="#">jQuery API 3 odd<span>3st</span></a></li>
+						<li><a href="#">jQuery API 4 even<span>4st</span></a></li>
+						<li><a href="#">jQuery API 5 odd<span>5st</span></a></li>
+						<li><a href="#">jQuery API 6 even<span>6st</span></a></li>
+						<li><a href="#">jQuery API 7 odd<span>7st</span></a></li>
+						<li><a href="#">jQuery API 8 even<span>8st</span></a></li>
+					</ol>
+				</dd>
+			</dl>
+		</div>
+		<a href="#" id="p_btn" class="prev_btn">◀</a>
+		<a href="#" id="n_btn" class="next_btn">▶</a>
+		<a href="#" id="s_btn" class="stop_btn">■</a>
+	</div>
+</div><span> 위 자동롤링은 까딱거림</span>
+<ul class="GNB" class="GNB">
+	<li><a href="#">1 Class</a>
+		<ul>
+			<li><a href="#">11111</a></li>
+			<li><a href="#">22222</a></li>
+			<li><a href="#">33333</a></li>
+			<li><a href="#">44444</a></li>
+			<li><a href="#">55555</a></li>
+		</ul>
+	</li>
+	<li><a href="#">2 Class</a>
+		<ul>
+			<li><a href="#">11111</a></li>
+			<li><a href="#">22222</a></li>
+			<li><a href="#">33333</a></li>
+			<li><a href="#">44444</a></li>
+			<li><a href="#">55555</a></li>
+		</ul>
+	</li>
+	<li><a href="#">3 Class</a>
+		<ul>
+			<li><a href="#">11111</a></li>
+			<li><a href="#">22222</a></li>
+			<li><a href="#">33333</a></li>
+			<li><a href="#">44444</a></li>
+			<li><a href="#">55555</a></li>
+		</ul>
+	</li>
+	<li><a href="#">4 Class</a>
+		<ul>
+			<li><a href="#">11111</a></li>
+			<li><a href="#">22222</a></li>
+			<li><a href="#">33333</a></li>
+			<li><a href="#">44444</a></li>
+			<li><a href="#">55555</a></li>
+		</ul>
+	</li>
+	<li><a href="#">5 Class</a>
+		<ul>
+			<li><a href="#">11111</a></li>
+			<li><a href="#">22222</a></li>
+			<li><a href="#">33333</a></li>
+			<li><a href="#">44444</a></li>
+			<li><a href="#">55555</a></li>
+		</ul>
+	</li>
+</ul>
+ </body>
+</html>

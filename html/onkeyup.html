@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>onkeyup / onkeydown 이벤트</title>
+	<meta charset="utf-8"/>
+	<meta name="author" content="O eunsun" />
+	<meta name="keywords" content="mario game" />
+	<meta name="description" content="Let's Mario Game!!!" />
+	<link rel="stylesheet" href="http://check86.cafe24.com/study/css/common.css" />
+	<style type="text/css">
+		body {background:#eee}
+		h1, p {margin:50px; text-align:center}
+		h1 {margin-top:100px; font-size:20px; font-weight:bold}
+	</style>
+	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+	<h1>onkeypress 또는 onkeydown 또는 onkeyup 이벤트</h1>
+	<p>페이지 로딩 후 아무 키나 누르면 해당 키값에 해당하는 숫자가 뜬다 ^^</p>
+	<script type="text/javascript">
+		document.documentElement.onkeyup = function(event){
+			var e = event || window.event;
+			alert(e.keyCode);
+		}
+		document.documentElement.onkeydown = function(event){
+			var e = event || window.event;
+			alert("keydown 이벤트 key 값 = " + e.keyCode);
+		}
+	</script>
+</body>
+</html>

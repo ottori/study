@@ -1,0 +1,186 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-Transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+<meta http-equiv="content-type" content="text/html charset=utf-8" />
+<title>Vertical_Slide</title>
+<style type="text/css">
+	html,body,div,ul,li,img,h2,p {margin:0;padding:0}
+	img {vertical-align:top}
+	ul {list-style:none}
+
+	/* 롤링스타일 */
+	.rollingWrap {z-index:9999;position:fixed;left:0;top:0;width:100%;background:#017ece;text-align:center}
+	.rolling {position:relative;width:947px;height:90px;margin:0 auto;}
+	.rolling ul li {position:absolute;width:947px;height:90px;background:url('http://leecho87.cafe24.com/rollingBanner_Bg.png') no-repeat 0 0}
+	.rolling ul li .wrap {width:947px;height:90px;text-indent:-999em}
+	.rolling ul li.banner02 {background-position:0 -90px}
+	.rolling ul li.banner03 {background-position:0 -180px}
+	.rolling ul li.banner04 {background-position:0 -270px}
+	.rolling ul li.banner05 {background-position:0 -360px}
+	.rolling ul li.banner06 {background-position:0 -450px}
+	.rolling ul li.banner07 {background-position:0 -540px}
+	.rolling ul li .wrap {position:relative;width:947px;height:90px}
+	/* 링크버튼위치설정 */
+	.rolling ul li a {position:absolute;text-indent:-999em}
+	.rolling ul li.banner01 a {top:37px;width:130px;height:38px;}
+	.rolling ul li.banner01 a.next {right:223px}
+	.rolling ul li.banner01 a.skip01_07 {right:83px}
+	.rolling ul li.banner02 a {top:14px;width:157px;height:28px}
+	.rolling ul li.banner02 a.link {left:338px}
+	.rolling ul li.banner02 a.next {right:227px}
+	.rolling ul li.banner03 a {top:14px;width:157px;height:28px}
+	.rolling ul li.banner03 a.next {left:338px}
+	.rolling ul li.banner03 a.skip03_06 {left:531px}
+	.rolling ul li.banner03 a.skip03_07 {right:62px}
+	.rolling ul li.banner04 a,
+	.rolling ul li.banner05 a,
+	.rolling ul li.banner06 a {position:absolute;bottom:15px;right:160px;width:155px;height:29px}
+	.rolling ul li.banner07 a {position:absolute;top:15px;right:160px;width:155px;height:29px}
+	.rolling ul li.banner07 a.link01 {left:337px}
+	.rolling ul li.banner07 a.link02 {right:200px}
+	/* 버튼 +필터 */
+	.rollingWrap .rollingBtn {position:absolute;top:24px;width:45px;height:45px;background:url('http://leecho87.cafe24.com/rollingBanner_Bg.png') no-repeat;text-indent:-999em}
+	.rollingWrap a.prev {left:10px;background-position:0 -630px}
+	.rollingWrap a.close {right:10px;background-position:-45px -630px}
+	.rollingWrap a.prev:hover {background-position:0 -675px}
+	.rollingWrap a.close:hover {background-position:-45px -675px}
+	.filter {z-index:1000;position:fixed;top:0;left:0;width:100%;height:100%;background:#000;opacity:0.5;filter:alpha(opacity=50)}
+</style>
+<script type="text/javascript" src="http://leecho87.cafe24.com/js/jquery-1.8.3.min.js"></script>
+
+</head>
+
+<body>
+<div class="rollingWrap">
+	<div class="rolling">
+		<ul>
+			<li class="banner01">
+				<div class="wrap">
+					<h2>알바천국에 처음 오셨나요?</h2>
+					<p>서비스 가이드를 확인하시면 보다 쉽게 다양한 서비스를 이용할 수 있습니다.</p>
+					<a href="#" class="next">알바생/직원찾기</a>
+					<a href="#" class="skip skip01_07">일자리 찾기</a>
+				</div>
+			</li>
+			<li class="banner02">
+				<div class="wrap">
+					<h2>알바생/직원찾기</h2>
+					<p>채용공고를 바로 등록하고 싶으세요? 채용공고 등록페이지로 즉시 이동합니다.</p>
+					<a href="http://www.alba.co.kr/biz/job/Regist.asp?prcd=0&pubDay=" class="link" target="_blank">채용공고 즉시등록</a>
+					<p>알바생/직원찾기와 관련된 모든 서비스를 확인하고 싶으세요? 채용상품 안내, 공고등록대행 등의 절차를 확인할 수 있습니다.</p>
+					<a href="#" class="next">서비스 확인 후 등록</a>
+				</div>
+			</li>
+			<li class="banner03">
+				<div class="wrap">
+					<h2>기업회원 서비스</h2>
+					<p>더 많은 서비스를 누리고 싶다면 회원으로 가입하세요!</p>
+					<a href="#" class="next">기업회원가입</a>
+					<p>알바천국의 다양한 채용상품을 한눈에 확인하세요!</p>
+					<a href="#" class="skip skip03_06">채용공고 상품안내</a>
+					<p>알바천국 담당자가 채용정보를 대신 등록하는 서비스!</p>
+					<a href="#" class="skip skip03_07">공고등록대행</a>
+				</div>
+			</li>
+			<li class="banner04">
+				<div class="wrap">
+					<h2>기업회원 가입</h2>
+					<p>기업회원으로 가입하시면 더 많은 서비스를 누릴 수 있습니다.</p>
+					<p>무료공고 등록, 정액권 구매, 할인쿠폰 지급 등 기업회원만의 혜택을 누려보세요!</p>
+					<a href="https://sign.alba.co.kr/join/?site=WWW" target="_blank">기업회원 가입하기</a>
+				</div>
+			</li>
+			<li class="banner05">
+				<div class="wrap">
+					<h2>채용공고 상품안내</h2>
+					<p>알바천국의 다양한 상품을 한 눈에 확인할 수 있습니다.</p>
+					<p>Tip! 정액권 상품을 구매하시면 최대 50%까지 할인됨 금액으로 채용상품을 이용할 수 있습니다.</p>
+					<a href="http://www.alba.co.kr/serviceGuide/guinregist.asp" target="_blank">채용공고 상품안내</a>
+				</div>
+			</li>
+			<li class="banner06">
+				<div class="wrap">
+					<h2>공고등록 대행</h2>
+					<a href="http://www.alba.co.kr/agency/main.asp" target="_blank"></a>
+				</div>
+			</li>
+			<li class="banner07">
+				<div class="wrap">
+					<h2>일자리찾기</h2>
+					<a href="http://www.alba.co.kr/person/resume/regist.asp" class="link01" target="_blank">이력서 등록하기</a>
+					<a href="https://sign.alba.co.kr/join/?site=WWW" class="link02" target="_blank">개인회원 가입하기</a>
+				</div>
+			</li>
+		</ul>
+		<a href="#" class="rollingBtn prev">이전</a>
+		<a href="#" class="rollingBtn close">닫기</a>
+	</div>
+</div>
+<!-- 롤링배너 -->
+<script type="text/javascript">
+	var rolling = $('.rolling ul li');
+	var rollingHeight = rolling.height();
+	var clickChk = true;
+
+	//초기셋팅
+	rolling.each(function(){
+		var thisIdx = $(this).index();
+		$(this).click(function(){
+			console.log(thisIdx)
+		})
+		rolling.eq(thisIdx).css('top',rollingHeight*(thisIdx));
+	});
+	//BG교체
+	/*$('.rolling ul li.banner01 .next').one('click',function(){
+		$('.rolling ul li:not(:first)').css('background-image' , 'url(rollingBanner_Bg.png)');
+	});*/
+
+	function rollingPrev(){
+		if(rolling.first().position().top>=0){
+			$(this).unbind('click');	
+		}else if(clickChk == true){
+			clickChk = false;
+			rolling.stop().animate({'top' : '+='+rollingHeight},200,function(){
+				clickChk = true;
+			});
+		}
+	}
+
+	function rollingNext(){
+		if(rolling.last().position().top<=0){
+			$(this).unbind('click');
+		}else if(clickChk == true){
+			clickChk = false;
+			rolling.stop().animate({'top' : '-='+rollingHeight},200,function(){
+				clickChk = true;
+			});
+		}
+	}
+
+	$('.prev').bind('click' , function(){
+		rollingPrev();
+	});
+
+	$('.next').bind('click' , function(){
+		rollingNext();
+	});
+
+	//조건부점프
+	$('.skip').click(function(){
+		if ( $(this).hasClass('skip01_07') ) {
+			rolling.stop().animate({'top' : '-='+rollingHeight*6});
+		}else if( $(this).hasClass('skip03_06') ){
+			rolling.stop().animate({'top' : '-='+rollingHeight*2});
+		}else if( $(this).hasClass('skip03_07') ){
+			rolling.stop().animate({'top' : '-='+rollingHeight*3});
+		}
+	});
+	//닫기버튼
+	$('.close').click(function(){
+		$('.rollingWrap').slideUp(300);
+	})
+</script>
+<!-- //롤링배너 -->
+</body>
+</html>

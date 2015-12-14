@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="ko"  lang="ko">
+ <head>
+  <title> new document </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="editplus" />
+  <meta name="author" content="" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <script type="text/javascript">
+	function id(a){
+		return document.getElementById(a);
+	}
+	function tag(a,b){
+		if(typeof a === "string"){
+			return id(a).getElementsByTagName(b);
+		}else{
+			return a.getElementsByTagName(b);
+		}
+	}
+	function _css(a,b){
+		if(!document.defaultView){
+			return a.currentStyle[b];
+		}else{
+			return document.defaultView.getComputedStyle(a,null).getPropertyValue(b);
+		}
+	}
+	window.onload = function(){
+		/*
+		var c = id("aaaa");
+		var d = _css(c,"border");
+		console.log(d);
+		*/
+		//var browser = navigator.appVersion;
+		//var browser = navigator.userAgent;
+		//var browser = navigator.appName;
+		/*
+		if(navigator.userAgent.indexOf("firefox") > -1){
+		}else{
+		}
+		*/
+
+
+
+		function action(){
+			if(id("gnb").className.indexOf("on") > -1){
+				id("gnb").className = "";
+			}else{
+				id("gnb").className = "on";
+			}
+		}
+
+		action();
+
+		var obj = {//객체리터럴
+			a : function(){
+				this.mo = "은서닝";//여기서 this는 항상 자신을 생성한 객체를 가키린다.
+			},
+			b : {
+				b_1 : function(){},//2차원 객체
+				b_2 : function(){
+					//this.aaaaaa;
+				}
+			},
+			c : "aaa",
+			d : 12223
+		};
+
+
+		menu();
+
+		function menu(){
+			var wrap = id("menu");
+			var list = wrap.getElementsByTagName("li");
+			for(var i = 0; i < list.length; i++){
+				list[i].onclick = function(){
+					this.getElementsByTagName("a")[0].title = this.getElementsByTagName("a")[0].innerHTML;
+				}
+			}
+		}
+
+
+	}
+
+	
+  </script>
+  <style type="text/css">
+	#menu	{border:1px solid blue;}
+  </style>
+ </head>
+ <body>
+	<div id="gnb" class="on">
+		<div class="cls">11</div>
+	</div>
+
+
+
+	<div id="menu">
+		<ul>
+			<li><a href="#">메뉴1</a></li>
+			<li><a href="#">메뉴2</a></li>
+			<li><a href="#">메뉴3</a></li>
+		</ul>
+	</div>
+ </body>
+</html>

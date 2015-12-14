@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<title>NEW</title>
+	<meta name="author" content="" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<script type="text/javascript">
+		window.onload = function(){
+			//인덱스반환
+			var _isIndex = function(a,b,c,d){//a = li.eq(2)
+				//현재 텍스트 노드 공백들이 있는상태
+				removeWhiteSpace(a.parentNode);//공백들을 지워줌, 태그 갯수만큼만 자식노드를 포문으로 돌릴꺼니까
+				var prnt = a.parentNode;//li 의 부모니깐 무조건 ul
+				var child = prnt.childNodes;//ul에서 찾은 li들 전부
+				for(var i = 0; i < child.length; i++){//li들만 포문돌아서
+					if(child[i] === a){//현재 돌고 있는 li가 내가 클릭했던 li와 일치하면
+						//<li><a href="#">333333</a></li> === <li><a href="#">333333</a></li>
+						return i;//현재 돌고 있는 포문의 번호 i를 반환
+					}else{
+						continue;
+					}
+				}
+			}
+			_isIndex()
+			//공백노드제거
+			var removeWhiteSpace = function(z){
+				var child = z.childNodes;
+				for(var i = 0; i < child.length; i++){
+					if(child[i].nodeType != 1){
+						z.removeChild(child[i]);
+					}else{
+						continue;
+					}
+				}
+			}
+			var li = document.getElementsByTagName("li");
+			for(var i = 0; i < li.length;i++){
+			li[i].onclick = function(){
+				alert( _isIndex(this) );//2번째 this는 <li><a href="#">333333</a></li>
+			}}
+		}
+	</script>
+</head>
+<body>
+	<ul id="gnb">
+		<li><a href="#">0</a></li>
+		<li><a href="#">1</a></li>
+		<li><a href="#">2</a></li>
+		<li><a href="#">3</a></li>
+		<li><a href="#">4</a></li>
+		<li><a href="#">5</a></li>
+		<li><a href="#">6</a></li>
+		<li><a href="#">7</a></li>
+	</ul>
+	<ul id="gnb">
+		<li><a href="#">0</a></li>
+		<li><a href="#">1</a></li>
+		<li><a href="#">2</a></li>
+		<li><a href="#">333333</a></li>
+		<li><a href="#">4</a></li>
+		<li><a href="#">5</a></li>
+		<li><a href="#">6</a></li>
+		<li><a href="#">7</a></li>
+	</ul>
+</body>
+</html>

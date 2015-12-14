@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+ <head>
+  <title> </title>
+  <meta name="description" content="" />
+  <link type="text/css" rel="stylesheet" href="" />
+  <script type="text/javascript">
+	function swfWrite(url,w,h){
+		var str = "<iframe src=" + url + " width=" + w + " height=" + h + "><strong>111</strong></iframe>";
+		document.write(str);
+		//정규표현식, String(). toUpperCase(), substring(), substr(), indexOf()
+	}
+
+	function id(a){return document.getElementById(a);}
+	function css(a,b){
+		if(document.defaultView){
+			return document.defaultView.getComputedStyle(a,null).getPropertyValue(b);
+		}else{
+			return a.currentStyle[b];
+		}
+	}
+
+	window.onload = function(){
+		var obj = id("getCss");
+		var getCss = css(obj,"position");
+		var styleCss = obj.style.position;
+
+		//console.log(getCss);//인라인 및 링크에 작성된 css정보 둘 다 가져올수 있음
+		//console.log(styleCss);//인라인으로 작성된것만 접근해서 가져올수 있음
+		appendTest();
+	}
+
+	function appendTest(){
+		var wrapper = id("wrapper");
+		var left_ul = id("left_ul");
+		var right_ul = id("right_ul");
+		var add = id("add");
+		var remove = id("remove");
+		var deleteBtn = id("delete");
+		var left_list = left_ul.getElementsByTagName("li");
+		var right_list = right_ul.getElementsByTagName("li");
+
+		var arr = [];//임시배열
+
+		for(var i = 0; i < left_list.length; i++){
+			left_list[i].onclick = function(){
+				this.className = "on";
+				arr.push(this);
+			}
+		}
+
+		for(var i = 0; i < right_list.length; i++){
+			right_list[i].onclick = function(){
+				this.className = "on";
+				arr.push(this);
+			}
+		}
+
+		add.onclick = function(){
+			for(var i = 0; i < arr.length; i++){
+				arr[i].className = "";
+				right_ul.appendChild(arr[i]);
+				if(i == arr.length - 1){
+					arr = [];
+				}
+			}
+		}
+
+		remove.onclick = function(){
+			for(var i = 0; i < arr.length; i++){
+				arr[i].className = "";
+				left_ul.appendChild(arr[i]);
+				if(i == arr.length - 1){
+					arr = [];
+				}
+			}
+		}
+
+		deleteBtn.onclick = function(){
+			var del_list = wrapper.getElementsByTagName("li");
+			for(var i = 0; i < del_list.length; i++){
+				if(del_list[i].className == "on"){
+					del_list[i].parentNode.removeChild(del_list[i]);
+				}
+				if(i == arr.length - 1){
+					arr = [];
+				}
+			}
+		}
+
+	}
+  </script>
+  <style type="text/css">
+	.red	{border:1px solid red; height:100px;}
+	.swf	{border:1px solid blue;}
+	#getCss	{border:1px solid red; width:100px; position:relative;}
+	#getCss:after	{width:200px;}
+	#left_ul	{border:1px solid red; width:300px; float:left;}
+	#right_ul	{border:1px solid red; width:300px; float:right;}
+	ul li.on	{background:red;}
+  </style>
+ </head>
+ <body>
+ <!--
+<div class="red"></div>
+<div class="swf">
+	<script type="text/javascript">
+		//swfWrite("http://www.naver.com","500","500");
+	</script>
+</div>
+<div class="red"></div>
+-->
+
+<div id="getCss">css</div>
+
+
+<div id="wrapper">
+	<ul id="left_ul">
+		<li><a href="#">1</a></li>
+		<li><a href="#">2</a></li>
+		<li><a href="#">3</a></li>
+		<li><a href="#">4</a></li>
+		<li><a href="#">5</a></li>
+	</ul>
+
+	<button id="add">추가</button>
+	<button id="remove">제거</button>
+	<button id="delete">삭제</button>
+
+	<ul id="right_ul">
+	</ul>
+</div>
+ </body>
+</html>

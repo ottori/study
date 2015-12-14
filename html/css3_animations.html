@@ -1,0 +1,331 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Introduction to CSS3 Animations</title>
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans&v1' rel='stylesheet' type='text/css'>
+<style>
+body { font-family: 'Droid Sans', arial, serif; font-size:100%; line-height:21px;}
+.wrap { width:880px; float:left;}
+pre {
+ white-space: pre-wrap;       /* css-3 */
+ white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+ white-space: -pre-wrap;      /* Opera 4-6 */
+ white-space: -o-pre-wrap;    /* Opera 7 */
+ word-wrap: break-word;       /* Internet Explorer 5.5+ */
+ clear:both;
+}
+ul.css3demo li {
+    -webkit-border-radius: 15px;
+    display: block;
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    background: #000;
+    color: #fff;
+    text-indent: -5000em;
+    cursor: pointer;
+}
+ul.css3demo1 li {
+    -webkit-transition: all 0.3s linear;
+}
+ul.css3demo1 li:hover {
+    -webkit-transform:  rotate3d(0, 0, 0, 25deg);
+    -webkit-transform-style: preserve-3d;
+}
+ul.css3demo2 li {
+    -webkit-transition: all 0.3s linear;
+}
+ul.css3demo2 li:hover {
+    -webkit-transform:  translate3d(0, 40px, 0);
+}
+ul.css3demo3 li {
+    -webkit-transition: all 0.3s linear;
+}
+ul.css3demo3 li:hover {
+    -webkit-transform:  scale(.5);
+}
+ul.css3demo4 li {
+    -webkit-transition: all 0.3s linear;
+}
+ul.css3demo4 li:hover {
+    -webkit-transform:  scale(1.5);
+}
+ul.css3demo5 li {
+    -webkit-transition: all 0.3s linear;
+}
+ul.css3demo5 li:hover {
+    -webkit-transform:  translate3d(10px, 0, 0);
+}
+ul.css3demo6 li {
+    -webkit-transition: all 0.3s linear;
+}
+ul.css3demo6 li:hover {
+    -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+}
+ul.css3demo7 li {
+    -webkit-transition: all 0.3s linear;
+}
+ul.css3demo7 li:hover {
+    background: #0cf;
+}
+ul.css3demo8 li {
+    -webkit-transition: all 0.3s linear;
+}
+ul.css3demo8 li:hover {
+    -webkit-transform: scale3d(.5, 1, 1);
+}
+ul.css3demo9 li {
+    -webkit-transition: all 0.3s linear;
+}
+ul.css3demo9 li:hover {
+    -webkit-transform: scale3d(1, 0.5, 1);
+}
+ul.css3demo10 li {
+    -webkit-transition: all 0.3s linear;
+}
+ul.css3demo10 li:hover {
+    -webkit-transform: rotate(360deg);
+}
+ul.css3demo11 li {
+    -webkit-transition: opacity 0.8s ease-in;
+    opacity: 0.4;
+}
+ul.css3demo11 li:hover {
+    opacity: 1;
+}
+ul.css3demo12 li {
+    -webkit-transition: opacity 1s ease-in;
+    opacity: 1.0;
+}
+ul.css3demo12 li:hover {
+    opacity: 0.4;
+}
+ul.css3demo13 li {
+    -webkit-transition: -webkit-transform 1s ease-in-out;
+}
+ul.css3demo13 li:hover {
+    -webkit-animation: spin 0.3s infinite linear;
+}
+ @-webkit-keyframes spin {
+ 0% {
+-webkit-transform: rotate(0deg);
+}
+ 100% {
+-webkit-transform: rotate(360deg);
+}
+}
+ul.css3demo14 li {
+    -webkit-transition: -webkit-transform 5s ease-in-out;
+}
+ul.css3demo14 li:hover {
+    -webkit-animation: colorize 3s infinite linear;
+}
+ @-webkit-keyframes colorize {
+ 0% {
+background-color: #333;
+}
+ 100% {
+background-color: #ff0;
+}
+}
+ul.css3demo15 li {
+    -webkit-transition: all 2s ease-in-out;
+}
+ul.css3demo15 li:hover {
+    -webkit-animation: shape 1s infinite linear;
+}
+ @-webkit-keyframes shape {
+ 100% {
+-webkit-border-radius: 50px;
+}
+}
+</style>
+</head>
+<body>
+	<div class="wrap">
+        <p>Reference on Safari for the animation properties that you can use on your CSS selectors. </p>
+        <p>Note: The examples on this page will only work on WebKit Browsers (eg: Chrome, Safari).   Hover over the little black elements to see the effect done in pure CSS3. </p>
+        <p>Before we start, let’s add the following CSS to change the look and feel of your &lt;ul&gt; list items. </p>
+        <pre>ul.css3demo li { -webkit-border-radius: 15px; display: block; float: left; width: 50px; height: 50px; margin: 10px; background: #000; color: #fff; text-indent: -5000em; }</pre>
+        <p>And now let’s take a look at 15 different CSS3 animations and their source code. </p>
+        <div class="css3demodiv">
+				<strong>Tilt</strong>
+                <ul class="css3demo css3demo1">
+                        <li>A</li>
+                        <li>B</li>
+                        <li>C</li>
+                        <li>D</li>
+                </ul>
+                <pre> ul.css3demo1 li { -webkit-transition: all 0.3s linear; }
+					ul.css3demo1 li:hover {  -webkit-transform:  rotate3d(0, 0, 0, 50deg); -webkit-transform-style: preserve-3d; }
+				</pre>
+						</div>
+						<div class="css3demodiv"> <strong>Pushed Down (by 40px)</strong>
+								<ul class="css3demo css3demo2">
+										<li>A</li>
+										<li>B</li>
+										<li>C</li>
+										<li>D</li>
+								</ul>
+								<pre> ul.css3demo2 li { -webkit-transition: all 0.3s linear; }
+					ul.css3demo2 li:hover { -webkit-transform:  translate3d(0, 40px, 0); }
+				</pre>
+						</div>
+						<div class="css3demodiv"> <strong>Smaller</strong>
+								<ul class="css3demo css3demo3">
+										<li>A</li>
+										<li>B</li>
+										<li>C</li>
+										<li>D</li>
+								</ul>
+								<pre> ul.css3demo3 li { -webkit-transition: all 0.3s linear; }
+					ul.css3demo3 li:hover {  -webkit-transform:  scale(.5); }
+				</pre>
+						</div>
+						<div class="css3demodiv"> <strong>Bigger</strong>
+								<ul class="css3demo css3demo4">
+										<li>A</li>
+										<li>B</li>
+										<li>C</li>
+										<li>D</li>
+								</ul>
+								<pre> ul.css3demo4 li { -webkit-transition: all 0.3s linear; }
+					ul.css3demo4 li:hover {  -webkit-transform:  scale(1.5); }
+				</pre>
+						</div>
+						<div class="css3demodiv"> <strong>Slide Right (by 10px)</strong>
+								<ul class="css3demo css3demo5">
+										<li>A</li>
+										<li>B</li>
+										<li>C</li>
+										<li>D</li>
+								</ul>
+								<pre> ul.css3demo5 li { -webkit-transition: all 0.3s linear; }
+					ul.css3demo5 li:hover { -webkit-transform:  translate3d(10px, 0, 0); }
+				</pre>
+						</div>
+						<div class="css3demodiv"> <strong>Add Shadow</strong>
+								<ul class="css3demo css3demo6">
+										<li>A</li>
+										<li>B</li>
+										<li>C</li>
+										<li>D</li>
+								</ul>
+								<pre> ul.css3demo6 li { -webkit-transition: all 0.3s linear; }
+					ul.css3demo6 li:hover { -webkit-box-shadow: 3px 3px 3px rgba(0,0,0, 0.5); }
+				</pre>
+						</div>
+						<div class="css3demodiv"> <strong>Change Color</strong>
+								<ul class="css3demo css3demo7">
+										<li>A</li>
+										<li>B</li>
+										<li>C</li>
+										<li>D</li>
+								</ul>
+								<pre> ul.css3demo7 li { -webkit-transition: all 0.3s linear; }
+					ul.css3demo7 li:hover { background: #0cf; }
+				</pre>
+						</div>
+						<div class="css3demodiv"> <strong>Shrink horizontally (by 50%)</strong>
+								<ul class="css3demo css3demo8">
+										<li>A</li>
+										<li>B</li>
+										<li>C</li>
+										<li>D</li>
+								</ul>
+								<pre> ul.css3demo8 li { -webkit-transition: all 0.3s linear; }
+					ul.css3demo8 li:hover { -webkit-transform: scale3d(.5, 1, 1); }
+				</pre>
+						</div>
+						<div class="css3demodiv"> <strong>Shrink vertically (by 50%)</strong>
+								<ul class="css3demo css3demo9">
+										<li>A</li>
+										<li>B</li>
+										<li>C</li>
+										<li>D</li>
+								</ul>
+								<pre> ul.css3demo9 li { -webkit-transition: all 0.3s linear; }
+					ul.css3demo9 li:hover {  -webkit-transform: scale3d(1, 0.5, 1); }
+				</pre>
+						</div>
+						<div class="css3demodiv"> <strong>Rotate 360 degree</strong>
+								<ul class="css3demo css3demo10">
+										<li>A</li>
+										<li>B</li>
+										<li>C</li>
+										<li>D</li>
+								</ul>
+								<pre> ul.css3demo10 li { -webkit-transition: all 0.3s linear; }
+					ul.css3demo10 li:hover { -webkit-transform: rotate(360deg); }
+				</pre>
+						</div>
+						<div class="css3demodiv"> <strong>Fade In</strong>
+								<ul class="css3demo css3demo11">
+										<li>A</li>
+										<li>B</li>
+										<li>C</li>
+										<li>D</li>
+								</ul>
+								<pre> ul.css3demo11 li { -webkit-transition: opacity 0.8s ease-in; opacity: 0.4;  }
+					ul.css3demo11 li:hover { opacity: 1; }
+				</pre>
+						</div>
+						<div class="css3demodiv"> <strong>Fade Out</strong>
+								<ul class="css3demo css3demo12">
+										<li>A</li>
+										<li>B</li>
+										<li>C</li>
+										<li>D</li>
+								</ul>
+								<pre> ul.css3demo12 li { -webkit-transition: opacity 1s ease-in; opacity: 1.0;  }
+					ul.css3demo12 li:hover { opacity: 0.4; }
+				</pre>
+						</div>
+						<div class="css3demodiv"> <strong>Spin</strong>
+								<ul class="css3demo css3demo13">
+										<li>A</li>
+										<li>B</li>
+										<li>C</li>
+										<li>D</li>
+								</ul>
+								<pre> ul.css3demo13 li { -webkit-transition: -webkit-transform 1s ease-in-out;   }
+					ul.css3demo13 li:hover { -webkit-animation: spin 0.3s infinite linear; }
+					@-webkit-keyframes spin {
+						0% { -webkit-transform: rotate(0deg); }
+						100% { -webkit-transform: rotate(360deg); background-color: #ff0;  }
+					}
+				</pre>
+						</div>
+						<div class="css3demodiv"> <strong>Fade to Color (Colorize)</strong>
+								<ul class="css3demo css3demo14">
+										<li>A</li>
+										<li>B</li>
+										<li>C</li>
+										<li>D</li>
+								</ul>
+								<pre> ul.css3demo14 li { -webkit-transition: -webkit-transform 5s ease-in-out;   }
+					ul.css3demo14 li:hover { -webkit-animation: colorize 3s infinite linear; }
+					@-webkit-keyframes colorize {
+						0% { background-color: #333; }
+						100% { background-color: #ff0;  }
+					}
+				</pre>
+				</div>
+				<div class="css3demodiv"> <strong>Change Shape</strong>
+					<ul class="css3demo css3demo15">
+							<li>A</li>
+							<li>B</li>
+							<li>C</li>
+							<li>D</li>
+					</ul>
+					<pre> ul.css3demo15 li { -webkit-transition: all 2s ease-in-out;   }
+					ul.css3demo15 li:hover { -webkit-animation: shape 1s infinite linear; }
+					@-webkit-keyframes shape {
+						100% { -webkit-border-radius: 50px;  }
+					}
+				</pre>
+	</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>새 HTML</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+	<script type="text/javascript">
+	//id 반환
+	var id = function(a){return document.getElementById(a)};
+	//css 반환
+	var _css = function(element,prop){var el,read_css;el = element;if(!document.defaultView){read_css = el.currentStyle[prop];}else{read_css = document.defaultView.getComputedStyle(el,null).getPropertyValue(prop);}return read_css;}
+
+	</script>
+</body>
+</html>

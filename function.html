@@ -1,0 +1,151 @@
+<html>
+<head></head>
+<body style="font-size:10px">
+<script type="text/javascript">
+    function makeSizer(size){
+        return function(){
+            document.body.style.fontSize  = size + "px";
+        };
+    };
+    makeSizer(12)();
+
+    function ctest(cvs){
+        return function(){
+            console.log(cvs)
+            return function(){
+                console.log(cvs + " hello ~ hihi!!!!")
+            }
+        };
+    }
+    var es  = ctest("hi");
+    var ess = es();
+    ess();
+
+
+
+    function oes(){
+        var name = "오은선";
+        function displayName(){
+            console.log(name);
+        };
+        return displayName;
+    };
+    oes()();
+
+    (function(){
+        'use strict';
+        var root = this;
+        var version = "1.0";
+        var module1;
+        if( typeof exports !== "undefined" ){
+            module1 = exports;
+        }else{
+            module1 = root.module1 = {};
+        }
+        module1.getVersion = function(){
+            return version;
+        }
+    }).call(this);
+
+
+    var actions = {
+        action : function(ar){
+            console.log(ar);
+        }
+    };
+    function popo(vvv){
+        console.log(vvv)
+    };
+
+    function whatsThis(){
+        return this.toString();
+    };
+    var unity = {
+        what : whatsThis,
+        toString : function(){
+            return "[Object unity]";
+        }
+    };
+
+    var clerk = (function(){
+        var name = "오은선";
+        var sex = "여자";
+        var position = "수석 엔지니어";
+        var salary = 6000;
+        var taxSalary = 200;
+        var totalBonus = 1000;
+        var taxBonus = 100;
+
+        var payBonus = function(){
+            totalBonus = totalBonus - taxBonus;
+            return totalBonus;
+        };
+        console.log(payBonus())
+        var paySalary = function(){
+            return salary - taxSalary;
+        };
+
+        return {
+            name : name,
+            sex : sex,
+            position : position,
+            paySalary : paySalary,
+            payBonus : payBonus
+        };
+    }());
+
+    // 기명 함수표현식(named function expression)
+    var company = function company() {
+        /* 실행코드 */
+    };
+
+    // 익명 함수표현식(anonymous function expression)
+    var company = function() {
+        /* 실행코드 */
+    };
+
+    // 기명 즉시실행함수(named immediately-invoked function expression)
+    (function company() {
+        /* 실행코드 */
+    }());
+
+    // 익명 즉시실행함수(immediately-invoked function expression)
+    // Javascript 대가이신 더글라스 클락포트의 권장 표기법
+    (function() {
+        /* 실행코드 */
+    }());
+
+    // 익명 즉시실행함수(immediately-invoked function expression)
+    (function() {
+        /* 실행코드 */
+    })();
+</script>
+<script type="text/javascript">
+    var buyCar = function(carName){
+        console.log("내 차는 " + carName + " 입니다.")
+    };
+    (function(carName){
+        console.log("내 차는 " + carName + " 입니다.")
+    }("BMW"))
+
+
+    var ppt1 = 123;
+    var app1 = {
+        prop1 : ppt1
+    };
+    var app2 =  (function(){
+        var ppt2 = "안녕안녕???";
+        return { prop2 : ppt2 }
+    }());
+    var app = (function(){
+        var ppt = "private";
+        return { prop : ppt }
+    }());
+    var action = (function(){
+        var window = "windows!!!";
+        var second = "primas!!!"
+        return { one : window, tow : second }
+    }());
+</script>
+</body>
+</html>

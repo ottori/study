@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>1208 tab_script</title>
+	<link type="text/css" rel="stylesheet" href="../css/common.css" />
+	<style type="text/css">
+		body {text-align:center; background:#eee}
+		p {text-align:center; margin:30px 0; font-weight:bold; color:#727272}
+		.tabMenu {width:1000px; margin:0 auto}
+		.tabMenu ul {.zoom:1}
+		.tabMenu ul:after {content:""; clear:both; display:block}
+		.tabMenu ul{display:-webkit-box; display:-moz-box}
+		.tabMenu ul li {margin-right:10px;  border:1px solid #dbdbdb}
+		.tabMenu ul li a {display:block; width:150px; text-align:center; font-size:23px; font-weight:bold; line-height:45px; height:45px; color:144d9c; background:#e5e5e5;}
+
+		.tabContents >  div {display:none;}
+		.tabContents {width:300px; margin:0 auto}
+		.tabContents ul li {width:150px; line-height:30px; margin-bottom:10px;}
+		.tabConts1 ul li { background:#dbdbdb}
+		.tabConts2 ul li {background:#f1f1f1}
+		.tabConts3 ul li {background:#fefefe}
+		.tabConts4 ul li {background:#dbdbdb}
+		.tabConts5 ul li {background:#fefefe}
+		.tabConts4 ul li {background:#dbdbdb}
+	</style>
+	<script type="text/javascript">
+		
+		window.onload = function(){
+			var tabMenu = document.getElementById("tabMenu");
+			var tabConts = document.getElementById("tabContents");
+			var tabContschildNodes = tabConts.childNodes; //childNodes 도 배열 형태로 나옴
+			var menu = tabMenu.getElementsByTagName("li");
+
+			var max = menu.length;
+
+			for(i=0;  i<max; i++){
+				(function(i){
+					menu[i].onclick = function(){
+						var tabContsArea = tabConts.getElementsByClassName("tabConts"+(i+1));
+						actions(tabContsArea,i)
+					}
+				}(i));
+				
+			}
+				
+				function actions(tag,num){
+					for(var k = 0; k < tabContschildNodes.length; k++){
+						if(tabContschildNodes[k].nodeName == "#text"){
+							continue;
+						}else{
+							tabContschildNodes[k].style.display = "none";
+						}
+					}
+					tag[0].style.display = "block";
+
+				}
+			
+			
+		}
+	</script>
+</head>
+<body>
+	<p>오늘은 자바스크립트</p>
+	<div id="tabMenu" class="tabMenu">
+		<ul>
+			<li><a href="#">Mail</a></li>
+			<li><a href="#">Cafe</a></li>
+			<li><a href="#">News</a></li>
+			<li><a href="#">Blog</a></li>
+			<li><a href="#">Books</a></li>
+			<li><a href="#">Office</a></li>
+		</ul>
+	</div>
+	<div id="tabContents" class="tabContents">
+		<div class="tabConts1">
+			<p>[엑스맨: 데이즈 오브 퓨처 패스트]의 사이먼 킨버그가 원작과 달리 키티 프라이드가 아닌 울버린이 시간 여행을 하는 것으로 변경한 이유에 대해 설명을 했다고 합니다. </p>
+			<ul>
+				<li><a href="#">엑스맨</a></li>
+				<li><a href="#">데이즈</a></li>
+				<li><a href="#">오브</a></li>
+				<li><a href="#">오브</a></li>
+				<li><a href="#">오브</a></li>
+				<li><a href="#">오브</a></li>
+			</ul>
+		</div>
+		<div class="tabConts2">
+			<p>코엔 형제가 현재 고대 로마를 배경으로 하는 영화의 각본을 쓰고 있다고 합니다.</p>
+			
+			<ul>
+				<li><a href="#">엑스맨</a></li>
+				<li><a href="#">데이즈</a></li>
+				<li><a href="#">오브</a></li>
+				<li><a href="#">오브</a></li>
+				<li><a href="#">오브</a></li>
+				<li><a href="#">오브</a></li>
+			</ul>
+		</div>
+		<div class="tabConts3">
+			<p>코엔 형제가 현재 고대 로마를 배경으로 하는 영화의 각본을 쓰고 있다고 합니다.</p>
+			
+			<ul>
+				<li><a href="#">엑스맨</a></li>
+				<li><a href="#">데이즈</a></li>
+				<li><a href="#">오브</a></li>
+				<li><a href="#">오브</a></li>
+				<li><a href="#">오브</a></li>
+				<li><a href="#">오브</a></li>
+			</ul>
+		
+		</div>
+		<div class="tabConts4">
+			<p>코엔 형제가 현재 고대 로마를 배경으로 하는 영화의 각본을 쓰고 있다고 합니다.</p>
+		
+		</div>
+		<div class="tabConts5">
+			<p>코엔 형제가 현재 고대 로마를 배경으로 하는 영화의 각본을 쓰고 있다고 합니다.</p>
+			<ul>
+				<li><a href="#">엑스맨</a></li>
+				<li><a href="#">데이즈</a></li>
+				<li><a href="#">오브</a></li>
+				<li><a href="#">오브</a></li>
+				<li><a href="#">오브</a></li>
+				<li><a href="#">오브</a></li>
+			</ul>
+		
+		</div>
+		<div class="tabConts6">
+			<p>코엔 형제가 현재 고대 로마를 배경으로 하는 영화의 각본을 쓰고 있다고 합니다.</p>
+		
+		</div>
+	</div>
+</body>
+</html>

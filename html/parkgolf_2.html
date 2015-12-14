@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8"/>
+    <title>파크골프 샘플</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <script type="text/javascript" src="js/jquery_1.8.3.min.js"></script>
+    <link rel="stylesheet" href="http://m.spazon.com/styles/common-1.1.0.0.css?2015041400" type="text/css">
+    <style type="text/css">
+        body {padding-top:100px}
+        div {height:850px;font-size:40px;text-align:center;}
+        .skip {display:block;position:absolute;top:-100px;width:100%;height:0;line-height:25px;text-align:center;font-size:12px;font-weight:bold;background:#b85875;color:#fff}
+        .skip:focus {position:fixed;left:0;top:0;z-index:200;height:25px;}
+        .quick {position:fixed;left:30px;top:50%;margin-top:-70px;border:0}
+        .quick a {display:block;width:30px;height:30px;border-radius:50%;-webkit-border-radius:50%;background:#000;text-align:center;line-height:30px;color:#fff;font-size:16px;font-weight:bold;margin-bottom:10px}
+        .quick a.on {background:#fff;color:#000}
+        #header {position:fixed;z-index:100;left:0;top:0;right:0;height:100px;line-height:100px;background:#eee;transition:background .5s;-webkit-transition:background .5s;border:0}
+        .section1 {position:relative;background:#de839f}  .section2 {background:#b85875}  .section3 {background:#b3224e}  .section4 {background:#a1a1a1}
+        .event {position:absolute;left:0;right:0;bottom:0;height:70px;line-height:70px;background:#fff;border:0}
+    </style>
+</head>
+<body>
+    <a href="#section" class="skip">본문 바로가기</a>
+    <div class="header" id="header">Header</div>
+    <div class="section1" id="section">Contents <div class="event">플로팅 event frame</div>
+        <div class="quick" id="quick">
+            <a href="">1</a>
+            <a href="">2</a>
+            <a href="">3</a>
+            <a href="">4</a>
+        </div>
+    </div>
+    <div class="section2">Contents</div>
+    <div class="section3">Contents</div>
+    <div class="section4">Contents</div>
+    <div class="footer">Footer</div>
+    <script type="text/javascript">
+        resize();
+        $(window).resize(function(){
+            resize();
+        });
+        function resize(){
+            if($(window).height() > 1000){
+                $(".event").css("position","absolute")
+            }else{
+               $(".event").css("position","fixed")
+            }
+        };
+        var oes = {
+            floating: function () {
+                var floating = $("#quick")
+                    , link = $("a", floating)
+                    , idx = 0
+                    , state = true
+                    , color
+                    , firstColor = $(".header").css("background-color")
+                    , pos = [0]
+
+                //각 섹션별 scrolling 값 세팅
+                var hh = $(".section" + idx).height()
+                for(var i=1; i < link.length +1;i++){
+                    pos.push($(".section" + i).height() *i)
+                };
+
+                //클릭시 각 섹션별 스크롤동작 호출 + 헤더영역 색상 체인지
+                link.click(function(){
+                    state = false;
+                    idx = $(this).index();
+                    //섹션 color값
+                    if(idx != 0){
+                        color = $(".section" + (idx +1)).css("background-color");
+                    }else{
+                        color = firstColor;
+                    }
+                    link.removeClass("on");
+                    $(this).addClass("on");
+                    move();
+                    return false;
+                });
+
+                //스크롤 동작
+                function move() {
+                    $("html, body").animate({
+                        "scrollTop": pos[idx] + "px"
+                    }, {
+                        duration: 500,
+                        complete: function () {
+                            state = true;
+                            $("#header").css({
+                                "background-color" : color
+                            },100);
+                        }
+                    });
+                };
+            }
+        };
+        oes.floating();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head> 
+	<meta charset="utf-8"> 
+	<title>javascript NAV</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+	<meta content="순수 자바스크립트 네비게이션" name="description" />
+	<link type="text/css"rel="stylesheet" href="../css/common.css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<style type="text/css">
+		.wrap strong {display:block; line-height:35px; font-size:15px; background:orangered; font-weight:bold; text-indent:20px; color:#fff}
+		#gnb a {display:block;height:25px; line-height:25px; text-indent:10px;  background:rgba(0,0,0,0.7); color:#4b4b4b; font-weight:bold}
+		#gnb > li > a {color:#fff}
+		#gnb > li > ul > li a {padding-left:15px; background:rgba(0,0,0,0.4)}
+		#gnb li {margin:2px 0}
+		#gnb > li > ul > li > ul > li a {padding-left:30px; background:rgba(0,0,0,0.2)}
+		
+	</style>
+</head>
+<body>
+<div class="wrap">
+	<strong>Javascript Navigation</strong>
+	<ul id="gnb">
+		<li>
+			<a href="#">One Depth</a>
+			<ul>
+				<li>
+					<a href="#">Two Depth</a>
+					<ul>
+						<li><a href="#">Three Depth</a></li>
+						<li><a href="#">Three Depth</a></li>
+						<li><a href="#">Three Depth</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="#">One Depth</a>
+			<ul>
+				<li>
+					<a href="#">Two Depth</a>
+					<ul>
+						<li><a href="#">Three Depth</a></li>
+						<li><a href="#">Three Depth</a></li>
+						<li><a href="#">Three Depth</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="#">One Depth</a>
+			<ul>
+				<li>
+					<a href="#">Two Depth</a>
+					<ul>
+						<li><a href="#">Three Depth</a></li>
+						<li><a href="#">Three Depth</a></li>
+						<li><a href="#">Three Depth</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">Two Depth</a>
+					<ul>
+						<li><a href="#">Three Depth</a></li>
+						<li><a href="#">Three Depth</a></li>
+						<li><a href="#">Three Depth</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">Two Depth</a>
+				</li>
+				<li>
+					<a href="#">Two Depth</a>
+					<ul>
+						<li><a href="#">Three Depth</a></li>
+						<li><a href="#">Three Depth</a></li>
+						<li><a href="#">Three Depth</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+	<script type="text/javascript">
+		var nav = {
+			action : function(){
+				this.wrapper = document.getElementById("gnb");
+				this.a = this.wrapper.getElementsByTagName("a");
+				
+				for( var i = 0; i< this.a.length; i++ ){
+					var myA = findGnb(this.a[i], this.wrapper);
+					myA.onclick = function(){
+						console.log(myA)
+					}
+					
+				}
+
+				function findGnb(a,b){
+					var cnt = 0, c = a;
+					while(a.parentNode != b){
+						a = a.parentNode;
+						cnt++;
+					}
+					if(cnt == 5){
+						c.parentNode.className = "dep3";
+					}else if(cnt == 3){
+						c.parentNode.className = "dep2";
+					}else{
+						c.parentNode.className = "dep1";
+					}
+					return c;
+					console.log(cnt)
+				}
+			}
+		}
+		nav.action();
+	</script>
+</body>
+</html>

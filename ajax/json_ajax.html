@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>json ajax</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="../js/jquery-1.9.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$.getJSON('../json/data1.json', function(data){
+				//console.log(data);
+				}).success(function(data){
+					console.log("성공");
+					var datas = [];
+					for(var i in data){
+						datas.push(i);
+					}
+					console.log(datas);
+				}).error(function(data){
+					console.log("실패");
+				}).complete(function(data){
+					console.log("json 호출완료");
+			});
+
+
+		});
+	</script>
+	<style type="text/css">
+	</style>
+</head>
+
+<body>
+	<a href="../json/data1.json">json</a>
+	<div id="div">
+		<ul>
+		</ul>
+	</div>
+</body>
+</html>
