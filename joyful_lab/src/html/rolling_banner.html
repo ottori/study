@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>롤링배너 | Joyful Lab</title>
+    <link rel="shortcut icon" href="http://i.gzcdn.net/mui/img/favicon.ico" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <link type="text/css" rel="stylesheet" href="../css/common_golfzon.css" />
+    <style>
+        body,div,h1,h2,h3,h4,h5 {background:#3a3a3a;color:#eee;font-size:14px}
+        section {padding:10px}
+        h1, h2 {font-size:18px;padding:10px 0}h2 {font-size:14px;padding-top:20px}
+        h1 {border-bottom:1px solid #efefef}
+        a {display:block;box-sizing:border-box;-webkit-box-sizing:border-box}
+        .roll-box {position:relative;overflow:hidden;width:200px;height:33px;padding:10px 40px;background:#555555;border-radius:5px}
+        .roll-box.type2 {height:205px}
+        .roll-box .btn_nav a {position:absolute;left:5px;top:0;bottom:0;display:block;width:30px;line-height:53px;height:53px;text-align:center;font-size:13px;color:#222;font-weight:bold}
+        .roll-box .btn_nav a.right {left:auto;right:5px}
+        .box {overflow:hidden;position:absolute;left:45px;top:10px;min-width:200px;background:#555555}
+        .box a {width:200px;line-height:25px;border:2px solid #000;margin-bottom:10px;border-radius:20px;padding:2px 10px;color:#fff}
+        .box2 {float:left;width:200px;margin-right:10px;background:none}
+        #box3 .box2 {border-radius:20px}
+        #box2 .box a {display:inline-block}
+        #box3 {overflow:hidden}
+        #box3.roll-box:after {content:"";display:block;position:absolute;z-index:2;left:0;right:0;top:0;bottom:0;border:35px solid #555;border-top:0;border-bottom:0}
+    </style>
+</head>
+<body>
+    <section>
+        <h1>Auto Rolling</h1>
+        <article>
+            <h2>1. 상하 자동 - 한 칸씩</h2>
+            <div id="box1" class="roll-box">
+                <div class="box" style="position:absolute;left:45px;top:10px;width:200px;height:215px">
+                    <a href="">1. First Depth</a>
+                    <a href="">2. Second Depth</a>
+                    <a href="">3. Third Depth</a>
+                    <a href="">4. Fourth Depth</a>
+                    <a href="">5. Last Depth</a>
+                </div>
+                <nav class="btn_nav">
+                    <a href="" class="left"><</a>
+                    <a href="" class="right">></a>
+                </nav>
+            </div>
+        </article>
+        <article>
+            <h2>2. 좌우 자동 - 한 칸씩</h2>
+            <div id="box2" class="roll-box">
+                <div class="box" style="position:absolute;left:45px;top:10px;width:auto;height:172px">
+                    <a href="">1. First Depth</a>
+                    <a href="">2. Second Depth</a>
+                    <a href="">3. Third Depth</a>
+                    <a href="">4. Fourth Depth</a>
+                </div>
+                <nav class="btn_nav">
+                    <a href="" class="left"><</a>
+                    <a href="" class="right">></a>
+                </nav>
+            </div>
+        </article>
+        <article>
+            <h2>3. 상하 자동 - 통으로 한 칸씩</h2>
+            <div id="box3" class="roll-box type2">
+                <div class="box" style="width:200px">
+                    <div class="box2" style="width:200px">
+                        <a href="">1. First Depth</a>
+                        <a href="">2. Second Depth</a>
+                        <a href="">3. Third Depth</a>
+                        <a href="">4. Fourth Depth</a>
+                        <a href="">5. Last Depth</a>
+                    </div>
+                    <div class="box2" style="width:200px">
+                        <a href="">6. First Depth</a>
+                        <a href="">7. Second Depth</a>
+                        <a href="">8. Third Depth</a>
+                        <a href="">9. Fourth Depth</a>
+                        <a href="">10. Last Depth</a>
+                    </div>
+                    <div class="box2" style="width:200px">
+                        <a href="">11. First Depth</a>
+                        <a href="">12. Second Depth</a>
+                        <a href="">13. Third Depth</a>
+                        <a href="">14. Fourth Depth</a>
+                        <a href="">15. Last Depth</a>
+                    </div>
+                </div>
+                <nav class="btn_nav">
+                    <a href="" class="left"><</a>
+                    <a href="" class="right">></a>
+                </nav>
+            </div>
+        </article>
+        <article>
+            <h2>4. 좌우 자동 - 통으로 한 칸씩</h2>
+            <div id="box4" class="roll-box type2">
+                <div class="box">
+                    <a href="">1. First Depth</a>
+                    <a href="">2. Second Depth</a>
+                    <a href="">3. Third Depth</a>
+                    <a href="">4. Fourth Depth</a>
+                    <a href="">5. Last Depth</a>
+                </div>
+                <nav class="btn_nav">
+                    <a href="" class="left"><</a>
+                    <a href="" class="right">></a>
+                </nav>
+            </div>
+        </article>
+    </section>
+    <style>
+
+        #next {position:absolute;right:10px;top:0;width:40px;height:30px;line-height:30px;text-align:center;border:1px solid #000}
+    </style>
+    <a href="" id="next">▶</a>
+    <script type="text/javascript">
+
+        window.onload = function() {
+            if (!window.getComputedStyle) {
+                window.getComputedStyle = function(element) {
+                    return element.currentStyle;
+                }
+            }
+
+            function A() {};
+            A.prototype.ul = true;
+
+            function B() {};
+            B.prototype = new A();
+            console.log(B.prototype)
+
+            function C() {};
+            var s = new B();
+            s.ul = "달달";
+            C.prototype = s;
+            var o = new C();
+
+            //한 칸씩 이동 기능
+            function move(){};
+            move.prototype.actions = function(id,hh,speed,xy){
+                var ids = document.getElementById(id);
+                var box = ids.getElementsByTagName("div")[0];
+                var box2 = box.getElementsByTagName("div")[0];
+                var a = box.getElementsByTagName("a");
+                var ww = - 200;
+                var hh = - 43 // a 태그 높이값 지정
+                var cnt;//상하
+                var lnt;//좌우
+
+                if(xy == "left"){ box.style.width = parseInt(box2.style.width) * (box.getElementsByTagName("div").length) + "px";}
+
+                var total = setInterval(function(){
+                    autowrap();
+                },1000);
+
+                function autowrap() {
+                    if( xy == "top"){
+                        cnt = 0;
+                        var auto = setInterval(function () {
+                            if (cnt > hh) {
+                                cnt--;
+                                box.style.top = cnt + "px";
+                            }else{
+                                box.appendChild(a[0]);
+                                box.style.top = 0;
+                                clearInterval(auto);
+                            };
+                        }, speed)
+                    };
+                }
+                autowrap();
+                var int = 0;
+
+                function left(){
+                    if( xy == "left") {
+                        var max_width = parseInt(box.style.width) - 230;
+                        if(int == 0 ) {
+                            var autos = setInterval(function () {
+                                int--;
+                                if(int <= -max_width){
+                                    clearInterval(autos);
+                                    left();
+                                };
+                                box.style.left = int + "px";
+                            }, 5)
+                        }else{
+                            var autos2 = setInterval(function () {
+                                int++;
+                                if(int <= 200){
+                                    clearInterval(autos2);
+                                    left();
+                                }
+                                box.style.left = int + "px";
+                            }, 5)
+                        }
+                    };
+                }
+                left();
+            };
+
+            var movi = new move();
+            var movi1 = new move();
+            var movi2 = new move();
+
+            movi.actions("box1",-43,15,"top");
+            movi1.actions("box2")
+            movi2.actions("box3",43,7,"left");
+
+            var arr = new Array('q','p','o','t','a');
+
+            function gets(arr){
+                var index = Math.floor(arr.length*Math.random());
+                return arr[index];
+            }
+            var ary = new Array("new1","new2","new3","new4","new5","new6");
+
+            // getFoo is property which isn't enumerable
+            var my_obj = Object.create({}, { getFoo: { value: function() { return this.foo; } } });
+            my_obj.foo = 1;
+
+            var my_obj = Object.create({},{ getFoo : {value:function(){ return this.foo; }} })
+
+
+            next.onclick = function(){
+                console.log(123)
+                cnt = 0;
+                var toto =setInterval(function(){
+                    cnt++;
+                    console.log(cnt)
+                },5);
+            };
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

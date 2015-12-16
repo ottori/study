@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>공돌리기-삼각함수</title>
+    <link type="text/css" rel="stylesheet" href="../css/common_golfzon.css" />
+    <link type="text/css" rel="stylesheet" href="../css/default.css" />
+    <script type="text/javascript" src="../js/common.js"></script>
+    <style type="text/css">
+        div {position:relative;left:150px;top:150px}.wrap2 {left:200px; top:300px}.wrap3 {left:50px; top:500px}
+        em {position:absolute;left:0;top:0;width:27px;height:32px;background:url(../images/btn_android.png) no-repeat}
+        .vos2 {width:80px;height:50px;background:url(../images/btn_logo_reversal.png) no-repeat;background-size:100% auto}
+        .vos3 {width:30px;height:30px;border-radius:50%;background:url(../images/ico_twitter.png) no-repeat;background-size:100% auto}
+    </style>
+</head>
+<body>
+<div class="wrap"><em class="vos" id="circle" style="position:absolute; left:0;top:0;"></em></div>
+<div class="wrap2"><em class="vos2" id="vos2" style="position:absolute; left:0;top:0;"></em></div>
+<div class="wrap3"><em class="vos3" id="vos3" style="position:absolute; left:0;top:0;"></em></div>
+<script type="text/javascript">
+    /* 다 돌려뿌 */
+    function total() {
+        var obj = {
+            cnt: 0,
+            cnt_y: 0,
+            speed: 0.2, //속도
+            w: 100,//반지름
+            action: function (id) {
+                var ids = document.getElementById(id);
+                var that = this;
+                rightA = setInterval(function () {
+                    that.cnt += obj.speed;
+                    var sin = Math.ceil(Math.PI / 180) * Math.sin(that.cnt / 10) * obj.w;
+                    var cos = Math.ceil(Math.PI / 180) * Math.cos(that.cnt / 10) * obj.w;
+                    ids.style.left = sin + "px";
+                    ids.style.top = cos + "px";
+                }, 10)
+            }
+        };
+        obj.action("circle");
+        obj.action("vos3");
+
+        function vingle(){};
+
+        //vingle.prototype = new total()
+        console.log(vingle)
+
+        function actions(){}
+        var actions = new obj.action("vos2");
+        //actions.prototype.speed = 0.5
+        console.log(actions)
+        actions("vos2");
+
+    }
+    total()
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>TEST child</title>
+</head>
+<body>
+    <section id="main_swipe">
+        <article class="wrap apk and ios">
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
+        </article>
+    </section>
+    <script>
+        var main_swipe = document.getElementById("main_swipe");
+        var mschild = main_swipe.childNodes;
+        console.log(mschild);
+        console.log(mschild.length)
+
+        var aya = []
+        var abc = "abc"
+
+        console.log(aya);
+        aya.push(mschild)
+
+        console.log(aya);
+
+        var txt = String(mschild[0], mschild[1])
+
+        console.log(txt)
+        var txt = txt.split('')
+
+        console.log(aya)
+
+    </script>
+</body>
+</html>

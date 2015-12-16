@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+    <meta charset="UTF-8">
+    <title>배틀존</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="../css/common_golfzon.css" />
+    <link rel="stylesheet" href="../css/battle.css"/>
+    <style type="text/css">
+        .game {position:relative;height:30px;}
+        #ball {position:absolute;left:10px;top:0}
+        #btns {position:relative}
+        #prev {position:absolute;right:60px;top:0;width:40px;height:30px;line-height:30px;text-align:center;border:1px solid #000}
+        #next {position:absolute;right:10px;top:0;width:40px;height:30px;line-height:30px;text-align:center;border:1px solid #000}
+        #jump {position:absolute;left:10px;top:0;width:40px;height:30px;line-height:30px;text-align:center;border:1px solid #000}
+    </style>
+</head>
+<body>
+    <header class="header"><a class="btn_back"><strong class="del-txt">이전</strong></a><h1>배틀존</h1></header>
+    <section class="wrap_main">
+        <nav class="nav case1">
+            <ul>
+                <li class="on"><a href="">마이플레이</a></li>
+                <li><a href="">랭킹</a></li>
+                <li><a href="">전적</a></li>
+            </ul>
+        </nav>
+        <article class="my_play">
+            <div class="swipe_area">
+                <div class="my_intro1">
+                    <div class="pic"><span><em style="background:url(http://i.gzcdn.net/mui/img/battlezon/thumnail3.png) no-repeat;background-size:100% 100%"><span></span></em></span></div>
+                    <span class="name">골프왕쿨줴이</span><span class="empty"></span>
+                    <h3 class="title">2015년 하반기 시즌</h3>
+                    <h4 class="unit_title"><em class="ico_gragh1"></em>누적 포인트</h4>
+                    <em class="point1">450,000</em>
+                </div>
+                <div class="my_intro2">
+                    <h4 class="unit_title"><em class="ico_gragh2"></em>포인트 랭킹</h4>
+                    <div class="chart"><!-- 하이차트 삽입 --></div>
+                    <em class="point2">157,415</em><strong class="unit">위</strong>
+                    <span class="total">전체 195,456명</span>
+                </div>
+                <nav class="navigator"><a href="" class="on">point ranking</a><a href="">point history</a></nav>
+            </div>
+            <div class="round_info">
+                <ul>
+                    <li class="info1"><div class="shape"><span><em>196</em>승</span></div><strong>배틀플레이</strong></li>
+                    <li class="info2"><div class="shape"><span><em>196</em>회</span></div><strong>라운드</strong></li>
+                </ul>
+            </div>
+        </article>
+    </section>
+    <div class="game"><div id="ball" style="left:10px"><img src="../images/golfball.png" alt="" style="position:absolute;left:0;top:0;width:25px;height:25px"/></div></div>
+
+    <div id="btns">
+        <a href="" id="jump">▲</a>
+        <a href="" id="prev">◀</a>
+        <a href="" id="next">▶</a>
+    </div>
+    <script type="text/javascript">
+            //id 반환
+            /*function id(id){return document.getElementById(id);};
+
+            //여기서부터 게임코드 시작
+            var ball = id("ball");
+            var prev = id("prev");*/
+            var next = document.getElementById("next")
+            var before, after;
+            var start = parseInt(ball.style.left);//ball의 시작위치
+            var cnt;//시작위치 설정
+
+            //브라우저 너비값 읽어옴
+            //var win = window.document.body.offsetWidth - (start + 17);
+
+            function game(){};
+            game.prototype.count = function () {
+                console.log(111)
+                next.onclick = function(){
+                    console.log(123)
+                    var auto = setInterval(function(){
+                        cnt++;
+                        console.log(cnt)
+                        ball.style.left = cnt + "px";
+                        if(cnt >= win){
+                            cnt = win;
+                        };
+                    },5)
+                };
+                prev.onclick = function(){
+                    var auto = setInterval(function(){
+                        cnt--;
+                        if(cnt <= start){
+                            cnt = start;
+                        }
+                    },5)
+                };
+            };
+            /*game.prototype.count = function () {
+                if(cnt < win){
+                    var auto = setInterval(function(){
+                        cnt++;
+                        ball.style.left = cnt + "px";
+                        if(cnt >= win){
+                            clearInterval(auto);
+                        }
+                    },5)
+                }else{
+                    var auto = setInterval(function(){
+                        cnt--;
+                        ball.style.left = cnt + "px";
+                        if(cnt <= start){
+                            clearInterval(auto);
+                        }
+                    },5)
+                };
+            };*/
+
+            //var newgame = new game();
+
+            //newgame.count();
+
+            cnt = 0;
+            next.onclick = function(){
+                console.log(cnt)
+                var toto = setInterval(function(){
+                    cnt++;
+                    console.log(cnt)
+                },50);
+            };
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

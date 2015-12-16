@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+    <meta charset="UTF-8">
+    <title>person prototype test</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="../css/common_golfzon.css" />
+    <link type="text/css" rel="stylesheet" href="../css/default.css" />
+    <script type="text/javascript" src="../js/common.js"></script>
+    <style type="text/css">
+        div {position:relative;left:150px;top:150px}.wrap2 {left:200px; top:300px}.wrap3 {left:70px; top:500px}
+        em {position:absolute;left:0;top:0;width:27px;height:32px;background:url(../images/btn_android.png) no-repeat}
+        .vos2 {width:80px;height:50px;background:url(../images/btn_logo_reversal.png) no-repeat;background-size:100% auto}
+        .vos3 {width:30px;height:30px;border-radius:50%;background:url(../images/ico_twitter.png) no-repeat;background-size:100% auto}
+    </style>
+</head>
+<body>
+
+<div class="wrap"><em class="vos" id="circle" style="position:absolute; left:0;top:0;"></em></div>
+<div class="wrap2"><em class="vos2" id="vos2" style="position:absolute; left:0;top:0;"></em></div>
+<div class="wrap3"><em class="vos3" id="vos3" style="position:absolute; left:0;top:0;"></em></div>
+    <script type="text/javascript">
+        function person(name){
+            this.name = name
+        }
+        //person.prototype.name = null;
+        person.prototype.intro = function(){
+            return 'Ajax TEST 입니다.  ^^ '+this.name
+        }
+
+
+        function action(name){
+            this.name = name;
+        };
+        action.prototype = new person();
+        action.prototype.coding = function(){
+            return "아작스아작쓰쓰쓰쓰쓰쓰쓰!!!!"
+        }
+        var p1 = new action("하하하")
+        document.write(p1.intro() + "<br/>")
+        document.write(p1.coding() + "<br/>")
+    </script>
+</body>
+</html>

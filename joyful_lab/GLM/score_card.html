@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <title>스코어카드</title>
+    <!--<link type="text/css" rel="stylesheet" href="http://m.spazon.com/styles/common-1.1.0.0.css?2015041400" />-->
+    <style>
+        h1,div {margin:0;padding:0}
+        body {background:#efefef;}
+        table{width:100%;table-layout:fixed;word-break:break-all;border-collapse:collapse}
+        h1 {font-size:12px;padding:10px}
+        caption {display:none}
+        article {box-sizing:border-box;-webkit-box-sizing:border-box;padding:0  15px}
+        .score_title {height:17px;line-height:18px;padding:8px 0 9px;font-size:14px;color:#333;text-align:center}
+        .vision {display:inline-block;position:relative;top:-1px;width:23px;height:15px;margin-right:6px;border:1px solid #d64a40;border-radius:20px;background:url(ico_vision.png) 50% 50% no-repeat;background-size:13px 6px;-webkit-background-size:13px 6px;}
+        .score_table {border-top:1px solid #e1e1e1}
+        .score_table table {background:#fff;font-size:11px;color:#222;text-align:center;}
+        .score_table th {padding:2px 0 1px;height:18px;line-height:12px;background:#dadada;border:1px solid #fff;border-top:0;color:#333;border-bottom:1px solid #e1e1e1;font-weight:bold;vertical-align:middle}
+        .score_table th.hole {width:14%;border-left:1px solid #e1e1e1}
+        .score_table th.th_last {width:9%;border-right:1px solid #e1e1e1}
+        .score_table th.left {padding:2px 6px 1px;text-align:left}
+        .score_table th.th_top {padding:2px 6px 1px;text-align:left;border-bottom:1px solid #fff}
+        .score_table td {height:18px;line-height:12px;padding:2px 0 1px;border:1px solid #e1e1e1;color:#333}
+        .score_table .par th {background:#f6f6f6;border-color:#e1e1e1}
+        .score_table .par .last {color:#d64a40}
+        .score_table .last {color:#fff;background:#d64a40;font-weight:bold}
+        .score_table tbody th {border:1px solid #e1e1e1;background:#fff;font-weight:normal}
+
+        .ico_eagle {background:url(ico_heart1.png) 50% 50% no-repeat}
+        .ico_birdie {background:url(ico_heart2.png) 50% 50% no-repeat}
+        .ico_bogey {background:url(ico_square1.png) 50% 50% no-repeat}
+        .ico_bogey2 {background:url(ico_square2.png) 50% 50% no-repeat}
+        .ico_eagle, .ico_birdie, .ico_bogey, .ico_bogey2 {display:inline-block;width:100%;height:20px;line-height:21px;background-size:18px 18px;-webkit-background-size:18px 18px}
+        .ico_eagle,.ico_birdie {background-size:20px 20px;-webkit-background-size:20px 20px}
+
+        .ico_team1 {background:url(ico_team1.png) 100% bottom no-repeat;background-size:9px 9px;-webkit-background-size:9px 9px;}
+        .ico_team2 {background:url(ico_team2.png) 100% bottom no-repeat;background-size:9px 9px;-webkit-background-size:9px 9px;}
+        .ico_check {background:url(ico_check.png) 1px 1px no-repeat;background-size:10px 8px;-webkit-background-size:10px 8px;}
+        .ico_slash {background:url(ico_slash.png) 50% 50% no-repeat;background-size:12px 12px;-webkit-background-size:12px 12px;}
+        .score_table .mark {color:#d64a40;font-weight:bold}
+        .score_table .teamA .mark, .score_table .teamB .mark,.score_table .teamA .last, .score_table .teamB .last {background:#f6f6f6}
+        .score_table .teamA th {background:#d64a40;color:#fff}
+        .score_table .teamA td {background:#fae8e6}
+        .score_table .teamB th {background:#0575c3;color:#fff}
+        .score_table .teamB td {background:#dfedf7}
+
+        .posum th .ico_team1, .posum th .ico_team2 {display:inline-block;width:9px;height:9px;margin-right:3px;background-position:0 0}
+
+
+    </style>
+</head>
+<body>
+<h1>스트로크, 매치, 스킨스, 스테이블포드 모드</h1>
+    <article>
+        <h1 class="score_title"><em class="vision"></em>중부CC / 일반경기 - 스트로크</h1>
+        <div class="score_table stroke">
+            <table>
+                <caption>score card</caption>
+                <thead>
+                    <tr>
+                        <th scope="col" rowspan="2" class="hole">Hole</th>
+                        <th scope="col" colspan="9" class="th_top">WEST</th>
+                        <th scope="col" colspan="9" class="th_top">EAST</th>
+                        <th scope="col" rowspan="2" class="th_last">TOTAL</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">1</th>
+                        <th scope="col">2</th>
+                        <th scope="col">3</th>
+                        <th scope="col">4</th>
+                        <th scope="col">5</th>
+                        <th scope="col">6</th>
+                        <th scope="col">7</th>
+                        <th scope="col">8</th>
+                        <th scope="col">9</th>
+                        <th scope="col">10</th>
+                        <th scope="col">11</th>
+                        <th scope="col">12</th>
+                        <th scope="col">13</th>
+                        <th scope="col">14</th>
+                        <th scope="col">15</th>
+                        <th scope="col">16</th>
+                        <th scope="col">17</th>
+                        <th scope="col">18</th>
+                    </tr>
+                    <tr class="par">
+                        <th scope="row" class="left">PAR</th>
+                        <th>4</th>
+                        <th>5</th>
+                        <th>3</th>
+                        <th>2</th>
+                        <th>4</th>
+                        <th>2</th>
+                        <th>2</th>
+                        <th>4</th>
+                        <th>4</th>
+                        <th>4</th>
+                        <th>5</th>
+                        <th>3</th>
+                        <th>2</th>
+                        <th>4</th>
+                        <th>2</th>
+                        <th>2</th>
+                        <th>4</th>
+                        <th>4</th>
+                        <th class="last">72</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row" class="left">손프로</th>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>3</td>
+                        <td><span class="ico_eagle">1</span></td>
+                        <td><span class="ico_birdie">1</span></td>
+                        <td><span class="ico_bogey">1</span></td>
+                        <td><span class="ico_bogey2">1</span></td>
+                        <td><span class="ico_no">1</span></td>
+                        <td>-</td>
+                        <td class="ico_team1">5</td>
+                        <td class="ico_team2">5</td>
+                        <td class="ico_check">1</td>
+                        <td class="ico_slash"></td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td class="last">27</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="left">Player2</th>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td class="last">27</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="left">Player3</th>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td class="last">27</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </article>
+<h1>라스베가스 모드</h1>
+    <article>
+        <h1 class="score_title"><em class="vision"></em>중부CC / 일반경기 - 스트로크</h1>
+        <div class="score_table lasvegas">
+            <table>
+                <caption>score card</caption>
+                <colgroup>
+                    <col style="width:12.5%" />
+                    <col/><col/><col/><col/><col/><col/><col/><col/><col/><col/><col/><col/><col/><col/><col/><col/><col/><col/>
+                    <col style="width:7%" />
+                    <col style="width:7%" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="col" rowspan="2" class="hole">Hole</th>
+                        <th scope="col" colspan="9" class="th_top">WEST</th>
+                        <th scope="col" colspan="9" class="th_top">EAST</th>
+                        <th scope="col" rowspan="2" class="th_last">TOTAL</th>
+                        <th scope="col" rowspan="3" class="th_last">누적<br/>포인트</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">1</th>
+                        <th scope="col">2</th>
+                        <th scope="col">3</th>
+                        <th scope="col">4</th>
+                        <th scope="col">5</th>
+                        <th scope="col">6</th>
+                        <th scope="col">7</th>
+                        <th scope="col">8</th>
+                        <th scope="col">9</th>
+                        <th scope="col">10</th>
+                        <th scope="col">11</th>
+                        <th scope="col">12</th>
+                        <th scope="col">13</th>
+                        <th scope="col">14</th>
+                        <th scope="col">15</th>
+                        <th scope="col">16</th>
+                        <th scope="col">17</th>
+                        <th scope="col">18</th>
+                    </tr>
+                    <tr class="par">
+                        <th scope="row" class="left">PAR</th>
+                        <th>4</th>
+                        <th>5</th>
+                        <th>3</th>
+                        <th>2</th>
+                        <th>4</th>
+                        <th>2</th>
+                        <th>2</th>
+                        <th>4</th>
+                        <th>4</th>
+                        <th>4</th>
+                        <th>5</th>
+                        <th>3</th>
+                        <th>2</th>
+                        <th>4</th>
+                        <th>2</th>
+                        <th>2</th>
+                        <th>4</th>
+                        <th>4</th>
+                        <th class="last">72</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="teamA">
+                        <th scope="row" class="left">TeamA</th>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td class="mark">5</td>
+                        <td class="last">27</td>
+                    </tr>
+                    <tr class="teamB">
+                        <th scope="row" class="left">TeamB</th>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td class="mark">5</td>
+                        <td class="last">27</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="left">Player3</th>
+                        <td class="ico_team1">4</td>
+                        <td class="ico_team1">5</td>
+                        <td class="ico_team1">5</td>
+                        <td class="ico_team1">5</td>
+                        <td>4</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td class="mark">27</td>
+                        <td class="last">27</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="left">Player4</th>
+                        <td class="ico_team1">4</td>
+                        <td class="ico_team1">5</td>
+                        <td class="ico_team2">5</td>
+                        <td class="ico_team2">5</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td class="mark">27</td>
+                        <td class="last">27</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </article>
+<h1>신페리오 모드</h1>
+    <article>
+        <h1 class="score_title"><em class="vision"></em>중부CC / 일반경기 - 스트로크</h1>
+        <div class="score_table new_perio">
+            <table>
+                <caption>score card</caption>
+                <colgroup>
+                    <col style="width:8.5%" />
+                    <col style="width:7.5%" />
+                    <col/><col/><col/><col/><col/><col/><col/><col/><col/><col/><col/><col/>
+                    <col style="width:7.5%" />
+                    <col style="width:7.5%" />
+                    <col style="width:7.5%" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="col" rowspan="3" class="hole">Hole</th>
+                        <th scope="col" rowspan="3">스트로크<br/>스코어</th>
+                        <th scope="col" colspan="12">히든홀</th>
+                        <th scope="col" rowspan="2">히든홀<br/>합계</th>
+                        <th scope="col" rowspan="3">핸디캡</th>
+                        <th scope="col" rowspan="3">신페리오<br/>스코어</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">1</th>
+                        <th scope="col">3</th>
+                        <th scope="col">5</th>
+                        <th scope="col">6</th>
+                        <th scope="col">8</th>
+                        <th scope="col">9</th>
+                        <th scope="col">7</th>
+                        <th scope="col">10</th>
+                        <th scope="col">11</th>
+                        <th scope="col">13</th>
+                        <th scope="col">14</th>
+                        <th scope="col">18</th>
+                    </tr>
+                    <tr class="par">
+                        <th scope="col">5</th>
+                        <th scope="col">3</th>
+                        <th scope="col">4</th>
+                        <th scope="col">4</th>
+                        <th scope="col">3</th>
+                        <th scope="col">2</th>
+                        <th scope="col">1</th>
+                        <th scope="col">2</th>
+                        <th scope="col">3</th>
+                        <th scope="col">4</th>
+                        <th scope="col">4</th>
+                        <th scope="col">4</th>
+                        <th scope="col" class="mark">48</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row" class="left">Player1</th>
+                        <td class="mark">82</td>
+                        <td>5</td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td class="mark">57</td>
+                        <td class="mark">10.8</td>
+                        <td class="last">71.2</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="left">Player1</th>
+                        <td class="mark">82</td>
+                        <td>5</td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td class="mark">57</td>
+                        <td class="mark">10.8</td>
+                        <td class="last">71.2</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="left">Player1</th>
+                        <td class="mark">82</td>
+                        <td>5</td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td class="mark">57</td>
+                        <td class="mark">10.8</td>
+                        <td class="last">71.2</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="left">Player1</th>
+                        <td class="mark">82</td>
+                        <td>5</td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td class="mark">57</td>
+                        <td class="mark">10.8</td>
+                        <td class="last">71.2</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </article>
+<h1>포섬스트로크</h1>
+    <article>
+        <h1 class="score_title"><em class="vision"></em>중부CC / 일반경기 - 포섬 스트로크</h1>
+        <div class="score_table posum">
+            <table>
+                <caption>score card</caption>
+                <thead>
+                    <tr>
+                        <th scope="col" rowspan="2" class="hole">Hole</th>
+                        <th scope="col" colspan="9">WEST</th>
+                        <th scope="col" colspan="9">EAST</th>
+                        <th scope="col" rowspan="2" class="th_last">TOTAL</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">1</th>
+                        <th scope="col">2</th>
+                        <th scope="col">3</th>
+                        <th scope="col">4</th>
+                        <th scope="col">5</th>
+                        <th scope="col">6</th>
+                        <th scope="col">7</th>
+                        <th scope="col">8</th>
+                        <th scope="col">9</th>
+                        <th scope="col">10</th>
+                        <th scope="col">11</th>
+                        <th scope="col">12</th>
+                        <th scope="col">13</th>
+                        <th scope="col">14</th>
+                        <th scope="col">15</th>
+                        <th scope="col">16</th>
+                        <th scope="col">17</th>
+                        <th scope="col">18</th>
+                    </tr>
+                    <tr class="par">
+                        <th scope="row" class="left">PAR</th>
+                        <th>4</th>
+                        <th>5</th>
+                        <th>3</th>
+                        <th>2</th>
+                        <th>4</th>
+                        <th>2</th>
+                        <th>2</th>
+                        <th>4</th>
+                        <th>4</th>
+                        <th>4</th>
+                        <th>5</th>
+                        <th>3</th>
+                        <th>2</th>
+                        <th>4</th>
+                        <th>2</th>
+                        <th>2</th>
+                        <th>4</th>
+                        <th>4</th>
+                        <th class="last">72</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row" class="left"><em class="ico_team1"></em>손프로님</th>
+                        <td rowspan="2">4</td>
+                        <td rowspan="2">5</td>
+                        <td rowspan="2">3</td>
+                        <td rowspan="2">2</td>
+                        <td rowspan="2">4</td>
+                        <td rowspan="2">2</td>
+                        <td rowspan="2">2</td>
+                        <td rowspan="2">4</td>
+                        <td rowspan="2">4</td>
+                        <td rowspan="2">4</td>
+                        <td rowspan="2">5</td>
+                        <td rowspan="2">5</td>
+                        <td rowspan="2">5</td>
+                        <td rowspan="2">5</td>
+                        <td rowspan="2">5</td>
+                        <td rowspan="2">5</td>
+                        <td rowspan="2">5</td>
+                        <td rowspan="2">5</td>
+                        <td rowspan="2" class="last">27</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="left"><em class="ico_team1"></em>기대만발</th>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="left"><em class="ico_team2"></em>짜장면</th>
+                        <td rowspan="2">4</td>
+                        <td rowspan="2">5</td>
+                        <td rowspan="2">3</td>
+                        <td rowspan="2">2</td>
+                        <td rowspan="2">4</td>
+                        <td rowspan="2"><span class="ico_eagle">2</span></td>
+                        <td rowspan="2"><span class="ico_birdie">3</span></td>
+                        <td rowspan="2"><span class="ico_bogey">4</span></td>
+                        <td rowspan="2"><span class="ico_bogey2">8</span></td>
+                        <td rowspan="2">4</td>
+                        <td rowspan="2">5</td>
+                        <td rowspan="2">5</td>
+                        <td rowspan="2">5</td>
+                        <td rowspan="2">5</td>
+                        <td rowspan="2">5</td>
+                        <td rowspan="2">5</td>
+                        <td rowspan="2">5</td>
+                        <td rowspan="2">5</td>
+                        <td rowspan="2" class="last">27</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="left"><em class="ico_team2"></em>내가 최고님</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </article>
+</body>
+</html>
+
+
+
+
+

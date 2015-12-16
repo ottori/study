@@ -1,0 +1,17 @@
+<html ng-app>
+<head>
+    <script src="angular.js"></script>
+    <script src="controllers.js"></script>
+</head>
+<body>
+    <div ng-controller="HelloController">
+        <input type="text" ng-model="greeting.text"/>
+        <p>{{greeting.text}}, 골프존 카운티명 변경사항 완료</p>
+    </div>
+
+    <div ng-controller="JAVA_likes">
+        <input type="text" ng-model="hi.text"  />
+        <p id="txt">{{hi.text}} , 테스트 구현 spazon.com</p>
+    </div>
+</body>
+</html>

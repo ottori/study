@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>loop</title>
+    <link rel="stylesheet" href="default.css"/>
+</head>
+<body ng-controller="JAVA">
+    <section class="wrap">
+        <nav class="nav case1">
+            <ul>
+                <li><a href="">마이플레이</a></li>
+                <li class="on"><a href="">랭킹</a></li>
+                <li><a href="">전적</a></li>
+            </ul>
+        </nav>
+        <article class="ranking">
+            <nav class="nav case2">
+                <ul>
+                    <li class="on"><a href="">포인트</a></li>
+                    <li><a href="">팀배틀</a></li>
+                    <li><a href="">지인배틀</a></li>
+
+                    <li><a href="">대전</a></li>
+                </ul>
+            </nav>
+            <h3 class="hide">랭킹 플레이어</h3>
+            <a href="" class="player">
+                <div>
+                    <span class="pic"><span style="background:url(http://i.gzcdn.net/mui/img/battlezon/thumnail1.png) 50% 50% no-repeat;background-size:cover"><em></em></span></span>
+                    <span class="name">골프왕쿨줴이골프왕쿨줴이골프왕쿨줴이골프왕쿨줴이</span>
+                    <em class="num">999</em><em>위</em>
+                </div>
+                <strong style="">999,999</strong>
+            </a>
+            <h3 class="hide">랭킹 리스트</h3>
+            <div class="player_head">
+                <span>플레이어</span>
+                <span>포인트</span>
+            </div>
+            <div class="player_list">
+                <a href="" class="top10"><!-- 10위까지만 top10 클래스 있음 -->
+                    <span>1</span>
+                    <em class="pic" style="background:url(http://i.gzcdn.net/mui/img/battlezon/thumnail1.png) 50% 50% no-repeat;background-size:cover"></em>
+                    <div>
+                        <em class="title">릭키파울러릭키파울러릭키파울러릭키파울러릭키파울러릭키파울러릭키파울러</em>
+                        <strong>999,999,000</strong>
+                    </div>
+                </a>
+            </div>
+        </article>
+    </section>
+
+    <script type="text/javascript" src="angular.js"></script>
+
+    <script type="text/javascript">
+        function JAVA(){
+
+            var model = document.getElementsByClassName("player_list");
+            var num = model[0].getElementsByTagName("span")[0];
+            var num_value = num.innerHTML;
+            var values = Number(num_value);
+            var cnt;
+
+            console.log(typeof values)
+
+            if( values < 50 ){
+                cnt = 0;
+                console.log(cnt)
+                var cc = setInterval(function(){
+                    cnt ++;
+                    console.log(cnt)
+                    num.innerHTML = cnt;
+                    if( cnt == 50 ){
+                        clearInterval(cc);
+                        alert(111)
+                    }
+                },50)
+            }else if( values >=  50 ){
+                function actions(){
+                    if( cnt > = 1 ){
+
+
+                    }else{
+
+                    }
+
+                }
+            }else{
+
+            }
+
+
+            console.log(num_value);
+
+        }
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

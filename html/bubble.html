@@ -1,0 +1,90 @@
+<!Doctype html>
+<head>
+    <title>골프공 작살내기</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="화살키를 좌우로 움직여 각도조절 후 스페이스바를 눌러 볼을 발사하는 게임입니다." />
+    <style type="text/css">body {background:#efefef}h1 {font-size:30px;padding:10px 0;text-align:center;font-family:"돋움",Dotum}
+    .container {overflow:hidden;position:relative;min-height:600px;width:600px;margin:0 auto;border:3px solid #999;background:#fff}
+    .ball,.newball {display:inline-block;border-radius:50%;width:30px;height:30px;box-shadow:2px 2px 2px rgba(0,0,0,.2)}
+    .red {background:red}
+    .green {background:green}
+    .yellow {background:yellow}
+    .wrap {position:absolute;left:50%;bottom:-160px;margin-left:-20px}
+    .newball {background:#0e52ba;z-index:2;position:absolute;left:50%;bottom:0;margin-left:-15px}
+    .emp {position:absolute;left:0;right:0;bottom:0;display:block;height:20px;background:#fff}
+    .emp em {position:absolute;left:50%;bottom:-60px;right:0;margin-left:-50px;background:#000;width:100px;height:100px;border-radius:50%}
+    #wrap {position:absolute;left:50%;bottom:0;margin-left:-15px;width:30px;height:500px}
+    #wrap .newball {position:absolute;left:0;bottom:0;}
+    </style>
+</head>
+<body>
+<h1>골프공 작살내기</h1>
+<div class="container">
+    <div></div>
+    <div class="ball red"></div><div class="ball red"></div><div class="ball red"></div><div class="ball red"></div><div class="ball red"></div>
+    <div class="ball green"></div><div class="ball green"></div><div class="ball green"></div><div class="ball green"></div><div class="ball green"></div>
+    <div class="ball yellow"></div><div class="ball yellow"></div><div class="ball yellow"></div><div class="ball yellow"></div><div class="ball yellow"></div><div class="ball red"></div><div class="ball red"></div><div class="ball red"></div><div class="ball red"></div><div class="ball red"></div>
+    <div class="ball green"></div><div class="ball green"></div><div class="ball green"></div><div class="ball green"></div><div class="ball green"></div>
+    <div class="ball yellow"></div><div class="ball yellow"></div><div class="ball yellow"></div><div class="ball yellow"></div><div class="ball yellow"></div><div class="ball red"></div><div class="ball red"></div><div class="ball red"></div><div class="ball red"></div><div class="ball red"></div>
+    <div class="ball green"></div><div class="ball green"></div><div class="ball green"></div><div class="ball green"></div><div class="ball green"></div>
+    <div class="ball yellow"></div><div class="ball yellow"></div><div class="ball yellow"></div><div class="ball yellow"></div><div class="ball yellow"></div>
+    <div class="wrap"><img src="http://ellyess.cafe24.com/templete/err.png" alt="" width="40" height="350" class="err" id="err" style="transform:rotate(0deg)"></div>
+    <div id="wrap" style="transform:rotate(0deg)"></div>
+
+    <em class="emp"><em></em></em>
+</div>
+<script type="text/javascript">
+    /*document.documentElement.onkeyup = function(event){
+     var e = event || window.event;
+     alert(e.keyCode);
+     }
+     document.documentElement.onkeydown = function(event){
+     var e = event || window.event;
+     alert("keydown 이벤트 key 값 = " + e.keyCode);
+     }*/
+</script>
+
+<script type="text/javascript">
+    var errs;
+    var cnt = 0;
+    var err = document.getElementById("err");
+    var wrap = document.getElementById("wrap");
+
+    //방향 키
+    document.documentElement.onkeydown = function(event){
+        var e = event || window.event;
+        console.log(e.keyCode)
+        if( e.keyCode == 37 ){
+            errs = "left";
+            cnt-=10;
+            if( cnt <= -70 ){
+                cnt = -70;
+            }
+            err.style.transform = "rotate(" + cnt + "deg)";
+        }else if( e.keyCode == 39) {
+            errs = "right";
+            cnt += 10;
+            if (cnt >= 70) {
+                cnt = 70;
+            }
+            err.style.transform = "rotate(" + cnt + "deg)";
+        }else if(e.keyCode == 32){
+            var blocks = document.getElementsByClassName("ball");
+            var newball = document.createElement("div");
+
+            newball.setAttribute("class","newball");
+            wrap.appendChild(newball);
+            //발사 후 볼이 닿는 거리
+            var hh =   //기존 높이
+
+        }else{console.log("위")}
+    }
+
+    //발사
+
+
+
+
+</script>
+</body>
+</html>

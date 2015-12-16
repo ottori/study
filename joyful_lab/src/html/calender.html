@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>롤링배너 | Joyful Lab</title>
+    <link rel="shortcut icon" href="http://i.gzcdn.net/mui/img/favicon.ico" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <link type="text/css" rel="stylesheet" href="../css/common_golfzon.css" />
+    <style type="text/css">
+        /* 캘린더 */
+        .controller {position:relative;height:52px;padding-top:17px;color:#8c919e;font-size:14px;box-sizing:border-box;-webkit-box-sizing:border-box}
+        .controller .btn_left_cal {left:36px;top:10px}
+        .controller .btn_right_cal {right:36px;top:10px}
+        .controller .btn_left_cal {background:url(http://i.gzcdn.net/mui/img/glm/common/btn_left_calender.png) 50% 50% no-repeat}
+        .controller .btn_right_cal {background:url(http://i.gzcdn.net/mui/img/glm/common/btn_right_calender.png) 50% 50% no-repeat}
+        .controller .btn_left_cal, .controller .btn_right_cal {position:absolute;display:inline-block;width:20px;height:20px;padding:5px;text-indent:-7000px;background-size:12px 20px;-webkit-background-size:12px 20px}
+        .controller .cal_title span {display:inline-block;padding:0 1px 3px;font-size:18px;color:#76767e;font-weight:bold;background:url(http://i.gzcdn.net/mui/img/glm/common/btn_bg_err.png) 100% bottom no-repeat;background-size:41px 3px;-webkit-background-size:41px 3px;letter-spacing:-1px}
+        .controller .cal_title .month {margin-left:6px}
+
+        .date_selector {overflow:visible;position:relative;width:100%;height:44px;line-height:45px;background:#edf0f4;border-bottom:1px solid #dee3e9}
+        .date_selector h2{text-align:center;font-size:15px;font-weight:normal;color:#393d40}
+        .date_selector .before {left:0}
+        .date_selector .next {right:0}
+        .date_selector .ico_calender {position:relative;top:-2px;margin-left:7px;vertical-align:middle}
+        .date_selector .dimd {position:fixed;z-index:10}
+
+        .calender {overflow:hidden;position:relative;z-index:200;width:288px;line-height:1;margin:0 auto;text-align:center;border:1px solid #b6b9bf;background:#fff;font-size:16px;color:#1e2832}
+        .calender caption {display:none}
+        .calender table {width:100%}
+        .calender th {width:14.28%;height:23px;line-height:24px;font-size:12px;color:#fff;background:#8c919e;border:1px solid #fff;border-top:0}
+        .calender td {width:14.28%;line-height:35px;color:#76767e;font-size:16px;border:1px solid #fff;background:#f8fafb}
+        .calender th:first-child {color:#ffbfbf;border-left:0}
+        .calender th:last-child {border-right:0;color:#a6f1ff}
+        .calender td:last-child a {color:#5ab3e2}
+        .calender td:first-child a {color:#ff7e7e;}
+        .calender td:last-child {color:#5ab3e2}
+        .calender a {display:block;height:35px}
+        .calender span {color: #c4c4c8;}
+        .calender .today a {background:#8c919e;color:#fff}
+        .calender table a:active,.calender table .on {background:#d64a40;color:#fff}
+    </style>
+</head>
+<body>
+<div class="calender">
+    <div class="controller">
+        <a href="" class="btn_left_cal">Before</a>
+        <strong class="cal_title"><span class="years">2015</span> 년 <span class="month">6</span> 월</strong>
+        <a href="" class="btn_right_cal">Next</a>
+    </div>
+    <table>
+        <caption>calender</caption>
+        <thead>
+        <tr>
+            <th>일</th>
+            <th>월</th>
+            <th>화</th>
+            <th>수</th>
+            <th>목</th>
+            <th>금</th>
+            <th>토</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td></td><!-- data없어도 td는 꼭 뿌려주세요 -->
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><a href="" class="on">1</a></td><!-- 선택한 날짜 on 클래스 -->
+            <td><a href="">2</a></td>
+        </tr>
+        <tr>
+            <td><a href="">3</a></td>
+            <td><a href="">4</a></td>
+            <td><a href="">5</a></td>
+            <td><a href="">6</a></td>
+            <td><a href="">7</a></td>
+            <td><a href="">8</a></td>
+            <td><a href="">9</a></td>
+        </tr>
+        <tr>
+            <td><a href="">10</a></td>
+            <td><a href="">11</a></td>
+            <td><a href="">12</a></td>
+            <td><a href="">13</a></td>
+            <td class="today"><a href="">14</a></td> <!-- 오늘날짜 클래스 : today  -->
+            <td><a href="">15</a></td>
+            <td><a href="">16</a></td>
+        </tr>
+        <tr>
+            <td><a href="">17</a></td>
+            <td><a href="">18</a></td>
+            <td><a href="">19</a></td>
+            <td><a href="">20</a></td>
+            <td><a href="">21</a></td>
+            <td><a href="">22</a></td>
+            <td><a href="">23</a></td>
+        </tr>
+        <tr>
+            <td><a href="">24</a></td>
+            <td><a href="">25</a></td>
+            <td><a href="">26</a></td>
+            <td><a href="">27</a></td>
+            <td><a href="">28</a></td>
+            <td><a href="">29</a></td>
+            <td><a href="">30</a></td>
+        </tr>
+        <tr>
+            <td><a href="">31</a></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

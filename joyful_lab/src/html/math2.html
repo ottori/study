@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>공돌리기-삼각함수</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="../css/common_golfzon.css" />
+    <link type="text/css" rel="stylesheet" href="../css/default.css" />
+    <script type="text/javascript" src="../js/common.js"></script>
+    <style type="text/css">
+        div {position:relative;left:150px;top:150px}.wrap2 {left:200px; top:300px}.wrap3 {left:70px; top:500px}.wrap4 {top:700px}
+        em {position:absolute;left:0;top:0;width:27px;height:32px;background:url(../images/btn_android.png) no-repeat}
+        em span {display:inline-block;vertical-align:middle;}
+        .vos {width:auto;height:50px;background:none;font-size:20px}
+        .vos span {margin-left:10px;width:80px;height:50px;background:url(../images/btn_android.png) no-repeat}
+        .vos2 {width:80px;height:50px;background:url(../images/btn_logo_reversal.png) no-repeat;background-size:100% auto}
+        .vos3 {width:100px;height:50px;background:none}
+        .vos3 span {width:30px;height:30px;margin-left:10px;border-radius:50%;background:url(../images/ico_twitter.png) no-repeat;background-size:30px auto}
+        .vos4 {width:auto;background:none}
+        .vos4 span {width:27px;height:32px;margin-left:10px;border-radius:50%;background:#fff url(../images/btn_ios.png) no-repeat;background-size:30px auto}
+    </style>
+</head>
+<body>
+    <div class="wrap"><em class="vos" id="circle" style="position:absolute;left:0;top:0;">나 잡아봐라~<span></span></em></div>
+    <div class="wrap2"><em class="vos2" id="vos2" style="position:absolute;left:1px;top:0;"></em></div>
+    <div class="wrap3"><em class="vos3" id="vos3" style="position:absolute;left:0;top:0;">사라있네~<span></span></em></div>
+    <div class="wrap4"><em class="vos4" id="vos4" style="position:absolute;left:0;top:0;">사라있네~~~<span></span></em></div>
+    <script type="text/javascript">
+        /* 싹 다 돌려뿌 */
+        function action(id){
+            this.ids = id;
+            this.speed = 0.2
+        };
+        action.prototype.speed = function(){
+            this.speed = 0.2
+        }
+        action.prototype.init = function(id) {
+            var that = this; //this를 that으로 담는 위치가 가장 중요하다!!!!!!!!
+            this.cnt = 0;
+            this.w = 100;
+            this.actions = setInterval(function () {
+                that.cnt += that.speed;
+                var sin = Math.ceil(Math.PI / 180) * Math.sin(that.cnt / 10) * 100;
+                var cos = Math.ceil(Math.PI / 180) * Math.cos(that.cnt / 10) * that.w;
+                that.ids.style.left = sin + "px";
+                that.ids.style.top = cos + "px";
+            }, 10);
+        };
+
+        new action(vos2).init();
+
+        function funk(id){
+            this.ids = id;
+        }
+
+        funk.prototype.speed = function(){
+            this.speed = 0.3
+        }
+        funk.prototype = new action(circle).init();
+        console.log(funk)
+/*
+        funk.prototype.init2 = function(id){
+            var that = this; //this를 that으로 담는 위치가 가장 중요하다!!!!!!!!
+            console.log(this)
+            this.cnt = 0;
+            this.w = 100;
+            this.speed = 0.8;
+            this.actions2 = setInterval(function () {
+                that.cnt += 0.5;
+                var sin = Math.ceil(Math.PI / 180) * Math.sin(that.cnt / 10) * 100;
+                var cos = Math.ceil(Math.PI / 180) * Math.cos(that.cnt / 10) * that.w;
+
+                that.ids.style.left = sin + "px";
+                that.ids.style.top = cos + "px";
+            }, 10);
+        }
+        new funk(circle).init2();*/
+
+        function pampy(id){
+            this.ids = id;
+        }
+
+        pampy.prototype = new action()
+        console.log(funk)
+
+        pampy.prototype.init2 = function(id){
+            var that = this; //this를 that으로 담는 위치가 가장 중요하다!!!!!!!!
+            console.log(this)
+            this.cnt = 0;
+            this.w = 100;
+            this.speed = 0.9;
+            this.actions2 = setInterval(function () {
+                that.cnt += 0.5;
+                var sin = Math.ceil(Math.PI / 180) * Math.sin(that.cnt / 10) * 100;
+                var cos = Math.ceil(Math.PI / 180) * Math.cos(that.cnt / 10) * that.w;
+
+                that.ids.style.left = - sin + "px";
+                that.ids.style.top = cos + "px";
+            }, 10);
+        }
+        new pampy(vos3).init2();
+
+
+
+        function vally(id){
+            this.ids = id;
+        }
+
+        vally.prototype = new action()
+        console.log(funk)
+
+        vally.prototype.init2 = function(id){
+            var that = this; //this를 that으로 담는 위치가 가장 중요하다!!!!!!!!
+            console.log(this)
+            this.cnt = 0;
+            this.w = 100;
+            this.speed = 0.4;
+            this.actions2 = setInterval(function () {
+                that.cnt += 0.2;
+                var sin = Math.ceil(Math.PI / 180) * Math.sin(that.cnt / 10) * 100;
+                var cos = Math.ceil(Math.PI / 180) * Math.cos(that.cnt / 10) * that.w;
+
+                that.ids.style.left =  sin + "px";
+                that.ids.style.top = cos + "px";
+            }, 10);
+        }
+        new vally(vos4).init2();
+
+
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

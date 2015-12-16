@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+    <meta charset="UTF-8">
+    <title>Ajax</title>
+    <style>
+        #demo {min-height:200px;background:#a0a0a0}
+    </style>
+</head>
+<body>
+    <div id="sheet">
+        <p>Ajax 테스트</p>
+        <div id="demo"><h2>Let AJAX change this text</h2></div>
+        <p>Ajax 테스트 Ajax 테스트</p>
+        <p>Ajax 테스트 Ajax 테스트</p>
+        <p>Ajax 테스트 Ajax 테스트</p>
+
+        <button type="button" onclick="loadDoc()">Change Content</button>
+
+        <script>
+                function loadDoc() {
+                    var xhttp = new
+                            ();
+                    xhttp.onreadystatechange = function () {
+                        if (xhttp.readyState == 4 && xhttp.status == 200) {
+                            document.getElementById("demo").innerHTML = xhttp.responseText;
+                        }
+                    }
+                    xhttp.open("GET", "math.html", true);
+                    xhttp.send();
+                }
+
+        </script>
+    </div>
+</body>
+</html>

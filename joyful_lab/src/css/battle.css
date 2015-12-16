@@ -1,0 +1,292 @@
+/* default */
+body, .main_container_wrap {background-color:#191a1a;color:#6c707d;font-size:13px}
+
+.header {background:#2c2c2c;height:44px;line-height:44px;text-align:center;border-bottom:1px solid #000;}
+.header h1 {font-size:19px;color:#eee}
+/* nav */
+.nav ul {overflow:hidden;clear:both;text-align:center}
+.nav li {float:left}
+.nav a {display:block}
+.nav .on a {color:#fff;font-weight:bold}
+
+/* nav case1 */
+.nav.case1 {position:relative;z-index:3;box-shadow:0 1px 1px rgba(0,0,0,.3);-webkit-box-shadow:0 1px 1px rgba(0,0,0,.3)}
+.nav.case1 li {width:33.3%}
+.nav.case1 li:first-child {width:33.4%}
+.nav.case1 a {overflow:hidden;height:45px;line-height:46px;color:#9c9c9c;font-size:15px;border-bottom:1px solid #242424;background:#2c2c2c}
+.nav.case1 .on a {border-bottom:1px solid #fff;color:#fff}
+
+/* nav case2 */
+.nav.case2 li {width:34%}
+.nav.case2 li:first-child, .nav.case2 li:last-child {width:33%}
+.nav.case2 li:first-child a {border-radius:17px 0 0 17px;border-left:1px solid #6c707d}
+.nav.case2 li:last-child a {border-radius:0 17px 17px 0}
+.nav.case2 a {height:31px;line-height:31px;border:1px solid #5e5e5e;border-left:0;color:#717171;font-size:14px}
+.nav.case2 .on a {color:#fff}
+
+/* 마이플레이 */
+.my_play {padding:55px 15px 39px;background:#191a1a}
+.swipe_area {position:relative;padding:36px 0 0;line-height:1;border-radius:7px;-webkit-border-radius:7px;-moz-border-radius:5px;border:1px solid rgba(0,0,0,0.5);background-color:#2b2d2f;text-align:center}
+.swipe_area span, .swipe_area em {display:block}
+.swipe_area .pic {position:absolute;left:50%;top:-39px;width:59px;height:59px;margin-left:-34px;border:5px solid #191a1a;background: #34caab;  background: -moz-linear-gradient(top, #34caab 0%, #2087c2 99%);  background: -webkit-linear-gradient(top, #34caab 0%,#2087c2 99%);  background: -o-linear-gradient(top, #34caab 0%,#2087c2 99%);  background: -ms-linear-gradient(top, #34caab 0%,#2087c2 99%)}
+.swipe_area .pic, .swipe_area .pic span, .swipe_area .pic em {border-radius:50%;-webkit-border-radius:50%}
+.swipe_area .pic span {width:53px;height:53px;padding:3px;background:url(http://ellyess.cafe24.com/user_default.png) 50% 50% no-repeat;background-size:53px 53px;-webkit-background-size:53px 53px}
+.swipe_area .pic em {position:relative;width:53px;height:53px}
+.swipe_area .pic em span {display:none;width:53px;height:53px;padding:0;background:rgba(0,0,0,.5);border-radius:50%}
+.swipe_area .pic em span.on {display:block}
+.swipe_area .name {display:inline-block;color:#7babc6}
+.swipe_area .names {display:inline-block;margin-left:-1px;padding-left:3px;color:#c7d2d8}
+.swipe_area .exp {padding:5px 0 27px;color:#c7d2d8;line-height:16px;opacity:.7}
+.swipe_area .exp em {display:inline-block;color:#fff;font-weight:bold;text-align:center}
+.swipe_area .exp_title {padding-bottom:21px;font-size:14px;color:#6ccfba}
+.swipe_area .empty {display:block;margin:0 auto 4px;padding:6px 0 0 0;width:10px;height:1px;background:url(http://i.gzcdn.net/mui/img/battlezon/bg_bar1.gif) left bottom repeat-x;background-size:1px 1px}
+.swipe_area .chart {position:relative;width:84px;height:84px;margin:6px auto 0}
+.swipe_area .title {padding-bottom:16px;font-size:15px;color:#d3d3d3}
+.swipe_area .ico_gragh1 {background:url(http://i.gzcdn.net/mui/img/battlezon/ico_empty1.png) no-repeat}
+.swipe_area .ico_gragh2 {background:url(http://i.gzcdn.net/mui/img/battlezon/ico_empty2.png) no-repeat}
+.swipe_area .unit_title {color:#d4dae0;font-weight:normal}
+.swipe_area .unit_title em {width:16px;height:7px;margin:0 auto 2px;background-size:16px 7px;-webkit-background-size:16px 7px}
+.swipe_area .my_intro1 {margin:0 20px;background:url(http://i.gzcdn.net/mui/img/battlezon/bg_bar2.gif) left bottom repeat-x;background-size:1px 1px}
+.swipe_area .my_intro2 {padding-top:19px}
+.swipe_area .my_intro2 .emp {height:30px;padding-top:12px}
+.swipe_area .my_intro2 .emp .point2 {font-size:21px}
+.swipe_area .my_intro2 .emp .unit {top:0}
+.swipe_area .my_intro2
+
+.swipe_area .ico_exception {display:block;width:13px;height:13px;margin:0 auto;background:url(http://i.gzcdn.net/mui/img/battlezon/ico_expection.png) no-repeat;background-size:13px 13px;-webkit-background-size:13px 13px;-moz-background-size:13px 13px}
+.swipe_area .point1 {line-height:44px;padding-bottom:21px;font-size:46px;color:#30cbb2;letter-spacing:-1px}
+.swipe_area .point2 {line-height:1;display:inline-block;font-size:42px;letter-spacing:-1px;color:#21acf7;}
+.swipe_area .unit {display:inline-block;position:relative;top:-2px;padding-left:4px;font-size:21px;color:#259df5;font-weight:normal}
+.swipe_area .total {display:block;font-size:15px;color:#747b81;padding:5px 0 35px}
+.swipe_area .topclass {position:absolute;z-index:2;left:0;right:0;top:20px;line-height:1;color:#7c7d7e;}
+.navigator {position:absolute;left:0;bottom:19px;right:0;height:7px}
+.navigator a {display:inline-block;width:7px;height:7px;background-color:#5b636a;border-radius:50%;-webkit-border-radius:50%;-moz-border-radius:50%;-ms-border-radius:50%;margin-right:2px;text-indent:-7000px;color:transparent}
+.navigator .on {background-color:#fff}
+
+/* 마이플레이 예외사항 */
+.exception .chart {margin-top:12px}
+.exception .round_info {padding-top:13px}
+.exception .sample {padding-bottom:3px;color:#fff;text-align:center;font-style:italic;font-weight:normal}
+.exception .sample em {display:inline-block;padding:0;font-size:14px;color:#00eaff;font-weight:bold}
+.exception .swipe_area .my_intro2 {padding-top:15px}
+
+/* 하이차트 커스터마이징 */
+.swipe_area rect {fill:#2b2d2f}
+.swipe_area #rankingOdometer div {padding:0 !important}
+.swipe_area #rankingOdometer span {font-size:28px !important}
+.swipe_area .highcharts-title {left:0 !important;right:0 !important;top:30px !important;text-align:center}
+.swipe_area .golfzon-swipe {height:209px !important}
+.swipe_area .odometer.odometer-auto-theme .odometer-digit .odometer-value, .odometer.odometer-theme-default .odometer-digit .odometer-value {font-size:28px;color:#50a6ff}
+.swipe_area .odometer.odometer-auto-theme {padding:0}
+/* //하이차트 커스터마이징 */
+
+/* 랭킹 */
+.ranking {padding:20px 11px 0}
+.round_info {width:290px;margin:0 auto;padding:33px 0 15px}
+.round_info ul {text-align:center}
+.round_info li {display:inline-block;color:#d55b36;}
+.round_info li:first-child {margin-right:40px}
+.round_info span {background:#191a1a}
+.round_info em {display:block;padding:22px 0 1px;line-height:24px;font-size:29px}
+.odometer.odometer-auto-theme, .odometer.odometer-theme-default {display:block !important;line-height:1 !important;padding-top:15px}
+.round_info strong {display:block;padding-top:4px;color:#fff;font-weight:normal}
+.round_info .shape {width:80px;height:80px;margin:0 auto;padding:2px;font-size:14px;text-shadow:1px 1px 1px rgba(0,0,0,0.5);-webkit-text-shadow:1px 1px 1px rgba(0,0,0,0.5)}
+.round_info .shape, .round_info .shape > span {display:block;height:80px;width:80px;border-radius:50%;-webkit-border-radius:50%}
+.round_info .info1 .shape {color:#2dffd5}
+.round_info .info2 .shape {color:#c257ff}
+.round_info .info1 em {color:#42c9d4}
+.round_info .info2 em {color:#bb54f6}
+.round_info .info1 .shape {background:#34caad; background: -moz-linear-gradient(top, #34caad 0%, #7db9e8 100%, #33bfcc 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#34caad), color-stop(100%,#7db9e8), color-stop(100%,#33bfcc)); background: -webkit-linear-gradient(top, #34caad 0%,#7db9e8 100%,#33bfcc 100%)}
+.round_info .info2 .shape {background:#a23ade; background: -moz-linear-gradient(top, #a23ade 0%, #812ce0 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a23ade), color-stop(100%,#812ce0)); background: -webkit-linear-gradient(top, #a23ade 0%,#812ce0 100%)}
+.player {display:block;position:relative;overflow:hidden;height:92px;margin:0 7px;padding:24px 6px;color:#5a98bf;box-sizing:border-box;-webkit-box-sizing:border-box}
+.player div {padding-left:54px;box-sizing:border-box;-webkit-box-sizing:border-box}
+.player.case2 strong {font-size:33px}
+.player.case3 .num {font-size:25px}
+.player.case3 strong {font-size:21px}
+.player strong {display:block;position:absolute;right:0;top:50%;margin-top:-22px;height:44px;line-height:44px;font-size:38px;color:#34caab;font-weight:normal;text-align:right;letter-spacing:-1px}
+.player em {position:relative;display:inline-block;top:-2px;line-height:1;color:#5a98bf}
+.player .pic, .player_info .pic {overflow:hidden;position:absolute;left:6px;top:20px;width:43px;height:43px;padding:3px;border-radius:50%;-webkit-border-radius:50%;-moz-border-radius:50%;background: #34caab; /* Old browsers */background: -moz-linear-gradient(top, #34caab 0%, #2087c2 99%); /* FF3.6+ */    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#34caab), color-stop(99%,#2087c2)); /* Chrome,Safari4+ */    background: -webkit-linear-gradient(top, #34caab 0%,#2087c2 99%); /* Chrome10+,Safari5.1+ */    background: -o-linear-gradient(top, #34caab 0%,#2087c2 99%); /* Opera 11.10+ */    background: -ms-linear-gradient(top, #34caab 0%,#2087c2 99%); /* IE10+ */}
+.player .pic span, .player_info .pic span {display:block;position:relative;width:43px;height:43px;vertical-align:middle;margin-right:5px;border-radius:50%;-webkit-border-radius:50%;-moz-border-radius:50%;text-indent:-7000px;color:transparent;/*-webkit-filter:grayscale(100%)*/}
+.player .pic em {position:absolute;left:0;top:0;bottom:0;right:0;background:rgba(0,0,0,0.5);border-radius:50%;-wekbit-border-radius:50%;-moz-border-radius:50%}
+.player .name {display:block;width:84px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#9daabb;font-size:12px}
+.player .num {position:static;min-width:41px;font-size:27px;color:#1da6fb;text-align:center}
+.player_head {overflow:hidden;height:16px;line-height:17px;margin:0 7px;text-align:center;color:#757575;font-size:11px;border:1px solid #2e2e2e;border-left:0;border-right:0}
+.player_head span:first-child {float:left; width:66%}
+.player_head span:last-child {float:right;width:95px}
+.player_list {margin:0 7px}
+.player_list a {display:block;position:relative;height:26px;padding:13px 0 13px 70px;border-bottom:1px solid #2e2e2e}
+.player_list span {position:absolute;left:0;top:12px;width:33px;padding-right:7px;text-align:center;color:#889fa4;font-size:25px;border-radius:50%;-webkit-border-radius:50%;-moz-border-radius:50%;font-style:italic}
+.player_list .pic {position:absolute;left:40px;top:13px;width:26px;height:26px;vertical-align:middle;border-radius:50%;-webkit-border-radius:50%;-moz-border-radius:50%;background-color:#fff;text-indent:-7000px;color:transparent}
+.player_list .title {display:block;overflow:hidden;width:54%;line-height:26px;text-overflow:ellipsis;white-space:nowrap;font-size:15px;color:#d9d9d9}
+.player_list div {position:relative}
+.player_list strong {position:absolute;right:8px;top:0;max-width:102px;line-height:26px;font-size:17px;color:#7baca2;font-weight:normal;text-align:right}
+.player_list .top10 span {color:#05d3ff}
+.player_list .top10 strong {color:#34caab}
+.case2 .player div {width:66%}
+.case2 .player strong {width:34%;text-align:center;font-size:40px}
+.case2 .player_list .title {width:65%}
+.case2 .player_list strong {right:0;text-align:center;width:95px;font-size:21px}
+
+/* 랭킹 데이터 없을시 */
+.nodata .player strong {color:#717171;font-size:22px;padding-right:8px}
+
+/* 전적 */
+.record_list a {display:block;position:relative;height:91px;line-height:20px;margin:13px 0;padding:15px 45px 15px 100px;background:#242424;box-sizing:border-box;-webkit-box-sizing:border-box}
+.record_list .ico_more {display:block;position:absolute;right:20px;top:50%;margin-top:-9px;width:4px;height:19px;background:url(http://i.gzcdn.net/mui/img/battlezon/btn_more.png) no-repeat;background-size:4px 19px;-webkit-background-size:4px 19px}
+.record_list .token {position:absolute;left:20px;top:15px;width:56px;height:56px;line-height:56px;border-radius:50%;-webkit-border-radius:50%;-moz-border-radius:50%;text-align:center;font-size:28px}
+.record_list .win .token {border:3px solid #1bfed9;color:#1bfed9}
+.record_list .lose .token {border:3px solid #6391ab;color:#6391ab}
+.record_list .tie .token {border:3px solid #808080;color:#808080}
+.record_list .friendly .token {font-size:23px;border:3px solid #f7c92a;color:#f7c92a}
+.record_list p {font-size:12px;color:#909090}
+.record_list p em {font-size:11px;color:#3d3d3d}
+.record_list span {font-size:11px;color:#e7e7e7;padding-right:4px}
+.record_list .date {font-size:13px;color:#636363;padding-right:7px}
+.record_list .plus {font-size:15px;color:#1ac0a3}
+.record_list .minus {font-size:15px;color:#58a2cb}
+.record_list .mark_vs {display:inline-block;position:relative;top:-1px;padding-right:4px;font-size:13px;color:#d4dae0;font-style:italic}
+.record_list .title {font-size:15px;color:#fff;padding-right:6px}
+.record_list .num {font-size:14px;color:#e7e7e7;padding-right:4px}
+.record_list .mark1, .record_list .mark2 {display:inline-block;position:relative;top:-2px;height:15px;line-height:16px;padding:0;border-radius:10px;width:48px;text-align:center;vertical-align:middle}
+.record_list .mark1 {border:1px solid #a08527;color:#eebd14}
+.record_list .mark2 {border:1px solid #ea512d;color:#ea512d}
+
+/* 배틀 */
+.vs {overflow:hidden;position:relative;width:276px;margin:15px auto;padding:10px;text-align:center;color:#fff}
+.vs h3 {position:relative;z-index:2;padding:36px 0 2px;line-height:1;font-size:41px;font-style:italic;font-weight:bold;color:#595959}
+.vs h3 em {font-size:30px;font-style:italic;position:relative;top:-2px}
+.vs .vs1.win h3 {color:#ffbbb7}
+.vs .vs2.win h3 {color:#a0d4ff}
+.vs li {position:relative;z-index:1;float:left;width:50%}
+.vs .box {overflow:hidden;display:block;position:relative;z-index:2;height:120px;border:1px solid #000;background:#242424}
+.vs .box span {display:inline-block;position:relative;height:23px;width:23px;border-radius:50%;-webkit-border-radius:50%;border:1px solid #000;color:transparent;text-indent:-7000px}
+.vs .box span em {position:absolute;left:0;top:0;right:0;bottom:0;background:rgba(0,0,0,.5);border-radius:50%;-webkit-border-radius:50%}
+.vs .win .box span em {display:none}
+.vs .win .outcome {z-index:3;opacity:1}
+.vs .outcome {position:absolute;z-index:1;top:15px;width:35px;height:35px;line-height:36px;font-weight:bold;border:2px solid #fff;font-size:23px;text-align:center;color:#fff;border-radius:50%;-webkit-border-radius:50%;opacity:.1}
+.vs .empty {position:absolute;left:1px;right:1px;bottom:-3px;z-index:1;height:20px;background:#4a4a4a}
+.vs .vs_hole {position:absolute;z-index:2;left:50%;top:40px;margin-left:-34px;width:68px;height:60px;border-radius:7px;border:1px solid #000;font-size:11px;color:#bfbfbf;box-shadow:0 3px 0 #000;background-color:#2b2b2b}
+.vs .vs_hole strong {display:block;font-size:21px;line-height:1;padding-top:4px}
+.vs .vs_hole .vs_txt {display:block;margin-top:2px;padding-top:4px;line-height:1;color:#6fd3cb;background:url(http://i.gzcdn.net/mui/img/battlezon/bg_line.gif) 50% 0 no-repeat;background-size:9px 1px;-webkit-background-size:9px 1px}
+.vs .vs1 .outcome {left:22px}
+.vs .vs2 .outcome {right:22px}
+.vs .vs1 {border-radius:8px 0 0 8px}
+.vs .vs2 {border-radius:0 8px 8px 0}
+.vs .vs1 .box {padding-right:17px}
+.vs .vs2 .box {padding-left:17px}
+.vs .vs1 .box {border-radius:8px 0 0 8px;border-right:0}
+.vs .vs2 .box {border-radius:0 8px 8px 0}
+.vs .vs1 .empty {right:0;border-radius:0 0 0 8px;border-right:0}
+.vs .vs2 .empty {border-radius:0 0 8px 0}
+.vs .vs1.win .box {background:#c52921;}
+.vs .vs2.win .box {background:#0164b7;}
+.vs .vs1.win .empty {background:#9e150e}
+.vs .vs2.win .empty {background:#00437c}
+
+.battle {padding-bottom:50px}
+.battle_list {overflow:hidden;position:relative;margin:26px 0 -1px;padding-top:10px;font-size:15px;border-bottom:1px solid #000}
+.battle_list span, .battle_list em {display:inline-block;box-sizing:border-box;-webkit-box-sizing:border-box;vertical-align:top;height:19px;line-height:20px;}
+.battle_list dt {position:absolute;z-index:2;left:50%;top:0;margin-left:-40px;width:80px;height:21px;line-height:21px;border-radius:20px;border:1px solid #000;background:#191a1a;color:#fff;text-align:center;font-size:13px;box-shadow:0 2px 0 #000}
+.battle_list dt em {display:inline-block;margin-right:4px;color:#1d73dc}
+.battle_list dt em, .battle_list dt span {height:21px;line-height:21px;}
+.battle_list dd {border-bottom:1px solid #262626}
+.battle_list dd.first {border-top:1px solid #000}
+.battle_list dd.first a {padding:17px 15px}
+.battle_list dd:last-child {border-bottom:0}
+.battle_list a {display:block;position:relative;padding:16px 15px}
+.battle_list a .pic {position:absolute;left:15px;top:13px;width:26px;height:26px;border-radius:50%;-webkit-border-radius:50%;border:1px solid #2063b5;text-indent:-7000px}
+.battle_list a .title {width:41%;padding-left:30px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#fff;font-size:14px;box-sizing:border-box;-webkit-box-sizing:border-box}
+.battle_list a .score {width:28%;color:#83a5d0}
+.battle_list a .gifts {width:21%;color:#44b8a0;text-align:right}
+.battle_list a .ico_more {position:absolute;right:16px;top:22px;width:19px;height:10px;background:url(http://i.gzcdn.net/mui/img/battlezon/ico_more.png) no-repeat;background-size:19px 10px;-wekbit-background-size:19px 10px}
+.battle_list a .score em {font-size:13px;vertical-align:middle}
+.battle_list.win a .pic {border:1px solid #fe463d}
+.battle_list.win dt em {color:#fe463d}
+.battle_list.win a .score {color:#cb615c}
+.battle_list .on a {border-bottom:0;background:#111}
+.battle_list .on .detail {display:block;border-bottom:0}
+.battle_list .on a .ico_more {transform:rotate(180deg);-webkit-transform:rotate(180deg);-moz-transform:rotate(180deg);-ms-transform:rotate(180deg)}
+.detail {display:none;position:relative;padding:0 15px;background:#111;border-bottom:1px solid #262626}
+.detail span {position:absolute;top:8px;line-height:16px;}
+.detail .info {border-top:1px solid #262626;color:#a4a4a4;font-size:12px}
+.detail .date {left:15px}
+.detail .place {right:15px}
+
+/* score card table */
+.scorecard {padding:29px 0 12px}
+.scorecard caption {display:none}
+.scorecard table {width:100%;table-layout:fixed;margin-bottom:5px;text-align:center;border-bottom:1px solid #dfe4eb}
+.scorecard th {height:15px;;padding:5px 0;font-weight:normal;font-size:10px;color:#fff;background:#99b6e0;border-right:1px solid #dfe4eb;border-left:1px solid #99b6e0}
+.scorecard th.total {background:#80a4d7}
+.scorecard th:last-child {border-right:1px solid #99b6e0}
+.scorecard th.lined {border-bottom:1px solid #dfe4eb}
+.scorecard th.last {border-right:1px solid #99b6e0}
+.scorecard td {padding:7px 0 5px;color:#6c707d;border-right:1px solid #dfe4eb;font-size:11px;background:#fff}
+.scorecard td:first-child {width:40px;padding-left:6px;text-align:left;font-size:10px;border-left:1px solid #dfe4eb}
+.scorecard tr.bg_sky td {color:#000;background:#eef5ff}
+.scorecard tr.bg_sky td:first-child {color:#6c707d;font-weight:normal}
+.scorecard tr td.blue {color:#0e92fb}
+
+/* 플레이어 */
+.players {padding:30px 0 26px}
+.players h3 {font-weight:normal;color:#8b8b8b;font-size:14px}
+.player_info {position:relative;margin:0 19px;padding-bottom:30px}
+.player_info .pic {display:block;position:relative;left:0;top:0;margin-bottom:8px}
+.player_info .user, .player_info .user span {width:46px;height:46px;margin:0;padding:0;background:none}
+.player_info em {display:block;color:#fff}
+.player_info .empty {display:inline-block;position:relative;top:-2px;width:25px;height:1px;background:#fff}
+.point, .point_ranking, .record_avg, .history {position:relative;margin:0 19px;padding-top:3px;border-top:1px solid #393939}
+.point .score {display:block;padding:3px 0 46px;line-height:1;font-size:46px;color:#33c9ac;letter-spacing:-1px}
+.point_ranking .point_in {position:relative;height:134px;padding-left:99px}
+.point_ranking .score {display:inline-block;padding-top:27px;line-height:1;font-size:32px;color:#b8b8b8;letter-spacing:-1px}
+.point_ranking .chart {position:absolute;left:0;top:20px;width:84px;height:84px;}
+.point_ranking .unit {display:inline-block;margin-left:3px;font-size:20px;color:#b8b8b8}
+.point_ranking .top {position:absolute;left:0;right:0;top:19px;color:#7c7d7e;text-align:center}
+.point_ranking p {padding-top:1px;font-size:15px;color:#747b81}
+.point_ranking .highcharts-title {line-height:1;left:0 !important;right:0 !important;top:37px !important;text-align:center}
+.record_avg {margin:0;padding:0;border:0;}
+.record_avg  h3 {margin:0 19px;padding-top:3px;border-top:1px solid #393939}
+.record_avg .chart {height:134px;margin:17px auto 16px}
+.history .round_info {padding-top:13px}
+.ico_earth {background:url(http://i.gzcdn.net/mui/img/battlezon/ico_earth.png) no-repeat}
+.ico_gragh3 {background:url(http://i.gzcdn.net/mui/img/battlezon/ico_gragh3.png) no-repeat}
+.ico_mark {background:url(http://i.gzcdn.net/mui/img/battlezon/ico_mark.png) no-repeat}
+.ico_earth,.ico_board, .ico_gragh3, .ico_mark {position:absolute;right:4px;top:4px;width:16px;height:16px;background-size:16px 16px;-webkit-background-size:16px 16px}
+.ico_board {right:19px;height:17px;background:url(http://i.gzcdn.net/mui/img/battlezon/ico_board.png) no-repeat;background-size:16px 17px;-webkit-background-size:16px 17px}
+
+/* 지인배틀 */
+.friend {padding-top:25px}
+.friend .battle_list {overflow:visible;margin-top:0;padding-top:0;border-top:1px solid #000;text-align:center}
+.friend dt {position:relative;left:0;top:-12px;z-index:100;display:inline-block;width:auto;height:23px;line-height:24px;margin:0 auto;padding:0 15px;border:1px solid #000;color:#fff;background:#191a1a;border-radius:20px;-webkit-border-radius:20px}
+.friend dd {margin-bottom:6px;border-bottom:1px solid #000;background:#242424;text-align:left}
+.friend dd:last-child {margin:0}
+.friend a, .friend dd.first a {padding:19px 36px 19px 59px}
+.friend a .num {position:absolute;left:0;top:0;bottom:0;width:36px;height:57px;padding-right:2px;line-height:57px;font-size:27px;color:#9e9e9e;text-align:center;font-style:italic}
+.friend a .ico_more {right:9px;top:25px}
+.friend a .pic {left:33px;top:16px;border:0;width:26px;height:26px}
+.friend a .title {position:relative;top:1px;width:41%;padding-left:4px;color:#c3c3c3}
+.friend a .score {width:33%;color:#fff}
+.friend a .score em {display:inline-block;position:relative;top:-1px;font-size:13px;vertical-align:middle}
+.friend a .gifts {width:26%}
+.friend a .gifts.minus {color:#58a2cb}
+.friend .on a {background:#242424}
+.friend .first .num {color:#1bfed9}
+.friend .detail {background:#242424;border-bottom:1px solid #000}
+.friend .detail .info {border-top:1px solid #393939}
+.friend .info {color:#808080}
+.friend .place {color:#a4a4a4}
+
+/* 로딩바 */
+div.gz_loading div{background:#ffffff}
+
+/* 예외사항 */
+.no_result {padding-top:96px;text-align:center}
+.no_result p {padding-top:14px;font-size:14px;color:#515151}
+.ico_no_result {display:inline-block;width:92px;height:105px;background:url(http://i.gzcdn.net/mui/img/battlezon/ico_exception2.png) no-repeat;background-size:94px 55px;-webkit-background-size:94px 105px;-moz-background-size:94px 105px}
+.no_data {padding:30px 0 40px;text-align:center}
+.no_data .no_play {display:block;width:166px;margin:0 auto}
+.no_data .ico_nodata {display:inline-block;width:13px;height:13px;margin-bottom:7px;background:url(http://i.gzcdn.net/mui/img/battlezon/ico_notice.png) no-repeat;background-size:13px 13px;-webkit-background-size:13px 13px;-moz-background-size:13px 13px}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}

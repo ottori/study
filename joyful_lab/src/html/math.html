@@ -1,0 +1,58 @@
+
+    <div class="box"><img src="../images/img.png" alt="" id="vos" style="position:absolute;left:0;top:0" /></div>
+    <div class="wrap"><em class="vos" id="circle" style="position:absolute;left:0;top:0;">나 잡아봐라~<span></span></em></div>
+    <div class="wrap2"><em class="vos2" id="vos2" style="position:absolute;left:1px;top:0;"></em></div>
+    <div class="wrap3"><em class="vos3" id="vos3" style="position:absolute;left:0;top:0;">사라있네~<span></span></em></div>
+    <div class="wrap4"><em class="vos4" id="vos4" style="position:absolute;left:0;top:0;">사라있네~~~<span></span></em></div>
+    <script type="text/javascript">
+        /* 싹 다 돌려뿌 */
+        function action(id){
+            this.speed = 0.5;
+        }
+        action.prototype.init = function(id, time, course) {
+
+            if( course == undefined ){
+                course = 1;
+            }else if( course == -1){
+                course = -1
+            }
+
+            var that = this;
+            this.ids = document.getElementById(id);
+            this.cnt = 0;
+            this.w = 100;
+            this.speed = time;
+            this.actions = setInterval(function () {
+                that.cnt += that.speed;
+                var sin = Math.ceil(Math.PI / 180) * Math.sin(that.cnt / 10) * that.w;
+                var cos = Math.ceil(Math.PI / 180) * Math.cos(that.cnt / 10) * that.w;
+                that.ids.style.left = (course * sin) + "px";
+                that.ids.style.top = (course * cos) + "px";
+                console.log()
+            }, 10);
+        };
+
+        var inst = new action();
+        inst.init("circle", 0.5);
+        var inst2 = new action();
+        inst2.init("vos2", 0.8);
+        var inst3 = new action();
+        inst3.init("vos3", 1);
+        var inst4  = new action();
+        inst4.init("vos4",2)
+
+        var bobo = new action();
+        bobo.init('vos',0.9,'-1');
+        bobo.init("")
+    </script>
+
+
+
+
+
+
+
+
+
+
+

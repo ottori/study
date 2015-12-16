@@ -1,0 +1,63 @@
+@charset "utf-8";
+@import "common.css";
+
+.btn {display:block; height:30px; line-height:30px; padding:0 20px; text-align:center; color:#4b4b4b; font-weight:bold; font-size:15px; border:2px solid #4b4b4b; border-radius:3px; background:pink}
+.btn:hover {border:2px solid #eee; color:#fff}
+.btn:active {background:#fff}
+
+.mini {position:absolute; left:50%; bottom:10px; margin-left:-32.5px; .zoom:1}
+.mini:after {content:""; clear:both; display:block}
+.mini li {float:left; margin-right:5px}
+
+.miniBtn {display:block; width:10px; height:10px; border:1px solid #skyblue; border-radius:5px; background:gray}
+.miniBtn:hover, .miniBtn.on {background:skyblue}
+
+h1 {height:30px; line-height:30px; padding-left:30px; color:#4b4b4b; font-weight:bold; background:pink}
+#wrap {padding:30px; .zoom:1}
+#wrap:after {content:""; clear:both; display:block}
+.nav {float:left; padding-right:30px; border-right:1px solid #d0d0d0}
+.nav li a {display:block; width:200px; padding:0 15px; height:25px; line-height:25px; background:#f1f1f1; border:1px solid #4b4b4b; font-weight:bold}
+.nav > li > a {cursor:default; border:0; background:none; margin:10px 0; border-bottom:2px solid #4b4b4b}
+.nav > li:first-child a {margin-top:0}
+.nav li ul li {margin-top:3px}
+.nav li ul li a {display:block; background:#eee; color:#4b4b4b; background:pink}
+.nav li ul li a:hover {background:pink}
+.nav li ul li a:active {background:#2b2b2b; color:#fff}
+
+/* study1 tab메뉴 */
+.tab {padding:30px}
+.tab ul {.zoom:1}
+.tab ul:after {content:""; clear:both; display:block}
+.tab ul li {float:left; margin-right:10px; border:1px solid #000;  background:#4b4b4b; color:#fff}
+.tab ul li.on a {background:#2b2b2b; color:#fff}
+.tab ul li a {display:block; padding:0 15px; height:25px; line-height:25px; background:#eee; text-align:center}
+.tab ul li a:hover {background:#fff; color:#4b4b4b}
+
+/* study2 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

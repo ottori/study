@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Joyful Lab</title>
+    <link rel="shortcut icon" href="http://i.gzcdn.net/mui/img/favicon.ico" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <link type="text/css" rel="stylesheet" href="../css/common_golfzon.css" />
+    <link type="text/css" rel="stylesheet" href="../css/default.css" />
+    <script type="text/javascript" src="../js/common.js"></script>
+</head>
+<body>
+    <a href="section" class="hide">본문바로가기</a>
+    <header class="header">Joyful Lab</header>
+
+    <!-- gnb -->
+    <a href="#" class="btn-menu dimed">전체메뉴</a>
+
+    <nav id="nav" class="nav-gnb">
+        <div class="nav-intro">
+            <h2>
+                <img src="../images/btn_logo_reversal.png" alt="Golfzon 전체메뉴" style="width:80px" />
+                <em>Funny Development</em>
+            </h2>
+        </div>
+        <div class="nav-quick">
+            <a href="#">홈</a>
+            <a href="#">성능</a>
+            <a href="#">CSS3</a>
+            <a href="#">Script</a>
+        </div>
+        <ul class="nav-list gnb">
+            <li>
+                <a href="#">Javascript</a>
+                <ul>
+                    <li><a href="math.html">Prototype 예제</a></li>
+                    <li><a href="#">음성제어</a></li>
+                    <li><a href="#">영상제어</a></li>
+                    <li><a href="#">배너</a></li>
+                    <li><a href="#">메뉴</a></li>
+                    <li><a href="#">모션</a></li>
+                    <li><a href="#">게임</a></li>
+                </ul>
+            </li>
+            <li class="no-child">
+                <a href="#">IDE</a>
+            </li>
+            <li>
+                <a href="#">CSS3</a>
+                <ul>
+                    <li><a href="#">Transition</a></li>
+                    <li><a href="#">Translate</a></li>
+                    <li><a href="#">Animate</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">My Google Blog 크롤링</a>
+                <ul>
+                    <li><a href="#">Joyful Lab</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">성능 이야기</a>
+                <ul>
+                    <li><a href="#">무비클립 1</a></li>
+                    <li><a href="#">무비클립 2</a></li>
+                    <li><a href="#">무비클립 3</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">브라우저 렌더링 원리</a>
+                <ul>
+                    <li><a href="#">크롬</a></li>
+                    <li><a href="#">익스플로러</a></li>
+                    <li><a href="#">relative 사용</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">최근 소식</a>
+                <ul>
+                    <li><a href="#">Googld Blog</a></li>
+                    <li><a href="#">IT 뉴스</a></li>
+                    <li><a href="#">보도자료</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">커뮤니티</a>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twiter</a></li>
+                    <li><a href="#">방명록</a></li>
+                </ul>
+            </li>
+        </ul>
+        <a href="#" class="btn-nav-close dim-del">닫기</a>
+    </nav>
+    <!-- //gnb -->
+    <script type="text/javascript">
+        var btn_menu = document.getElementsByClassName("btn-menu")[0];
+        var btn_clo = document.getElementsByClassName("btn-nav-close")[0];
+        var nav = document.getElementById("nav");
+        var gnb = nav.getElementsByClassName("gnb")[0];
+        var depth = gnb.childNodes;
+        var i, before, arr;
+        arr = [];
+
+        //text 노드 제거, 순수 엘리먼트만 소팅.
+        function sorting() {
+            for (i = 0; i < depth.length; i++) {
+                if (depth[i].nodeType == 3) {
+                    depth[i].remove();
+                }
+            };
+            //2depth text노드 제거
+            for(i = 0; i < depth.length; i++) {
+                if(depth[i].childNodes.length >= 1){
+                    var depth2 = depth[i].childNodes;
+
+                    for(var j=0; j < depth2.length; j++){
+                        if(depth2[j].nodeType == 3){
+                            depth2[j].remove();
+                        }
+                    }
+                    //첫번째 링크만 소팅
+                    arr.push(depth2[0]);
+                };
+            }
+
+        };
+        sorting();
+
+        //GNB 뎁스 동작
+        function GnbAction(){
+            for( i=0;i<arr.length;i++){
+                arr[i].onclick = function(el){
+                    var a = this.parentNode;
+                    if( before == undefined ){
+                        a.className = "on";
+                    }else{
+                        if( before == a ){
+                            var b_link = before.className;
+                            if(before.className == ""){
+                                before.className = "on"
+                            }else{
+                                before.className = "";
+                            }
+                        }else{
+                            before.className = "";
+                            a.className = "on";
+                        };
+                    };
+                    before = a;
+                };
+            };
+        };
+        GnbAction();
+
+        //GNB 준비
+        nav.style.transitionProperty = "transform";
+        nav.style.transitionDuration = "300ms";
+        nav.style.transitionTimingFunction = "ease-in-out";
+        nav.style.transform = "translateX(-280px) translateZ(0px)";
+        nav.style.opacity = "0";
+
+        //전체메뉴 클릭시 동작
+        btn_menu.onclick = function(){
+            nav.style.transform = "translateX(0) translateZ(0px)";
+            nav.style.opacity = "1";
+        };
+        btn_clo.onclick = function(){
+            nav.style.transform = "translateX(-280px) translateZ(0px)";
+            //nav.style.opacity = "0";
+        };
+
+    </script>
+    <section class="wrap">
+        <div class="search">
+            <input type="text" id="txt2" placeholder="검색어 입력" title="전체 검색"/>
+            <button type="submit" class="btn-search">검색</button>
+        </div>
+        <article class="main">
+            <p>Fure JS를 활용한 메뉴구성</p>
+            <div class="visual">Visual 영역</div>
+            <table class="table">
+                <caption>최근 게시물 리스트</caption>
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+        <article class="news-often">
+            <nav class="nav-cast case2">
+                <a href="#" class="on">Tab1</a>
+                <a href="#">Tab2</a>
+            </nav>
+
+            <div class="news-list">
+                <a href="#"><em>1</em>content1</a>
+                <a href="#"><em>2</em>content2</a>
+                <a href="#"><em>3</em>content3</a>
+                <a href="#"><em>4</em>content4</a>
+                <a href="#"><em>5</em>content5</a>
+            </div>
+
+            <nav class="nav-cast case2">
+                <a href="#" class="on">Tab1</a>
+                <a href="#">Tab2</a>
+            </nav>
+
+            <div class="news-list">
+                <a href="#"><em>1</em>content1</a>
+                <a href="#"><em>2</em>content2</a>
+                <a href="#"><em>3</em>content3</a>
+                <a href="#"><em>4</em>content4</a>
+                <a href="#"><em>5</em>content5</a>
+            </div>
+            <nav class="nav-cast case2">
+                <a href="#" class="on">Tab1</a>
+                <a href="#">Tab2</a>
+            </nav>
+
+
+            <div class="ad-area">
+                <h2>SNS 채널</h2>
+                <div class="btn-area">
+                    <a href="#" class="btn-face">페이스북</a>
+                    <a href="#" class="btn-twit">트위터</a>
+                    <a href="#" class="btn-youtube">유튜브</a>
+                    <a href="#" class="btn-blog">블로그</a>
+                    <a href="#" class="btn-cast">네이버캐스트</a>
+                    <a href="#" class="btn-potcast">팟캐스트</a>
+                </div>
+            </div>
+
+            <div class="ad-area case2">
+                <h2>앱 다운로드(차후 서비스 예정)</h2>
+                <div>
+                    <a href="#" class="btn-style1 ios">아이폰</a>
+                    <a href="#" class="btn-style1 android">안드로이드</a>
+                </div>
+            </div>
+        </article>
+    </section>
+<!--
+    <section id="section" class="wrap_voc">
+        <article class="id_search">
+
+            <h2>Required Info</h2>
+            <ul class="per_info">
+                <li><strong class="tit">ID</strong><p>satang</p></li>
+                <li><label class="tit" for="pass_word">Password</label><input type="password" name="pass_word" id="pass_word" placeholder=""></li>
+                <li><label class="tit" for="Password2">Password(confirm)</label><input type="password" name="Password2" id="Password2" placeholder=""></li>
+                <li><label class="tit" for="nick">Nickname</label><input type="text" name="nick" id="nick" placeholder="닉네임 입력"></li>
+                <li><strong class="tit">Profile Image</strong><p><a href="#" class="photo" style="background:url(http://i.gzcdn.net/mui/img/global_gs/common/thumnail6.png) no-repeat;background-size:40px 40px;-webkit-background-size:40px 40px"><span>nick</span><em></em></a></p></li>
+                <li><strong class="tit">Gender</strong><p>Female</p></li>
+            </ul>
+            <ol class="per_info">
+                <li><label class="tit" for="e_mail">E mail</label><input type="email" name="e_mail" id="e_mail"></li>
+                <li class="last_line"><strong class="tit">Country</strong><select><option value="Korea">Korea</option></select></li>
+            </ol>
+            <h2>Additional Info</h2>
+            <ul class="per_info">
+                <li>
+                    <strong class="tit">Recive News</strong>
+                    <p class="btn_db2">
+                        <input type="radio" name="sel" id="receive"><label for="receive">Receive</label>
+                        <input type="radio" name="sel" id="no_thanks"><label for="no_thanks">No thanks</label>
+                    </p>
+                </li>
+                <li>
+                    <strong class="tit">Distance Unit</strong>
+                    <p class="btn_db2">
+                        <input type="radio" name="sel2" id="yard"><label for="yard">YARD</label>
+                        <input type="radio" name="sel2" id="meter"><label for="meter">METER</label>
+                    </p>
+                </li>
+                <li class="last_line">
+                    <strong class="tit">birthday</strong>
+                    <p class="input_date">
+                        <input type="text" name="date" id="date" placeholder="DD" class="date_month">
+                        <input type="text" name="month" id="month" placeholder="MM" class="date_month">
+                        <input type="text" name="year" id="year" placeholder="YYYY" class="year">
+                    </p>
+                </li>
+            </ul>
+            <div class="btn_box">
+                <a href="#" class="btn_cancel">cancel</a>
+
+                <input type="submit" value="Confirm" class="btn_input">
+            </div>
+            <ul class="add_tmg info">
+                <li>· Distance unit option is for this Mobile APP. Golfzon Simulators also have unit display options.</li>
+            </ul>
+        </article>
+    </section>-->
+    <footer class="footer">
+        <a href="#" class="btn_sns">소셜미디어</a>
+        <a href="#" class="btn_join">J-Lab 회원가입</a>
+        <a href="#" class="btn_ktv">구글블로그</a>
+        <div>
+            <address>서울특별시 강남구 논현동 XXX </address>
+            <p>전화 010-3378-1526, 이메일 <a href="mailto:osaraitne@gmail.com" class="mailto">osaraitne@gmail.com</a></p>
+            <p>Copyright (C) 2015 O Eun Sun All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+</html>
